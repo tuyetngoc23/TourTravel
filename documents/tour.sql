@@ -89,7 +89,8 @@ DELETE FROM `comment`;
 -- Dumping structure for table tour.department
 CREATE TABLE IF NOT EXISTS `department` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tourguide` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -152,39 +153,22 @@ DELETE FROM `like_blog`;
 -- Dumping structure for table tour.payment
 CREATE TABLE IF NOT EXISTS `payment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `quantity` int(11) DEFAULT NULL,
+  `totalprice` decimal(20,6) DEFAULT NULL,
+  `book_id` int(11) DEFAULT NULL,
   `payment_type` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
   `pdate` date DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `payment_type` (`payment_type`) USING BTREE,
-  KEY `user_id` (`user_id`) USING BTREE,
-  CONSTRAINT `FK__payment_type` FOREIGN KEY (`payment_type`) REFERENCES `payment_type` (`id`),
-  CONSTRAINT `FK_payment_user_tour` FOREIGN KEY (`user_id`) REFERENCES `user_tour` (`id`) ON DELETE CASCADE
+  KEY `book_id` (`book_id`),
+  KEY `payment_type` (`payment_type`),
+  CONSTRAINT `FK_payment_detail_book` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_payment_payment_type` FOREIGN KEY (`payment_type`) REFERENCES `payment_type` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.payment: ~0 rows (approximately)
 DELETE FROM `payment`;
 /*!40000 ALTER TABLE `payment` DISABLE KEYS */;
 /*!40000 ALTER TABLE `payment` ENABLE KEYS */;
-
--- Dumping structure for table tour.payment_detail
-CREATE TABLE IF NOT EXISTS `payment_detail` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `payment_id` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `totalprice` decimal(20,6) DEFAULT NULL,
-  `book_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `payment_id` (`payment_id`),
-  KEY `book_id` (`book_id`),
-  CONSTRAINT `FK_payment_detail_book` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_payment_detail_payment` FOREIGN KEY (`payment_id`) REFERENCES `payment` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Dumping data for table tour.payment_detail: ~0 rows (approximately)
-DELETE FROM `payment_detail`;
-/*!40000 ALTER TABLE `payment_detail` DISABLE KEYS */;
-/*!40000 ALTER TABLE `payment_detail` ENABLE KEYS */;
 
 -- Dumping structure for table tour.payment_type
 CREATE TABLE IF NOT EXISTS `payment_type` (
@@ -257,6 +241,7 @@ CREATE TABLE IF NOT EXISTS `tour` (
   `end_day` date DEFAULT NULL,
   `location_go` int(11) DEFAULT NULL,
   `cattour_id` int(11) DEFAULT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `cattour_id` (`cattour_id`),
   KEY `FK_tour_department` (`location_go`),
