@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `book` (
   `child_amount` int(11) DEFAULT NULL,
   `aldult_amount` int(11) DEFAULT NULL,
   `tour_id` int(11) DEFAULT NULL,
-  `crew` int(11) DEFAULT NULL,
+  `date` date DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `usertour_id` (`usertour_id`),
   KEY `tour_id` (`tour_id`),
@@ -86,6 +86,18 @@ DELETE FROM `comment`;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 
+-- Dumping structure for table tour.department
+CREATE TABLE IF NOT EXISTS `department` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tour.department: ~0 rows (approximately)
+DELETE FROM `department`;
+/*!40000 ALTER TABLE `department` DISABLE KEYS */;
+/*!40000 ALTER TABLE `department` ENABLE KEYS */;
+
 -- Dumping structure for table tour.discount
 CREATE TABLE IF NOT EXISTS `discount` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -100,6 +112,25 @@ CREATE TABLE IF NOT EXISTS `discount` (
 DELETE FROM `discount`;
 /*!40000 ALTER TABLE `discount` DISABLE KEYS */;
 /*!40000 ALTER TABLE `discount` ENABLE KEYS */;
+
+-- Dumping structure for table tour.evaluate
+CREATE TABLE IF NOT EXISTS `evaluate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `tour_id` int(11) DEFAULT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wdate` date DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `tour_id` (`tour_id`),
+  CONSTRAINT `FK__user_tour` FOREIGN KEY (`user_id`) REFERENCES `user_tour` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_evaluate_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tour.evaluate: ~0 rows (approximately)
+DELETE FROM `evaluate`;
+/*!40000 ALTER TABLE `evaluate` DISABLE KEYS */;
+/*!40000 ALTER TABLE `evaluate` ENABLE KEYS */;
 
 -- Dumping structure for table tour.like_blog
 CREATE TABLE IF NOT EXISTS `like_blog` (
@@ -117,6 +148,70 @@ CREATE TABLE IF NOT EXISTS `like_blog` (
 DELETE FROM `like_blog`;
 /*!40000 ALTER TABLE `like_blog` DISABLE KEYS */;
 /*!40000 ALTER TABLE `like_blog` ENABLE KEYS */;
+
+-- Dumping structure for table tour.payment
+CREATE TABLE IF NOT EXISTS `payment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `payment_type` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `pdate` date DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `payment_type` (`payment_type`) USING BTREE,
+  KEY `user_id` (`user_id`) USING BTREE,
+  CONSTRAINT `FK__payment_type` FOREIGN KEY (`payment_type`) REFERENCES `payment_type` (`id`),
+  CONSTRAINT `FK_payment_user_tour` FOREIGN KEY (`user_id`) REFERENCES `user_tour` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tour.payment: ~0 rows (approximately)
+DELETE FROM `payment`;
+/*!40000 ALTER TABLE `payment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `payment` ENABLE KEYS */;
+
+-- Dumping structure for table tour.payment_detail
+CREATE TABLE IF NOT EXISTS `payment_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `payment_id` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `totalprice` decimal(20,6) DEFAULT NULL,
+  `book_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `payment_id` (`payment_id`),
+  KEY `book_id` (`book_id`),
+  CONSTRAINT `FK_payment_detail_book` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_payment_detail_payment` FOREIGN KEY (`payment_id`) REFERENCES `payment` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tour.payment_detail: ~0 rows (approximately)
+DELETE FROM `payment_detail`;
+/*!40000 ALTER TABLE `payment_detail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `payment_detail` ENABLE KEYS */;
+
+-- Dumping structure for table tour.payment_type
+CREATE TABLE IF NOT EXISTS `payment_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tour.payment_type: ~0 rows (approximately)
+DELETE FROM `payment_type`;
+/*!40000 ALTER TABLE `payment_type` DISABLE KEYS */;
+/*!40000 ALTER TABLE `payment_type` ENABLE KEYS */;
+
+-- Dumping structure for table tour.place
+CREATE TABLE IF NOT EXISTS `place` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` int(11) NOT NULL,
+  `province_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `province_id` (`province_id`) USING BTREE,
+  CONSTRAINT `FK_place_province` FOREIGN KEY (`province_id`) REFERENCES `province` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tour.place: ~0 rows (approximately)
+DELETE FROM `place`;
+/*!40000 ALTER TABLE `place` DISABLE KEYS */;
+/*!40000 ALTER TABLE `place` ENABLE KEYS */;
 
 -- Dumping structure for table tour.province
 CREATE TABLE IF NOT EXISTS `province` (
@@ -160,25 +255,53 @@ CREATE TABLE IF NOT EXISTS `tour` (
   `max_amout` int(11) DEFAULT NULL,
   `start_day` date DEFAULT NULL,
   `end_day` date DEFAULT NULL,
-  `destination` int(11) DEFAULT NULL,
   `location_go` int(11) DEFAULT NULL,
   `cattour_id` int(11) DEFAULT NULL,
-  `discount` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `destination` (`destination`),
-  KEY `location_go` (`location_go`),
   KEY `cattour_id` (`cattour_id`),
-  KEY `discount` (`discount`),
-  CONSTRAINT `tour_ibfk_1` FOREIGN KEY (`destination`) REFERENCES `province` (`id`),
-  CONSTRAINT `tour_ibfk_2` FOREIGN KEY (`location_go`) REFERENCES `province` (`id`),
-  CONSTRAINT `tour_ibfk_3` FOREIGN KEY (`cattour_id`) REFERENCES `cat_tour` (`id`),
-  CONSTRAINT `tour_ibfk_4` FOREIGN KEY (`discount`) REFERENCES `discount` (`id`)
+  KEY `FK_tour_department` (`location_go`),
+  CONSTRAINT `FK_tour_department` FOREIGN KEY (`location_go`) REFERENCES `department` (`id`),
+  CONSTRAINT `tour_ibfk_3` FOREIGN KEY (`cattour_id`) REFERENCES `cat_tour` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.tour: ~0 rows (approximately)
 DELETE FROM `tour`;
 /*!40000 ALTER TABLE `tour` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tour` ENABLE KEYS */;
+
+-- Dumping structure for table tour.tour_discount
+CREATE TABLE IF NOT EXISTS `tour_discount` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tour_id` int(11) NOT NULL DEFAULT 0,
+  `discount_id` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `tour_id` (`tour_id`),
+  KEY `discount_id` (`discount_id`),
+  CONSTRAINT `FK_tour_discount_discount` FOREIGN KEY (`discount_id`) REFERENCES `discount` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_tour_discount_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tour.tour_discount: ~0 rows (approximately)
+DELETE FROM `tour_discount`;
+/*!40000 ALTER TABLE `tour_discount` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tour_discount` ENABLE KEYS */;
+
+-- Dumping structure for table tour.tour_place
+CREATE TABLE IF NOT EXISTS `tour_place` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `place_id` int(11) NOT NULL DEFAULT 0,
+  `tour_id` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `place_id` (`place_id`),
+  KEY `tour_id` (`tour_id`),
+  CONSTRAINT `FK__place` FOREIGN KEY (`place_id`) REFERENCES `place` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK__tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tour.tour_place: ~0 rows (approximately)
+DELETE FROM `tour_place`;
+/*!40000 ALTER TABLE `tour_place` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tour_place` ENABLE KEYS */;
 
 -- Dumping structure for table tour.user_role
 CREATE TABLE IF NOT EXISTS `user_role` (
