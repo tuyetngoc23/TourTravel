@@ -2,7 +2,7 @@
 -- Host:                         127.0.0.1
 -- Server version:               10.4.19-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win64
--- HeidiSQL Version:             11.3.0.6295
+-- HeidiSQL Version:             11.2.0.6213
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -31,7 +31,6 @@ CREATE TABLE IF NOT EXISTS `blog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.blog: ~0 rows (approximately)
-DELETE FROM `blog`;
 /*!40000 ALTER TABLE `blog` DISABLE KEYS */;
 /*!40000 ALTER TABLE `blog` ENABLE KEYS */;
 
@@ -52,7 +51,6 @@ CREATE TABLE IF NOT EXISTS `book` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.book: ~0 rows (approximately)
-DELETE FROM `book`;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 
@@ -64,7 +62,6 @@ CREATE TABLE IF NOT EXISTS `cat_tour` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.cat_tour: ~0 rows (approximately)
-DELETE FROM `cat_tour`;
 /*!40000 ALTER TABLE `cat_tour` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cat_tour` ENABLE KEYS */;
 
@@ -82,7 +79,6 @@ CREATE TABLE IF NOT EXISTS `comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.comment: ~0 rows (approximately)
-DELETE FROM `comment`;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 
@@ -95,7 +91,6 @@ CREATE TABLE IF NOT EXISTS `department` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.department: ~0 rows (approximately)
-DELETE FROM `department`;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 
@@ -110,7 +105,6 @@ CREATE TABLE IF NOT EXISTS `discount` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.discount: ~0 rows (approximately)
-DELETE FROM `discount`;
 /*!40000 ALTER TABLE `discount` DISABLE KEYS */;
 /*!40000 ALTER TABLE `discount` ENABLE KEYS */;
 
@@ -121,6 +115,7 @@ CREATE TABLE IF NOT EXISTS `evaluate` (
   `tour_id` int(11) DEFAULT NULL,
   `content` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `wdate` date DEFAULT current_timestamp(),
+  `state` bit(1) DEFAULT b'0',
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `tour_id` (`tour_id`),
@@ -129,7 +124,6 @@ CREATE TABLE IF NOT EXISTS `evaluate` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.evaluate: ~0 rows (approximately)
-DELETE FROM `evaluate`;
 /*!40000 ALTER TABLE `evaluate` DISABLE KEYS */;
 /*!40000 ALTER TABLE `evaluate` ENABLE KEYS */;
 
@@ -146,7 +140,6 @@ CREATE TABLE IF NOT EXISTS `like_blog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.like_blog: ~0 rows (approximately)
-DELETE FROM `like_blog`;
 /*!40000 ALTER TABLE `like_blog` DISABLE KEYS */;
 /*!40000 ALTER TABLE `like_blog` ENABLE KEYS */;
 
@@ -166,7 +159,6 @@ CREATE TABLE IF NOT EXISTS `payment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.payment: ~0 rows (approximately)
-DELETE FROM `payment`;
 /*!40000 ALTER TABLE `payment` DISABLE KEYS */;
 /*!40000 ALTER TABLE `payment` ENABLE KEYS */;
 
@@ -178,7 +170,6 @@ CREATE TABLE IF NOT EXISTS `payment_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.payment_type: ~0 rows (approximately)
-DELETE FROM `payment_type`;
 /*!40000 ALTER TABLE `payment_type` DISABLE KEYS */;
 /*!40000 ALTER TABLE `payment_type` ENABLE KEYS */;
 
@@ -193,7 +184,6 @@ CREATE TABLE IF NOT EXISTS `place` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.place: ~0 rows (approximately)
-DELETE FROM `place`;
 /*!40000 ALTER TABLE `place` DISABLE KEYS */;
 /*!40000 ALTER TABLE `place` ENABLE KEYS */;
 
@@ -205,7 +195,6 @@ CREATE TABLE IF NOT EXISTS `province` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.province: ~0 rows (approximately)
-DELETE FROM `province`;
 /*!40000 ALTER TABLE `province` DISABLE KEYS */;
 /*!40000 ALTER TABLE `province` ENABLE KEYS */;
 
@@ -226,7 +215,6 @@ CREATE TABLE IF NOT EXISTS `ticket` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.ticket: ~0 rows (approximately)
-DELETE FROM `ticket`;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 
@@ -250,7 +238,6 @@ CREATE TABLE IF NOT EXISTS `tour` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.tour: ~0 rows (approximately)
-DELETE FROM `tour`;
 /*!40000 ALTER TABLE `tour` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tour` ENABLE KEYS */;
 
@@ -267,7 +254,6 @@ CREATE TABLE IF NOT EXISTS `tour_discount` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.tour_discount: ~0 rows (approximately)
-DELETE FROM `tour_discount`;
 /*!40000 ALTER TABLE `tour_discount` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tour_discount` ENABLE KEYS */;
 
@@ -284,7 +270,6 @@ CREATE TABLE IF NOT EXISTS `tour_place` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.tour_place: ~0 rows (approximately)
-DELETE FROM `tour_place`;
 /*!40000 ALTER TABLE `tour_place` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tour_place` ENABLE KEYS */;
 
@@ -296,7 +281,6 @@ CREATE TABLE IF NOT EXISTS `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.user_role: ~0 rows (approximately)
-DELETE FROM `user_role`;
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 
@@ -318,7 +302,6 @@ CREATE TABLE IF NOT EXISTS `user_tour` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.user_tour: ~0 rows (approximately)
-DELETE FROM `user_tour`;
 /*!40000 ALTER TABLE `user_tour` DISABLE KEYS */;
 /*!40000 ALTER TABLE `user_tour` ENABLE KEYS */;
 
