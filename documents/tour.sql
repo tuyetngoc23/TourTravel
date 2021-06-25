@@ -140,6 +140,7 @@ CREATE TABLE IF NOT EXISTS `hotel` (
   `type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tour_id` int(11) DEFAULT NULL,
+  `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `tour_id` (`tour_id`),
   CONSTRAINT `FK_hotel_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE CASCADE
@@ -254,6 +255,7 @@ CREATE TABLE IF NOT EXISTS `tour` (
   `price` decimal(10,0) DEFAULT NULL,
   `min_amout` int(11) DEFAULT NULL,
   `max_amout` int(11) DEFAULT NULL,
+  `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `start_day` date DEFAULT NULL,
   `end_day` date DEFAULT NULL,
   `location_go` int(11) DEFAULT NULL,
