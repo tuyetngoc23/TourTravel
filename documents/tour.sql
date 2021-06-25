@@ -151,6 +151,18 @@ DELETE FROM `hotel`;
 /*!40000 ALTER TABLE `hotel` DISABLE KEYS */;
 /*!40000 ALTER TABLE `hotel` ENABLE KEYS */;
 
+-- Dumping structure for table tour.image
+CREATE TABLE IF NOT EXISTS `image` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tour.image: ~0 rows (approximately)
+DELETE FROM `image`;
+/*!40000 ALTER TABLE `image` DISABLE KEYS */;
+/*!40000 ALTER TABLE `image` ENABLE KEYS */;
+
 -- Dumping structure for table tour.like_blog
 CREATE TABLE IF NOT EXISTS `like_blog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
