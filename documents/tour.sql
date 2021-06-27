@@ -62,11 +62,14 @@ CREATE TABLE IF NOT EXISTS `cat_tour` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.cat_tour: ~0 rows (approximately)
 DELETE FROM `cat_tour`;
 /*!40000 ALTER TABLE `cat_tour` DISABLE KEYS */;
+INSERT INTO `cat_tour` (`id`, `name`) VALUES
+	(1, 'family'),
+	(2, 'hoeymoon');
 /*!40000 ALTER TABLE `cat_tour` ENABLE KEYS */;
 
 -- Dumping structure for table tour.comment
@@ -205,11 +208,16 @@ CREATE TABLE IF NOT EXISTS `payment_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.payment_type: ~0 rows (approximately)
 DELETE FROM `payment_type`;
 /*!40000 ALTER TABLE `payment_type` DISABLE KEYS */;
+INSERT INTO `payment_type` (`id`, `type`) VALUES
+	(1, 'momo'),
+	(2, 'cash'),
+	(3, 'credit'),
+	(4, 'ATM');
 /*!40000 ALTER TABLE `payment_type` ENABLE KEYS */;
 
 -- Dumping structure for table tour.place
@@ -232,11 +240,75 @@ CREATE TABLE IF NOT EXISTS `province` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.province: ~0 rows (approximately)
 DELETE FROM `province`;
 /*!40000 ALTER TABLE `province` DISABLE KEYS */;
+INSERT INTO `province` (`id`, `name`) VALUES
+	(1, 'An Giang'),
+	(2, 'Bà Rịa - Vũng Tàu'),
+	(3, 'Bắc Giang'),
+	(4, 'Bắc Kạn'),
+	(5, 'Bạc Liêu'),
+	(6, 'Bắc Ninh'),
+	(7, 'Bến Tre'),
+	(8, 'Bình Định'),
+	(9, 'Bình Dương'),
+	(10, 'Bình Phước'),
+	(11, 'Bình Thuận'),
+	(12, 'Cà Mau'),
+	(13, 'Cao Bằng'),
+	(14, 'Cần Thơ'),
+	(15, 'Đà Nẵng'),
+	(16, 'Đắk Lắk'),
+	(17, 'Đắk Nông'),
+	(18, 'Điện Biên'),
+	(19, 'Đồng Nai'),
+	(20, 'Đồng Tháp'),
+	(21, 'Gia Lai'),
+	(22, 'Hà Giang'),
+	(23, 'Hà Nam'),
+	(24, 'Hà Tĩnh'),
+	(25, 'Hà Nội'),
+	(26, 'Hải Phòng'),
+	(27, 'Hải Dương'),
+	(28, 'Hậu Giang'),
+	(29, 'Hòa Bình'),
+	(30, 'Hưng Yên'),
+	(31, 'Khánh Hòa'),
+	(32, 'Kiên Giang'),
+	(33, 'Kon Tum'),
+	(34, 'Lai Châu'),
+	(35, 'Lâm Đồng'),
+	(36, 'Lạng Sơn'),
+	(37, 'Lào Cai'),
+	(38, 'Long An'),
+	(39, 'Nam Định'),
+	(40, 'Nghệ An'),
+	(41, 'Ninh Bình'),
+	(42, 'Ninh Thuận'),
+	(43, 'Phú Thọ'),
+	(44, 'Quảng Bình'),
+	(45, 'Quảng Nam'),
+	(46, 'Quảng Ngãi'),
+	(47, 'Quảng Ninh'),
+	(48, 'Quảng Trị'),
+	(49, 'Sóc Trăng'),
+	(50, 'Sơn La'),
+	(51, 'Tây Ninh'),
+	(52, 'Thái Bình'),
+	(53, 'Thái Nguyên'),
+	(54, 'Thanh Hóa'),
+	(55, 'Thừa Thiên Huế'),
+	(56, 'Tiền Giang'),
+	(57, 'Trà Vinh'),
+	(58, 'Tuyên Quang'),
+	(59, 'Vĩnh Long'),
+	(60, 'Vĩnh Phúc'),
+	(61, 'Yên Bái'),
+	(62, 'Phú Yên'),
+	(63, 'TP HCM');
 /*!40000 ALTER TABLE `province` ENABLE KEYS */;
 
 -- Dumping structure for table tour.ticket
@@ -325,11 +397,18 @@ CREATE TABLE IF NOT EXISTS `user_role` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `role` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.user_role: ~0 rows (approximately)
 DELETE FROM `user_role`;
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
+INSERT INTO `user_role` (`id`, `role`) VALUES
+	(1, 'ADMIN'),
+	(2, 'USER'),
+	(3, 'ADMIN'),
+	(4, 'USER'),
+	(5, 'ADMIN'),
+	(6, 'USER');
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 
 -- Dumping structure for table tour.user_tour
