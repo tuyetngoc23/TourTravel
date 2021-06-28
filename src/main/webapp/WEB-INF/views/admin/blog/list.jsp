@@ -3,14 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<!DOCTYPE html>
-
-<html>
-<head>
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
@@ -224,7 +216,5 @@
     <script
 		src="${pageContext.request.contextPath }/resources/assets/js/todolist.js"></script>
     <!-- End custom js for this page -->
-</body>
-</html>
 </body>
 </html>

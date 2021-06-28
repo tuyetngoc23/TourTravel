@@ -2,11 +2,13 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+
 <head>
 <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -146,7 +148,5 @@
     <script
 		src="${pageContext.request.contextPath }/resources/assets/js/todolist.js"></script>
     <!-- End custom js for this page -->
-</body>
-</html>
 </body>
 </html>
