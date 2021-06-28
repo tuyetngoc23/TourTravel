@@ -46,10 +46,10 @@ CREATE TABLE IF NOT EXISTS `book` (
   `tour_id` int(11) DEFAULT NULL,
   `date` date DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `usertour_id` (`usertour_id`),
-  KEY `tour_id` (`tour_id`),
-  CONSTRAINT `book_ibfk_1` FOREIGN KEY (`usertour_id`) REFERENCES `user_tour` (`id`),
-  CONSTRAINT `book_ibfk_2` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`)
+  KEY `book_ibfk_1` (`usertour_id`),
+  KEY `book_ibfk_2` (`tour_id`),
+  CONSTRAINT `book_ibfk_1` FOREIGN KEY (`usertour_id`) REFERENCES `user_tour` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `book_ibfk_2` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.book: ~0 rows (approximately)
@@ -79,10 +79,10 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `blog_id` int(11) DEFAULT NULL,
   `content` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `usertour_id` (`usertour_id`),
-  KEY `blog_id` (`blog_id`),
-  CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`usertour_id`) REFERENCES `user_tour` (`id`),
-  CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`id`)
+  KEY `comment_ibfk_1` (`usertour_id`),
+  KEY `comment_ibfk_2` (`blog_id`),
+  CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`usertour_id`) REFERENCES `user_tour` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.comment: ~0 rows (approximately)
@@ -128,8 +128,8 @@ CREATE TABLE IF NOT EXISTS `evaluate` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `tour_id` (`tour_id`),
-  CONSTRAINT `FK__user_tour` FOREIGN KEY (`user_id`) REFERENCES `user_tour` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_evaluate_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`)
+  CONSTRAINT `FK__user_tour` FOREIGN KEY (`user_id`) REFERENCES `user_tour` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_evaluate_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.evaluate: ~0 rows (approximately)
@@ -147,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `hotel` (
   `address` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `tour_id` (`tour_id`),
-  CONSTRAINT `FK_hotel_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_hotel_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.hotel: ~0 rows (approximately)
@@ -173,10 +173,10 @@ CREATE TABLE IF NOT EXISTS `like_blog` (
   `blog_id` int(11) DEFAULT NULL,
   `usertour_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `blog_id` (`blog_id`),
-  KEY `usertour_id` (`usertour_id`),
-  CONSTRAINT `like_blog_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`id`),
-  CONSTRAINT `like_blog_ibfk_2` FOREIGN KEY (`usertour_id`) REFERENCES `user_tour` (`id`)
+  KEY `like_blog_ibfk_2` (`usertour_id`),
+  KEY `like_blog_ibfk_1` (`blog_id`),
+  CONSTRAINT `like_blog_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `like_blog_ibfk_2` FOREIGN KEY (`usertour_id`) REFERENCES `user_tour` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.like_blog: ~0 rows (approximately)
@@ -195,8 +195,8 @@ CREATE TABLE IF NOT EXISTS `payment` (
   PRIMARY KEY (`id`),
   KEY `book_id` (`book_id`),
   KEY `payment_type` (`payment_type`),
-  CONSTRAINT `FK_payment_detail_book` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_payment_payment_type` FOREIGN KEY (`payment_type`) REFERENCES `payment_type` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_payment_detail_book` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_payment_payment_type` FOREIGN KEY (`payment_type`) REFERENCES `payment_type` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.payment: ~0 rows (approximately)
@@ -229,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `place` (
   `address` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `province_id` (`province_id`) USING BTREE,
-  CONSTRAINT `FK_place_province` FOREIGN KEY (`province_id`) REFERENCES `province` (`id`)
+  CONSTRAINT `FK_place_province` FOREIGN KEY (`province_id`) REFERENCES `province` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.place: ~0 rows (approximately)
@@ -325,8 +325,8 @@ CREATE TABLE IF NOT EXISTS `ticket` (
   `giveDate` date DEFAULT NULL,
   `unitprice` decimal(10,0) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `book_id` (`book_id`),
-  CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`)
+  KEY `ticket_ibfk_1` (`book_id`),
+  CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.ticket: ~0 rows (approximately)
@@ -368,8 +368,8 @@ CREATE TABLE IF NOT EXISTS `tour_discount` (
   PRIMARY KEY (`id`),
   KEY `tour_id` (`tour_id`),
   KEY `discount_id` (`discount_id`),
-  CONSTRAINT `FK_tour_discount_discount` FOREIGN KEY (`discount_id`) REFERENCES `discount` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FK_tour_discount_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE CASCADE
+  CONSTRAINT `FK_tour_discount_discount` FOREIGN KEY (`discount_id`) REFERENCES `discount` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CONSTRAINT `FK_tour_discount_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.tour_discount: ~0 rows (approximately)
@@ -385,8 +385,8 @@ CREATE TABLE IF NOT EXISTS `tour_place` (
   PRIMARY KEY (`id`),
   KEY `place_id` (`place_id`),
   KEY `tour_id` (`tour_id`),
-  CONSTRAINT `FK__place` FOREIGN KEY (`place_id`) REFERENCES `place` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK__tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `FK__place` FOREIGN KEY (`place_id`) REFERENCES `place` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK__tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.tour_place: ~0 rows (approximately)
@@ -426,8 +426,8 @@ CREATE TABLE IF NOT EXISTS `user_tour` (
   `avatar` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_role` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `user_role` (`user_role`),
-  CONSTRAINT `user_tour_ibfk_1` FOREIGN KEY (`user_role`) REFERENCES `user_role` (`id`)
+  KEY `user_tour_ibfk_1` (`user_role`),
+  CONSTRAINT `user_tour_ibfk_1` FOREIGN KEY (`user_role`) REFERENCES `user_role` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.user_tour: ~0 rows (approximately)
@@ -442,7 +442,7 @@ CREATE TABLE IF NOT EXISTS `vehicle` (
   `tour_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `tour_id` (`tour_id`),
-  CONSTRAINT `FK_vehicle_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE NO ACTION
+  CONSTRAINT `FK_vehicle_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.vehicle: ~0 rows (approximately)
