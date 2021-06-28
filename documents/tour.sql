@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `cat_tour` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tour.cat_tour: ~0 rows (approximately)
+-- Dumping data for table tour.cat_tour: ~2 rows (approximately)
 DELETE FROM `cat_tour`;
 /*!40000 ALTER TABLE `cat_tour` DISABLE KEYS */;
 INSERT INTO `cat_tour` (`id`, `name`) VALUES
@@ -107,7 +107,7 @@ DELETE FROM `department`;
 CREATE TABLE IF NOT EXISTS `discount` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `scope` float DEFAULT NULL,
+  `scope` int(11) DEFAULT NULL,
   `start_day` date DEFAULT NULL,
   `end_day` date DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -210,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `payment_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tour.payment_type: ~0 rows (approximately)
+-- Dumping data for table tour.payment_type: ~4 rows (approximately)
 DELETE FROM `payment_type`;
 /*!40000 ALTER TABLE `payment_type` DISABLE KEYS */;
 INSERT INTO `payment_type` (`id`, `type`) VALUES
@@ -242,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `province` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tour.province: ~0 rows (approximately)
+-- Dumping data for table tour.province: ~63 rows (approximately)
 DELETE FROM `province`;
 /*!40000 ALTER TABLE `province` DISABLE KEYS */;
 INSERT INTO `province` (`id`, `name`) VALUES
@@ -337,8 +337,8 @@ CREATE TABLE IF NOT EXISTS `tour` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `price` decimal(10,0) DEFAULT NULL,
-  `min_amout` int(11) DEFAULT NULL,
-  `max_amout` int(11) DEFAULT NULL,
+  `min_amount` int(11) DEFAULT NULL,
+  `max_amount` int(11) DEFAULT NULL,
   `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `start_day` date DEFAULT NULL,
   `end_day` date DEFAULT NULL,
@@ -399,7 +399,7 @@ CREATE TABLE IF NOT EXISTS `user_role` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tour.user_role: ~0 rows (approximately)
+-- Dumping data for table tour.user_role: ~6 rows (approximately)
 DELETE FROM `user_role`;
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
 INSERT INTO `user_role` (`id`, `role`) VALUES

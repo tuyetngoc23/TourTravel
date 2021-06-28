@@ -1,0 +1,91 @@
+package com.hakunamatata.springmvc.entity;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tour")
+public class Tour {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private String name;
+	private BigDecimal price;
+	private int min_amount;
+	private int max_amount;
+	private String image;
+	private Date start_day;
+	private Date end_day;
+	private String content;
+	private String note;
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public BigDecimal getPrice() {
+		return price;
+	}
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+	public int getMin_amount() {
+		return min_amount;
+	}
+	public void setMin_amount(int min_amount) {
+		this.min_amount = min_amount;
+	}
+	public int getMax_amount() {
+		return max_amount;
+	}
+	public void setMax_amount(int max_amount) {
+		this.max_amount = max_amount;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public Date getStart_day() {
+		return start_day;
+	}
+	public void setStart_day(Date start_day) {
+		this.start_day = start_day;
+	}
+	public Date getEnd_day() {
+		return end_day;
+	}
+	public void setEnd_day(Date end_day) {
+		this.end_day = end_day;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getNote() {
+		return note;
+	}
+	public void setNote(String note) {
+		this.note = note;
+	}
+	
+	
+}
