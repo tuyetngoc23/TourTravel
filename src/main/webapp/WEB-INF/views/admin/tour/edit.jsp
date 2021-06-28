@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!DOCTYPE html>
-
-<html>
 <head>
 <!-- Required meta tags -->
     <meta charset="utf-8">
