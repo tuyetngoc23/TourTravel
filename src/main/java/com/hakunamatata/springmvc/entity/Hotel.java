@@ -15,7 +15,24 @@ public class Hotel {
 	private String type;
 	private String name;
 	private String image;
+	private String address;
 	
+	
+	private int tour_id;
+	
+	
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public int getTour_id() {
+		return tour_id;
+	}
+	public void setTour_id(int tour_id) {
+		this.tour_id = tour_id;
+	}
 	public int getId() {
 		return id;
 	}

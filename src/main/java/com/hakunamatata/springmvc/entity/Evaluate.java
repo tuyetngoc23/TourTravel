@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +19,23 @@ public class Evaluate {
 	private String content;
 	private Date wdate;
 	
+	
+	private int user_id;
+	private int tour_id;
+	
+	
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+	public int getTour_id() {
+		return tour_id;
+	}
+	public void setTour_id(int tour_id) {
+		this.tour_id = tour_id;
+	}
 	public int getId() {
 		return id;
 	}

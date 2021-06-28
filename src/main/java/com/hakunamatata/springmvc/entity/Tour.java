@@ -25,7 +25,23 @@ public class Tour {
 	private String content;
 	private String note;
 	
+	private int location_go;
+	private int cattour_id;
 	
+	
+	
+	public int getLocation_go() {
+		return location_go;
+	}
+	public void setLocation_go(int location_go) {
+		this.location_go = location_go;
+	}
+	public int getCattour_id() {
+		return cattour_id;
+	}
+	public void setCattour_id(int cattour_id) {
+		this.cattour_id = cattour_id;
+	}
 	public int getId() {
 		return id;
 	}

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,22 @@ public class Book {
 	private int aldult_amount;
 	private int child_nho_amount;
 	private Date date;
+	
+	private int usertour_id;
+	private int tour_id;
+	
+	public int getUsertour_id() {
+		return usertour_id;
+	}
+	public void setUsertour_id(int usertour_id) {
+		this.usertour_id = usertour_id;
+	}
+	public int getTour_id() {
+		return tour_id;
+	}
+	public void setTour_id(int tour_id) {
+		this.tour_id = tour_id;
+	}
 	public int getId() {
 		return id;
 	}

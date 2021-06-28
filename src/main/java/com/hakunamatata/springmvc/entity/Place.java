@@ -13,8 +13,24 @@ public class Place {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	private String address;
+	
+	private int province_id;
 	
 	
+	
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public int getProvince_id() {
+		return province_id;
+	}
+	public void setProvince_id(int province_id) {
+		this.province_id = province_id;
+	}
 	public int getId() {
 		return id;
 	}
