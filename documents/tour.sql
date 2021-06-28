@@ -144,6 +144,7 @@ CREATE TABLE IF NOT EXISTS `hotel` (
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tour_id` int(11) DEFAULT NULL,
   `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `tour_id` (`tour_id`),
   CONSTRAINT `FK_hotel_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE CASCADE
@@ -225,6 +226,7 @@ CREATE TABLE IF NOT EXISTS `place` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` int(11) NOT NULL,
   `province_id` int(11) NOT NULL,
+  `address` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `province_id` (`province_id`) USING BTREE,
   CONSTRAINT `FK_place_province` FOREIGN KEY (`province_id`) REFERENCES `province` (`id`)
