@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
@@ -35,20 +36,14 @@
        <div class="main-panel">
         <div class="content-wrapper">
         	  <div class="row" id="proBanner">
-            <div class="col-12">
-              <span class="d-flex align-items-center purchase-popup">
-                <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
-                <a href="#" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
-                
-              </span>
-            </div>
+        
           </div>
           
            <div class="page-header">
             <h3 class="page-title">
               <span class="page-title-icon bg-gradient-primary text-white mr-2">
                 <i class="mdi mdi-home"></i>
-              </span> List Tour
+              </span> Edit Department
             </h3>
             <nav aria-label="breadcrumb">
               <ul class="breadcrumb">
@@ -59,65 +54,57 @@
             </nav>
           </div>
         
-        	<!-- table -->
-     		   <div class="col-lg-12 grid-margin stretch-card">
+        	<!-- Form -->
+     		  <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
-                    <p class="card-description"> Add class <code>.table-hover</code>
-                    </p>
-                    <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th>User</th>
-                          <th>Product</th>
-                          <th>Sale</th>
-                          <th>Status</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Jacob</td>
-                          <td>Photoshop</td>
-                          <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-danger">Pending</label></td>
-                          <td>
-                          	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Messsy</td>
-                          <td>Flash</td>
-                          <td class="text-danger"> 21.06% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
-                        <tr>
-                          <td>John</td>
-                          <td>Premier</td>
-                          <td class="text-danger"> 35.00% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-info">Fixed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Peter</td>
-                          <td>After effects</td>
-                          <td class="text-success"> 82.00% <i class="mdi mdi-arrow-up"></i></td>
-                          <td><label class="badge badge-success">Completed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Dave</td>
-                          <td>53275535</td>
-                          <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
-                          <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <h4 class="card-title">Basic form elements</h4>
+                    <p class="card-description"> Basic form elements </p>
+                    <form class="forms-sample">
+                      <div class="form-group">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleSelectGender">Gender</label>
+                        <select class="form-control" id="exampleSelectGender">
+                          <option>Male</option>
+                          <option>Female</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputCity1">City</label>
+                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleTextarea1">Textarea</label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
                   </div>
                 </div>
               </div>
-     		
-     		 	<!-- End table -->
+     	<!-- End Form -->
           </div>
      	
      
