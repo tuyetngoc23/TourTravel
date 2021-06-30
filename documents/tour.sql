@@ -23,7 +23,6 @@ CREATE TABLE IF NOT EXISTS `blog` (
   `title` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `wname` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `content` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `wdate` date DEFAULT NULL,
   `like_amount` int(11) DEFAULT NULL,
   `state` bit(1) DEFAULT NULL,
@@ -155,17 +154,35 @@ DELETE FROM `hotel`;
 /*!40000 ALTER TABLE `hotel` DISABLE KEYS */;
 /*!40000 ALTER TABLE `hotel` ENABLE KEYS */;
 
--- Dumping structure for table tour.image
-CREATE TABLE IF NOT EXISTS `image` (
+-- Dumping structure for table tour.image_blog
+CREATE TABLE IF NOT EXISTS `image_blog` (
   `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `blog_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `blog_id` (`blog_id`),
+  CONSTRAINT `FK_image_blog_blog` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tour.image: ~0 rows (approximately)
-DELETE FROM `image`;
-/*!40000 ALTER TABLE `image` DISABLE KEYS */;
-/*!40000 ALTER TABLE `image` ENABLE KEYS */;
+-- Dumping data for table tour.image_blog: ~0 rows (approximately)
+DELETE FROM `image_blog`;
+/*!40000 ALTER TABLE `image_blog` DISABLE KEYS */;
+/*!40000 ALTER TABLE `image_blog` ENABLE KEYS */;
+
+-- Dumping structure for table tour.image_tour
+CREATE TABLE IF NOT EXISTS `image_tour` (
+  `id` int(11) NOT NULL,
+  `name` int(11) DEFAULT NULL,
+  `tour_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tour_id` (`tour_id`),
+  CONSTRAINT `FK_image_tour_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table tour.image_tour: ~0 rows (approximately)
+DELETE FROM `image_tour`;
+/*!40000 ALTER TABLE `image_tour` DISABLE KEYS */;
+/*!40000 ALTER TABLE `image_tour` ENABLE KEYS */;
 
 -- Dumping structure for table tour.like_blog
 CREATE TABLE IF NOT EXISTS `like_blog` (
@@ -341,7 +358,6 @@ CREATE TABLE IF NOT EXISTS `tour` (
   `price` decimal(10,0) DEFAULT NULL,
   `min_amount` int(11) DEFAULT NULL,
   `max_amount` int(11) DEFAULT NULL,
-  `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `start_day` date DEFAULT NULL,
   `end_day` date DEFAULT NULL,
   `location_go` int(11) DEFAULT NULL,
