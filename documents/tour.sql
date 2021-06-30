@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `blog` (
   `wdate` date DEFAULT NULL,
   `like_amount` int(11) DEFAULT NULL,
   `state` bit(1) DEFAULT NULL,
+  `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -141,12 +142,9 @@ CREATE TABLE IF NOT EXISTS `hotel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tour_id` int(11) DEFAULT NULL,
   `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `tour_id` (`tour_id`),
-  CONSTRAINT `FK_hotel_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON UPDATE CASCADE
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.hotel: ~0 rows (approximately)
@@ -158,10 +156,7 @@ DELETE FROM `hotel`;
 CREATE TABLE IF NOT EXISTS `image_blog` (
   `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `blog_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `blog_id` (`blog_id`),
-  CONSTRAINT `FK_image_blog_blog` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.image_blog: ~0 rows (approximately)
@@ -173,10 +168,7 @@ DELETE FROM `image_blog`;
 CREATE TABLE IF NOT EXISTS `image_tour` (
   `id` int(11) NOT NULL,
   `name` int(11) DEFAULT NULL,
-  `tour_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `tour_id` (`tour_id`),
-  CONSTRAINT `FK_image_tour_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.image_tour: ~0 rows (approximately)
@@ -244,6 +236,7 @@ CREATE TABLE IF NOT EXISTS `place` (
   `name` int(11) NOT NULL,
   `province_id` int(11) NOT NULL,
   `address` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `province_id` (`province_id`) USING BTREE,
   CONSTRAINT `FK_place_province` FOREIGN KEY (`province_id`) REFERENCES `province` (`id`) ON UPDATE CASCADE
@@ -364,11 +357,18 @@ CREATE TABLE IF NOT EXISTS `tour` (
   `cattour_id` int(11) DEFAULT NULL,
   `content` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `note` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `hotel_id` int(11) DEFAULT NULL,
+  `vehicle_id` int(11) DEFAULT NULL,
+  `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `cattour_id` (`cattour_id`),
+  KEY `hotel_id` (`hotel_id`),
   KEY `FK_tour_department` (`location_go`),
-  CONSTRAINT `FK_tour_department` FOREIGN KEY (`location_go`) REFERENCES `department` (`id`),
-  CONSTRAINT `tour_ibfk_3` FOREIGN KEY (`cattour_id`) REFERENCES `cat_tour` (`id`)
+  KEY `tour_ibfk_3` (`cattour_id`),
+  KEY `vehicle_id` (`vehicle_id`),
+  CONSTRAINT `FK_tour_department` FOREIGN KEY (`location_go`) REFERENCES `department` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_tour_hotel` FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_tour_hotel_2` FOREIGN KEY (`vehicle_id`) REFERENCES `hotel` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `tour_ibfk_3` FOREIGN KEY (`cattour_id`) REFERENCES `cat_tour` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.tour: ~0 rows (approximately)
@@ -441,9 +441,10 @@ CREATE TABLE IF NOT EXISTS `user_tour` (
   `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `avatar` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_role` int(11) NOT NULL,
+  `state` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_tour_ibfk_1` (`user_role`),
-  CONSTRAINT `user_tour_ibfk_1` FOREIGN KEY (`user_role`) REFERENCES `user_role` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
+  CONSTRAINT `user_tour_ibfk_1` FOREIGN KEY (`user_role`) REFERENCES `user_role` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.user_tour: ~0 rows (approximately)
@@ -455,10 +456,7 @@ DELETE FROM `user_tour`;
 CREATE TABLE IF NOT EXISTS `vehicle` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tour_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `tour_id` (`tour_id`),
-  CONSTRAINT `FK_vehicle_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.vehicle: ~0 rows (approximately)

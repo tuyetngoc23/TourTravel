@@ -15,20 +15,21 @@ public class Book {
 	private int child_nho_amount;
 	private Date date;
 	
-	private int usertour_id;
-	private int tour_id;
+	private UserTour usertour;
+	private Tour tour;
 	
-	public int getUsertour_id() {
-		return usertour_id;
+	
+	public UserTour getUsertour() {
+		return usertour;
 	}
-	public void setUsertour_id(int usertour_id) {
-		this.usertour_id = usertour_id;
+	public void setUsertour(UserTour usertour) {
+		this.usertour = usertour;
 	}
-	public int getTour_id() {
-		return tour_id;
+	public Tour getTour() {
+		return tour;
 	}
-	public void setTour_id(int tour_id) {
-		this.tour_id = tour_id;
+	public void setTour(Tour tour) {
+		this.tour = tour;
 	}
 	public int getId() {
 		return id;

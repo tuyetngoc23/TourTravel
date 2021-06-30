@@ -6,24 +6,24 @@ public class LikeBlog {
 	
 	private int id;
 	
-	private int blog_id;
-	private int usertour_id;
+	private Blog blog;
+	private UserTour usertour;
 	
 
-	public int getBlog_id() {
-		return blog_id;
+	public Blog getBlog() {
+		return blog;
 	}
 
-	public void setBlog_id(int blog_id) {
-		this.blog_id = blog_id;
+	public void setBlog(Blog blog) {
+		this.blog = blog;
 	}
 
-	public int getUsertour_id() {
-		return usertour_id;
+	public UserTour getUsertour() {
+		return usertour;
 	}
 
-	public void setUsertour_id(int usertour_id) {
-		this.usertour_id = usertour_id;
+	public void setUsertour(UserTour usertour) {
+		this.usertour = usertour;
 	}
 
 	public int getId() {

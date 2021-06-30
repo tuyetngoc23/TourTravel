@@ -5,24 +5,25 @@ public class TourPlace {
 	
 	private int id;
 	
-	private int place_id;
-	private int tour_id;
+	private Place place;
+	private Tour tour;
 	
 
-	public int getPlace_id() {
-		return place_id;
+
+	public Place getPlace() {
+		return place;
 	}
 
-	public void setPlace_id(int place_id) {
-		this.place_id = place_id;
+	public void setPlace(Place place) {
+		this.place = place;
 	}
 
-	public int getTour_id() {
-		return tour_id;
+	public Tour getTour() {
+		return tour;
 	}
 
-	public void setTour_id(int tour_id) {
-		this.tour_id = tour_id;
+	public void setTour(Tour tour) {
+		this.tour = tour;
 	}
 
 	public int getId() {

@@ -5,25 +5,25 @@ public class TourDiscount {
 	
 	private int id;
 	
-	private int tour_id;
-	private int discount_id;
+	private Tour tour;
+	private Discount discount;
 	
 	
-
-	public int getTour_id() {
-		return tour_id;
+	
+	public Tour getTour() {
+		return tour;
 	}
 
-	public void setTour_id(int tour_id) {
-		this.tour_id = tour_id;
+	public void setTour(Tour tour) {
+		this.tour = tour;
 	}
 
-	public int getDiscount_id() {
-		return discount_id;
+	public Discount getDiscount() {
+		return discount;
 	}
 
-	public void setDiscount_id(int discount_id) {
-		this.discount_id = discount_id;
+	public void setDiscount(Discount discount) {
+		this.discount = discount;
 	}
 
 	public int getId() {

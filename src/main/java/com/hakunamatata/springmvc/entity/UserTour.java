@@ -15,13 +15,14 @@ public class UserTour {
 	private String email;
 	private String avatar;
 	
-	private int user_role;
+	private UserRole user_role;
 	
 	
-	public int getUser_role() {
+	
+	public UserRole getUser_role() {
 		return user_role;
 	}
-	public void setUser_role(int user_role) {
+	public void setUser_role(UserRole user_role) {
 		this.user_role = user_role;
 	}
 	public int getId() {
