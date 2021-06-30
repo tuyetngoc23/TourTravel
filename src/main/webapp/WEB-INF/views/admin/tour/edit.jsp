@@ -88,14 +88,18 @@
                       </div>
                       <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <input type="file" name="img[]" class="file-upload-default" onchange="previewFiles()">
                         <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" >
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
                         </div>
                       </div>
+                      <!-- load hinh img -->
+                      <img src="" height="200" alt="Image preview..." id="preview-img" style="display: none">
+                      <!-- load hinh list IMG -->
+                      <div id="preview"></div>
                       <div class="form-group">
                         <label for="exampleInputCity1">City</label>
                         <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
@@ -127,10 +131,15 @@
 
     <!-- container-scroller -->
     <!-- plugins:js -->
+   
+  
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script
 		src="${pageContext.request.contextPath }/resources/assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
+      <script src="${pageContext.request.contextPath }/resources/assets/js/file-upload.js"></script>
+       <script src="${pageContext.request.contextPath }/resources/assets/js/previewimage.js"></script>
     <script
 		src="${pageContext.request.contextPath }/resources/assets/vendors/chart.js/Chart.min.js"></script>
     <!-- End plugin js for this page -->
@@ -147,6 +156,9 @@
 		src="${pageContext.request.contextPath }/resources/assets/js/dashboard.js"></script>
     <script
 		src="${pageContext.request.contextPath }/resources/assets/js/todolist.js"></script>
+		  <!-- Custom js for this page -->
+  
     <!-- End custom js for this page -->
+    
 </body>
 </html>
