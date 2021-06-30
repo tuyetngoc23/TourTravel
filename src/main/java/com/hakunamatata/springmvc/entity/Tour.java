@@ -11,7 +11,6 @@ public class Tour {
 	private BigDecimal price;
 	private int min_amount;
 	private int max_amount;
-	private String image;
 	private Date start_day;
 	private Date end_day;
 	private String content;
@@ -63,12 +62,6 @@ public class Tour {
 	}
 	public void setMax_amount(int max_amount) {
 		this.max_amount = max_amount;
-	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
 	}
 	public Date getStart_day() {
 		return start_day;

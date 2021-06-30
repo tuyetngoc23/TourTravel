@@ -10,7 +10,6 @@ public class Blog {
 	private String title;
 	private String wname;
 	private String content;
-	private String image;
 	private Date wdate;
 	private int like_amount;
 	private boolean state;
@@ -39,12 +38,6 @@ public class Blog {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
 	}
 	public Date getWdate() {
 		return wdate;
