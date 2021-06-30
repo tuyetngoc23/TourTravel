@@ -3,18 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <script src="${pageContext.request.contextPath }/resources/assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="${pageContext.request.contextPath }/resources/assets/js/off-canvas.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/assets/js/hoverable-collapse.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/assets/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="${pageContext.request.contextPath }/resources/assets/js/file-upload.js"></script>
-       <script src="${pageContext.request.contextPath }/resources/assets/js/previewimage.js"></script>
+
   </head>
   <body>
   

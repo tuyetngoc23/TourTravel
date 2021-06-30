@@ -368,20 +368,34 @@
       <!-- page-body-wrapper ends -->
 
     <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="${pageContext.request.contextPath }/resources/assets/vendors/js/vendor.bundle.base.js"></script>
+   <!-- plugins:js -->
+   
+  
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script
+		src="${pageContext.request.contextPath }/resources/assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="${pageContext.request.contextPath }/resources/assets/vendors/chart.js/Chart.min.js"></script>
+      <script src="${pageContext.request.contextPath }/resources/assets/js/file-upload.js"></script>
+       <script src="${pageContext.request.contextPath }/resources/assets/js/previewimage.js"></script>
+    <script
+		src="${pageContext.request.contextPath }/resources/assets/vendors/chart.js/Chart.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="${pageContext.request.contextPath }/resources/assets/js/off-canvas.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/assets/js/hoverable-collapse.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/assets/js/misc.js"></script>
+    <script
+		src="${pageContext.request.contextPath }/resources/assets/js/off-canvas.js"></script>
+    <script
+		src="${pageContext.request.contextPath }/resources/assets/js/hoverable-collapse.js"></script>
+    <script
+		src="${pageContext.request.contextPath }/resources/assets/js/misc.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="${pageContext.request.contextPath }/resources/assets/js/dashboard.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/assets/js/todolist.js"></script>
+    <script
+		src="${pageContext.request.contextPath }/resources/assets/js/dashboard.js"></script>
+    <script
+		src="${pageContext.request.contextPath }/resources/assets/js/todolist.js"></script>
+		  <!-- Custom js for this page -->
+  
     <!-- End custom js for this page -->
 </body>
 </html>
