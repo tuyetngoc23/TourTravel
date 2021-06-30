@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>List Vehicle</title>
     <!-- plugins:css -->
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -37,7 +37,7 @@
         	  <div class="row" id="proBanner">
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
-                <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
+                <p>List Vehicle Admin</p>
                 <a href="#" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
@@ -63,57 +63,48 @@
      		   <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
-                    <p class="card-description"> Add class <code>.table-hover</code>
+                    <h4 class="card-title text-center text-info">List Vehicle</h4>
+                   
                     </p>
                     <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th>User</th>
-                          <th>Product</th>
-                          <th>Sale</th>
-                          <th>Status</th>
-                          <th>Action</th>
+                          <th>ID Vehicle</th>
+                          <th>Name</th>
+                          <th>ID Tour</th>
+                         
+                          <th class="text-center">Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>Jacob</td>
-                          <td>Photoshop</td>
-                          <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-danger">Pending</label></td>
-                          <td>
+                          <td>1</td>
+                          <td>Test</td>
+                            <td>tour_id</td>
+                          
+                       
+                          <td class="text-center">
                           	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
                           	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
                           </td>
                         </tr>
-                        <tr>
-                          <td>Messsy</td>
-                          <td>Flash</td>
-                          <td class="text-danger"> 21.06% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
-                        <tr>
-                          <td>John</td>
-                          <td>Premier</td>
-                          <td class="text-danger"> 35.00% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-info">Fixed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Peter</td>
-                          <td>After effects</td>
-                          <td class="text-success"> 82.00% <i class="mdi mdi-arrow-up"></i></td>
-                          <td><label class="badge badge-success">Completed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Dave</td>
-                          <td>53275535</td>
-                          <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
-                          <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
+                       
                       </tbody>
                     </table>
+                                        <div class="d-flex justify-content-center">
+                    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+                    
+                    </div>
                   </div>
+                  
                 </div>
               </div>
      		

@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Tour List</title>
     <!-- plugins:css -->
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -37,7 +37,7 @@
         	  <div class="row" id="proBanner">
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
-                <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
+                <p>Admin Tour List</p>
                 <a href="#" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
@@ -63,25 +63,40 @@
      		   <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
-                    <p class="card-description"> Add class <code>.table-hover</code>
-                    </p>
+                    <h4 class="card-title text-center text-info">List Tour</h4>
+                  
+                 
                     <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th>User</th>
-                          <th>Product</th>
-                          <th>Sale</th>
-                          <th>Status</th>
-                          <th>Action</th>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Min Amount</th>
+                          <th>Max Amount</th>
+                          <th>Image</th>
+                          <th>Start Day</th>
+                          <th>End Day</th>
+                          <th>Location go</th>
+                          <th>Cattour</th>
+                          <th>Content</th>
+                             <th>Note</th>
+                              <th class="text-center">Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>Jacob</td>
-                          <td>Photoshop</td>
-                          <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-danger">Pending</label></td>
+                          <td>1</td>
+                          <td>Suối Tiên</td>
+                           <td>4</td>
+                            <td>10</td>
+                            <td><img src="" alt="test"/></td>
+                              <td>1/7/2021</td>
+                            <td>3/7/2021</td>
+                              <td>Xe Máy</td>
+                            <td>Not biet</td>
+                             <td>CHuyen du lich tuyệt vơi</td>
+                            <td>Chú ý haha</td>
+                         	
                           <td>
                           	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
                           	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
@@ -113,9 +128,23 @@
                         </tr>
                       </tbody>
                     </table>
+                    <!-- Pagination -->
+                    <div class="d-flex justify-content-center">
+                    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+                    
+                    </div>
                   </div>
                 </div>
               </div>
+              
      		
      		 	<!-- End table -->
           </div>

@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>New Tour</title>
     <!-- plugins:css -->
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -58,45 +58,69 @@
      		  <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description"> Basic form elements </p>
-                    <form class="forms-sample">
+                    <h4 class="card-title text-info text-center">New Tour</h4>
+                  
+                    <form class="forms-sample" action="#" method="post">
                       <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                        <label for="exampleInputName1">Name Tour :</label>
+                        <input type="text" class="form-control" name="name" placeholder="Name Tour">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                        <label for="exampleInputEmail3">Price Tour :</label>
+                        <input type="number" class="form-control" name="price" placeholder="Price Tour">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+                        <label for="exampleInputPassword4">Min Amount Tour :</label>
+                        <input type="number" class="form-control" name="min_amount" placeholder="Min Amount Tour">
                       </div>
-                      <div class="form-group">
-                        <label for="exampleSelectGender">Gender</label>
-                        <select class="form-control" id="exampleSelectGender">
-                          <option>Male</option>
-                          <option>Female</option>
-                        </select>
+                       <div class="form-group">
+                        <label for="exampleInputPassword4">Max Amount Tour :</label>
+                        <input type="number" class="form-control" name="max_amount" placeholder="Max Amount Tour">
                       </div>
-                      <div class="form-group">
+                        <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <input type="file" name="img[]" class="file-upload-default" onchange="previewFiles()">
                         <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" >
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
                         </div>
                       </div>
+                      <!-- load hinh img -->
+                      <img src="" height="200" alt="Image preview..." id="preview-img" style="display: none">
+                      <!-- load hinh list IMG -->
+                      <div id="preview"></div>
                       <div class="form-group">
-                        <label for="exampleInputCity1">City</label>
-                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
+                      		 <label for="birthday">Start Day:</label>
+  							<input type="date" class="form-control" id="birthday" name="start_day">
+                      </div>
+                       <div class="form-group">
+                      		 <label for="birthday">Start End:</label>
+  							<input type="date" class="form-control" id="birthday" name="start_end">
                       </div>
                       <div class="form-group">
-                        <label for="exampleTextarea1">Textarea</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                        <label for="exampleSelectGender">Location Go Tour :</label>
+                        <select class="form-control" name="location_go">
+                          <option>Xe May</option>
+                          <option>May Bay</option>
+                        </select>
+                      </div>
+                        <div class="form-group">
+                        <label for="exampleSelectGender">Cat Tour :</label>
+                        <select class="form-control" name="carttour_id">
+                          <option>cartour1</option>
+                          <option>cartour12</option>
+                        </select>
+                      </div>
+                   
+                      <div class="form-group">
+                        <label for="exampleInputCity1">Content Tour</label>
+                        <textarea  class="form-control" name="content" placeholder="Content" rows="4"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleTextarea1">Note Tour</label>
+                        <textarea class="form-control" name="note" placeholder="Note Tour" rows="4"></textarea>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                       <button class="btn btn-light">Cancel</button>
