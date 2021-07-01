@@ -113,6 +113,21 @@
                           <option>cartour12</option>
                         </select>
                       </div>
+                      
+                       <div class="form-group">
+                        <label for="exampleSelectGender">Hothel</label>
+                        <select class="form-control" name="hotel_id">
+                          <option>hotel1</option>
+                          <option>hotel2</option>
+                        </select>
+                      </div>
+                        <div class="form-group">
+                        <label for="exampleSelectGender">Vehicle</label>
+                        <select class="form-control" name="vehicle_id">
+                          <option>Vehicle1</option>
+                          <option>Vehicle12</option>
+                        </select>
+                      </div>
                    
                       <div class="form-group">
                         <label for="exampleInputCity1">Content Tour</label>

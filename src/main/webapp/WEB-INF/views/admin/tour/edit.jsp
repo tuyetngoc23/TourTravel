@@ -60,7 +60,7 @@
                   <div class="card-body">
                     <h4 class="card-title text-info text-center">Edit Tour</h4>
                   
-                    <form class="forms-sample" action="#" method="post">
+                    <form class="forms-sample" action="#" method="get">
                       <div class="form-group">
                         <label for="exampleInputName1">Name Tour :</label>
                         <input type="text" class="form-control" name="name" placeholder="Name Tour">
@@ -113,10 +113,24 @@
                           <option>cartour12</option>
                         </select>
                       </div>
+                          <div class="form-group">
+                        <label for="exampleSelectGender">Hothel</label>
+                        <select class="form-control" name="hotel_id">
+                          <option>hotel1</option>
+                          <option>hotel2</option>
+                        </select>
+                      </div>
+                        <div class="form-group">
+                        <label for="exampleSelectGender">Vehicle</label>
+                        <select class="form-control" name="vehicle_id">
+                          <option>Vehicle1</option>
+                          <option>Vehicle12</option>
+                        </select>
+                      </div>
                    
                       <div class="form-group">
-                        <label for="exampleInputCity1">Content Tour</label>
-                        <textarea  class="form-control" name="content" placeholder="Content" rows="4"></textarea>
+                        <label for="exampleInputCity1" >Content Tour</label>
+                        <textarea id="editor1"  class="form-control" name="content" placeholder="Content" rows="4"></textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleTextarea1">Note Tour</label>
@@ -145,8 +159,9 @@
 
     <!-- container-scroller -->
    <!-- plugins:js -->
-   
-  
+    <script
+		src="${pageContext.request.contextPath }/resources/assets/ckeditor/ckeditor.js"></script>
+  		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script
 		src="${pageContext.request.contextPath }/resources/assets/vendors/js/vendor.bundle.base.js"></script>
@@ -174,5 +189,8 @@
   
     <!-- End custom js for this page -->
 </body>
+<script>
+CKEDITOR.replace( 'editor1' );
+</script>
 </html>
 

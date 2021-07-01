@@ -78,6 +78,8 @@
                           <th>End Day</th>
                           <th>Location go</th>
                           <th>Cattour</th>
+                           <th>Hotel</th>
+                          <th>Vehicle</th>
                           <th>Content</th>
                              <th>Note</th>
                               <th class="text-center">Action</th>
@@ -96,6 +98,8 @@
                             <td>Not biet</td>
                              <td>CHuyen du lich tuyệt vơi</td>
                             <td>Chú ý haha</td>
+                             <td>A Holtel</td>
+                            <td>Xe May</td>
                          	
                           <td>
                           	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
