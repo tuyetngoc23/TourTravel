@@ -88,7 +88,7 @@
                           	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
                           </td>
                         </tr>
-                      </c:forEach>                   
+                      </c:forEach>                 
                       </tbody>
                     </table>
                   </div>

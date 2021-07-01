@@ -4,14 +4,13 @@
 <configuration>
 	<!-- Alias of Type -->
 	<typeAliases>
-		<!-- <typeAlias alias="department" type="com.hakunamatata.springmvc.entity.Department"/>  ví dụ--> 
+		<typeAlias alias="department" type="com.hakunamatata.springmvc.entity.Department"/>
 		
-	</typeAliases>		
+	</typeAliases>	
 	
-	<!-- Mapper (sql statement )list -->
+	<!--Mapper (sql statement )list -->
 	<mappers>
-		<!-- <mapper resource="mapper/department-mapper.xml"/>  ví dụ-->
-		
+		<mapper resource="mapper/department-mapper.xml"/> 		
 	</mappers>
 	
 </configuration>
