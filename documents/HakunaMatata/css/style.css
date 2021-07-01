@@ -1,0 +1,58 @@
+*, body, h1, h2, h3, p {
+ 	margin: 0;
+ 	padding: 0;
+ 	box-sizing: border-box;
+ }
+ body {
+ 	/*max-width: 1200px;*/
+ 	margin: auto;
+ }
+
+
+/*Declare fonts*/
+@font-face {
+	font-family: KaushanScript-Regular;
+	src: url(fonts/KaushanScript-Regular.ttf);
+}
+
+@font-face {
+	font-family: Montserrat-Bold;
+	src: url();
+}
+
+
+
+
+/*Home*/
+#header {
+	background-image: url("../images/BG_home.jpg");
+ 	background-size: cover;
+ 	background-position: center center;
+ 	background-repeat: no-repeat;
+ 	max-width: 1200px;
+	margin:auto;
+}
+/*main .home {
+	padding-top: 100px;
+ 	padding-bottom: 100px;
+ 	background-image: url("../images/BG_home.jpg");
+ 	background-size: cover;
+ 	background-position: center center;
+ 	background-repeat: no-repeat;
+ 	color: #fff;
+}*/
+
+header .home h2 {
+ 	font-family: KaushanScript-Regular;
+ 	font-size: 72px;
+ 	line-height: 57px;
+ 	margin-bottom: 29px;
+ 	margin-top: 100px;
+ }
+
+header .home h1 {
+  	font-size: 150px;
+ 	line-height: 140px;
+ 	margin-bottom: 29px;
+ 	/*max-width: 1000px;*/
+ }
