@@ -4,13 +4,13 @@
 <configuration>
 	<!-- Alias of Type -->
 	<typeAliases>
-		<!-- <typeAlias alias="blogger" type="com.ngoc.springmvc.entity.BloggerVO"/>  ví dụ--> 
+		<!-- <typeAlias alias="department" type="com.hakunamatata.springmvc.entity.Department"/>  ví dụ--> 
 		
 	</typeAliases>		
 	
 	<!-- Mapper (sql statement )list -->
 	<mappers>
-		<!-- <mapper resource="mapper/blogger-mapper.xml"/>  ví dụ-->
+		<!-- <mapper resource="mapper/department-mapper.xml"/>  ví dụ-->
 		
 	</mappers>
 	

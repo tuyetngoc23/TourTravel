@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,16 +78,17 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Jacob</td>	
-                          <td>Photoshop</td>
-                          <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
+                      <c:forEach var="department" items="${departmentList}">
+                      	<tr>
+                          <td>${department.id}</td>	
+                          <td>${department.tourguide}</td>	
+                          <td>${department.address}</td>	
                           <td>
                           	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
                           	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
                           </td>
                         </tr>
-                        
+                      </c:forEach>                   
                       </tbody>
                     </table>
                   </div>
