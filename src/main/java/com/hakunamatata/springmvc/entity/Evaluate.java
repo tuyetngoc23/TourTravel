@@ -12,21 +12,21 @@ public class Evaluate {
 	private Date wdate;
 	
 	
-	private int user_id;
-	private int tour_id;
+	private UserTour user;
+	private Tour tour;
 	
 	
-	public int getUser_id() {
-		return user_id;
+	public UserTour getUser() {
+		return user;
 	}
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUser(UserTour user) {
+		this.user = user;
 	}
-	public int getTour_id() {
-		return tour_id;
+	public Tour getTour() {
+		return tour;
 	}
-	public void setTour_id(int tour_id) {
-		this.tour_id = tour_id;
+	public void setTour(Tour tour) {
+		this.tour = tour;
 	}
 	public int getId() {
 		return id;

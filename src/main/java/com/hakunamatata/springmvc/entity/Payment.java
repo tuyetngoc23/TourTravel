@@ -13,21 +13,22 @@ public class Payment {
 	private BigDecimal totalprice;
 	private Date pdate;
 	
-	private int book_id;
-	private int payment_type;
+	private Book book;
+	private PaymentType payment_type;
 	
 	
 	
-	public int getBook_id() {
-		return book_id;
+	
+	public Book getBook() {
+		return book;
 	}
-	public void setBook_id(int book_id) {
-		this.book_id = book_id;
+	public void setBook(Book book) {
+		this.book = book;
 	}
-	public int getPayment_type() {
+	public PaymentType getPayment_type() {
 		return payment_type;
 	}
-	public void setPayment_type(int payment_type) {
+	public void setPayment_type(PaymentType payment_type) {
 		this.payment_type = payment_type;
 	}
 	public int getId() {

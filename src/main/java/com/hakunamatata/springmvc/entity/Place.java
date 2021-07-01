@@ -8,22 +8,29 @@ public class Place {
 	private int id;
 	private String name;
 	private String address;
+	private String image;
 	
-	private int province_id;
+	private Province province;
 	
 	
 	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public Province getProvince() {
+		return province;
+	}
+	public void setProvince(Province province) {
+		this.province = province;
+	}
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
 		this.address = address;
-	}
-	public int getProvince_id() {
-		return province_id;
-	}
-	public void setProvince_id(int province_id) {
-		this.province_id = province_id;
 	}
 	public int getId() {
 		return id;

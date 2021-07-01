@@ -15,23 +15,44 @@ public class Tour {
 	private Date end_day;
 	private String content;
 	private String note;
+	private String image; 
 	
-	private int location_go;
-	private int cattour_id;
+	private Department department;
+	private CatTour cattour;
+	private Hotel hotel;
+	private Vehicle vehicle;
 	
 	
 	
-	public int getLocation_go() {
-		return location_go;
+	public Hotel getHotel() {
+		return hotel;
 	}
-	public void setLocation_go(int location_go) {
-		this.location_go = location_go;
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
-	public int getCattour_id() {
-		return cattour_id;
+	public Vehicle getVehicle() {
+		return vehicle;
 	}
-	public void setCattour_id(int cattour_id) {
-		this.cattour_id = cattour_id;
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public Department getDepartment() {
+		return department;
+	}
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+	public CatTour getCattour() {
+		return cattour;
+	}
+	public void setCattour(CatTour cattour) {
+		this.cattour = cattour;
 	}
 	public int getId() {
 		return id;
