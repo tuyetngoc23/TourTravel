@@ -84,7 +84,7 @@
                           <td>${department.tourguide}</td>	
                           <td>${department.address}</td>	
                           <td>
-                          	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
+                          	<a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='edit?id=${department.id}'">Edit</a>
                           	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
                           </td>
                         </tr>

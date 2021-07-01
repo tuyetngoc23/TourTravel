@@ -9,7 +9,13 @@
 	<select id="selectList" parameterType="department" resultType="department">
 		<![CDATA[
 			SELECT * FROM department
-			WHERE	id <= #{id}
 		]]>
 	</select>
+	<select id="selectOne" parameterType="department" resultType="department">
+		<![CDATA[
+			SELECT * FROM department
+			WHERE id = #{id}
+		]]>
+	</select>
+	
 </mapper>

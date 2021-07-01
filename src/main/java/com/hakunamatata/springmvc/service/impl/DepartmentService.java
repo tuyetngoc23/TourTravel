@@ -15,6 +15,10 @@ public class DepartmentService {
 	@Autowired
 	private DepartmentDAO	departmentDAO;
 	public List<Department> listDepartment(Department vo) {
-		return null;
+		return departmentDAO.list(vo);
+	}
+	
+	public Department getDepartment(Department vo) {
+		return departmentDAO.get(vo);
 	}
 }
