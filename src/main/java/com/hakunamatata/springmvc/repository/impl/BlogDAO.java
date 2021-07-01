@@ -25,7 +25,7 @@ public class BlogDAO implements DAO<Blog> {
 		private final String BLOG_UPDATE= "update blog set title=?,name=?, content=?  where id=?";
 		private final String BLOG_DELETE= "delete from blog where id=?";//use primary key
 		private final String BLOG_GET= "select * from blog where id=?";
-		private final String BLOG_LIST= "select * from blog order by id desc";
+		private final String BLOG_LIST= "select * from blog";
 	
 	@Override
 	public void insert(Blog vo) {
@@ -69,13 +69,39 @@ class BlogRowMapper implements RowMapper<Blog>{
 
 	//ResultMap
 	@Override
-	public Blog mapRow(ResultSet rs, int rowNum)throws SQLException {
+	public Blog mapRow(ResultSet rs, int rowNum) {
 		Blog vo = new Blog();
-		vo.setId(rs.getInt("ID"));
-		vo.setTitle(rs.getString("TITLE"));
-		vo.setWname(rs.getString("WNAME"));
-		vo.setContent(rs.getString("CONTENT"));
-		vo.setWdate(rs.getDate("WDATE"));
+		try {
+			vo.setId(rs.getInt("ID"));
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			vo.setTitle(rs.getString("TITLE"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			vo.setWname(rs.getString("WNAME"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			vo.setContent(rs.getString("CONTENT"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			vo.setWdate(rs.getDate("WDATE"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return vo;
 	}
+	
 }

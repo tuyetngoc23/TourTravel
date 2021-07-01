@@ -26,7 +26,7 @@ public class UserDAO implements DAO<UserTour> {
 		private final String USERTOUR_UPDATE= "update user_tour set username=?, passwd=?, cusname=?, phone=?, birthday=?, address=?, email=?  where id=?";
 		private final String USERTOUR_DELETE= "delete from user_tour where id=?";//use primary key
 		private final String USERTOUR_GET= "select * from user_tour where id=?";
-		private final String USERTOUR_LIST= "select * from user_tour order by id desc";
+		private final String USERTOUR_LIST= "select * from user_tour";
 	@Override
 	public void insert(UserTour vo) {
 		logger.info("insert : "+vo);
@@ -69,16 +69,56 @@ class UserTourRowMapper implements RowMapper<UserTour>{
 
 	//ResultMap
 	@Override
-	public UserTour mapRow(ResultSet rs, int rowNum)throws SQLException {
+	public UserTour mapRow(ResultSet rs, int rowNum) {
 		UserTour vo = new UserTour();
-		vo.setId(rs.getInt("ID"));
-		vo.setUsername(rs.getString("USERNAME"));
-		vo.setPasswd(rs.getString("PASSWD"));
-		vo.setCusname(rs.getString("CUSNAME"));
-		vo.setPhone(rs.getString("PHONE"));
-		vo.setBirthday(rs.getDate("BIRTHDAY"));
-		vo.setAddress(rs.getString("ADDRESS"));
-		vo.setEmail(rs.getString("EMAIL"));	
+		try {
+			vo.setId(rs.getInt("ID"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			vo.setUsername(rs.getString("USERNAME"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			vo.setPasswd(rs.getString("PASSWD"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			vo.setCusname(rs.getString("CUSNAME"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			vo.setPhone(rs.getString("PHONE"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			vo.setBirthday(rs.getDate("BIRTHDAY"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			vo.setAddress(rs.getString("ADDRESS"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			vo.setEmail(rs.getString("EMAIL"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
 		
 		return vo;
 	}
