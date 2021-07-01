@@ -1,8 +1,9 @@
-package com.hakunamatata.springmvc.repository;
+package com.hakunamatata.springmvc.repository.impl;
 
 import java.util.List;
 
 import com.hakunamatata.springmvc.entity.Place;
+import com.hakunamatata.springmvc.repository.DAO;
 
 public class PlaceDAO implements DAO<Place> {
 
