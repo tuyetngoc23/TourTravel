@@ -69,16 +69,20 @@
                     <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th>User</th>
-                          <th>Product</th>
-                          <th>Sale</th>
-                          <th>Status</th>
+                          <th>Id</th>
+                          <th>Type</th>
+                          <th>Name</th>
+                          <th>Tour id</th>
+                          <th>Image</th>
+                          <th>Address</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>Jacob</td>
+                          <td>Photoshop</td>
+                          <td>Photoshop</td>
                           <td>Photoshop</td>
                           <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
                           <td><label class="badge badge-danger">Pending</label></td>
@@ -87,30 +91,7 @@
                           	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
                           </td>
                         </tr>
-                        <tr>
-                          <td>Messsy</td>
-                          <td>Flash</td>
-                          <td class="text-danger"> 21.06% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
-                        <tr>
-                          <td>John</td>
-                          <td>Premier</td>
-                          <td class="text-danger"> 35.00% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-info">Fixed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Peter</td>
-                          <td>After effects</td>
-                          <td class="text-success"> 82.00% <i class="mdi mdi-arrow-up"></i></td>
-                          <td><label class="badge badge-success">Completed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Dave</td>
-                          <td>53275535</td>
-                          <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
-                          <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
+
                       </tbody>
                     </table>
                   </div>
