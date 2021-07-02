@@ -62,16 +62,16 @@
                     <p class="card-description"> Basic form elements </p>
                     <form class="forms-sample">
                       <div class="form-group">
-                      <label for="exampleInputEmail3">Id</label>
-                        <input type="text" class="form-control" id="exampleInputName1" readonly>
+                      <label for="exampleInputEmail3">ID</label>
+                        <input type="text" class="form-control" id="exampleInputName1" value="${departmentOne.id}" readonly>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Tour guide</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Tour guide" required>
+                        <input type="text" class="form-control" id="exampleInputEmail3" value="${departmentOne.tourguide}" required>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword4">Address</label>
-                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Address" required>
+                        <label for="exampleInputPassword4">address</label>
+                        <input type="text" class="form-control" id="exampleInputPassword4" value="${departmentOne.address}" required>
                       </div>
                       
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
