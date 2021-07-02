@@ -2,6 +2,7 @@ package com.hakunamatata.springmvc.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 
 public class Tour {
@@ -22,8 +23,23 @@ public class Tour {
 	private Hotel hotel;
 	private Vehicle vehicle;
 	
+	private List<Place> place;
+	private List<Discount> discount;
 	
 	
+	
+	public List<Place> getPlace() {
+		return place;
+	}
+	public void setPlace(List<Place> place) {
+		this.place = place;
+	}
+	public List<Discount> getDiscount() {
+		return discount;
+	}
+	public void setDiscount(List<Discount> discount) {
+		this.discount = discount;
+	}
 	public Hotel getHotel() {
 		return hotel;
 	}
