@@ -18,19 +18,19 @@ public class BlogDAO implements DAO<Blog> {
 	@Override
 	public void insert(Blog vo) {
 		// TODO Auto-generated method stub
-		session.insert("Blogger.insert", vo);		
+		session.insert("Blog.insert", vo);		
 	}
 
 	@Override
 	public void update(Blog vo) {
 		// TODO Auto-generated method stub
-		session.update("Blogger.update", vo);
+		session.update("Blog.update", vo);
 	}
 
 	@Override
 	public void delete(Blog vo) {
 		// TODO Auto-generated method stub
-		session.delete("Blogger.delete", vo);
+		session.delete("Blog.delete", vo);
 	}
 
 	@Override
