@@ -7,18 +7,37 @@ import org.springframework.stereotype.Service;
 
 import com.hakunamatata.springmvc.entity.Department;
 import com.hakunamatata.springmvc.repository.impl.DepartmentDAO;
-
-
+import com.hakunamatata.springmvc.service.ServiceInterface;
 
 @Service("departmentService")
-public class DepartmentService {
+public class DepartmentService implements ServiceInterface<Department> {
 	@Autowired
 	private DepartmentDAO	departmentDAO;
-	public List<Department> listDepartment(Department vo) {
-		return departmentDAO.list(vo);
+	@Override
+	public void insert(Department vo) {
+		// TODO Auto-generated method stub
+		
 	}
-	
-	public Department getDepartment(Department vo) {
+
+	@Override
+	public void update(Department vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Department vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Department get(Department vo) {
 		return departmentDAO.get(vo);
+	}
+
+	@Override
+	public List<Department> list(Department vo) {
+		return departmentDAO.list(vo);
 	}
 }

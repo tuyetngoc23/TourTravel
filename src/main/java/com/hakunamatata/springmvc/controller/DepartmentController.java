@@ -25,10 +25,10 @@ public class DepartmentController {
 	
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String list(Locale locale, Model model) {
-		List<Department> list = departmentService.listDepartment(null);
+		List<Department> list = departmentService.list(null);
 		model.addAttribute("departmentList",list);
-		System.out.println(list);
-		return "admin/department/list";// /WEB_INF/views/article/home.jsp
+		//System.out.println(list);
+		return "admin/department/list";
 	}
 
 	
@@ -36,9 +36,9 @@ public class DepartmentController {
 	public String write(@RequestParam(value="id") Integer id,Locale locale, Model model) {
 		Department vo = new Department();
 		vo.setId(id.intValue());
-		Department department = departmentService.getDepartment(vo);
+		Department department = departmentService.get(vo);
 		model.addAttribute("departmentOne",department);
-		System.out.println(department);
+		//System.out.println(department);
 		return "admin/department/edit";
 	}
 
