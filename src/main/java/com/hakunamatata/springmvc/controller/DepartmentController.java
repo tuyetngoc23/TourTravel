@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hakunamatata.springmvc.entity.Department;
+import com.hakunamatata.springmvc.repository.DAO;
 import com.hakunamatata.springmvc.service.impl.DepartmentService;
 
 
@@ -20,7 +21,7 @@ import com.hakunamatata.springmvc.service.impl.DepartmentService;
 @RequestMapping("/department")
 public class DepartmentController {
 	@Autowired
-	private DepartmentService departmentService;
+	private DAO<Department> departmentService;
 
 	
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
