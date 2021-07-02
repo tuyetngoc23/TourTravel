@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +39,7 @@
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
                 <p>List Vehicle Admin</p>
-                <a href="#" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
+                <a href="${pageContext.request.contextPath }/admin/vehicle/new"  class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
             </div>
@@ -71,23 +72,26 @@
                         <tr>
                           <th>ID Vehicle</th>
                           <th>Name</th>
-                          <th>ID Tour</th>
+                        
                          
                           <th class="text-center">Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Test</td>
-                            <td>tour_id</td>
+                      <c:forEach var="vehicle" items="${list}">
+                      	  <tr>
+                          <td>${vehicle.id}</td>
+                          <td>${vehicle.name}</td>
+                         
                           
                        
                           <td class="text-center">
-                          	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
+                          	<a href="${pageContext.request.contextPath }/admin/vehicle/edit?id=${vehicle.id}" type="button" class="btn btn-gradient-info btn-fw">Edit</a>
+                          	<a href="${pageContext.request.contextPath }/admin/vehicle/delete?id=${vehicle.id}" class="btn btn-gradient-danger btn-fw">Delete</a>
                           </td>
                         </tr>
+                      
+                      </c:forEach>
                        
                       </tbody>
                     </table>

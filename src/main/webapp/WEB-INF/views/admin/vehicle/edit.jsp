@@ -59,19 +59,14 @@
                   <div class="card-body">
                     <h4 class="card-title">Edit Vihecle</h4>
                   
-     			  <form class="forms-sample" action="#" method="post">
+     			  <form class="forms-sample" action="${pageContext.request.contextPath }/admin/vehicle/edit" method="post">
                       <div class="form-group">
                         <label for="exampleInputName1">Name Vehicle :</label>
-                        <input type="text" class="form-control" name="name" placeholder="Name Vehicle">
+                         <input type="hidden" class="form-control" name="id" value="${vehicle.id}	">
+                        <input type="text" class="form-control" name="name" value="${vehicle.name}	">
                       </div>
                      
-                      <div class="form-group">
-                        <label >Tour Name</label>
-                        <select class="form-control" name="tour_id">
-                          <option>Tour1</option>
-                          <option>Tour2</option>
-                        </select>
-                      </div>
+                   
                      
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                       <button class="btn btn-light">Cancel</button>

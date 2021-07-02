@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>New Vehicle</title>
@@ -59,22 +59,16 @@
                   <div class="card-body">
                     <h4 class="card-title text-center text-info">New Vehicle </h4>
                 
-                    <form class="forms-sample" action="#" method="post">
+                    <form class="forms-sample" action="${pageContext.request.contextPath }/admin/vehicle/new" method="post">
                       <div class="form-group">
                         <label for="exampleInputName1">Name Vehicle :</label>
                         <input type="text" class="form-control" name="name" placeholder="Name Vehicle">
                       </div>
                      
-                      <div class="form-group">
-                        <label >Tour Name</label>
-                        <select class="form-control" name="tour_id">
-                          <option>Tour1</option>
-                          <option>Tour2</option>
-                        </select>
-                      </div>
+                    
                      
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                      <button class="btn btn-light">Cancel</button>
+                      <button type="reset" class="btn btn-light">Cancel</button>
                     </form>
                   </div>
                 </div>
