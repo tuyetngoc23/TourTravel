@@ -2,11 +2,17 @@ package com.hakunamatata.springmvc.repository.impl;
 
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.hakunamatata.springmvc.entity.Department;
 import com.hakunamatata.springmvc.repository.DAO;
-
-public abstract class DepartmentDAO implements DAO<Department> {
-
+@Repository("departmentDAO")
+public class DepartmentDAO implements DAO<Department> {
+	@Autowired
+	private SqlSessionTemplate session;
+	
 	@Override
 	public void insert(Department vo) {
 		// TODO Auto-generated method stub
@@ -27,14 +33,13 @@ public abstract class DepartmentDAO implements DAO<Department> {
 
 	@Override
 	public Department get(Department vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Department)session.selectOne("Department.selectOne", vo);
 	}
 
 	@Override
 	public List<Department> list(Department vo) {
 		// TODO Auto-generated method stub
-		return null;
+		return session.selectList("Department.selectList",vo);
 	}
 
 }

@@ -6,12 +6,20 @@
 	<typeAliases>
 		<!-- <typeAlias alias="blogger" type="com.ngoc.springmvc.entity.BloggerVO"/>  ví dụ--> 
 		<typeAlias alias="vehicle" type="com.hakunamatata.springmvc.entity.Vehicle"/>
+		<typeAlias alias="department" type="com.hakunamatata.springmvc.entity.Department"/>
+		
 	</typeAliases>		
+
 	
-	<!-- Mapper (sql statement )list -->
+
+	
+	<!--Mapper (sql statement )list -->
 	<mappers>
+
 		<!-- <mapper resource="mapper/blogger-mapper.xml"/>  ví dụ-->
 		<mapper resource="mapper/vehicle-mapper.xml"/>
+		<mapper resource="mapper/department-mapper.xml"/> 		
+
 	</mappers>
 	
 </configuration>

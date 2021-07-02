@@ -28,6 +28,10 @@ public class Department {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	@Override
+	public String toString() {
+		return "Department [id=" + id + ", tourguide=" + tourguide + ", address=" + address + "]";
+	}
 	
 	
 }
