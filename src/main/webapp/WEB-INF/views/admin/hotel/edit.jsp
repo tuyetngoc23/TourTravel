@@ -90,8 +90,8 @@
                         <label for="exampleInputPassword4">Address</label>
                         <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Address" required>
                       </div>
-                      <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                      <button class="btn btn-light">Cancel</button>
+                        <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+                      	<a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/hotel/'">Cancel</a>
                     </form>
                   </div>
                 </div>

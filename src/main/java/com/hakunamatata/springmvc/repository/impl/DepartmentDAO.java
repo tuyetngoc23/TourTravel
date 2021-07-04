@@ -32,12 +32,11 @@ public class DepartmentDAO implements DAO<Department> {
 
 	@Override
 	public Department get(Department vo) {
-		return (Department)session.selectOne("Department.selectOne", vo);
+		return session.selectOne("Department.selectOne", vo);
 	}
 
 	@Override
 	public List<Department> list(Department vo) {
-		// TODO Auto-generated method stub
 		return session.selectList("Department.selectList",vo);
 	}
 

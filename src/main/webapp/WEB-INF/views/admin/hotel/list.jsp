@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>       
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,26 +73,26 @@
                           <th>Id</th>
                           <th>Type</th>
                           <th>Name</th>
-                          <th>Tour id</th>
                           <th>Image</th>
                           <th>Address</th>
                           <th>Action</th>
+                          <th><a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='new'">New</a></th>
                         </tr>
                       </thead>
                       <tbody>
+                        <c:forEach var="hotel" items="${hotelList}">
                         <tr>
-                          <td>Jacob</td>
-                          <td>Photoshop</td>
-                          <td>Photoshop</td>
-                          <td>Photoshop</td>
-                          <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-danger">Pending</label></td>
+                          <td>${hotel.id}</td>
+                          <td>${hotel.type}</td>
+                          <td>${hotel.name}</td>
+                          <td><img src="${pageContext.request.contextPath }/uploads/image-hotel/${hotel.image}"></td>
+                          <td>${hotel.address}</td>
                           <td>
-                          	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
+                          	<a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='edit?id=${hotel.id}'">Edit</a>
+                          	<a type="button" class="btn btn-gradient-danger btn-fw" onclick="document.location='delete?id=${hotel.id}'">Delete</a>
                           </td>
                         </tr>
-
+						</c:forEach>   
                       </tbody>
                     </table>
                   </div>

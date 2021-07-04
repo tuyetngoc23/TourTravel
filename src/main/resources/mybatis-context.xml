@@ -5,12 +5,14 @@
 	<!-- Alias of Type -->
 	<typeAliases>
 		<typeAlias alias="department" type="com.hakunamatata.springmvc.entity.Department"/>
+		<typeAlias alias="hotel" type="com.hakunamatata.springmvc.entity.Hotel"/>
 		
 	</typeAliases>	
 	
 	<!--Mapper (sql statement )list -->
 	<mappers>
 		<mapper resource="mapper/department-mapper.xml"/> 		
+		<mapper resource="mapper/hotel-mapper.xml"/> 	
 	</mappers>
 	
 </configuration>

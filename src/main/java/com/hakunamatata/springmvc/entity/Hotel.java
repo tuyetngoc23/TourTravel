@@ -44,5 +44,10 @@ public class Hotel {
 	public void setImage(String image) {
 		this.image = image;
 	}
+	@Override
+	public String toString() {
+		return "Hotel [id=" + id + ", type=" + type + ", name=" + name + ", image=" + image + ", address=" + address
+				+ "]";
+	}
 	
 }
