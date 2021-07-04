@@ -75,6 +75,7 @@
                           <th>Tour guide</th>
                           <th>Address</th>
                           <th>Action</th>
+                          <th><a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='new'">New</a></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -85,7 +86,7 @@
                           <td>${department.address}</td>	
                           <td>
                           	<a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='edit?id=${department.id}'">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
+                          	<a type="button" class="btn btn-gradient-danger btn-fw" onclick="document.location='delete?id=${department.id}'">Delete</a>
                           </td>
                         </tr>
                       </c:forEach>                 

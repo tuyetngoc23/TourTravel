@@ -15,20 +15,17 @@ public class DepartmentService implements ServiceInterface<Department> {
 	private DepartmentDAO	departmentDAO;
 	@Override
 	public void insert(Department vo) {
-		// TODO Auto-generated method stub
-		
+		departmentDAO.insert(vo);	
 	}
 
 	@Override
 	public void update(Department vo) {
-		// TODO Auto-generated method stub
-		
+		departmentDAO.update(vo);
 	}
 
 	@Override
 	public void delete(Department vo) {
-		// TODO Auto-generated method stub
-		
+		departmentDAO.delete(vo);	
 	}
 
 	@Override

@@ -17,5 +17,15 @@
 			WHERE id = #{id}
 		]]>
 	</select>
-	
+	<insert id="insert" parameterType="department">
+		INSERT INTO department (tourguide, address) 
+		VALUES (#{tourguide}, #{address})	
+	</insert>
+	<update id="update" parameterType="department">
+		UPDATE department SET tourguide=#{tourguide}, address=#{address} 
+		WHERE id=#{id}
+	</update>
+	<delete id="delete" parameterType="department">
+		DELETE FROM department WHERE id=#{id}
+	</delete>
 </mapper>

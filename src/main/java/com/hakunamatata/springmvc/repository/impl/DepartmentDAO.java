@@ -15,19 +15,18 @@ public class DepartmentDAO implements DAO<Department> {
 	
 	@Override
 	public void insert(Department vo) {
-		// TODO Auto-generated method stub
+		session.insert("Department.insert",vo);
 		
 	}
 
 	@Override
 	public void update(Department vo) {
-		// TODO Auto-generated method stub
-		
+		session.update("Department.update",vo);
 	}
 
 	@Override
 	public void delete(Department vo) {
-		// TODO Auto-generated method stub
+		session.delete("Department.delete",vo);
 		
 	}
 
