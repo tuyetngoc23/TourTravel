@@ -13,7 +13,35 @@
         div {
             display: block;
         }
-        #tour{
+		/* search */
+		.searchbar{
+			background: #f1f1f1;
+			color: #212121;
+			margin-bottom: 30px;
+			font: 16px Arial;
+		}
+		.titlesearch{
+			text-transform: uppercase;
+			font-weight: 700;
+			border-bottom: 1px dashed #ccc;
+			padding: 15px;
+			font-size: 16px;
+			color: #0bc549;
+			line-height: 25px;
+    		text-shadow: 1px 1px 2px #ffba8a;
+		}
+		.frsearch{
+			padding: 15px;
+		}
+		.mg-bot15{
+			margin-bottom: 15px;
+		}
+		#search{
+			background-color: #1de45f;
+			color: #f1f1f1;
+		}
+		/* list tour */
+        #list{
             font-family: Muli,sans-serif;
             font-size: 14px;
         }
@@ -33,7 +61,7 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            background: #ed0080;
+            background: #07d811;
             color: #fff;
             font-size: 14px;
             line-height: 20px;
@@ -47,20 +75,26 @@
             text-align: center;
             margin-bottom: 3px;
         }
-        .size {
-            width: 330px;
-            height: 227px;
-        }
-        #box {
+		#box {
             margin-bottom: 20px;
             padding: 15px;
             border: solid 1px rgba(0,0,0,.15);
             min-height: 251px;
             min-block-size: 260px;
         }
-        #imag {
-            float:left;
+		#imag {
+			width: 330px;
+			float: left;
+			margin-right: 20px;
+			position: relative;
+			overflow: hidden
         }
+        .size {
+            width: 330px;
+            height: 227px;
+			transition: 0.5s;
+        }
+		
         #caption {
             overflow: hidden;
             padding-left: 10px;
@@ -81,7 +115,7 @@
         }
         a#tourname:hover{
             text-decoration: none;
-            color: springgreen;
+            color: rgb(8, 219, 8);
         }
         #datetime{
             font-family: Arial;
@@ -111,13 +145,17 @@
         }
         #price {
             font-family: Arial;
-            color: #ed0080;
+            color: #0de065;
             font-size: 22px;
             line-height: 24px;
             font-weight: 700;
             height: 24px;
             float:right;
+			margin-bottom: 5px;
         }
+		#book:hover{
+			background-color: #75c48d;
+		}
     </style>
 </head>
 <body>
@@ -190,82 +228,139 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 mg-bot30">
                         <form action="#">
-                            <div class="Title">TÌM KIẾM</div>
-                            <div class="frsearch" style="clear: both;">
-                                <div class="location">
-                                    <label for="departure">Nơi Khởi Hành</label>
-                                    <select id="departure" class="form-control" style="display: block;">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                    </select>
-                                </div>
-                                <div class="cat">
-                                    <label for="cattour">Loại Tour</label>
-                                    <select id="cattour" class="form-control" style="display: block;">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                    </select>
-                                </div>
-                                <div class="province">
-                                    <label for="desnitation">Nơi đến</label>
-                                    <select id="desnitation" class="form-control" style="display: block;">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                    </select>
-                                </div>
-                                <div class="arival">
-                                    <label for="ngaykhoihanh">Ngày Khởi Hành</label>
-                                    <input id="ngaykhoihanh" class="form-control" type="date"/>
-                                </div>
-                                <div class="price">
-                                    <label for="gia">Giá</label>
-                                    <select id="gia" class="form-control" style="display: block;">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                    </select>
-                                </div>
-                                <div class="btsearch">
-                                    <div style="margin-top: 20px;">
-                                        <input type="submit" class="form-control btn btn-danger" value="Tìm Kiếm"/>
-                                    </div>
-                                </div>
-                            </div>    
+							<div class="searchbar">
+								<div class="titlesearch">TÌM KIẾM</div>
+                            	<div class="frsearch" style="clear: both;">
+									<div class="location mg-bot15" >
+										<label for="departure">Nơi Khởi Hành</label>
+										<select id="departure" class="form-control" >
+											<option value="1">1</option>
+											<option value="2">2</option>
+										</select>
+									</div>
+									<div class="cat mg-bot15">
+										<label for="cattour">Loại Tour</label>
+										<select id="cattour" class="form-control" >
+											<option value="1">1</option>
+											<option value="2">2</option>
+										</select>
+									</div>
+									<div class="province mg-bot15">
+										<label for="desnitation">Nơi đến</label>
+										<select id="desnitation" class="form-control" >
+											<option value="1">1</option>
+											<option value="2">2</option>
+										</select>
+									</div>
+									<div class="arival mg-bot15">
+										<label for="ngaykhoihanh">Ngày Khởi Hành</label>
+										<input id="ngaykhoihanh" class="form-control" type="date"/>
+									</div>
+									<div class="price mg-bot15">
+										<label for="gia">Giá</label>
+										<select id="gia" class="form-control">
+											<option value="1">1</option>
+											<option value="2">2</option>
+										</select>
+									</div>
+									<div class="hotel mg-bot15">
+										<label for="ks">Khách Sạn</label>
+										<select id="ks" class="form-control">
+											<option value="1">1</option>
+											<option value="2">2</option>
+										</select>
+									</div>
+									<div class="vehicle mg-bot15">
+										<label for="phuongtien">Phương Tiện</label>
+										<select id="phuongtien" class="form-control">
+											<option value="1">1</option>
+											<option value="2">2</option>
+										</select>
+									</div>
+									<div class="btsearch mg-bot15">
+										<div>
+											<input id="search" type="submit" class="form-control" value="Tìm Kiếm"/>
+										</div>
+									</div>
+                            	</div> 
+							</div>
                         </form>
                         
                     </div>
                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                         <div id="list">
-                            <div class="wrap">
-                                <div id="day">
-                                    <div id="ngay">01</div>
-                                    <div id="monyear">7/2021</div>
-                                </div>
-                                <div id="box">
-                                    <div id="imag">
-                                        <img class="size" src="images/dalat2.jpg" />
-                                    </div>
-                                    <div id="caption">
-                                        <div>
-                                            <a id="tourname" href="#">Du lịch Hè - Tour Du lịch Phú Quốc - Grand World - Checkin Dòng Sông Venice - Vinwonders</a>
-                                            <div>
-                                                <p id="datetime">
-                                                    <span>Thời gian</span>
-                                                    <span>3 ngày 2 đêm</span>
-                                                </p>
-                                            </div> 
-                                        </div>
-                                        <div id="boxprice">
-                                           <div>
-                                                <span><strong>Số chỗ còn nhận: </strong>
-                                                10 chỗ</span>
-                                           </div>
-                                            <p>
-                                                <span id="price">4.000.000VND</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+							<form action="#">
+								<div class="wrap">
+									<div id="day">
+										<div id="ngay">01</div>
+										<div id="monyear">7/2021</div>
+									</div>
+									<div id="box">
+										<div id="imag">
+											<a href="#"><img class="size" src="images/dalat2.jpg" /></a>
+										</div>
+										<div id="caption">
+											<div>
+												<a id="tourname" href="#"><strong>Du lịch Hè - Tour Du lịch Phú Quốc - Grand World - Checkin Dòng Sông Venice - Vinwonders</strong></a>
+												<div>
+													<p id="datetime">
+														<span>Thời gian</span>
+														<span>3 ngày 2 đêm</span>
+													</p>
+												</div> 
+											</div>
+											<div id="boxprice">
+												<div>
+													<span><strong>Số chỗ còn nhận: </strong>
+													10 chỗ</span>
+												</div>
+												<p>
+													<span id="price">4.000.000VND</span>
+												</p>
+												<input id="book" type="submit" value="Đặt Tour" class="form-control"/>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</form>
+                        </div>
+						<div id="list">
+							<form action="#">
+								<div class="wrap">
+									<div id="day">
+										<div id="ngay">01</div>
+										<div id="monyear">7/2021</div>
+									</div>
+									<div id="box">
+										<div id="imag">
+											<a href="#"><img class="size" src="images/dalat2.jpg" /></a>
+										</div>
+										<div id="caption">
+											<div>
+												<a id="tourname" href="#"><strong>Du lịch Hè - Tour Du lịch Phú Quốc - Grand World - Checkin Dòng Sông Venice - Vinwonders</strong></a>
+												<div>
+													<p id="datetime">
+														<span>Thời gian</span>
+														<span>3 ngày 2 đêm</span>
+													</p>
+												</div> 
+											</div>
+											<div id="boxprice">
+												<div>
+													<span><strong>Số chỗ còn nhận: </strong>
+													10 chỗ</span>
+												</div>
+												<p>
+													<span id="price">4.000.000VND</span>
+												</p>
+												<input id="book" type="submit" value="Đặt Tour" class="form-control"/>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</form>
                         </div>
                     </div>
                 </div>

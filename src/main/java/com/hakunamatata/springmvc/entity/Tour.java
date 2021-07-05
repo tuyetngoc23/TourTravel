@@ -4,7 +4,10 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-
+/**
+ * @author Huynh Thi Tuyet Ngoc
+ *
+ */
 public class Tour {
 	
 	private int id;

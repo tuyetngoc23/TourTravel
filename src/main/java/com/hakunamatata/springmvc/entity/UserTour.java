@@ -5,6 +5,11 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+/**
+ * @author Huynh Thi Tuyet Ngoc
+ * Van:@Jsongnore
+ *
+ */
 public class UserTour {
 	
 	private int id;

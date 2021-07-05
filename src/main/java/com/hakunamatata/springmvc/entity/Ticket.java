@@ -4,7 +4,10 @@ package com.hakunamatata.springmvc.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
-
+/**
+ * @author Huynh Thi Tuyet Ngoc
+ *
+ */
 public class Ticket {
 	
 	private int id;
@@ -68,6 +71,12 @@ public class Ticket {
 	}
 	public void setUnitprice(BigDecimal unitprice) {
 		this.unitprice = unitprice;
+	}
+	public Book getBook() {
+		return book;
+	}
+	public void setBook(Book book) {
+		this.book = book;
 	}
 	
 	

@@ -1,5 +1,9 @@
 package com.hakunamatata.springmvc.entity;
 
+/**
+ * @author Huynh Thi Tuyet Ngoc
+ *
+ */
 public class ImageTour {
 	private int id;
 	private String name;

@@ -2,9 +2,10 @@ package com.hakunamatata.springmvc.entity;
 
 import java.util.Date;
 
-
-
-
+/**
+ * @author Huynh Thi Tuyet Ngoc
+ *
+ */
 public class Evaluate {
 	
 	private int id;
