@@ -17,17 +17,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hakunamatata.springmvc.entity.Vehicle;
+import com.hakunamatata.springmvc.service.VehicleService;
 import com.hakunamatata.springmvc.service.impl.VehicleServiceImpl;
 
 @Controller
 @RequestMapping("admin/vehicle")
 public class VehicleController {
 	@Autowired
-	private VehicleServiceImpl service;
+	private VehicleService service;
 	@RequestMapping(value = {"","/"},method = RequestMethod.GET)
 	public String list(Model model,Locale locale) {
 		
-		List<Vehicle> list = service.getList();
+		List<Vehicle> list = service.list(null);
 		model.addAttribute("list",list);
 		return "admin/vehicle/list";
 	}

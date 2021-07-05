@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Edit Tour</title>
+    <title>New Tour</title>
     <!-- plugins:css -->
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -25,6 +25,8 @@
     <!-- End layout styles -->
     <link rel="shortcut icon"
 	href="${pageContext.request.contextPath }/resources/assets/images/favicon.ico" />
+	<link href="${pageContext.request.contextPath }/resources/assets/css/select2.min.css" rel="stylesheet" />
+
 </head>
 <body>
 	<div class="container-scroller">
@@ -43,7 +45,7 @@
             <h3 class="page-title">
               <span class="page-title-icon bg-gradient-primary text-white mr-2">
                 <i class="mdi mdi-home"></i>
-              </span> Edit Tour
+              </span> New Tour
             </h3>
             <nav aria-label="breadcrumb">
               <ul class="breadcrumb">
@@ -58,7 +60,7 @@
      		  <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title text-info text-center">Edit Tour</h4>
+                    <h4 class="card-title text-info text-center">New Tour</h4>
                   
                     <form class="forms-sample" action="#" method="get">
                       <div class="form-group">
@@ -101,36 +103,63 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleSelectGender">Location Go Tour :</label>
-                        <select class="form-control" name="location_go">
+                        <select class="select-decreption form-control" name="location_go">
                           <option>Xe May</option>
                           <option>May Bay</option>
                         </select>
                       </div>
                         <div class="form-group">
                         <label for="exampleSelectGender">Cat Tour :</label>
-                        <select class="form-control" name="carttour_id">
+                        <select class="select-cattour form-control" name="carttour_id">
                           <option>cartour1</option>
                           <option>cartour12</option>
                         </select>
                       </div>
-                          <div class="form-group">
+                      
+                       <div class="form-group">
                         <label for="exampleSelectGender">Hothel</label>
-                        <select class="form-control" name="hotel_id">
+                        <select class="select-hotel form-control" name="hotel_id">
                           <option>hotel1</option>
                           <option>hotel2</option>
                         </select>
                       </div>
                         <div class="form-group">
                         <label for="exampleSelectGender">Vehicle</label>
-                        <select class="form-control" name="vehicle_id">
+                        <select class="select-vehicle form-control" name="vehicle_id">
                           <option>Vehicle1</option>
                           <option>Vehicle12</option>
                         </select>
                       </div>
+                       <div class="row">
+                       	    <div class="form-group col ">
+                        <label for="exampleSelectGender">Province</label>
+                        <select class="select-vehicle form-control" name="province_id">
+                          <option>Vehicle1</option>
+                          <option>Vehicle12</option>
+                        </select>
+                      </div>
+                      
+                          <div class="form-group col">
+                        <label for="exampleSelectGender">Place</label>
+                        <select class="select-palace form-control" name="place_id" multiple="multiple">
+                          <option value="vehi1">1</option>
+                          <option value="vehi2">2</option>
+                        </select>
+                      </div>
+                       </div>
+                            <div class="form-group">
+                        <label for="exampleSelectGender">Discount</label>
+                        <select class="select-discount form-control" name="discount_id" multiple="multiple">
+                          <option value="discount1">1</option>
+                          <option value="discount2">2</option>
+                           <option value="discount3">3</option>
+                        </select>
+                      </div>
+
                    
                       <div class="form-group">
-                        <label for="exampleInputCity1" >Content Tour</label>
-                        <textarea id="editor1"  class="form-control" name="content" placeholder="Content" rows="4"></textarea>
+                        <label for="exampleInputCity1">Content Tour</label>
+                        <textarea  id="editor1" class="form-control" name="content" placeholder="Content" rows="4"></textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleTextarea1">Note Tour</label>
@@ -159,9 +188,9 @@
 
     <!-- container-scroller -->
    <!-- plugins:js -->
-    <script
+   
+     <script
 		src="${pageContext.request.contextPath }/resources/assets/ckeditor/ckeditor.js"></script>
-  		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script
 		src="${pageContext.request.contextPath }/resources/assets/vendors/js/vendor.bundle.base.js"></script>
@@ -186,10 +215,32 @@
     <script
 		src="${pageContext.request.contextPath }/resources/assets/js/todolist.js"></script>
 		  <!-- Custom js for this page -->
-  
+  <script src="${pageContext.request.contextPath }/resources/assets/js/select2.min.js"></script>
     <!-- End custom js for this page -->
 </body>
-<script>
+<script >
+$('.select-vehicle').select2({
+	  placeholder: 'Select an option'
+	});	
+$('.select-hotel').select2({
+	  placeholder: 'Select an option'
+	});	
+$('.select-cattour').select2({
+	  placeholder: 'Select an option'
+	});	
+$('.select-decreption').select2({
+	  placeholder: 'Select an option'
+	});	
+	
+
+$(".select-palace").select2({
+	 placeholder: 'Select an place',
+	
+	});
+$(".select-discount").select2({
+	placeholder: 'Select an discount',
+	 
+	});
 CKEDITOR.replace( 'editor1' );
 </script>
 </html>

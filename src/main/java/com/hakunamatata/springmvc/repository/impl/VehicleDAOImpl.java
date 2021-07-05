@@ -11,10 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.hakunamatata.springmvc.entity.Vehicle;
-import com.hakunamatata.springmvc.repository.DAO;
+
+import com.hakunamatata.springmvc.repository.VehicleDAO;
 
 @Repository
-public class VehicleDAO implements DAO<Vehicle> {
+public class VehicleDAOImpl implements VehicleDAO {
 	@Autowired 
 	private SqlSessionTemplate session;
 	
