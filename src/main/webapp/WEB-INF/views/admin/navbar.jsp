@@ -44,7 +44,22 @@
                   <li class="nav-item"> <a class="nav-link" href="new">New User</a></li>
                 </ul>
               </div>
+              
             </li>
+             <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#blog" aria-expanded="false" aria-controls="blog">
+                <span class="menu-title">Blog</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+              </a>
+              <div class="collapse" id="blog">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">List Blog</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Add Blog</a></li>
+                </ul>
+              </div>
+            </li>
+            
                   <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#tour" aria-expanded="false" aria-controls="tour">
                 <span class="menu-title">Tour</span>

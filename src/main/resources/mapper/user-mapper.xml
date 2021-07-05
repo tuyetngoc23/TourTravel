@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserTour">
+
+
+	<!-- how to mapping table va object -->
+	<resultMap type="user" id="userMap">
+		<id property="id" column="ID"/>
+		<result property="username" column="USERNAME"/>
+		<result property="passwd" column="PASSWD"/>
+		<result property="cusname" column="CUSNAME"/>
+		<result property="phone" column="PHONE"/>
+		<result property="birthday" column="BIRTHDAY"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="email" column="EMAIL"/>
+		<result property="avatar" column="AVATAR"/>
+		
+	</resultMap>
+
+	<select id="selectOne" parameterType="user" resultType="user">
+		SELECT * FROM user_tour WHERE id=#{id}
+	</select>
+	<select id="selectList" parameterType="user" resultMap="userMap">
+		<![CDATA[
+			SELECT * FROM user_tour
+			WHERE	id <= #{id}
+		]]>
+	</select>
+
+	<insert id="insert" parameterType="user">
+		INSERT INTO user_tour (username, passwd, cusname, phone, birthday, address, email) 
+		VALUES (#{username}, #{passwd}, #{ cusname},#{phone}, #{birthday}, #{address},#{email})	
+	</insert>
+
+	<update id="update" parameterType="user">
+		UPDATE user_tour SET username=#{username}, passwd=#{passwd},
+		 					cusname=#{ cusname},phone=#{phone},birthday= #{birthday},address= #{address},email=#{email}
+		WHERE id=#{id}
+	</update>
+
+	<delete id="delete" parameterType="user">
+		DELETE FROM user_tour WHERE id=#{id}
+	</delete>
+
+</mapper>

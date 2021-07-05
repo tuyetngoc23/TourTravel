@@ -2,6 +2,8 @@ package com.hakunamatata.springmvc.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 public class UserTour {
 	
@@ -40,6 +42,7 @@ public class UserTour {
 	public String getPasswd() {
 		return passwd;
 	}
+	@JsonIgnore
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
