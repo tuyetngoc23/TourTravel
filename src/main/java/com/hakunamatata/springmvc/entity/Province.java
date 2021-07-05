@@ -21,6 +21,10 @@ public class Province {
 	public void setName(String name) {
 		this.name = name;
 	}
+	@Override
+	public String toString() {
+		return "Province [id=" + id + ", name=" + name + "]";
+	}
 	
 	
 	

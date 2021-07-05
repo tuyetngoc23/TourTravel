@@ -6,13 +6,16 @@
 	<typeAliases>
 		<typeAlias alias="department" type="com.hakunamatata.springmvc.entity.Department"/>
 		<typeAlias alias="hotel" type="com.hakunamatata.springmvc.entity.Hotel"/>
-		
+		<typeAlias alias="place" type="com.hakunamatata.springmvc.entity.Place"/>
+		<typeAlias alias="province" type="com.hakunamatata.springmvc.entity.Province"/>
 	</typeAliases>	
 	
 	<!--Mapper (sql statement )list -->
 	<mappers>
 		<mapper resource="mapper/department-mapper.xml"/> 		
 		<mapper resource="mapper/hotel-mapper.xml"/> 	
+		<mapper resource="mapper/place-mapper.xml"/>
+		<mapper resource="mapper/province-mapper.xml"/>
 	</mappers>
 	
 </configuration>

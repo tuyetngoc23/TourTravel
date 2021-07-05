@@ -2,39 +2,50 @@ package com.hakunamatata.springmvc.repository.impl;
 
 import java.util.List;
 
-import com.hakunamatata.springmvc.entity.Place;
-import com.hakunamatata.springmvc.repository.DAO;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-public class PlaceDAO implements DAO<Place> {
+import com.hakunamatata.springmvc.entity.Place;
+import com.hakunamatata.springmvc.entity.Province;
+import com.hakunamatata.springmvc.repository.PlaceInterface;
+@Repository("placeDAO")
+public class PlaceDAO implements PlaceInterface<Place>{
+	@Autowired
+	private SqlSessionTemplate session;
 
 	@Override
 	public void insert(Place vo) {
-		// TODO Auto-generated method stub
-		
+		session.insert("Place.insert",vo);
 	}
 
 	@Override
 	public void update(Place vo) {
-		// TODO Auto-generated method stub
-		
+		session.update("Place.update",vo);
 	}
 
 	@Override
 	public void delete(Place vo) {
-		// TODO Auto-generated method stub
-		
+		session.delete("Place.delete",vo);
 	}
 
 	@Override
 	public Place get(Place vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("Place.selectOne",vo);
 	}
 
 	@Override
 	public List<Place> list(Place vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectList("Place.selectList",vo);
 	}
 
+	@Override
+	public List<Province> listProvince(Province vo) {
+		return session.selectList("Province.selectList",vo);
+	}
+
+
+
+	
+	
 }

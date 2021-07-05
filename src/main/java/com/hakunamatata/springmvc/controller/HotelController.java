@@ -27,7 +27,6 @@ public class HotelController {
 	public String list(Locale locale, Model model) {
 		List<Hotel> list = hotelService.list(null);
 		model.addAttribute("hotelList",list);
-		//System.out.println(list);
 		return "admin/hotel/list";
 	}
 	
@@ -45,15 +44,10 @@ public class HotelController {
 		return "admin/hotel/new";
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String edit(MultipartFile uploadfile, Hotel vo, Locale locale, Model model) {
+	public String add(MultipartFile uploadfile, Hotel vo, Locale locale, Model model) {
 		System.out.println(uploadfile);
-//		LocalDateTime  myObj = LocalDateTime.now();
 		if(!uploadfile.isEmpty()) {
-//			System.out.println(uploadfile);
 			String fileName = uploadfile.getOriginalFilename();
-//			String name = uploadfile.getName();
-//			String type = uploadfile.getContentType();
-//			System.out.println(fileName+","+name+","+type);
 			// realPath
 			try {
 				uploadfile.transferTo(
@@ -64,10 +58,8 @@ public class HotelController {
 				System.out.println(vo);
 				hotelService.insert(vo);
 			} catch (IllegalStateException e) {
-				System.out.println(1);
 				e.printStackTrace();
 			} catch (IOException e) {
-				System.out.println(2);
 				e.printStackTrace();
 			}
 		}		
@@ -86,11 +78,7 @@ public class HotelController {
 	public String update(MultipartFile uploadfile, Hotel vo, Locale locale, Model model) {
 		System.out.println(uploadfile);
 		if(!uploadfile.isEmpty()) {
-//			System.out.println(uploadfile);
 			String fileName = uploadfile.getOriginalFilename();
-//			String name = uploadfile.getName();
-//			String type = uploadfile.getContentType();
-//			System.out.println(fileName+","+name+","+type);
 			// realPath
 			try {
 				uploadfile.transferTo(
@@ -101,10 +89,8 @@ public class HotelController {
 				System.out.println(vo);
 				hotelService.update(vo);
 			} catch (IllegalStateException e) {
-				System.out.println(1);
 				e.printStackTrace();
 			} catch (IOException e) {
-				System.out.println(2);
 				e.printStackTrace();
 			}
 		}	
