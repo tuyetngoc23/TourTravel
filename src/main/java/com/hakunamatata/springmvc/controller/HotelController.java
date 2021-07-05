@@ -2,6 +2,7 @@ package com.hakunamatata.springmvc.controller;
 
 import java.io.File;
 import java.io.IOException;
+//import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
 
@@ -22,7 +23,7 @@ public class HotelController {
 	@Autowired
 	private ServiceInterface<Hotel> hotelService;
 	
-	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String list(Locale locale, Model model) {
 		List<Hotel> list = hotelService.list(null);
 		model.addAttribute("hotelList",list);
@@ -44,34 +45,70 @@ public class HotelController {
 		return "admin/hotel/new";
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String edit(Hotel vo, Locale locale, Model model) {
-		System.out.println(vo);
-		hotelService.insert(vo);
-//		if( !vo.getImage().isEmpty() ) {
-//			System.out.println(vo.getImage());
-////			String fileName = image.getOriginalFilename();
-////			String name = image.getName();
-////			String type = image.getContentType();
-////			System.out.println(fileName+","+name+","+type);
-////			// realPath
-//			try {
-//				vo.getImage().transferTo(
-//						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-hotel"
-//									+ vo.getImage().getOriginalFilename())
-//				);
-//			} catch (IllegalStateException e) {
-//				e.printStackTrace();
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}
+	public String edit(MultipartFile uploadfile, Hotel vo, Locale locale, Model model) {
+		System.out.println(uploadfile);
+//		LocalDateTime  myObj = LocalDateTime.now();
+		if(!uploadfile.isEmpty()) {
+//			System.out.println(uploadfile);
+			String fileName = uploadfile.getOriginalFilename();
+//			String name = uploadfile.getName();
+//			String type = uploadfile.getContentType();
+//			System.out.println(fileName+","+name+","+type);
+			// realPath
+			try {
+				uploadfile.transferTo(
+						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-hotel\\"
+									+fileName)
+				);
+				vo.setImage(fileName);
+				System.out.println(vo);
+				hotelService.insert(vo);
+			} catch (IllegalStateException e) {
+				System.out.println(1);
+				e.printStackTrace();
+			} catch (IOException e) {
+				System.out.println(2);
+				e.printStackTrace();
+			}
+		}		
 		return "redirect:/hotel/";
 	}
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public String edit(Locale locale, Model model) {
-		
+	public String edit(@RequestParam(value="id") Integer id, Locale locale, Model model) {
+		Hotel vo = new Hotel();
+		vo.setId(id.intValue());
+		Hotel hotel = hotelService.get(vo);
+		model.addAttribute("hotelOne",hotel);
 		return "admin/hotel/edit";
+	}
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(MultipartFile uploadfile, Hotel vo, Locale locale, Model model) {
+		System.out.println(uploadfile);
+		if(!uploadfile.isEmpty()) {
+//			System.out.println(uploadfile);
+			String fileName = uploadfile.getOriginalFilename();
+//			String name = uploadfile.getName();
+//			String type = uploadfile.getContentType();
+//			System.out.println(fileName+","+name+","+type);
+			// realPath
+			try {
+				uploadfile.transferTo(
+						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-hotel\\"
+									+fileName)
+				);
+				vo.setImage(fileName);
+				System.out.println(vo);
+				hotelService.update(vo);
+			} catch (IllegalStateException e) {
+				System.out.println(1);
+				e.printStackTrace();
+			} catch (IOException e) {
+				System.out.println(2);
+				e.printStackTrace();
+			}
+		}	
+		return "redirect:/hotel/";
 	}
 	
 }

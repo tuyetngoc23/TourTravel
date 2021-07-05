@@ -59,36 +59,32 @@
                   <div class="card-body">
                     <h4 class="card-title">Basic form elements</h4>
                     <p class="card-description"> Basic form elements </p>
-                    <form class="forms-sample">
+                    <form class="forms-sample" method= "post" action="update" enctype="multipart/form-data">
                       <div class="form-group">
                       <label for="exampleInputEmail3">Id</label>
-                        <input type="text" class="form-control" id="exampleInputName1" readonly>
-                      </div>
-                      <div class="form-group">
-                      <label for="exampleInputEmail3">Id tour</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Id tour" required >
+                        <input type="text" class="form-control" value="${hotelOne.id}" name="id" readonly>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Type</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Type" required>
+                        <input type="text" class="form-control" value="${hotelOne.type}" name="type" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Name</label>
-                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Name" required>
+                        <input type="text" class="form-control" value="${hotelOne.name}" name="name" required>
                       </div>
                      <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <input type="file" name="uploadfile" class="file-upload-default">
                         <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
+                          <input type="text" class="form-control file-upload-info" disabled="" value="${hotelOne.image}">
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword4">Address</label>
-                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Address" required>
+                        <label for="exampleInputPassword4" >Address</label>
+                        <input type="text" class="form-control" name="address" value="${hotelOne.address}" required>
                       </div>
                         <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                       	<a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/hotel/'">Cancel</a>

@@ -1,7 +1,6 @@
 package com.hakunamatata.springmvc.entity;
 
-
-
+import org.springframework.web.multipart.MultipartFile;
 
 public class Hotel {
 	
@@ -10,7 +9,6 @@ public class Hotel {
 	private String name;
 	private String image;
 	private String address;
-	
 	
 	
 	public String getAddress() {
@@ -49,5 +47,7 @@ public class Hotel {
 		return "Hotel [id=" + id + ", type=" + type + ", name=" + name + ", image=" + image + ", address=" + address
 				+ "]";
 	}
+
+
 	
 }

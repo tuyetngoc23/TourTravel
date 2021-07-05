@@ -23,7 +23,7 @@ public class DepartmentController {
 	private ServiceInterface<Department> departmentService;
 
 	
-	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String list(Locale locale, Model model) {
 		List<Department> list = departmentService.list(null);
 		model.addAttribute("departmentList",list);
