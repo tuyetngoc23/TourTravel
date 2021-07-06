@@ -85,6 +85,7 @@
                         <label for="exampleInputPassword4">Address</label>
                         <input type="text" class="form-control" name="address" value="${placelOne.address}" required>
                       </div>
+                      <input type="hidden" name="image1" value="${placelOne.image}">
                       <div class="form-group">
                         <label>File upload</label>
                         <input type="file" name="uploadfile" class="file-upload-default">

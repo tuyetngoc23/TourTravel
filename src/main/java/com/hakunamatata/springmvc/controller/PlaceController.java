@@ -86,7 +86,7 @@ public class PlaceController {
 		return "admin/place/edit";
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(MultipartFile uploadfile, Place vo, Locale locale, Model model) {
+	public String update(@RequestParam(value="image1") String image, MultipartFile uploadfile, Place vo, Locale locale, Model model) {
 		System.out.println(uploadfile);
 		if(!uploadfile.isEmpty()) {
 			String fileName = uploadfile.getOriginalFilename();
@@ -104,6 +104,10 @@ public class PlaceController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}else {
+			vo.setImage(image);
+			System.out.println(vo);
+			placeService.update(vo);
 		}	
 		return "redirect:/place/";
 	}
