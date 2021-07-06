@@ -92,7 +92,7 @@
                       </div>
                       <div class="form-group">
                       <label for="exampleInputEmail3">Description</label>
-                        <textarea name="description" required >${placelOne.description}</textarea>
+                        <textarea name="description" required rows="4" cols="50">${placelOne.description}</textarea>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                       <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/place/'">Cancel</a>
