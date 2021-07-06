@@ -1,6 +1,10 @@
 package com.hakunamatata.springmvc.entity;
 
 
+/**
+ * @author Huynh Thi Tuyet Ngoc
+ *
+ */
 public class Vehicle {
 	public Vehicle() {
 		// TODO Auto-generated constructor stub

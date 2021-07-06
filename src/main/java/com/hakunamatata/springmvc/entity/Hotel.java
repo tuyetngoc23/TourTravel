@@ -1,8 +1,10 @@
 package com.hakunamatata.springmvc.entity;
 
 
-
-
+/**
+ * @author Huynh Thi Tuyet Ngoc
+ *
+ */
 public class Hotel {
 	
 	private int id;

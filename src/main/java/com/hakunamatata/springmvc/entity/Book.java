@@ -4,8 +4,10 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 
-
-
+/**
+ * @author Huynh Thi Tuyet Ngoc
+ *
+ */
 public class Book {
 
 	private int id;

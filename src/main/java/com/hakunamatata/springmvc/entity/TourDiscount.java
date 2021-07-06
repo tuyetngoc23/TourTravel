@@ -1,6 +1,9 @@
 package com.hakunamatata.springmvc.entity;
 
-
+/**
+ * @author Huynh Thi Tuyet Ngoc
+ *
+ */
 public class TourDiscount {
 	
 	private int id;
