@@ -9,6 +9,10 @@ import com.hakunamatata.springmvc.entity.Place;
 import com.hakunamatata.springmvc.entity.Province;
 import com.hakunamatata.springmvc.repository.impl.PlaceDAO;
 import com.hakunamatata.springmvc.service.PlaceServiceInterface;
+/**
+ * @author BaoBB
+ *
+ */
 @Service("placeService")
 public class PlaceService implements PlaceServiceInterface<Place>{
 	@Autowired

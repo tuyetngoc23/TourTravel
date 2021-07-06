@@ -9,6 +9,10 @@ import com.hakunamatata.springmvc.entity.Department;
 import com.hakunamatata.springmvc.repository.impl.DepartmentDAO;
 import com.hakunamatata.springmvc.service.ServiceInterface;
 
+/**
+ * @author BaoBB
+ *
+ */
 @Service("departmentService")
 public class DepartmentService implements ServiceInterface<Department> {
 	@Autowired

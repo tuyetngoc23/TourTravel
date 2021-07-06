@@ -17,6 +17,10 @@ import com.hakunamatata.springmvc.entity.Place;
 import com.hakunamatata.springmvc.entity.Province;
 import com.hakunamatata.springmvc.service.impl.PlaceService;
 
+/**
+ * @author BaoBB
+ *
+ */
 @Controller
 @RequestMapping("/place")
 public class PlaceController {
@@ -39,7 +43,7 @@ public class PlaceController {
 	}
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
-	public String write(Locale locale, Model model) {
+	public String regis(Locale locale, Model model) {
 		List<Province> list = placeService.listProvince(null);
 		model.addAttribute("provinceList",list);
 		return "admin/place/new";

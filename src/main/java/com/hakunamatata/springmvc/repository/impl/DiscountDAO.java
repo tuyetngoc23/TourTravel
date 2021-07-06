@@ -2,39 +2,44 @@ package com.hakunamatata.springmvc.repository.impl;
 
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.hakunamatata.springmvc.entity.Discount;
 import com.hakunamatata.springmvc.repository.DAO;
-
+/**
+ * @author BaoBB
+ *
+ */
+@Repository("discountDAO")
 public class DiscountDAO implements DAO<Discount> {
-
+	@Autowired
+	private SqlSessionTemplate session;
+	
 	@Override
 	public void insert(Discount vo) {
-		// TODO Auto-generated method stub
-		
+		session.insert("Discount.insert",vo);
 	}
 
 	@Override
 	public void update(Discount vo) {
-		// TODO Auto-generated method stub
-		
+		session.update("Discount.update",vo);
 	}
 
 	@Override
 	public void delete(Discount vo) {
-		// TODO Auto-generated method stub
-		
+		session.delete("Discount.delete",vo);
 	}
 
 	@Override
 	public Discount get(Discount vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("Discount.selectOne", vo);	
 	}
 
 	@Override
 	public List<Discount> list(Discount vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectList("Discount.selectList",vo);
 	}
 
 

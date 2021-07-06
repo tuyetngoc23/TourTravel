@@ -9,6 +9,10 @@ import com.hakunamatata.springmvc.entity.Hotel;
 import com.hakunamatata.springmvc.repository.impl.HotelDAO;
 import com.hakunamatata.springmvc.service.ServiceInterface;
 
+/**
+ * @author BaoBB
+ *
+ */
 @Service("hotelService")
 public class HotelService implements ServiceInterface<Hotel>{
 	@Autowired

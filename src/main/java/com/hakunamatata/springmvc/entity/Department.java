@@ -1,8 +1,10 @@
 package com.hakunamatata.springmvc.entity;
 
 
-
-
+/**
+ * @author BaoBB
+ *
+ */
 public class Department {
 	
 	private int id;

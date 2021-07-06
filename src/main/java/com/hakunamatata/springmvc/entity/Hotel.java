@@ -1,7 +1,10 @@
 package com.hakunamatata.springmvc.entity;
 
-import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * @author BaoBB
+ *
+ */
 public class Hotel {
 	
 	private int id;

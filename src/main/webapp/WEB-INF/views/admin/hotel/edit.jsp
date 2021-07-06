@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!--
+	@author BaoBB
+-->
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
@@ -72,6 +75,7 @@
                         <label for="exampleInputPassword4">Name</label>
                         <input type="text" class="form-control" value="${hotelOne.name}" name="name" required>
                       </div>
+                      	<input type="hidden" name="image1" value="${hotelOne.image}">
                      <div class="form-group">
                         <label>File upload</label>
                         <input type="file" name="uploadfile" class="file-upload-default">

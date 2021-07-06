@@ -9,6 +9,10 @@ import org.springframework.stereotype.Repository;
 import com.hakunamatata.springmvc.entity.Place;
 import com.hakunamatata.springmvc.entity.Province;
 import com.hakunamatata.springmvc.repository.PlaceInterface;
+/**
+ * @author BaoBB
+ *
+ */
 @Repository("placeDAO")
 public class PlaceDAO implements PlaceInterface<Place>{
 	@Autowired

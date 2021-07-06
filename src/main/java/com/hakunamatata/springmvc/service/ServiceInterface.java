@@ -2,6 +2,11 @@ package com.hakunamatata.springmvc.service;
 
 import java.util.List;
 
+/**
+ * @author BaoBB
+ *
+ * @param <T>
+ */
 public interface ServiceInterface<T> {
 	void insert(T vo);
 

@@ -17,6 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 import com.hakunamatata.springmvc.entity.Hotel;
 import com.hakunamatata.springmvc.service.ServiceInterface;
 
+/**
+ * @author BaoBB
+ *
+ */
 @Controller
 @RequestMapping("/hotel")
 public class HotelController {
@@ -40,7 +44,7 @@ public class HotelController {
 	}
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
-	public String write(Locale locale, Model model) {
+	public String regis(Locale locale, Model model) {
 		return "admin/hotel/new";
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -72,13 +76,14 @@ public class HotelController {
 		vo.setId(id.intValue());
 		Hotel hotel = hotelService.get(vo);
 		model.addAttribute("hotelOne",hotel);
+		System.out.println(hotel);
 		return "admin/hotel/edit";
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(MultipartFile uploadfile, Hotel vo, Locale locale, Model model) {
+	public String update(@RequestParam(value="image1") String image, MultipartFile uploadfile, Hotel vo, Locale locale, Model model) {
 		System.out.println(uploadfile);
+		String fileName = uploadfile.getOriginalFilename();
 		if(!uploadfile.isEmpty()) {
-			String fileName = uploadfile.getOriginalFilename();
 			// realPath
 			try {
 				uploadfile.transferTo(
@@ -93,6 +98,10 @@ public class HotelController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}else {
+			vo.setImage(image);
+			System.out.println(vo);
+			hotelService.update(vo);
 		}	
 		return "redirect:/hotel/";
 	}

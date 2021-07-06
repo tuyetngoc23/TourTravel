@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import com.hakunamatata.springmvc.entity.Hotel;
 import com.hakunamatata.springmvc.repository.DAO;
+/**
+ * @author BaoBB
+ *
+ */
 @Repository("hotelDAO")
 public class HotelDAO implements DAO<Hotel> {
 	@Autowired

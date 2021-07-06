@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.hakunamatata.springmvc.entity.Department;
 import com.hakunamatata.springmvc.service.ServiceInterface;
 
-
-
-
+/**
+ * @author BaoBB
+ *
+ */
 @Controller
 @RequestMapping("/department")
 public class DepartmentController {
@@ -57,11 +58,11 @@ public class DepartmentController {
 	}
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
-	public String edit(Locale locale, Model model) {
+	public String regis(Locale locale, Model model) {
 		return "admin/department/new";
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String edit(Department vo, Locale locale, Model model) {
+	public String add(Department vo, Locale locale, Model model) {
 		System.out.println(vo);
 		departmentService.insert(vo);		
 		return "redirect:/department/";

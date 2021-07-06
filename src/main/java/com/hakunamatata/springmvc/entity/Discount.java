@@ -3,8 +3,10 @@ package com.hakunamatata.springmvc.entity;
 import java.util.Date;
 
 
-
-
+/**
+ * @author BaoBB
+ *
+ */
 public class Discount {
 	
 	private int id;
@@ -13,6 +15,12 @@ public class Discount {
 	private Date start_day;
 	private Date end_day;
 	
+	
+	@Override
+	public String toString() {
+		return "Discount [id=" + id + ", name=" + name + ", scope=" + scope + ", start_day=" + start_day + ", end_day="
+				+ end_day + "]";
+	}
 	public int getId() {
 		return id;
 	}

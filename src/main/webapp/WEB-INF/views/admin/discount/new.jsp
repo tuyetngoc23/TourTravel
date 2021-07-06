@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>  
 <!DOCTYPE html>
 <html>
 <head>
+<!--
+	@author BaoBB
+-->
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
@@ -59,25 +63,25 @@
                   <div class="card-body">
                     <h4 class="card-title">Basic form elements</h4>
                     <p class="card-description"> Basic form elements </p>
-                    <form class="forms-sample">
+                    <form class="forms-sample" method="post" action="add">
                       <div class="form-group">
                       <label for="exampleInputEmail3">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" required >
+                        <input type="text" class="form-control" name="name" placeholder="Name" required >
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Scope</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Scope" required>
+                        <input type="number" class="form-control" name="Scope" placeholder="Scope" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Start day</label>
-                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Start day" required>
+                        <input type="date" class="form-control" name="start_day1" required>
                       </div>
                      <div class="form-group">
                         <label for="exampleInputPassword4">End day</label>
-                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="End day" required>
+                        <input type="date" class="form-control" name="end_day1" required>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                      <button class="btn btn-light">Cancel</button>
+                      <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/discount/'">Cancel</a>
                     </form>
                   </div>
                 </div>

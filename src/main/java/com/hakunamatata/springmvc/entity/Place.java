@@ -3,6 +3,10 @@ package com.hakunamatata.springmvc.entity;
 
 
 	
+/**
+ * @author BaoBB
+ *
+ */
 public class Place {
 	
 	private int id;
