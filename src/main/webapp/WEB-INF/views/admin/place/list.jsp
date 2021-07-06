@@ -89,7 +89,8 @@
                           <td>${place.name}</td>
                           <td>${place.province.name}</td>
                           <td>${place.address}</td>
-                          <td><img src="${pageContext.request.contextPath }/uploads/image-place/${place.image}"></td>   
+                          <td><img src="${pageContext.request.contextPath }/uploads/image-place/${place.image}"></td> 
+                          <td>${place.description}</td>
                           <td>
                           	<a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='edit?id=${place.id}'">Edit</a>
                           	<a type="button" class="btn btn-gradient-danger btn-fw" onclick="document.location='delete?id=${place.id}'">Delete</a>

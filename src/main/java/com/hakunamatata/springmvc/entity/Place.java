@@ -14,18 +14,24 @@ public class Place {
 	private int province_id;
 	private String address;
 	private String image;
+	private String description;
 
 	
 	private Province province;
 	
 	
+	
 	@Override
 	public String toString() {
 		return "Place [id=" + id + ", name=" + name + ", province_id=" + province_id + ", address=" + address
-				+ ", image=" + image + ", province=" + province + "]";
+				+ ", image=" + image + ", description=" + description + ", province=" + province + "]";
 	}
-
-	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public int getProvince_id() {
 		return province_id;
 	}

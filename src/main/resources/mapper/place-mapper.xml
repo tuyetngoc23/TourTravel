@@ -10,6 +10,7 @@
 		<result property="province_id" column="province_id"/>
 		<result property="address" column="address"/>
 		<result property="image" column="image"/>
+		<result property="description" column="description"/>
 		<association property="province"
 					 column="id"
 					 javaType="province"
@@ -34,12 +35,12 @@
 	
 	
 	<insert id="insert" parameterType="place">
-		INSERT INTO place (name, province_id, address, image) 
-		VALUES (#{name}, #{province_id}, #{address}, #{image})	
+		INSERT INTO place (name, province_id, address, image, description) 
+		VALUES (#{name}, #{province_id}, #{address}, #{image}, #{description})	
 	</insert>
 	
 	<update id="update" parameterType="place">
-		UPDATE place SET name=#{name}, province_id=#{province_id}, address=#{address}, image=#{image}
+		UPDATE place SET name=#{name}, province_id=#{province_id}, address=#{address}, image=#{image}, description=#{description}
 		WHERE id=#{id}
 	</update>
 	
