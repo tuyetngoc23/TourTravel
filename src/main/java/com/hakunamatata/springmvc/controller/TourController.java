@@ -23,12 +23,13 @@ public class TourController {
 	@Autowired
 	private TourService service;
 	@GetMapping(value = {"","/"})
-	@ResponseBody
-	public ResponseEntity<List<Tour>> list(Model model,Locale locale) {
+//	@ResponseBody
+	public String list(Model model,Locale locale) {
 		List<Tour> list = service.list(null);
-		System.out.println(list);
-//		return "admin/tour/list";
-		 return new ResponseEntity<List<Tour>>(list, HttpStatus.OK);
+		model.addAttribute("listTour", list);
+		
+		return "admin/tour/list";
+//		 return new ResponseEntity<List<Tour>>(list, HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/new")

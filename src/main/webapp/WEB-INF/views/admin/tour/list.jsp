@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +27,36 @@
     <!-- End layout styles -->
     <link rel="shortcut icon"
 	href="${pageContext.request.contextPath }/resources/assets/images/favicon.ico" />
+	<style type="text/css">
+	#style-4{
+		 overflow-x: auto;
+	}
+	#style-4::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+	background-color: #F5F5F5;
+	
+}
+
+#style-4::-webkit-scrollbar
+{
+	height:10px;
+	
+	background-color: rgba(172, 50, 228, 0.9);
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-image: linear-gradient(to right, #da8cff, #9a55ff);	border: 1px rgba(172, 50, 228, 0.9);
+	border-radius: 5px;
+	
+	
+	
+}
+	
+	</style>
 </head>
+
 <body>
 	<div class="container-scroller">
 			<%@include file="../header.jsp"%>
@@ -62,15 +94,16 @@
         	<!-- table -->
      		   <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
-                  <div class="card-body">
+                  <div class="card-body " id="style-4">
                     <h4 class="card-title text-center text-info">List Tour</h4>
                   
                  
-                    <table class="table table-hover">
+                    <table class="table table-hover ">
                       <thead>
                         <tr>
                           <th>ID</th>
                           <th>Name</th>
+                           <th>Price</th>
                           <th>Min Amount</th>
                           <th>Max Amount</th>
                           <th>Image</th>
@@ -80,56 +113,73 @@
                           <th>Cattour</th>
                            <th>Hotel</th>
                           <th>Vehicle</th>
+                            <th>Discount</th>
+                          <th>Place</th>
                           <th>Content</th>
                              <th>Note</th>
                               <th class="text-center">Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Suối Tiên</td>
-                           <td>4</td>
-                            <td>10</td>
-                            <td><img src="" alt="test"/></td>
-                              <td>1/7/2021</td>
-                            <td>3/7/2021</td>
-                              <td>Xe Máy</td>
-                            <td>Not biet</td>
-                             <td>CHuyen du lich tuyệt vơi</td>
-                            <td>Chú ý haha</td>
-                             <td>A Holtel</td>
-                            <td>Xe May</td>
+                      <c:forEach items="${listTour}" var="tour">
+                      	  <tr>
+                          <td>${tour.id}</td>
+                          <td>${tour.name}</td>
+                           <td>${tour.price}</td>
+                            <td>${tour.min_amount}</td>
+                              <td>${tour.max_amount}</td>
+                            <td><img src="${tour.image}" alt="test"/></td>
+                              <td><fmt:formatDate type="date" value="${tour.start_day}" />  </td>
+                            <td><fmt:formatDate type="date" value="${tour.end_day}" /> </td>
+                              <td>${tour.department.tourguide}</td>
+                            <td>${tour.cattour.name}</td>
+                             <td>${tour.hotel.name}</td>
+                            <td>${tour.vehicle.name}</td>
+                             <td>
+                             	<c:forEach items="${tour.discount}" var="discount">
+                             		<span>${discount.name} ,</span>
+                             	</c:forEach>
+                             	
+                             </td>
+                            <td>
+                            <c:forEach items="${tour.place}" var="place">
+                             		<span>${place.name} ,</span>
+                             	</c:forEach>
+                             	
+                             </td>
+                            </td>
+                             <td>
+                             	
+                             	<c:choose>
+                             		<c:when test="${fn:length(tour.content) < 15 }">
+                             	
+                             			${tour.content}
+                             		</c:when>
+                             		<c:otherwise>
+                             			${fn:substring(tour.content, 0, 15)}...  
+                             		</c:otherwise>
+                             	</c:choose>
+                             </td>
+                            <td>
+                            	<c:choose>
+                             		<c:when test="${fn:length(tour.note) < 15 }">
+                             	
+                             			${tour.note}
+                             		</c:when>
+                             		<c:otherwise>
+                             			${fn:substring(tour.note, 0, 15)}...  
+                             		</c:otherwise>
+                             	</c:choose>
+                            </td>
                          	
                           <td>
-                          	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
+                          	<a type="button" href="${pageContext.request.contextPath }/admin/tour/edit?id=${tour.id}" class="btn btn-gradient-info btn-sm">Edit</a>
+                          	<a type="button" href="${pageContext.request.contextPath }/admin/tour/delete?id=${tour.id}" class="btn btn-gradient-danger btn-sm">Delete</a>
                           </td>
                         </tr>
-                        <tr>
-                          <td>Messsy</td>
-                          <td>Flash</td>
-                          <td class="text-danger"> 21.06% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
-                        <tr>
-                          <td>John</td>
-                          <td>Premier</td>
-                          <td class="text-danger"> 35.00% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-info">Fixed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Peter</td>
-                          <td>After effects</td>
-                          <td class="text-success"> 82.00% <i class="mdi mdi-arrow-up"></i></td>
-                          <td><label class="badge badge-success">Completed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Dave</td>
-                          <td>53275535</td>
-                          <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
-                          <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
+                       
+                      </c:forEach>
+                      
                       </tbody>
                     </table>
                     <!-- Pagination -->
