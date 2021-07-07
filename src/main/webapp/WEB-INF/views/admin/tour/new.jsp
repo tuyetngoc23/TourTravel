@@ -65,7 +65,7 @@
                   <div class="card-body">
                     <h4 class="card-title text-info text-center">New Tour</h4>
                   
-                    <form class="forms-sample" action="${pageContext.request.contextPath }/admin/tour/new" method="post">
+                    <form class="forms-sample" action="${pageContext.request.contextPath }/admin/tour/new" method="post"  enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="exampleInputName1">Name Tour :</label>
                         <input type="text" class="form-control" name="name" placeholder="Name Tour" required="required">
@@ -84,7 +84,7 @@
                       </div>
                         <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="image" class="file-upload-default" onchange="previewFiles()" required="required">
+                        <input type="file" name="imageTour" class="file-upload-default" onchange="previewFile()" required="required">
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" >
                           <span class="input-group-append">
@@ -146,7 +146,7 @@
                        	    <div class="form-group col ">
                         <label for="exampleSelectGender">Province</label>
                         <select class="select-vehicle form-control" name="province_id" required="required">
-                          <option >Chọn Province</option>
+                         	<option > Chọn province</option>
                           <c:forEach items="${listProvince}" var="province">
                           	 <option value="${province.id}">${province.name}</option>
                           </c:forEach>
