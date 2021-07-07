@@ -14,7 +14,7 @@ import net.sf.cglib.core.Local;
 public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
-	
+	//doing
 	@GetMapping(value = "/login")
 	public String login(Locale locale, Model model) {
 		return "login";

@@ -24,6 +24,7 @@ import com.hakunamatata.springmvc.entity.Blog;
  */
 @Controller
 @RequestMapping("/admin/blog")
+//doing
 public class BlogController {
 	private static final Logger logger = LoggerFactory.getLogger(BlogController.class);
 	

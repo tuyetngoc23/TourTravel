@@ -80,7 +80,7 @@
                           <th>Start day</th>
                           <th>End day</th>
                           <th>Action</th>
-                          <th><a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='new'">New</a></th>
+                          <th><a type="button" class="btn btn-gradient-info btn-fw" href="${pageContext.request.contextPath }/admin/discount/new">New</a></th>
                         </tr>
                       </thead>
                       <tbody>

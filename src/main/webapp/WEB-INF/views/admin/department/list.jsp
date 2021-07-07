@@ -77,7 +77,8 @@
                           <th>Tour guide</th>
                           <th>Address</th>
                           <th>Action</th>
-                          <th><a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='new'">New</a></th>
+                          <!-- onclick="document.location='new'" -->
+                          <th><a type="button" href="${pageContext.request.contextPath }/admin/department/new" class="btn btn-gradient-info btn-fw" >New</a></th>
                         </tr>
                       </thead>
                       <tbody>

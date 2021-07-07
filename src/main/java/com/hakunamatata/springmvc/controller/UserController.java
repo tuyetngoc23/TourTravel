@@ -26,6 +26,7 @@ import com.hakunamatata.springmvc.entity.UserTour;
  */
 @Controller
 @RequestMapping("/admin/user")
+//doing
 public class UserController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	

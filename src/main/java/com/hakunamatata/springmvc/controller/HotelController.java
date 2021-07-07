@@ -27,7 +27,7 @@ public class HotelController {
 	@Autowired
 	private ServiceInterface<Hotel> hotelService;
 	
-	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
 	public String list(Locale locale, Model model) {
 		List<Hotel> list = hotelService.list(null);
 		model.addAttribute("hotelList",list);
@@ -48,22 +48,25 @@ public class HotelController {
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String add(MultipartFile uploadfile, Hotel vo, Locale locale, Model model) {
-		if(!uploadfile.isEmpty()) {
-			String fileName = uploadfile.getOriginalFilename();
-			// realPath
-			try {
-				uploadfile.transferTo(
-						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-hotel\\"
-									+fileName)
-				);
-				vo.setImage(fileName);
-				hotelService.insert(vo);
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}		
+		/*
+		 * doing file upload*/
+//		if(!uploadfile.isEmpty()) {
+//			String fileName = uploadfile.getOriginalFilename();
+//			// realPath
+//			try {
+//				uploadfile.transferTo(
+//						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-hotel\\"
+//									+fileName)
+//				);
+//				vo.setImage(fileName);
+//				hotelService.insert(vo);
+//			} catch (IllegalStateException e) {
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}	
+		hotelService.insert(vo);
 		return "redirect:/admin/hotel/";
 	}
 	

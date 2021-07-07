@@ -34,7 +34,7 @@ import com.hakunamatata.springmvc.service.impl.PlaceService;
 
 @Controller
 @RequestMapping("admin/tour")
-
+//doing
 public class TourController {
 	@Autowired
 	private TourService service;
