@@ -17,8 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.hakunamatata.springmvc.entity.Blog;
 import com.hakunamatata.springmvc.entity.UserTour;
-import com.hakunamatata.springmvc.service.impl.BlogService;
-import com.hakunamatata.springmvc.service.impl.UserService;
+//import com.hakunamatata.springmvc.service.impl.BlogService;
+//import com.hakunamatata.springmvc.service.impl.UserService;
 
 /**
  * @author Hai Van
@@ -29,14 +29,14 @@ import com.hakunamatata.springmvc.service.impl.UserService;
 public class UserController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
-	@Autowired
-	private UserService userService;
+//	@Autowired
+//	private UserService userService;
 	
 	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
 	public String list(Locale locale, Model model) {
 		logger.info("user list {}.", locale);		
-		List<UserTour> list = userService.listUserTour(null);
-		model.addAttribute("UserList",list);
+//		List<UserTour> list = userService.listUserTour(null);
+//		model.addAttribute("UserList",list);
 		return "admin/user/list";
 	}
 
@@ -60,7 +60,7 @@ public class UserController {
 		logger.info("user delete {}.", locale);
 		UserTour vo = new UserTour();
 		//vo.setId(id.intValue());		
-		userService.deleteUserTour(vo);
+//		userService.deleteUserTour(vo);
 		return "admin/blog/list";
 	}	
 	
