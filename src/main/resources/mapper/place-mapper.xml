@@ -19,8 +19,8 @@
 	<!---->
 	<select id="selectList" parameterType="place" resultMap="placeMap">
 		<![CDATA[
-			SELECT *
-			FROM place
+					SELECT * FROM place p, province pv
+					WHERE p.province_id = pv.id;
 		]]>
 	</select>
 	

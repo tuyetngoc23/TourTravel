@@ -94,7 +94,7 @@ public class PlaceController {
 		return "admin/place/edit";
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(@RequestParam(value = "province1",required = false) int province_id,
+	public String update(@RequestParam(value = "province1") int province_id,
 			@RequestParam(value="image1") String image, MultipartFile uploadfile, Place vo, Locale locale, Model model) {
 //		System.out.println(uploadfile);
 		Province province = new Province();
@@ -110,7 +110,7 @@ public class PlaceController {
 				);
 				vo.setImage(fileName);
 				System.out.println(vo);				
-				placeService.update(vo);
+				//placeService.update(vo);
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -119,8 +119,9 @@ public class PlaceController {
 		}else {
 			vo.setImage(image);
 			System.out.println(vo);
-			placeService.update(vo);
+			
 		}	
+		placeService.update(vo);
 		return "redirect:/place/";
 	}
 }
