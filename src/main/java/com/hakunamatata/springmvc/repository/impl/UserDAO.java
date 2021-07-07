@@ -9,7 +9,10 @@ import org.springframework.stereotype.Repository;
 import com.hakunamatata.springmvc.entity.UserTour;
 import com.hakunamatata.springmvc.repository.DAO;
 
-
+/**
+ * @author Hai Van
+ *
+ */
 @Repository
 public class UserDAO implements DAO<UserTour> {
 	@Autowired

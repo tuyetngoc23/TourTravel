@@ -42,7 +42,7 @@
             <h3 class="page-title">
               <span class="page-title-icon bg-gradient-primary text-white mr-2">
                 <i class="mdi mdi-home"></i>
-              </span> New Hotel
+              </span> Edit UserTour
             </h3>
             <nav aria-label="breadcrumb">
               <ul class="breadcrumb">
@@ -57,7 +57,7 @@
      		  <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
+                    <h4 class="card-title">Edit</h4>
                     <p class="card-description"> Basic form elements </p>
                     <form class="forms-sample">
                       <div class="form-group">
@@ -65,13 +65,35 @@
                         <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                        <label for="exampleInputEmail3">Password</label>
+                        <input type="passwd" class="form-control" id="exampleInputEmail3" placeholder="Password">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+                        <label for="exampleInputPassword4">Cusname</label>
+                        <input type="cusname" class="form-control" id="exampleInputPassword4" placeholder="Cusname">
                       </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Phone</label>
+                        <input type="phone" class="form-control" id="exampleInputPassword4" placeholder="Phone">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Birthday</label>
+                        <input type="birthday" class="form-control" id="exampleInputPassword4" placeholder="Birthday">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Address</label>
+                        <input type="address" class="form-control" id="exampleInputPassword4" placeholder="Address">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Email</label>
+                        <input type="email" class="form-control" id="exampleInputPassword4" placeholder="Email">
+                      </div>
+                      
+                     
                       <div class="form-group">
                         <label for="exampleSelectGender">Gender</label>
                         <select class="form-control" id="exampleSelectGender">
@@ -79,8 +101,9 @@
                           <option>Female</option>
                         </select>
                       </div>
+                      
                       <div class="form-group">
-                        <label>File upload</label>
+                        <label>Avatar</label>
                         <input type="file" name="img[]" class="file-upload-default">
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
@@ -89,14 +112,7 @@
                           </span>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label for="exampleInputCity1">City</label>
-                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleTextarea1">Textarea</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-                      </div>
+                     
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                       <button class="btn btn-light">Cancel</button>
                     </form>

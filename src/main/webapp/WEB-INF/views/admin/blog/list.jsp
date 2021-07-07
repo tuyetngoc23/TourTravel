@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
+	 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,12 +16,12 @@
 	href="${pageContext.request.contextPath }/resources/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
+			    <!-- endinject -->
+			    <!-- Plugin css for this page -->
+			    <!-- End plugin css for this page -->
+			    <!-- inject:css -->
+			    <!-- endinject -->
+			    <!-- Layout styles -->
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/css/style.css">
     <!-- End layout styles -->
@@ -30,8 +33,11 @@
 			<%@include file="../header.jsp"%>
 		<div class="container-fluid page-body-wrapper">
 			<%@include file="../navbar.jsp"%>
+			
 			<!-- Doadborad -->
 			   <!-- partial -->
+      
+      
        <div class="main-panel">
         <div class="content-wrapper">
         	  <div class="row" id="proBanner">
@@ -49,7 +55,8 @@
               <span class="page-title-icon bg-gradient-primary text-white mr-2">
                 <i class="mdi mdi-home"></i>
               </span> List Blog
-            </h3>
+            </h3>           
+           
             <nav aria-label="breadcrumb">
               <ul class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">
@@ -63,118 +70,51 @@
      		    <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Striped Table</h4>
-                    <p class="card-description"> Add class <code>.table-striped</code>
-                    </p>
+                    <h4 class="card-title">Blog List</h4>                          
                     <table class="table table-striped">
                       <thead>
-                        <tr>
-                          <th> User </th>
-                          <th> First name </th>
-                          <th> Progress </th>
-                          <th> Amount </th>
-                          <th> Deadline </th>
-                          <th>Action</th>
+                       <tr>
+                          <th> Id </th>
+                          <th> Title </th>
+                          <th> Name </th>
+                          <th> Content</th>
+                          <th> Date </th>
+                          <th> Like_amount</th>
+                          <th> State </th>
+                          <th> Image </th>
                         </tr>
                       </thead>
+                    
+	 
+                    
                       <tbody>
-                        <tr>
-                          <td class="py-1">
-                            <img src="${pageContext.request.contextPath }/resources/assets/images/faces-clipart/pic-1.png" alt="image" />
-                          </td>
-                          <td> Herman Beck </td>
+                        <c:forEach var="blog" items="${bloglist}">
+                      
+                        <tr>                                        
+                          
+                        
+				        <tr>
+							<td>${blog.id }</td>
+							<td>${blog.title}</td>
+							<td>${blog.wname}</td>
+							<td>${blog.content }</td>
+							<td>${blog.wdate}</td>
+							<td>${blog.like_amount}</td>
+							<td>${blog.state}</td>
+							<td>${blog.Image}</td>
+							
+						</tr>				                      
+                                                                 
                           <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $ 77.99 </td>
-                          <td> May 15, 2015 </td>
-                            <td>
-                          	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
+                            <a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
                           	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
                           </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="${pageContext.request.contextPath }/resources/assets/images/faces-clipart/pic-2.png" alt="image" />
-                          </td>
-                          <td> Messsy Adam </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $245.30 </td>
-                          <td> July 1, 2015 </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="${pageContext.request.contextPath }/resources/assets/images/faces-clipart/pic-3.png" alt="image" />
-                          </td>
-                          <td> John Richards </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $138.00 </td>
-                          <td> Apr 12, 2015 </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="${pageContext.request.contextPath }/resources/assets/images/faces-clipart/pic-4.png" alt="image" />
-                          </td>
-                          <td> Peter Meggik </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $ 77.99 </td>
-                          <td> May 15, 2015 </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="${pageContext.request.contextPath }/resources/assets/images/faces-clipart/pic-1.png" alt="image" />
-                          </td>
-                          <td> Edward </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $ 160.25 </td>
-                          <td> May 03, 2015 </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="${pageContext.request.contextPath }/resources/assets/images/faces-clipart/pic-2.png" alt="image" />
-                          </td>
-                          <td> John Doe </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $ 123.21 </td>
-                          <td> April 05, 2015 </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="${pageContext.request.contextPath }/resources/assets/images/faces-clipart/pic-3.png" alt="image" />
-                          </td>
-                          <td> Henry Tom </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td> $ 150.00 </td>
-                          <td> June 16, 2015 </td>
-                        </tr>
+                      
+                        
+                       </c:forEach> 
+                       
                       </tbody>
-                    </table>
+                     </table>
                   </div>
                 </div>
               </div>

@@ -78,7 +78,7 @@
                       	<input type="hidden" name="image1" value="${hotelOne.image}">
                      <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="uploadfile" class="file-upload-default">
+                        <input type="file" name="uploadfile" class="file-upload-default" >
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" disabled="" value="${hotelOne.image}">
                           <span class="input-group-append">
@@ -91,7 +91,7 @@
                         <input type="text" class="form-control" name="address" value="${hotelOne.address}" required>
                       </div>
                         <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                      	<a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/hotel/'">Cancel</a>
+                      	<a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/admin/hotel/'">Cancel</a>
                     </form>
                   </div>
                 </div>

@@ -46,7 +46,7 @@
             <h3 class="page-title">
               <span class="page-title-icon bg-gradient-primary text-white mr-2">
                 <i class="mdi mdi-home"></i>
-              </span> New Hotel
+              </span> New Place
             </h3>
             <nav aria-label="breadcrumb">
               <ul class="breadcrumb">
@@ -82,7 +82,7 @@
                       </div>
                       <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="uploadfile" class="file-upload-default">
+                        <input type="file" name="uploadfile" class="file-upload-default" required>
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" disabled="" value="${placelOne.image}">
                           <span class="input-group-append">
@@ -95,7 +95,7 @@
                         <textarea name="description" required rows="4" cols="50">${placelOne.description}</textarea>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                      <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/place/'">Cancel</a>
+                      <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/admin/place/'">Cancel</a>
                     </form>
                   </div>
                 </div>

@@ -38,7 +38,7 @@
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
                 <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
-                <a href="#" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
+                <a href="${pageContext.request.contextPath }/admin/user/new" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
             </div>
@@ -69,48 +69,69 @@
                     <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th>User</th>
-                          <th>Product</th>
-                          <th>Sale</th>
-                          <th>Status</th>
-                          <th>Action</th>
+                          <th>Id</th>
+                          <th>Avatar</th>
+                           <th>Username</th>
+                          <th>Password</th>
+                          <th>Cusname</th>
+                          <th>Phone</th>
+                          <th>Birthday</th>
+                           <th>Address</th>
+                            <th>Email</th>
+                             
                         </tr>
                       </thead>
                       <tbody>
+                         <c:forEach var="usertour" items="${usertour}">
                         <tr>
-                          <td>Jacob</td>
-                          <td>Photoshop</td>
+                          <td>${usertour.id }</td>
+                         <td>${usertour.avatar}</td>
+                         <td>${usertour.username}</td>
+                         <td>${usertour.passwd }</td>
+                         <td>${usertour.cusname}</td>
+                         <td>${usertour.phone}</td>
+                         <td>${usertour.birthday}</td>
+                         <td>${usertour.address}</td>
+                         <td>${usertour.email}</td>
                           <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
                           <td><label class="badge badge-danger">Pending</label></td>
                           <td>
-                          	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
+                          	<a href="edit?no=${user.id}" type="button" class="btn btn-gradient-info btn-fw">Edit</a>
+                          	<a href="delete?no=${user.id}" type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
                           </td>
                         </tr>
+                       	 </c:forEach> 
+                       
+                       
+                       
                         <tr>
                           <td>Messsy</td>
                           <td>Flash</td>
                           <td class="text-danger"> 21.06% <i class="mdi mdi-arrow-down"></i></td>
                           <td><label class="badge badge-warning">In progress</label></td>
                         </tr>
+                       
                         <tr>
                           <td>John</td>
                           <td>Premier</td>
                           <td class="text-danger"> 35.00% <i class="mdi mdi-arrow-down"></i></td>
                           <td><label class="badge badge-info">Fixed</label></td>
                         </tr>
+                        
                         <tr>
                           <td>Peter</td>
                           <td>After effects</td>
                           <td class="text-success"> 82.00% <i class="mdi mdi-arrow-up"></i></td>
                           <td><label class="badge badge-success">Completed</label></td>
                         </tr>
+                        
                         <tr>
                           <td>Dave</td>
                           <td>53275535</td>
                           <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
                           <td><label class="badge badge-warning">In progress</label></td>
                         </tr>
+                      
                       </tbody>
                     </table>
                   </div>

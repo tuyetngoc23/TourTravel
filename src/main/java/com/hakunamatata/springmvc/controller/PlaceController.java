@@ -22,7 +22,7 @@ import com.hakunamatata.springmvc.service.impl.PlaceService;
  *
  */
 @Controller
-@RequestMapping("/place")
+@RequestMapping("admin/place")
 public class PlaceController {
 	@Autowired
 	private PlaceService placeService;
@@ -38,8 +38,7 @@ public class PlaceController {
 		Place vo = new Place();
 		vo.setId(id.intValue());
 		placeService.delete(vo);
-		System.out.println(vo);
-		return "redirect:/place/";
+		return "redirect:/admin/place/";
 	}
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
@@ -51,12 +50,9 @@ public class PlaceController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String add(@RequestParam(value = "province1",required = false) int province_id, MultipartFile uploadfile,
 			Place vo, Locale locale, Model model) {
-//		System.out.println(uploadfile);
-//		System.out.println(province_id);
 		Province province = new Province();
 		province.setId(province_id);
 		vo.setProvince(province);
-		System.out.println(vo);
 		
 		if(!uploadfile.isEmpty()) {
 			String fileName = uploadfile.getOriginalFilename();
@@ -67,16 +63,16 @@ public class PlaceController {
 									+fileName)
 				);
 				vo.setImage(fileName);
-				System.out.println(vo);				
-				
+				placeService.insert(vo);
+
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}	
-		placeService.insert(vo);
-		return "redirect:/place/";
+		return "redirect:/admin/place/";
+
 	}
 	
 	
@@ -91,13 +87,11 @@ public class PlaceController {
 		model.addAttribute("placelOne",place);
 		List<Province> list = placeService.listProvince(null);
 		model.addAttribute("provinceList",list);
-
 		return "admin/place/edit";
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(@RequestParam(value = "province1",required = false) int province_id,
+	public String update(@RequestParam(value = "province1") int province_id,
 			@RequestParam(value="image1") String image, MultipartFile uploadfile, Place vo, Locale locale, Model model) {
-//		System.out.println(uploadfile);
 		Province province = new Province();
 		province.setId(province_id);
 		vo.setProvince(province);
@@ -110,8 +104,7 @@ public class PlaceController {
 									+fileName)
 				);
 				vo.setImage(fileName);
-				System.out.println(vo);				
-				
+
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -119,10 +112,9 @@ public class PlaceController {
 			}
 		}else {
 			vo.setImage(image);
-			System.out.println(vo);
-			placeService.update(vo);
 		}	
 		placeService.update(vo);
-		return "redirect:/place/";
+		return "redirect:/admin/place/";
+
 	}
 }

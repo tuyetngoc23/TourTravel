@@ -19,8 +19,7 @@
 	<!---->
 	<select id="selectList" parameterType="place" resultMap="placeMap">
 		<![CDATA[
-			SELECT *
-			FROM place
+					SELECT * FROM place
 		]]>
 	</select>
 	
