@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hakunamatata.springmvc.entity.Blog;
-import com.hakunamatata.springmvc.service.impl.BlogService;
+//import com.hakunamatata.springmvc.service.impl.BlogService;
 
 /**
  * @author Hai Van
@@ -28,14 +28,14 @@ public class BlogController {
 	private static final Logger logger = LoggerFactory.getLogger(BlogController.class);
 	
 	
-	@Autowired
-	private BlogService blogService;
+//	@Autowired
+//	private BlogService blogService;
 	
 	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
 	public String list(Locale locale, Model model) {
 		logger.info("blog list {}.", locale);		
-		List<Blog> list = blogService.listBlog(null);
-		model.addAttribute("blogList",list);
+//		List<Blog> list = blogService.listBlog(null);
+//		model.addAttribute("blogList",list);
 		return "admin/blog/list";
 	}
 
@@ -59,7 +59,7 @@ public class BlogController {
 		logger.info("blog delete {}.", locale);
 		Blog vo = new Blog();
 		//vo.setId(id.intValue());		
-		blogService.deleteBlog(vo);
+//		blogService.delete(vo);
 		return "admin/blog/list";
 	}	
 	
