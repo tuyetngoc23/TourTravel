@@ -19,7 +19,7 @@ import com.hakunamatata.springmvc.service.ServiceInterface;
  *
  */
 @Controller
-@RequestMapping("/discount")
+@RequestMapping("admin/discount")
 public class DiscountController {
 	@Autowired
 	private ServiceInterface<Discount> discountService;
@@ -41,9 +41,8 @@ public class DiscountController {
 	public String add(@RequestParam(value="start_day1") Date start, @RequestParam(value="end_day1") Date end, Discount vo, Locale locale, Model model) {
 		vo.setStart_day(start);
 		vo.setEnd_day(end);
-		System.out.println(vo);
 		discountService.insert(vo);		
-		return "redirect:/discount/";
+		return "redirect:/admin/discount/";
 	}
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
@@ -52,16 +51,14 @@ public class DiscountController {
 		vo.setId(id.intValue());
 		Discount discount = discountService.get(vo);
 		model.addAttribute("discountOne",discount);
-		System.out.println(vo);
 		return "admin/discount/edit";
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(@RequestParam(value="start_day1") Date start, @RequestParam(value="end_day1") Date end, Discount vo, Locale locale, Model model) {
 		vo.setStart_day(start);
 		vo.setEnd_day(end);
-		System.out.println(vo);
 		discountService.update(vo);		
-		return "redirect:/discount/";
+		return "redirect:/admin/discount/";
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -69,7 +66,6 @@ public class DiscountController {
 		Discount vo = new Discount();
 		vo.setId(id.intValue());
 		discountService.delete(vo);
-		System.out.println(vo);
-		return "redirect:/discount/";
+		return "redirect:/admin/discount/";
 	}
 }

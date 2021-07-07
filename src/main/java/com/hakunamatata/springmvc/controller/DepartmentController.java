@@ -18,7 +18,7 @@ import com.hakunamatata.springmvc.service.ServiceInterface;
  *
  */
 @Controller
-@RequestMapping("/department")
+@RequestMapping("admin/department")
 public class DepartmentController {
 	@Autowired
 	private ServiceInterface<Department> departmentService;
@@ -28,7 +28,6 @@ public class DepartmentController {
 	public String list(Locale locale, Model model) {
 		List<Department> list = departmentService.list(null);
 		model.addAttribute("departmentList",list);
-		//System.out.println(list);
 		return "admin/department/list";
 	}
 	
@@ -37,8 +36,7 @@ public class DepartmentController {
 		Department vo = new Department();
 		vo.setId(id.intValue());
 		departmentService.delete(vo);
-		System.out.println(vo);
-		return "redirect:/department/";
+		return "redirect:/admin/department/";
 	}
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
@@ -47,14 +45,12 @@ public class DepartmentController {
 		vo.setId(id.intValue());
 		Department department = departmentService.get(vo);
 		model.addAttribute("departmentOne",department);
-		//System.out.println(department);
 		return "admin/department/edit";
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(Department vo, Locale locale, Model model) {
-		System.out.println(vo);
 		departmentService.update(vo);		
-		return "redirect:/department/";
+		return "redirect:/admin/department/";
 	}
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
@@ -63,8 +59,7 @@ public class DepartmentController {
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String add(Department vo, Locale locale, Model model) {
-		System.out.println(vo);
 		departmentService.insert(vo);		
-		return "redirect:/department/";
+		return "redirect:/admin/department/";
 	}
 }
