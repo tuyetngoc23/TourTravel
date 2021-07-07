@@ -42,7 +42,7 @@
             <h3 class="page-title">
               <span class="page-title-icon bg-gradient-primary text-white mr-2">
                 <i class="mdi mdi-home"></i>
-              </span> New Hotel
+              </span> Edit UserTour
             </h3>
             <nav aria-label="breadcrumb">
               <ul class="breadcrumb">
@@ -57,7 +57,7 @@
      		  <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
+                    <h4 class="card-title">Edit</h4>
                     <p class="card-description"> Basic form elements </p>
                     <form class="forms-sample">
                       <div class="form-group">
@@ -103,7 +103,7 @@
                       </div>
                       
                       <div class="form-group">
-                        <label>File upload</label>
+                        <label>Avatar</label>
                         <input type="file" name="img[]" class="file-upload-default">
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">

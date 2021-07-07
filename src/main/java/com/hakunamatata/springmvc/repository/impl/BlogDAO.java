@@ -8,7 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import com.hakunamatata.springmvc.entity.Blog;
 import com.hakunamatata.springmvc.repository.DAO;
-
+/**
+ * @author Hai Van
+ *
+ */
 
 @Repository
 public class BlogDAO implements DAO<Blog> {

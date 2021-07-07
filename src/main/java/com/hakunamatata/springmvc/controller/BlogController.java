@@ -2,40 +2,71 @@ package com.hakunamatata.springmvc.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-@Controller
-@RequestMapping("/blog")
-public class BlogController {
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+import com.hakunamatata.springmvc.entity.Blog;
+import com.hakunamatata.springmvc.service.impl.BlogService;
 
+/**
+ * @author Hai Van
+ *
+ */
+@Controller
+@RequestMapping("/admin/blog")
+public class BlogController {
+	private static final Logger logger = LoggerFactory.getLogger(BlogController.class);
+	
+	
+	@Autowired
+	private BlogService blogService;
+	
 	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
 	public String list(Locale locale, Model model) {
-
+		logger.info("blog list {}.", locale);		
+		List<Blog> list = blogService.listBlog(null);
+		model.addAttribute("blogList",list);
 		return "admin/blog/list";
 	}
 
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String write(Locale locale, Model model) {
-		
+		logger.info("Blog new {}.", locale);
 		return "admin/blog/new";
 	}
 
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public String edit(Locale locale, Model model) {
-		
+		logger.info("blog edit {}.", locale);
 		return "admin/blog/edit";
 	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String delete(@RequestParam(value="no") Integer aid,
+			Locale locale, Model model) {
+		logger.info("blog delete {}.", locale);
+		Blog vo = new Blog();
+		//vo.setId(id.intValue());		
+		blogService.deleteBlog(vo);
+		return "admin/blog/list";
+	}	
+	
+	
+	
+	
+	
 	@RequestMapping(value = "/fileupload", method = RequestMethod.GET)
 	public String fileform(Locale locale, Model model) {
 		logger.info("get : fileform");
@@ -53,7 +84,7 @@ public class BlogController {
 			// realPath
 			try {
 				uploadfile.transferTo(
-						new File("C:\\Users\\Administrator\\git\\hakunamatata\\src\\main\\webapp\\uploads\\"
+						new File("C:\\Users\\Administrator\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-blog\\"
 									+ uploadfile.getOriginalFilename())
 				);
 			} catch (IllegalStateException e) {

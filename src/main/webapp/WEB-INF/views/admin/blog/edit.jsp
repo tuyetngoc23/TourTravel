@@ -26,6 +26,7 @@
 	href="${pageContext.request.contextPath }/resources/assets/images/favicon.ico" />
 </head>
 <body>
+	
 	<div class="container-scroller">
 			<%@include file="../header.jsp"%>
 		<div class="container-fluid page-body-wrapper">
@@ -54,36 +55,46 @@
           </div>
         
         	<!-- Form -->
+        	
      		  <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description"> Basic form elements </p>
+                    <h4 class="card-title">Edit</h4>
+                    
                     <form class="forms-sample">
                       
                       <div class="form-group">
                         <label for="exampleInputEmail3">Title</label>
-                        <input type="title" class="form-control" id="exampleInputEmail3" placeholder="Title">
+                        <input type= "text" class="form-control" name="title" value="${blog.title}" required >
                       </div>                                          
                      
-                      <div class="form-group" method= "get" action="  " enctype="multipart/form-data">
+                      <div class="form-group" method= "get" action="" enctype="multipart/form-data">
                         <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <input type="file" name="Image" class="file-upload-default">
                         <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <input type="image" class="form-control file-upload-info" disabled placeholder="Upload Image">
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
                         </div>
                       </div>
                     
-                      <div class="form-group">
-                        <label for="exampleTextarea1">Textarea</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                    <div class="form-group">
+                        <label for="exampleTextarea1">Text</label>
+                        <textarea  id="editor1" class="form-control" name="content" value = "${blog.content}" required></textarea>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                       <button class="btn btn-light">Cancel</button>
                     </form>
+                  </div>
+                </div>
+              </div>
+                                  
+                                         
+                      
+                      
+                     
+                   
                   </div>
                 </div>
               </div>
@@ -96,15 +107,17 @@
         <!-- partial:partials/_footer.html -->
      <%@include file="../footer.jsp"%>
         <!-- partial -->
-      </div>
+     
       <!-- main-panel ends -->
-		</div>
-	</div>
+	
+	
       <!-- page-body-wrapper ends -->
 
     <!-- container-scroller -->
    <!-- plugins:js -->
    
+  <script
+		src="${pageContext.request.contextPath }/resources/assets/ckeditor/ckeditor.js"></script>
   
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script
@@ -130,7 +143,9 @@
     <script
 		src="${pageContext.request.contextPath }/resources/assets/js/todolist.js"></script>
 		  <!-- Custom js for this page -->
-  
+		<script>
+		CKEDITOR.replace( 'editor1' );
+		</script>
     <!-- End custom js for this page -->
 </body>
 </html>
