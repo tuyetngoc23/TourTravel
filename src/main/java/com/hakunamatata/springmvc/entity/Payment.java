@@ -10,6 +10,11 @@ import java.util.Date;
  */
 public class Payment {
 	
+	@Override
+	public String toString() {
+		return "Payment [id=" + id + ", quantity=" + quantity + ", totalprice=" + totalprice + ", pdate=" + pdate
+				+ ", book=" + book + ", payment_type=" + payment_type + "]";
+	}
 	private int id;
 	private int quantity;
 	private BigDecimal totalprice;
