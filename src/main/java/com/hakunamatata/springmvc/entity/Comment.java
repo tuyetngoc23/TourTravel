@@ -7,6 +7,10 @@ package com.hakunamatata.springmvc.entity;
  */
 public class Comment {
 	
+	@Override
+	public String toString() {
+		return "Comment [id=" + id + ", content=" + content + ", usertour=" + usertour + ", blog=" + blog + "]";
+	}
 	private int id;
 	private String content;
 	

@@ -26,6 +26,12 @@ public class UserTour {
 	
 	
 	
+	@Override
+	public String toString() {
+		return "UserTour [id=" + id + ", username=" + username + ", passwd=" + passwd + ", cusname=" + cusname
+				+ ", phone=" + phone + ", birthday=" + birthday + ", address=" + address + ", email=" + email
+				+ ", avatar=" + avatar + ", user_role=" + user_role + "]";
+	}
 	public UserRole getUser_role() {
 		return user_role;
 	}

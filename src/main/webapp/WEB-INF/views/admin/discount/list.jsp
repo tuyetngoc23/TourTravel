@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>  
 <!DOCTYPE html>
 <html>
 <head>
+<!--
+	@author BaoBB
+-->
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
@@ -75,20 +80,23 @@
                           <th>Start day</th>
                           <th>End day</th>
                           <th>Action</th>
+                          <th><a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='new'">New</a></th>
                         </tr>
                       </thead>
                       <tbody>
+                      <c:forEach var="discount" items="${discountList}" >
                         <tr>
-                          <td>Jacob</td>
-                          <td>Photoshop</td>
-                          <td>Jacob</td>
-                          <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-danger">Pending</label></td>
+                          <td>${discount.id}</td>
+                          <td>${discount.name}</td>
+                          <td>${discount.scope}</td>
+                          <td><fmt:formatDate value="${discount.start_day}" pattern="dd-MM-yyyy" /></td>
+                          <td><fmt:formatDate value="${discount.end_day}" pattern="dd-MM-yyyy" /></td>
                           <td>
-                          	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
+                          	<a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='edit?id=${discount.id}'">Edit</a>
+                          	<a type="button" class="btn btn-gradient-danger btn-fw" onclick="document.location='delete?id=${discount.id}'">Delete</a>
                           </td>
                         </tr>
+                       </c:forEach> 
                       </tbody>
                     </table>
                   </div>

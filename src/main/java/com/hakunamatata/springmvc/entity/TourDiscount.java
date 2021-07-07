@@ -6,6 +6,11 @@ package com.hakunamatata.springmvc.entity;
  */
 public class TourDiscount {
 	
+	@Override
+	public String toString() {
+		return "TourDiscount [id=" + id + ", tour=" + tour + ", discount=" + discount + "]";
+	}
+
 	private int id;
 	
 	private Tour tour;

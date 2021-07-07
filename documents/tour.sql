@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `blog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `wname` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `wdate` date DEFAULT NULL,
   `like_amount` int(11) DEFAULT NULL,
   `state` bit(1) DEFAULT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usertour_id` int(11) DEFAULT NULL,
   `blog_id` int(11) DEFAULT NULL,
-  `content` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `comment_ibfk_1` (`usertour_id`),
   KEY `comment_ibfk_2` (`blog_id`),
@@ -167,7 +167,7 @@ DELETE FROM `image_blog`;
 -- Dumping structure for table tour.image_tour
 CREATE TABLE IF NOT EXISTS `image_tour` (
   `id` int(11) NOT NULL,
-  `name` int(11) DEFAULT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `place` (
   `province_id` int(11) NOT NULL,
   `address` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `province_id` (`province_id`) USING BTREE,
   CONSTRAINT `FK_place_province` FOREIGN KEY (`province_id`) REFERENCES `province` (`id`) ON UPDATE CASCADE
@@ -357,7 +357,7 @@ CREATE TABLE IF NOT EXISTS `tour` (
   `location_go` int(11) DEFAULT NULL,
   `cattour_id` int(11) DEFAULT NULL,
   `content` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `note` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `note` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `hotel_id` int(11) DEFAULT NULL,
   `vehicle_id` int(11) DEFAULT NULL,
   `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,

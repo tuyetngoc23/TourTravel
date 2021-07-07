@@ -3,7 +3,7 @@ package com.hakunamatata.springmvc.entity;
 
 /**
  * @author Huynh Thi Tuyet Ngoc
- *
+ * @author BaoBB
  */
 public class Province {
 	
@@ -22,6 +22,10 @@ public class Province {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	@Override
+	public String toString() {
+		return "Province [id=" + id + ", name=" + name + "]";
 	}
 	
 	

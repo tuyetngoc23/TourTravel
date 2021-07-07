@@ -77,8 +77,6 @@ public class Tour {
 	private List<TourPlace> tourplace;
 	private List<TourDiscount> tourdiscount;
 	
-	
-	
 	public List<Place> getPlace() {
 		return place;
 	}

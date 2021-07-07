@@ -22,6 +22,7 @@ public class Vehicle {
 	private String name;
 	
 	
+
 	public int getId() {
 		return id;
 	}

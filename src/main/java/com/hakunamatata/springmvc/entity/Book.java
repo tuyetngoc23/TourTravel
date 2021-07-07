@@ -21,6 +21,13 @@ public class Book {
 	private Tour tour;
 	
 	
+	
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", total_money=" + total_money + ", child_amount=" + child_amount + ", aldult_amount="
+				+ aldult_amount + ", child_nho_amount=" + child_nho_amount + ", date=" + date + ", usertour=" + usertour
+				+ ", tour=" + tour + "]";
+	}
 	public UserTour getUsertour() {
 		return usertour;
 	}

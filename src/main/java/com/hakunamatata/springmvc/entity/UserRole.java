@@ -10,6 +10,10 @@ public class UserRole {
 	private String role;
 	
 	
+	@Override
+	public String toString() {
+		return "UserRole [id=" + id + ", role=" + role + "]";
+	}
 	public int getId() {
 		return id;
 	}

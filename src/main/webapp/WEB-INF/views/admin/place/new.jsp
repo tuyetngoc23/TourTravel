@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head>
+<!--
+	@author BaoBB
+-->
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
@@ -59,22 +63,39 @@
                   <div class="card-body">
                     <h4 class="card-title">Basic form elements</h4>
                     <p class="card-description"> Basic form elements </p>
-                    <form class="forms-sample">
-					  <div class="form-group">
+                    <form class="forms-sample" method= "post" action="add" enctype="multipart/form-data">
                       <div class="form-group">
                       <label for="exampleInputEmail3">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" required >
+                        <input type="text" class="form-control" name="name" value="${placelOne.name}" required >
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Province id</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Province id" required>
+                        <select name="province1" id="cars">
+                        	<c:forEach var="province" items="${provinceList}">
+                        		<option value="${province.id}">${province.name}</option>
+                        	</c:forEach>
+                        </select>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Address</label>
-                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Address" required>
+                        <input type="text" class="form-control" name="address" value="${placelOne.address}" required>
+                      </div>
+                      <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="uploadfile" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled="" value="${placelOne.image}">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                      <label for="exampleInputEmail3">Description</label>
+                        <textarea name="description" required rows="4" cols="50">${placelOne.description}</textarea>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                      <button class="btn btn-light">Cancel</button>
+                      <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/place/'">Cancel</a>
                     </form>
                   </div>
                 </div>

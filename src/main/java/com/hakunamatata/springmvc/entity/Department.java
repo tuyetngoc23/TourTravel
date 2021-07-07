@@ -2,7 +2,9 @@ package com.hakunamatata.springmvc.entity;
 
 
 /**
+
  * @author Huynh Thi Tuyet Ngoc
+ * @author BaoBB
  *
  */
 public class Department {

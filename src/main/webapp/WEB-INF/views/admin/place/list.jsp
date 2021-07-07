@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
+<!--
+	@author BaoBB
+-->
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
@@ -71,23 +75,28 @@
                         <tr>
                           <th>Id</th>
                           <th>Name</th>
-                          <th>Province id</th>
+                          <th>Province name</th>
                           <th>Address</th>
+                          <th>image</th>
                           <th>Action</th>
+                          <th><a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='new'">New</a></th>
                         </tr>
                       </thead>
                       <tbody>
+                        <c:forEach var="place" items="${placeList}">
                         <tr>
-                          <td>Jacob</td>
-                          <td>Photoshop</td>
-                          <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-danger">Pending</label></td>
+                          <td>${place.id}</td>
+                          <td>${place.name}</td>
+                          <td>${place.province.name}</td>
+                          <td>${place.address}</td>
+                          <td><img src="${pageContext.request.contextPath }/uploads/image-place/${place.image}"></td> 
+                          <td>${place.description}</td>
                           <td>
-                          	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
+                          	<a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='edit?id=${place.id}'">Edit</a>
+                          	<a type="button" class="btn btn-gradient-danger btn-fw" onclick="document.location='delete?id=${place.id}'">Delete</a>
                           </td>
                         </tr>
-
+						</c:forEach>
                       </tbody>
                     </table>
                   </div>

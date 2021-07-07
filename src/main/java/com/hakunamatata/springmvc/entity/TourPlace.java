@@ -13,6 +13,11 @@ public class TourPlace {
 	
 
 
+	@Override
+	public String toString() {
+		return "TourPlace [id=" + id + ", place=" + place + ", tour=" + tour + "]";
+	}
+
 	public Place getPlace() {
 		return place;
 	}

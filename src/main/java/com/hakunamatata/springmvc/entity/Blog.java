@@ -18,6 +18,12 @@ public class Blog {
 	private String image;
 	
 	
+	
+	@Override
+	public String toString() {
+		return "Blog [id=" + id + ", title=" + title + ", wname=" + wname + ", content=" + content + ", wdate=" + wdate
+				+ ", like_amount=" + like_amount + ", state=" + state + ", image=" + image + "]";
+	}
 	public String getImage() {
 		return image;
 	}
