@@ -49,8 +49,15 @@ public class PlaceController {
 		return "admin/place/new";
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String add(MultipartFile uploadfile, Place vo, Locale locale, Model model) {
+	public String add(@RequestParam(value = "province_id1",required = false) int province_id, MultipartFile uploadfile,
+			Place vo, Locale locale, Model model) {
 		System.out.println(uploadfile);
+		System.out.println(province_id);
+		Province province = new Province();
+		province.setId(province_id);
+		vo.setProvince(province);
+		System.out.println(vo);
+		
 		if(!uploadfile.isEmpty()) {
 			String fileName = uploadfile.getOriginalFilename();
 			// realPath
@@ -83,6 +90,7 @@ public class PlaceController {
 		model.addAttribute("placelOne",place);
 		List<Province> list = placeService.listProvince(null);
 		model.addAttribute("provinceList",list);
+
 		return "admin/place/edit";
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
