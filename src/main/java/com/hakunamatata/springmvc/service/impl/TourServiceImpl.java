@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hakunamatata.springmvc.entity.CatTour;
 import com.hakunamatata.springmvc.entity.Tour;
 import com.hakunamatata.springmvc.repository.TourDAO;
 import com.hakunamatata.springmvc.service.TourService;
@@ -41,5 +42,13 @@ public class TourServiceImpl implements TourService{
 		// TODO Auto-generated method stub
 		return dao.list(vo);
 	}
+
+	@Override
+	public List<CatTour> getCattour() {
+		// TODO Auto-generated method stub
+		return dao.getCattour();
+	}
+
+
 
 }

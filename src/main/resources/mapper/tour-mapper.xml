@@ -75,7 +75,9 @@
 				<result property="name" column="pro_name"/>
 			</association>
 	</resultMap>
-
+	<select id="getListCart" resultType="cattour">
+		SELECT * FROM cat_tour
+	</select>
 
 	<select id="getList" parameterType="tour" resultMap="tourMap">
 

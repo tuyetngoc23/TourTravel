@@ -33,7 +33,7 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-<<<<<<< HEAD
+
 	<filter>
 		<filter-name>encoding-filter</filter-name>
 		<filter-class>
@@ -60,9 +60,6 @@
 			<page-encoding>UTF-8</page-encoding>
 		</jsp-property-group>
 	</jsp-config>
-=======
-	
-	
->>>>>>> branch 'dev' of https://gitlab.com/kits3/kits4/hakunamatata.git
+
 
 </web-app>

@@ -17,8 +17,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.hakunamatata.springmvc.entity.CatTour;
+import com.hakunamatata.springmvc.entity.Department;
+import com.hakunamatata.springmvc.entity.Discount;
+import com.hakunamatata.springmvc.entity.Hotel;
+import com.hakunamatata.springmvc.entity.Place;
+import com.hakunamatata.springmvc.entity.Province;
 import com.hakunamatata.springmvc.entity.Tour;
+import com.hakunamatata.springmvc.entity.Vehicle;
 import com.hakunamatata.springmvc.service.TourService;
+import com.hakunamatata.springmvc.service.VehicleService;
+import com.hakunamatata.springmvc.service.impl.DepartmentService;
+import com.hakunamatata.springmvc.service.impl.DiscountService;
+import com.hakunamatata.springmvc.service.impl.HotelService;
+import com.hakunamatata.springmvc.service.impl.PlaceService;
 
 @Controller
 @RequestMapping("admin/tour")
@@ -26,6 +38,16 @@ import com.hakunamatata.springmvc.service.TourService;
 public class TourController {
 	@Autowired
 	private TourService service;
+	@Autowired
+	private PlaceService placeService;
+	@Autowired 
+	private DiscountService discountService;
+	@Autowired
+	private DepartmentService departmentService;
+	@Autowired
+	private HotelService hotelService;
+	@Autowired 
+	private VehicleService vehcleService;
 	@GetMapping(value = {"","/"})
 //	@ResponseBody
 	public String list(Model model,Locale locale) {
@@ -38,8 +60,21 @@ public class TourController {
 	
 	@GetMapping(value = "/new")
 	public String write(Model model,Locale locale) {
-		
-		
+		List<Province> listProvinces = placeService.listProvince(null);
+		List<Place> Places = placeService.list(null);
+		List<Discount> discounts = discountService.list(null);
+		List<Department> departments = departmentService.list(null);
+		List<CatTour> catTours = service.getCattour();
+		List<Hotel> hotels = hotelService.list(null);
+		List<Vehicle> vehicles = vehcleService.list(null);
+		System.out.println(vehicles);
+		model.addAttribute("listProvince", listProvinces);
+		model.addAttribute("listPlaces", Places);
+		model.addAttribute("listDiscount", discounts);
+		model.addAttribute("listDispartment", departments);
+		model.addAttribute("listCatTours", catTours);
+		model.addAttribute("listHotels", hotels);
+		model.addAttribute("listVehicles", vehicles);
 		return "admin/tour/new";
 	
 	}

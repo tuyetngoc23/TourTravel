@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 <!DOCTYPE html>
 <html>
 
@@ -65,23 +68,23 @@
                     <form class="forms-sample" action="${pageContext.request.contextPath }/admin/tour/new" method="post">
                       <div class="form-group">
                         <label for="exampleInputName1">Name Tour :</label>
-                        <input type="text" class="form-control" name="name" placeholder="Name Tour">
+                        <input type="text" class="form-control" name="name" placeholder="Name Tour" required="required">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Price Tour :</label>
-                        <input type="number" class="form-control" name="price" placeholder="Price Tour">
+                        <input type="number" class="form-control" name="price" placeholder="Price Tour" required="required">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Min Amount Tour :</label>
-                        <input type="number" class="form-control" name="min_amount" placeholder="Min Amount Tour">
+                        <input type="number" class="form-control" name="min_amount" placeholder="Min Amount Tour" required="required">
                       </div>
                        <div class="form-group">
                         <label for="exampleInputPassword4">Max Amount Tour :</label>
-                        <input type="number" class="form-control" name="max_amount" placeholder="Max Amount Tour">
+                        <input type="number" class="form-control" name="max_amount" placeholder="Max Amount Tour" required="required">
                       </div>
                         <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="image" class="file-upload-default" onchange="previewFiles()">
+                        <input type="file" name="image" class="file-upload-default" onchange="previewFiles()" required="required">
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" >
                           <span class="input-group-append">
@@ -95,75 +98,90 @@
                       <div id="preview"></div>
                       <div class="form-group">
                       		 <label for="birthday">Start Day:</label>
-  							<input type="date" class="form-control" id="birthday" name="startday">
+  							<input type="date" class="form-control" id="birthday" name="startday" required="required">
                       </div>
                        <div class="form-group">
                       		 <label for="birthday">Start End:</label>
-  							<input type="date" class="form-control" id="birthday" name="endday">
+  							<input type="date" class="form-control" id="birthday" name="endday" required="required">
                       </div>
                       <div class="form-group">
                         <label for="exampleSelectGender">Location Go Tour :</label>
-                        <select class="select-decreption form-control" name="location_go">
-                          <option value="1">Xe May</option>
-                          <option value="1">May Bay</option>
+                        <select class="select-decreption form-control" name="location_go" required="required">
+                          	<option >Chon Location Go</option>
+                           
+                            <c:forEach items="${listDispartment}" var="dispart">
+                          	 <option value="${dispart.id}">${dispart.tourguide}</option>
+                          </c:forEach>
                         </select>
                       </div>
                         <div class="form-group">
                         <label for="exampleSelectGender">Cat Tour :</label>
-                        <select class="select-cattour form-control" name="carttour_id">
-                          <option value="1">cartour1</option>
-                          <option value="1">cartour12</option>
+                        <select class="select-cattour form-control" name="carttour_id" required="required">
+                         	<option >Chon Cat tour</option>
+                           <c:forEach items="${listCatTours}" var="cattour">
+                          	 <option value="${cattour.id}">${cattour.name}</option>
+                          </c:forEach>
                         </select>
                       </div>
                       
                        <div class="form-group">
                         <label for="exampleSelectGender">Hothel</label>
-                        <select class="select-hotel form-control" name="hotel_id">
-                          <option value="1">hotel1</option>
-                          <option value="1">hotel2</option>
+                        <select class="select-hotel form-control" name="hotel_id" required="required">
+                          <option >Chon Hotel</option>
+                           <c:forEach items="${listHotels}" var="hotel">
+                          	 <option value="${hotel.id}">${hotel.name}</option>
+                          </c:forEach>
                         </select>
                       </div>
                         <div class="form-group">
                         <label for="exampleSelectGender">Vehicle</label>
-                        <select class="select-vehicle form-control" name="vehicle_id">
-                          <option value="1">Vehicle1</option>
-                          <option value="1">Vehicle12</option>
+                        <select class="select-vehicle form-control" name="vehicle_id" required="required">
+                          <option >Chon Vehicle</option>
+                           <c:forEach items="${listVehicles}" var="vehicle">
+                          	 <option value="${vehicle.id}">${vehicle.name}</option>
+                          </c:forEach>
                         </select>
                       </div>
                        <div class="row">
                        	    <div class="form-group col ">
                         <label for="exampleSelectGender">Province</label>
-                        <select class="select-vehicle form-control" name="province_id">
-                          <option value="1">Vehicle1</option>
-                          <option value="1">Vehicle12</option>
+                        <select class="select-vehicle form-control" name="province_id" required="required">
+                          <option >Chọn Province</option>
+                          <c:forEach items="${listProvince}" var="province">
+                          	 <option value="${province.id}">${province.name}</option>
+                          </c:forEach>
+                         
                         </select>
                       </div>
                       
                           <div class="form-group col">
                         <label for="exampleSelectGender">Place</label>
-                        <select class="select-palace form-control" name="place_id" multiple="multiple">
-                          <option value="1">1</option>
-                          <option value="1">2</option>
+                        <select class="select-palace form-control" name="place_id" multiple="multiple" required="required">
+                         	
+                          
+                            <c:forEach items="${listPlaces}" var="place">
+                          	 <option value="${place.id}">${place.name}</option>
+                          </c:forEach>
                         </select>
                       </div>
                        </div>
                             <div class="form-group">
                         <label for="exampleSelectGender">Discount</label>
-                        <select class="select-discount form-control" name="discount_id" multiple="multiple">
-                          <option value="1">1</option>
-                          <option value="1">2</option>
-                           <option value="1">3</option>
+                        <select class="select-discount form-control" name="discount_id" multiple="multiple" required="required">
+                           <c:forEach items="${listDiscount}" var="discount">
+                          	 <option value="${discount.id}">${discount.name}</option>
+                          </c:forEach>
                         </select>
                       </div>
 
                    
                       <div class="form-group">
                         <label for="exampleInputCity1">Content Tour</label>
-                        <textarea  id="editor1" class="form-control" name="content" placeholder="Content" rows="4"></textarea>
+                        <textarea  id="editor1" class="form-control" name="content" placeholder="Content" rows="4" required="required"></textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleTextarea1">Note Tour</label>
-                        <textarea class="form-control" name="note" placeholder="Note Tour" rows="4"></textarea>
+                        <textarea class="form-control" name="note" placeholder="Note Tour" rows="4" required="required"></textarea>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                       <button class="btn btn-light">Cancel</button>

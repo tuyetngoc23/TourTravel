@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.hakunamatata.springmvc.entity.CatTour;
 import com.hakunamatata.springmvc.entity.Tour;
 import com.hakunamatata.springmvc.repository.TourDAO;
 @Repository
@@ -41,5 +42,13 @@ public class TourDAOImpl implements TourDAO{
 		// TODO Auto-generated method stub
 		return session.selectList("Tour.getList", null);
 	}
+
+	@Override
+	public List<CatTour> getCattour() {
+		// TODO Auto-generated method stub
+		return session.selectList("Tour.getListCart",null);
+	}
+
+
 
 }
