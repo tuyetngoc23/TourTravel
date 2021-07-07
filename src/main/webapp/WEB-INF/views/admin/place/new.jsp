@@ -70,7 +70,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Province id</label>
-                        <select name="province_id" id="cars">
+                        <select name="province1" id="cars">
                         	<c:forEach var="province" items="${provinceList}">
                         		<option value="${province.id}">${province.name}</option>
                         	</c:forEach>
