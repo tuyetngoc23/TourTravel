@@ -62,7 +62,7 @@
                   <div class="card-body">
                     <h4 class="card-title text-info text-center">New Tour</h4>
                   
-                    <form class="forms-sample" action="#" method="get">
+                    <form class="forms-sample" action="${pageContext.request.contextPath }/admin/tour/new" method="post">
                       <div class="form-group">
                         <label for="exampleInputName1">Name Tour :</label>
                         <input type="text" class="form-control" name="name" placeholder="Name Tour">
@@ -81,7 +81,7 @@
                       </div>
                         <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default" onchange="previewFiles()">
+                        <input type="file" name="image" class="file-upload-default" onchange="previewFiles()">
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" >
                           <span class="input-group-append">
@@ -95,64 +95,64 @@
                       <div id="preview"></div>
                       <div class="form-group">
                       		 <label for="birthday">Start Day:</label>
-  							<input type="date" class="form-control" id="birthday" name="start_day">
+  							<input type="date" class="form-control" id="birthday" name="startday">
                       </div>
                        <div class="form-group">
                       		 <label for="birthday">Start End:</label>
-  							<input type="date" class="form-control" id="birthday" name="start_end">
+  							<input type="date" class="form-control" id="birthday" name="endday">
                       </div>
                       <div class="form-group">
                         <label for="exampleSelectGender">Location Go Tour :</label>
                         <select class="select-decreption form-control" name="location_go">
-                          <option>Xe May</option>
-                          <option>May Bay</option>
+                          <option value="1">Xe May</option>
+                          <option value="1">May Bay</option>
                         </select>
                       </div>
                         <div class="form-group">
                         <label for="exampleSelectGender">Cat Tour :</label>
                         <select class="select-cattour form-control" name="carttour_id">
-                          <option>cartour1</option>
-                          <option>cartour12</option>
+                          <option value="1">cartour1</option>
+                          <option value="1">cartour12</option>
                         </select>
                       </div>
                       
                        <div class="form-group">
                         <label for="exampleSelectGender">Hothel</label>
                         <select class="select-hotel form-control" name="hotel_id">
-                          <option>hotel1</option>
-                          <option>hotel2</option>
+                          <option value="1">hotel1</option>
+                          <option value="1">hotel2</option>
                         </select>
                       </div>
                         <div class="form-group">
                         <label for="exampleSelectGender">Vehicle</label>
                         <select class="select-vehicle form-control" name="vehicle_id">
-                          <option>Vehicle1</option>
-                          <option>Vehicle12</option>
+                          <option value="1">Vehicle1</option>
+                          <option value="1">Vehicle12</option>
                         </select>
                       </div>
                        <div class="row">
                        	    <div class="form-group col ">
                         <label for="exampleSelectGender">Province</label>
                         <select class="select-vehicle form-control" name="province_id">
-                          <option>Vehicle1</option>
-                          <option>Vehicle12</option>
+                          <option value="1">Vehicle1</option>
+                          <option value="1">Vehicle12</option>
                         </select>
                       </div>
                       
                           <div class="form-group col">
                         <label for="exampleSelectGender">Place</label>
                         <select class="select-palace form-control" name="place_id" multiple="multiple">
-                          <option value="vehi1">1</option>
-                          <option value="vehi2">2</option>
+                          <option value="1">1</option>
+                          <option value="1">2</option>
                         </select>
                       </div>
                        </div>
                             <div class="form-group">
                         <label for="exampleSelectGender">Discount</label>
                         <select class="select-discount form-control" name="discount_id" multiple="multiple">
-                          <option value="discount1">1</option>
-                          <option value="discount2">2</option>
-                           <option value="discount3">3</option>
+                          <option value="1">1</option>
+                          <option value="1">2</option>
+                           <option value="1">3</option>
                         </select>
                       </div>
 

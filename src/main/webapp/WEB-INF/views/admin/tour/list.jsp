@@ -70,7 +70,7 @@
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
                 <p>Admin Tour List</p>
-                <a href="#" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
+                <a href="${pageContext.request.contextPath }/admin/tour/new"  class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
             </div>
