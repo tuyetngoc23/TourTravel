@@ -49,10 +49,10 @@ public class PlaceController {
 		return "admin/place/new";
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String add(@RequestParam(value = "province_id1",required = false) int province_id, MultipartFile uploadfile,
+	public String add(@RequestParam(value = "province1",required = false) int province_id, MultipartFile uploadfile,
 			Place vo, Locale locale, Model model) {
-		System.out.println(uploadfile);
-		System.out.println(province_id);
+//		System.out.println(uploadfile);
+//		System.out.println(province_id);
 		Province province = new Province();
 		province.setId(province_id);
 		vo.setProvince(province);
@@ -94,8 +94,12 @@ public class PlaceController {
 		return "admin/place/edit";
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(@RequestParam(value="image1") String image, MultipartFile uploadfile, Place vo, Locale locale, Model model) {
-		System.out.println(uploadfile);
+	public String update(@RequestParam(value = "province1",required = false) int province_id,
+			@RequestParam(value="image1") String image, MultipartFile uploadfile, Place vo, Locale locale, Model model) {
+//		System.out.println(uploadfile);
+		Province province = new Province();
+		province.setId(province_id);
+		vo.setProvince(province);
 		if(!uploadfile.isEmpty()) {
 			String fileName = uploadfile.getOriginalFilename();
 			// realPath

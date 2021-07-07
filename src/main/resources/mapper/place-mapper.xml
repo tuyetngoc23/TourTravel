@@ -36,11 +36,11 @@
 	
 	<insert id="insert" parameterType="place">
 		INSERT INTO place (name, province_id, address, image, description) 
-		VALUES (#{name}, #{province_id}, #{address}, #{image}, #{description})	
+		VALUES (#{name}, #{province.id}, #{address}, #{image}, #{description})	
 	</insert>
 	
 	<update id="update" parameterType="place">
-		UPDATE place SET name=#{name}, province_id=#{province_id}, address=#{address}, image=#{image}, description=#{description}
+		UPDATE place SET name=#{name}, province_id=#{province.id}, address=#{address}, image=#{image}, description=#{description}
 		WHERE id=#{id}
 	</update>
 	
