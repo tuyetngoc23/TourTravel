@@ -24,6 +24,12 @@ public class Ticket {
 	
 	
 	
+	@Override
+	public String toString() {
+		return "Ticket [id=" + id + ", name=" + name + ", email=" + email + ", ticket_code=" + ticket_code + ", phone="
+				+ phone + ", state=" + state + ", giveDate=" + giveDate + ", unitprice=" + unitprice + ", book=" + book
+				+ "]";
+	}
 	public int getId() {
 		return id;
 	}

@@ -11,6 +11,10 @@ public class Vehicle {
 	private String name;
 	
 	
+	@Override
+	public String toString() {
+		return "Vehicle [id=" + id + ", name=" + name + "]";
+	}
 	public int getId() {
 		return id;
 	}

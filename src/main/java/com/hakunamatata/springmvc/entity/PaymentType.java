@@ -10,6 +10,10 @@ public class PaymentType {
 	private int id;
 	private String type;
 	
+	@Override
+	public String toString() {
+		return "PaymentType [id=" + id + ", type=" + type + "]";
+	}
 	public int getId() {
 		return id;
 	}

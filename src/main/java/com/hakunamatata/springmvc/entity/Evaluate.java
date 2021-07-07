@@ -8,6 +8,11 @@ import java.util.Date;
  */
 public class Evaluate {
 	
+	@Override
+	public String toString() {
+		return "Evaluate [id=" + id + ", content=" + content + ", wdate=" + wdate + ", user=" + user + ", tour=" + tour
+				+ "]";
+	}
 	private int id;
 	private String content;
 	private Date wdate;

@@ -6,6 +6,11 @@ package com.hakunamatata.springmvc.entity;
  */
 public class LikeBlog {
 	
+	@Override
+	public String toString() {
+		return "LikeBlog [id=" + id + ", blog=" + blog + ", usertour=" + usertour + "]";
+	}
+
 	private int id;
 	
 	private Blog blog;

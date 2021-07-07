@@ -31,6 +31,13 @@ public class Tour {
 	
 	
 	
+	@Override
+	public String toString() {
+		return "Tour [id=" + id + ", name=" + name + ", price=" + price + ", min_amount=" + min_amount + ", max_amount="
+				+ max_amount + ", start_day=" + start_day + ", end_day=" + end_day + ", content=" + content + ", note="
+				+ note + ", image=" + image + ", department=" + department + ", cattour=" + cattour + ", hotel=" + hotel
+				+ ", vehicle=" + vehicle + ", place=" + place + ", discount=" + discount + "]";
+	}
 	public List<Place> getPlace() {
 		return place;
 	}

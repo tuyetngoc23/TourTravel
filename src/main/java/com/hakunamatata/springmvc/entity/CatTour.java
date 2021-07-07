@@ -11,6 +11,10 @@ public class CatTour {
 	private String name;
 	
 	
+	@Override
+	public String toString() {
+		return "CatTour [id=" + id + ", name=" + name + "]";
+	}
 	public int getId() {
 		return id;
 	}
