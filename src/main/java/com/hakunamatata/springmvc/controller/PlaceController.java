@@ -64,6 +64,7 @@ public class PlaceController {
 				);
 				vo.setImage(fileName);
 				placeService.insert(vo);
+
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -71,6 +72,7 @@ public class PlaceController {
 			}
 		}	
 		return "redirect:/admin/place/";
+
 	}
 	
 	
@@ -102,6 +104,7 @@ public class PlaceController {
 									+fileName)
 				);
 				vo.setImage(fileName);
+
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -112,5 +115,6 @@ public class PlaceController {
 		}	
 		placeService.update(vo);
 		return "redirect:/admin/place/";
+
 	}
 }

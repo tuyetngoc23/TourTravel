@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>List Vehicle</title>
     <!-- plugins:css -->
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -37,8 +38,8 @@
         	  <div class="row" id="proBanner">
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
-                <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
-                <a href="#" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
+                <p>List Vehicle Admin</p>
+                <a href="${pageContext.request.contextPath }/admin/vehicle/new"  class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
             </div>
@@ -63,57 +64,51 @@
      		   <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
-                    <p class="card-description"> Add class <code>.table-hover</code>
+                    <h4 class="card-title text-center text-info">List Vehicle</h4>
+                   
                     </p>
                     <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th>User</th>
-                          <th>Product</th>
-                          <th>Sale</th>
-                          <th>Status</th>
-                          <th>Action</th>
+                          <th>ID Vehicle</th>
+                          <th>Name</th>
+                        
+                         
+                          <th class="text-center">Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Jacob</td>
-                          <td>Photoshop</td>
-                          <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-danger">Pending</label></td>
-                          <td>
-                          	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
+                      <c:forEach var="vehicle" items="${list}">
+                      	  <tr>
+                          <td>${vehicle.id}</td>
+                          <td>${vehicle.name}</td>
+                         
+                          
+                       
+                          <td class="text-center">
+                          	<a href="${pageContext.request.contextPath }/admin/vehicle/edit?id=${vehicle.id}" type="button" class="btn btn-gradient-info btn-fw">Edit</a>
+                          	<a href="${pageContext.request.contextPath }/admin/vehicle/delete?id=${vehicle.id}" class="btn btn-gradient-danger btn-fw">Delete</a>
                           </td>
                         </tr>
-                        <tr>
-                          <td>Messsy</td>
-                          <td>Flash</td>
-                          <td class="text-danger"> 21.06% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
-                        <tr>
-                          <td>John</td>
-                          <td>Premier</td>
-                          <td class="text-danger"> 35.00% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-info">Fixed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Peter</td>
-                          <td>After effects</td>
-                          <td class="text-success"> 82.00% <i class="mdi mdi-arrow-up"></i></td>
-                          <td><label class="badge badge-success">Completed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Dave</td>
-                          <td>53275535</td>
-                          <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
-                          <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
+                      
+                      </c:forEach>
+                       
                       </tbody>
                     </table>
+                                        <div class="d-flex justify-content-center">
+                    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+                    
+                    </div>
                   </div>
+                  
                 </div>
               </div>
      		

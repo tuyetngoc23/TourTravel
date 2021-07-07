@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Tour">
+	
+	<resultMap type="tour" id="tourMap">
+		<id property="id" column="t_id" />
+		<result property="name" column="t_name" />
+		<result property="price" column="t_price" />
+		<result property="min_amount" column="t_min_amount" />
+		<result property="max_amount" column="t_max_amount" />
+		<result property="start_day" column="t_start_day" />
+		<result property="end_day" column="t_end_day" />
+		<result property="content" column="t_content" />
+		<result property="note" column="t_note" />
+		<result property="image" column="t_image" />
+		<association property="department" javaType="department">
+			<id property="id" column="d_id" />
+			<result property="tourguide" column="d_tourguide" />
+			<result property="address" column="d_address" />
+		</association>
+		<association property="hotel" javaType="hotel">
+			<id property="id" column="h_id" />
+			<result property="type" column="h_type" />
+			<result property="name" column="h_name" />
+			<result property="address" column="h_address" />
+			<result property="image" column="h_image" />																																						
+		</association>
+		<association property="vehicle" javaType="vehicle">
+			<id property="id" column="v_id" />
+			<result property="name" column="v_name" />
+		</association>
+		<association property="cattour" javaType="cattour">
+			<id property="id" column="ct_id" />
+			<result property="name" column="ct_name" />
+		</association>
+		<collection property="place" javaType="ArrayList"  resultMap="placeMap">
+				
+		</collection>
+		<collection property="discount" javaType="ArrayList"
+			ofType="discount">
+			<id property="id" column="dc_id" />
+			<result property="name" column="dc_name" />
+			<result property="scope" column="dc_scope" />
+			<result property="start_day" column="dc_start_day" />
+			<result property="end_day" column="dc_end_day" />
+		</collection>
+				<collection property="tourplace" javaType="ArrayList" ofType="tourplace">
+			<id property="id" column="tp_id"/>
+			<association property="place" javaType="place">
+				<id property="id" column="tp_place_id"/>
+			</association>
+				<association property="tour" javaType="tour">
+				<id property="id" column="td_tour_id"/>
+			</association>
+			
+		</collection>
+			<collection property="tourdiscount" javaType="ArrayList" ofType="tourdiscount">
+			<id property="id" column="td_id"/>
+			<association property="tour" javaType="tour">
+				<id property="id" column="td_tour_id"/>
+			</association>
+			<association property="discount" javaType="discount">
+				<id property="id" column="td_discout_id"/>
+			</association>
+		</collection>
+
+	</resultMap>
+	<resultMap type="place" id="placeMap">
+			<id property="id" column="p_id" />
+			<result property="name" column="p_name" />
+			<result property="address" column="p_address" />	
+			<result property="image" column="p_image" />
+			<association property="province" javaType="province">
+				<id property="id" column="pro_id"/>
+				<result property="name" column="pro_name"/>
+			</association>
+	</resultMap>
+	<select id="getListCart" resultType="cattour">
+		SELECT * FROM cat_tour
+	</select>
+
+	<select id="getList" parameterType="tour" resultMap="tourMap">
+
+SELECT t.id AS t_id,t.name AS t_name,t.price AS t_price,t.min_amount AS t_min_amount,t.max_amount AS t_max_amount ,t.start_day AS t_start_day,t.end_day  AS t_end_day,t.location_go AS t_location_go,t.cattour_id AS t_cattour_id,t.content AS t_content ,t.note AS t_note,t.hotel_id AS t_hotel_id ,t.image AS t_image,
+		h.id AS h_id,h.type AS h_type,h.name AS h_name  ,h.image AS h_image,h.address AS h_address,
+		v.id AS v_id,v.name AS v_name,
+		ct.id AS ct_id,ct.name AS ct_name,
+		d.id AS d_id,d.tourguide AS d_tourguide,d.address AS d_address,
+		td.id AS td_id,td.tour_id AS td_tour_id,td.discount_id AS td_discout_id,
+		dc.id AS dc_id,dc.name AS dc_name,dc.scope AS dc_scope,dc.start_day AS dc_start_day,dc.end_day AS dc_end_day,
+		tp.id AS tp_id,tp.place_id AS tp_place_id,tp.tour_id AS td_tour_id,
+		p.id AS p_id, p.name AS p_name,p.province_id AS p_province,p.address AS p_address,p.image AS p_image,
+		pro.id AS pro_id ,pro.name AS pro_name
+ FROM  tour t LEFT OUTER JOIN hotel h ON t.hotel_id = h.id
+							LEFT OUTER JOIN vehicle v ON t.vehicle_id = v.id
+							LEFT OUTER JOIN cat_tour ct ON t.cattour_id = ct.id
+							LEFT OUTER JOIN department d ON t.location_go = d.id
+							LEFT OUTER JOIN tour_discount td ON t.id = td.tour_id
+							LEFT OUTER JOIN discount dc ON td.discount_id = dc.id
+							LEFT OUTER JOIN tour_place tp ON t.id = tp.tour_id
+							LEFT OUTER JOIN place p ON tp.place_id = p.id
+							LEFT OUTER JOIN province pro ON p.province_id = pro.id
+							
+	</select>
+</mapper>

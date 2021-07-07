@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Tour List</title>
     <!-- plugins:css -->
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -24,7 +27,36 @@
     <!-- End layout styles -->
     <link rel="shortcut icon"
 	href="${pageContext.request.contextPath }/resources/assets/images/favicon.ico" />
+	<style type="text/css">
+	#style-4{
+		 overflow-x: auto;
+	}
+	#style-4::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+	background-color: #F5F5F5;
+	
+}
+
+#style-4::-webkit-scrollbar
+{
+	height:10px;
+	
+	background-color: rgba(172, 50, 228, 0.9);
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-image: linear-gradient(to right, #da8cff, #9a55ff);	border: 1px rgba(172, 50, 228, 0.9);
+	border-radius: 5px;
+	
+	
+	
+}
+	
+	</style>
 </head>
+
 <body>
 	<div class="container-scroller">
 			<%@include file="../header.jsp"%>
@@ -37,8 +69,8 @@
         	  <div class="row" id="proBanner">
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
-                <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
-                <a href="#" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
+                <p>Admin Tour List</p>
+                <a href="${pageContext.request.contextPath }/admin/tour/new"  class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
             </div>
@@ -62,60 +94,111 @@
         	<!-- table -->
      		   <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
-                    <p class="card-description"> Add class <code>.table-hover</code>
-                    </p>
-                    <table class="table table-hover">
+                  <div class="card-body " id="style-4">
+                    <h4 class="card-title text-center text-info">List Tour</h4>
+                  
+                 
+                    <table class="table table-hover ">
                       <thead>
                         <tr>
-                          <th>User</th>
-                          <th>Product</th>
-                          <th>Sale</th>
-                          <th>Status</th>
-                          <th>Action</th>
+                          <th>ID</th>
+                          <th>Name</th>
+                           <th>Price</th>
+                          <th>Min Amount</th>
+                          <th>Max Amount</th>
+                          <th>Image</th>
+                          <th>Start Day</th>
+                          <th>End Day</th>
+                          <th>Location go</th>
+                          <th>Cattour</th>
+                           <th>Hotel</th>
+                          <th>Vehicle</th>
+                            <th>Discount</th>
+                          <th>Place</th>
+                          <th>Content</th>
+                             <th>Note</th>
+                              <th class="text-center">Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Jacob</td>
-                          <td>Photoshop</td>
-                          <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-danger">Pending</label></td>
+                      <c:forEach items="${listTour}" var="tour">
+                      	  <tr>
+                          <td>${tour.id}</td>
+                          <td>${tour.name}</td>
+                           <td>${tour.price}</td>
+                            <td>${tour.min_amount}</td>
+                              <td>${tour.max_amount}</td>
+                            <td><img src="${tour.image}" alt="test"/></td>
+                              <td><fmt:formatDate type="date" value="${tour.start_day}" />  </td>
+                            <td><fmt:formatDate type="date" value="${tour.end_day}" /> </td>
+                              <td>${tour.department.tourguide}</td>
+                            <td>${tour.cattour.name}</td>
+                             <td>${tour.hotel.name}</td>
+                            <td>${tour.vehicle.name}</td>
+                             <td>
+                             	<c:forEach items="${tour.discount}" var="discount">
+                             		<span>${discount.name} ,</span>
+                             	</c:forEach>
+                             	
+                             </td>
+                            <td>
+                            <c:forEach items="${tour.place}" var="place">
+                             		<span>${place.name} ,</span>
+                             	</c:forEach>
+                             	
+                             </td>
+                            </td>
+                             <td>
+                             	
+                             	<c:choose>
+                             		<c:when test="${fn:length(tour.content) < 15 }">
+                             	
+                             			${tour.content}
+                             		</c:when>
+                             		<c:otherwise>
+                             			${fn:substring(tour.content, 0, 15)}...  
+                             		</c:otherwise>
+                             	</c:choose>
+                             </td>
+                            <td>
+                            	<c:choose>
+                             		<c:when test="${fn:length(tour.note) < 15 }">
+                             	
+                             			${tour.note}
+                             		</c:when>
+                             		<c:otherwise>
+                             			${fn:substring(tour.note, 0, 15)}...  
+                             		</c:otherwise>
+                             	</c:choose>
+                            </td>
+                         	
                           <td>
-                          	<a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
+                          	<a type="button" href="${pageContext.request.contextPath }/admin/tour/edit?id=${tour.id}" class="btn btn-gradient-info btn-sm">Edit</a>
+                          	<a type="button" href="${pageContext.request.contextPath }/admin/tour/delete?id=${tour.id}" class="btn btn-gradient-danger btn-sm">Delete</a>
                           </td>
                         </tr>
-                        <tr>
-                          <td>Messsy</td>
-                          <td>Flash</td>
-                          <td class="text-danger"> 21.06% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
-                        <tr>
-                          <td>John</td>
-                          <td>Premier</td>
-                          <td class="text-danger"> 35.00% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-info">Fixed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Peter</td>
-                          <td>After effects</td>
-                          <td class="text-success"> 82.00% <i class="mdi mdi-arrow-up"></i></td>
-                          <td><label class="badge badge-success">Completed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Dave</td>
-                          <td>53275535</td>
-                          <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
-                          <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
+                       
+                      </c:forEach>
+                      
                       </tbody>
                     </table>
+                    <!-- Pagination -->
+                    <div class="d-flex justify-content-center">
+                    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+                    
+                    </div>
                   </div>
                 </div>
               </div>
+              
      		
      		 	<!-- End table -->
           </div>

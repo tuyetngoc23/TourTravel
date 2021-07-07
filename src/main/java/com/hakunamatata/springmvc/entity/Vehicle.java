@@ -6,15 +6,23 @@ package com.hakunamatata.springmvc.entity;
  *
  */
 public class Vehicle {
-	
-	private int id;
-	private String name;
-	
-	
+	public Vehicle() {
+		// TODO Auto-generated constructor stub
+	}
+	public Vehicle(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
 	@Override
 	public String toString() {
 		return "Vehicle [id=" + id + ", name=" + name + "]";
 	}
+	private int id;
+	private String name;
+	
+	
+
 	public int getId() {
 		return id;
 	}
