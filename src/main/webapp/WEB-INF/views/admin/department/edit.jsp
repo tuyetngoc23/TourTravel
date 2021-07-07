@@ -77,7 +77,7 @@
                       </div>
                       
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                      <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/department/'">Cancel</a>
+                      <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/admin/department/'">Cancel</a>
                     </form>
                   </div>
                 </div>

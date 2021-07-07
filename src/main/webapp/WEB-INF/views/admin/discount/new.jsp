@@ -70,7 +70,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Scope</label>
-                        <input type="number" class="form-control" name="Scope" placeholder="Scope" required>
+                        <input type="number" min="1" class="form-control" name="Scope" placeholder="Scope" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Start day</label>
@@ -81,7 +81,7 @@
                         <input type="date" class="form-control" name="end_day1" required>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                      <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/discount/'">Cancel</a>
+                      <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/admin/discount/'">Cancel</a>
                     </form>
                   </div>
                 </div>

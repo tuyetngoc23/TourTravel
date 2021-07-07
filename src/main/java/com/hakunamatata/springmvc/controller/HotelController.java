@@ -22,7 +22,7 @@ import com.hakunamatata.springmvc.service.ServiceInterface;
  *
  */
 @Controller
-@RequestMapping("/hotel")
+@RequestMapping("admin/hotel")
 public class HotelController {
 	@Autowired
 	private ServiceInterface<Hotel> hotelService;
@@ -39,8 +39,7 @@ public class HotelController {
 		Hotel vo = new Hotel();
 		vo.setId(id.intValue());
 		hotelService.delete(vo);
-		System.out.println(vo);
-		return "redirect:/hotel/";
+		return "redirect:/admin/hotel/";
 	}
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
@@ -49,7 +48,6 @@ public class HotelController {
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String add(MultipartFile uploadfile, Hotel vo, Locale locale, Model model) {
-		System.out.println(uploadfile);
 		if(!uploadfile.isEmpty()) {
 			String fileName = uploadfile.getOriginalFilename();
 			// realPath
@@ -59,7 +57,6 @@ public class HotelController {
 									+fileName)
 				);
 				vo.setImage(fileName);
-				System.out.println(vo);
 				hotelService.insert(vo);
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
@@ -67,7 +64,7 @@ public class HotelController {
 				e.printStackTrace();
 			}
 		}		
-		return "redirect:/hotel/";
+		return "redirect:/admin/hotel/";
 	}
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
@@ -76,12 +73,10 @@ public class HotelController {
 		vo.setId(id.intValue());
 		Hotel hotel = hotelService.get(vo);
 		model.addAttribute("hotelOne",hotel);
-		System.out.println(hotel);
 		return "admin/hotel/edit";
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(@RequestParam(value="image1") String image, MultipartFile uploadfile, Hotel vo, Locale locale, Model model) {
-		System.out.println(uploadfile);
 		String fileName = uploadfile.getOriginalFilename();
 		if(!uploadfile.isEmpty()) {
 			// realPath
@@ -91,8 +86,6 @@ public class HotelController {
 									+fileName)
 				);
 				vo.setImage(fileName);
-				System.out.println(vo);
-				hotelService.update(vo);
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -100,10 +93,9 @@ public class HotelController {
 			}
 		}else {
 			vo.setImage(image);
-			System.out.println(vo);
-			hotelService.update(vo);
 		}	
-		return "redirect:/hotel/";
+		hotelService.update(vo);
+		return "redirect:/admin/hotel/";
 	}
 	
 }

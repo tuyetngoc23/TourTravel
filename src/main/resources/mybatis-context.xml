@@ -4,9 +4,7 @@
 <configuration>
 	<!-- Alias of Type -->
 	<typeAliases>
-	<!--
-	@author BaoBB
-	-->
+
 		<typeAlias alias="department" type="com.hakunamatata.springmvc.entity.Department"/>
 		<typeAlias alias="blog" type="com.hakunamatata.springmvc.entity.Blog"/> 
 		<typeAlias alias="user" type="com.hakunamatata.springmvc.entity.UserTour"/> 
@@ -17,9 +15,7 @@
 	</typeAliases>	
 	<!--Mapper (sql statement )list -->
 	<mappers>
-	<!--
-	@author BaoBB
-	-->
+
 		<mapper resource="mapper/department-mapper.xml"/> 		
 		<!-- <mapper resource="mapper/blogger-mapper.xml"/>  ví dụ-->
 		<mapper resource="mapper/blog-mapper.xml"/>

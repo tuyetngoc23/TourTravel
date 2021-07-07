@@ -12,15 +12,14 @@
 		<result property="image" column="image"/>
 		<result property="description" column="description"/>
 		<association property="province"
-					 column="id"
+					 column="province_id"
 					 javaType="province"
 					 select="Province.selectOne"/>		
 	</resultMap>
 	<!---->
 	<select id="selectList" parameterType="place" resultMap="placeMap">
 		<![CDATA[
-			SELECT *
-			FROM place
+					SELECT * FROM place
 		]]>
 	</select>
 	
