@@ -1,7 +1,10 @@
 package com.hakunamatata.springmvc.repository;
 
 import java.util.List;
-
+/**
+ * @author Hai Van
+ *
+ */
 public interface DAO<T> {
 	void insert(T vo);
 

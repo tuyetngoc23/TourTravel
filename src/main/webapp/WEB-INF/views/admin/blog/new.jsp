@@ -3,14 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<!DOCTYPE html>
-
-<html>
-<head>
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
@@ -65,29 +57,16 @@
      		  <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description"> Basic form elements </p>
+                    <h4 class="card-title">New Blog</h4>
+                  
                     <form class="forms-sample">
+                      
                       <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleSelectGender">Gender</label>
-                        <select class="form-control" id="exampleSelectGender">
-                          <option>Male</option>
-                          <option>Female</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
+                        <label for="exampleInputEmail3">Title</label>
+                        <input type="title" class="form-control" id="exampleInputEmail3" placeholder="Title">
+                      </div>                                          
+                     
+                      <div class="form-group" method= "get" action="  " enctype="multipart/form-data">
                         <label>File upload</label>
                         <input type="file" name="img[]" class="file-upload-default">
                         <div class="input-group col-xs-12">
@@ -97,10 +76,7 @@
                           </span>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label for="exampleInputCity1">City</label>
-                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
-                      </div>
+                    
                       <div class="form-group">
                         <label for="exampleTextarea1">Textarea</label>
                         <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
@@ -127,7 +103,7 @@
       <!-- page-body-wrapper ends -->
 
     <!-- container-scroller -->
-     <!-- plugins:js -->
+   <!-- plugins:js -->
    
   
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
@@ -156,8 +132,5 @@
 		  <!-- Custom js for this page -->
   
     <!-- End custom js for this page -->
-
-</body>
-</html>
 </body>
 </html>
