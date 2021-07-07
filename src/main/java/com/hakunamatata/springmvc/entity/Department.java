@@ -2,11 +2,9 @@ package com.hakunamatata.springmvc.entity;
 
 
 /**
-<<<<<<< HEAD
+
  * @author Huynh Thi Tuyet Ngoc
-=======
  * @author BaoBB
->>>>>>> branch 'Bao' of https://gitlab.com/kits3/kits4/hakunamatata.git
  *
  */
 public class Department {
