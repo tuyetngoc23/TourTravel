@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<!--
+	@author BaoBB
+-->
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
@@ -60,29 +62,29 @@
                   <div class="card-body">
                     <h4 class="card-title">Basic form elements</h4>
                     <p class="card-description"> Basic form elements </p>
-                    <form class="forms-sample">
+                    <form class="forms-sample" method="post" action="update">
 					  <div class="form-group">
                       <label for="exampleInputEmail3">Id</label>
-                        <input type="text" class="form-control" id="exampleInputName1" readonly>
+                        <input type="text" class="form-control" name="id" value="${discountOne.id}" readonly>
                       </div>
-                      <div class="form-group">
+                      <div class="form-group" >
                       <label for="exampleInputEmail3">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" required >
+                        <input type="text" class="form-control" name="name" value="${discountOne.name}" required >
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Scope</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Scope" required>
+                        <input type="number" class="form-control" name="Scope" value="${discountOne.scope}" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Start day</label>
-                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Start day" required>
+                        <input type="date" class="form-control" name="start_day1" value="${discountOne.start_day}" required>
                       </div>
                      <div class="form-group">
                         <label for="exampleInputPassword4">End day</label>
-                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="End day" required>
+                        <input type="date" class="form-control" name="end_day1" value="${discountOne.end_day}" required>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                      <button class="btn btn-light">Cancel</button>
+                      <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/discount/'">Cancel</a>
                     </form>
                   </div>
                 </div>

@@ -3,6 +3,7 @@ package com.hakunamatata.springmvc.entity;
 
 /**
  * @author Huynh Thi Tuyet Ngoc
+ * @author BaoBB
  *
  */
 public class Hotel {
@@ -12,7 +13,6 @@ public class Hotel {
 	private String name;
 	private String image;
 	private String address;
-	
 	
 	
 	public String getAddress() {
@@ -47,4 +47,10 @@ public class Hotel {
 		this.image = image;
 	}
 	
+	@Override
+	public String toString() {
+		return "Hotel [id=" + id + ", type=" + type + ", name=" + name + ", image=" + image + ", address=" + address
+				+ "]";
+	}
+
 }

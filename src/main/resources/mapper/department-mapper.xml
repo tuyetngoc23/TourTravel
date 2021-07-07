@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+	@author BaoBB
+-->
  <mapper namespace="Department">
 	<resultMap type="department" id="departmentMap">
 		<id property="id" column="id"/>
@@ -17,5 +20,15 @@
 			WHERE id = #{id}
 		]]>
 	</select>
-	
+	<insert id="insert" parameterType="department">
+		INSERT INTO department (tourguide, address) 
+		VALUES (#{tourguide}, #{address})	
+	</insert>
+	<update id="update" parameterType="department">
+		UPDATE department SET tourguide=#{tourguide}, address=#{address} 
+		WHERE id=#{id}
+	</update>
+	<delete id="delete" parameterType="department">
+		DELETE FROM department WHERE id=#{id}
+	</delete>
 </mapper>

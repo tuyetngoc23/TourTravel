@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<!--
+	@author BaoBB
+-->
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
@@ -60,17 +62,17 @@
                   <div class="card-body">
                     <h4 class="card-title">Basic form elements</h4>
                     <p class="card-description"> Basic form elements </p>
-                    <form class="forms-sample">
+                    <form class="forms-sample" method= "post" action="add">
                       <div class="form-group">
                         <label for="exampleInputEmail3">Tour guide</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Tour guide" required>
+                        <input type="text" class="form-control" name="tourguide"  placeholder="Tour guide" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Address</label>
-                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Address" required>
+                        <input type="text" class="form-control" name="address" placeholder="Address" required>
                       </div> 
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                      <button class="btn btn-light">Cancel</button>
+                      <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/department/'">Cancel</a>
                     </form>
                   </div>
                 </div>

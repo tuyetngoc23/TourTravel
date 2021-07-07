@@ -11,16 +11,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hakunamatata.springmvc.entity.Department;
-import com.hakunamatata.springmvc.service.impl.DepartmentService;
+import com.hakunamatata.springmvc.service.ServiceInterface;
 
-
-
-
+/**
+ * @author BaoBB
+ *
+ */
 @Controller
 @RequestMapping("/department")
 public class DepartmentController {
 	@Autowired
-	private DepartmentService departmentService;
+	private ServiceInterface<Department> departmentService;
 
 	
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
@@ -30,10 +31,18 @@ public class DepartmentController {
 		//System.out.println(list);
 		return "admin/department/list";
 	}
-
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String delete(@RequestParam(value="id") Integer id,Locale locale, Model model) {
+		Department vo = new Department();
+		vo.setId(id.intValue());
+		departmentService.delete(vo);
+		System.out.println(vo);
+		return "redirect:/department/";
+	}
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public String write(@RequestParam(value="id") Integer id,Locale locale, Model model) {
+	public String edit(@RequestParam(value="id") Integer id,Locale locale, Model model) {
 		Department vo = new Department();
 		vo.setId(id.intValue());
 		Department department = departmentService.get(vo);
@@ -41,11 +50,21 @@ public class DepartmentController {
 		//System.out.println(department);
 		return "admin/department/edit";
 	}
-
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(Department vo, Locale locale, Model model) {
+		System.out.println(vo);
+		departmentService.update(vo);		
+		return "redirect:/department/";
+	}
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
-	public String edit(Locale locale, Model model) {
-		
+	public String regis(Locale locale, Model model) {
 		return "admin/department/new";
+	}
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String add(Department vo, Locale locale, Model model) {
+		System.out.println(vo);
+		departmentService.insert(vo);		
+		return "redirect:/department/";
 	}
 }

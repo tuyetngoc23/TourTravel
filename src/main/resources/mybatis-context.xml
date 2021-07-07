@@ -4,16 +4,30 @@
 <configuration>
 	<!-- Alias of Type -->
 	<typeAliases>
+	<!--
+	@author BaoBB
+	-->
 		<typeAlias alias="department" type="com.hakunamatata.springmvc.entity.Department"/>
 		<typeAlias alias="blog" type="com.hakunamatata.springmvc.entity.Blog"/> 
 		<typeAlias alias="user" type="com.hakunamatata.springmvc.entity.UserTour"/> 
+		<typeAlias alias="hotel" type="com.hakunamatata.springmvc.entity.Hotel"/>
+		<typeAlias alias="place" type="com.hakunamatata.springmvc.entity.Place"/>
+		<typeAlias alias="province" type="com.hakunamatata.springmvc.entity.Province"/>
+		<typeAlias alias="discount" type="com.hakunamatata.springmvc.entity.Discount"/>
 	</typeAliases>	
 	<!--Mapper (sql statement )list -->
 	<mappers>
+	<!--
+	@author BaoBB
+	-->
 		<mapper resource="mapper/department-mapper.xml"/> 		
 		<!-- <mapper resource="mapper/blogger-mapper.xml"/>  ví dụ-->
 		<mapper resource="mapper/blog-mapper.xml"/>
 		<mapper resource="mapper/user-mapper.xml"/>
+		<mapper resource="mapper/hotel-mapper.xml"/> 	
+		<mapper resource="mapper/place-mapper.xml"/>
+		<mapper resource="mapper/province-mapper.xml"/>
+		<mapper resource="mapper/discount-mapper.xml"/>
 	</mappers>
 	
 </configuration>

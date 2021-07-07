@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import com.hakunamatata.springmvc.entity.Department;
 import com.hakunamatata.springmvc.repository.DAO;
+/**
+ * @author BaoBB
+ *
+ */
 @Repository("departmentDAO")
 public class DepartmentDAO implements DAO<Department> {
 	@Autowired
@@ -15,30 +19,27 @@ public class DepartmentDAO implements DAO<Department> {
 	
 	@Override
 	public void insert(Department vo) {
-		// TODO Auto-generated method stub
+		session.insert("Department.insert",vo);
 		
 	}
 
 	@Override
 	public void update(Department vo) {
-		// TODO Auto-generated method stub
-		
+		session.update("Department.update",vo);
 	}
 
 	@Override
 	public void delete(Department vo) {
-		// TODO Auto-generated method stub
-		
+		session.delete("Department.delete",vo);
 	}
 
 	@Override
 	public Department get(Department vo) {
-		return (Department)session.selectOne("Department.selectOne", vo);
+		return session.selectOne("Department.selectOne", vo);
 	}
 
 	@Override
 	public List<Department> list(Department vo) {
-		// TODO Auto-generated method stub
 		return session.selectList("Department.selectList",vo);
 	}
 
