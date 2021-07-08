@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Tour List</title>
+    <title>Tour List </title>
     <!-- plugins:css -->
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -128,7 +128,7 @@
                            <td>${tour.price}</td>
                             <td>${tour.min_amount}</td>
                               <td>${tour.max_amount}</td>
-                            <td><img src="${tour.image}" alt="test"/></td>
+                            <td><img src="${pageContext.request.contextPath }/${initParam.urloadTour}/${tour.image}" alt="${tour.image}"/></td>
                               <td><fmt:formatDate type="date" value="${tour.start_day}" />  </td>
                             <td><fmt:formatDate type="date" value="${tour.end_day}" /> </td>
                               <td>${tour.department.tourguide}</td>

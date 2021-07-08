@@ -98,16 +98,16 @@
                       <div id="preview"></div>
                       <div class="form-group">
                       		 <label for="birthday">Start Day:</label>
-  							<input type="date" class="form-control" id="birthday" name="startday" required="required">
+  							<input type="date" class="form-control" id="birthday" name="startday1" required="required">
                       </div>
                        <div class="form-group">
                       		 <label for="birthday">Start End:</label>
-  							<input type="date" class="form-control" id="birthday" name="endday" required="required">
+  							<input type="date" class="form-control" id="birthday" name="endday1" required="required">
                       </div>
                       <div class="form-group">
                         <label for="exampleSelectGender">Location Go Tour :</label>
                         <select class="select-decreption form-control" name="location_go" required="required">
-                          	<option >Chon Location Go</option>
+                          	
                            
                             <c:forEach items="${listDispartment}" var="dispart">
                           	 <option value="${dispart.id}">${dispart.tourguide}</option>
@@ -117,7 +117,7 @@
                         <div class="form-group">
                         <label for="exampleSelectGender">Cat Tour :</label>
                         <select class="select-cattour form-control" name="carttour_id" required="required">
-                         	<option >Chon Cat tour</option>
+                         
                            <c:forEach items="${listCatTours}" var="cattour">
                           	 <option value="${cattour.id}">${cattour.name}</option>
                           </c:forEach>
@@ -127,7 +127,7 @@
                        <div class="form-group">
                         <label for="exampleSelectGender">Hothel</label>
                         <select class="select-hotel form-control" name="hotel_id" required="required">
-                          <option >Chon Hotel</option>
+                        
                            <c:forEach items="${listHotels}" var="hotel">
                           	 <option value="${hotel.id}">${hotel.name}</option>
                           </c:forEach>
@@ -136,7 +136,7 @@
                         <div class="form-group">
                         <label for="exampleSelectGender">Vehicle</label>
                         <select class="select-vehicle form-control" name="vehicle_id" required="required">
-                          <option >Chon Vehicle</option>
+                        
                            <c:forEach items="${listVehicles}" var="vehicle">
                           	 <option value="${vehicle.id}">${vehicle.name}</option>
                           </c:forEach>
@@ -160,7 +160,7 @@
                          	
                           
                             <c:forEach items="${listPlaces}" var="place">
-                          	 <option value="${place.id}">${place.name}</option>
+                          	 <option value="${place.id}">${place.id}  ${place.name}</option>
                           </c:forEach>
                         </select>
                       </div>

@@ -1,9 +1,14 @@
+
+/**
+ * @author Manh
+ *
+ */
 package com.hakunamatata.springmvc.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -11,6 +16,7 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -29,7 +35,11 @@ import com.hakunamatata.springmvc.entity.Hotel;
 import com.hakunamatata.springmvc.entity.Place;
 import com.hakunamatata.springmvc.entity.Province;
 import com.hakunamatata.springmvc.entity.Tour;
+import com.hakunamatata.springmvc.entity.TourDiscount;
+import com.hakunamatata.springmvc.entity.TourPlace;
 import com.hakunamatata.springmvc.entity.Vehicle;
+import com.hakunamatata.springmvc.service.TourDiscountService;
+import com.hakunamatata.springmvc.service.TourPlaceSerivce;
 import com.hakunamatata.springmvc.service.TourService;
 import com.hakunamatata.springmvc.service.VehicleService;
 import com.hakunamatata.springmvc.service.impl.DepartmentService;
@@ -55,10 +65,15 @@ public class TourController {
 	private HotelService hotelService;
 	@Autowired 
 	private VehicleService vehcleService;
+	@Autowired 
+	private TourPlaceSerivce tourPlaceService;
+	@Autowired
+	private TourDiscountService tourDiscountService;
 	@GetMapping(value = {"","/"})
 //	@ResponseBody
-	public String list(Model model,Locale locale) {
+	public  String list(Model model,Locale locale) {
 		List<Tour> list = service.list(null);
+		
 		model.addAttribute("listTour", list);
 		
 		return "admin/tour/list";
@@ -74,7 +89,8 @@ public class TourController {
 		List<CatTour> catTours = service.getCattour();
 		List<Hotel> hotels = hotelService.list(null);
 		List<Vehicle> vehicles = vehcleService.list(null);
-		System.out.println(vehicles);
+		List<TourPlace> listTourPlace = tourPlaceService.list(null);
+//		System.out.println(listTourPlace);
 		model.addAttribute("listProvince", listProvinces);
 		model.addAttribute("listPlaces", Places);
 		model.addAttribute("listDiscount", discounts);
@@ -82,13 +98,14 @@ public class TourController {
 		model.addAttribute("listCatTours", catTours);
 		model.addAttribute("listHotels", hotels);
 		model.addAttribute("listVehicles", vehicles);
+		
 		return "admin/tour/new";
 	
 	}
 	@PostMapping("/new")
-	public String insert(Tour tour,
-				@RequestParam("startday") @DateTimeFormat(pattern="yyyy-MM-dd") Date start_day,
-				@RequestParam("endday") @DateTimeFormat(pattern="yyyy-MM-dd") Date end_day,
+	public String insert(Tour tour, 
+				@RequestParam(value ="startday1")  Date start_day1,
+				@RequestParam(value ="endday1")  Date end_day1,
 				@RequestParam(value = "location_go") int location_go,
 				@RequestParam(value = "carttour_id") int carttour_id,
 				@RequestParam(value = "hotel_id") int hotel_id,
@@ -96,10 +113,11 @@ public class TourController {
 				@RequestParam(value = "discount_id") int[] discount_ids,
 				@RequestParam(value = "place_id") int[] place_ids,
 				MultipartFile imageTour ,
-				Model model,Locale locale){
+				Model model,Locale locale){ 
+
+			tour.setStart_day(start_day1);
 		
-			tour.setStart_day(start_day);
-			tour.setEnd_day(end_day);
+			tour.setEnd_day(end_day1); 
 			Department department = new Department();
 			department.setId(location_go);
 			tour.setDepartment(department);
@@ -112,28 +130,9 @@ public class TourController {
 			Vehicle vehicle = new Vehicle();
 			vehicle.setId(vehicle_id);
 			tour.setVehicle(vehicle);
+		
 			
-			
-			List<Discount> lisDiscounts =null;
-			if(discount_ids != null) {
-				lisDiscounts = new ArrayList<Discount>();
-				Discount discount =new Discount();
-				for(int id : discount_ids) {
-					discount.setId(id);
-					lisDiscounts.add(discount);
-				}
-				tour.setDiscount(lisDiscounts);
-			}
-			List<Place> lisPlaces =null;
-			if(place_ids != null) {
-				lisPlaces = new ArrayList<Place>();
-				Place Place =new Place();
-				for(int id : place_ids) {
-					Place.setId(id);
-					lisPlaces.add(Place);
-				}
-				tour.setPlace(lisPlaces);
-			}
+
 		
 			
 			
@@ -153,8 +152,58 @@ public class TourController {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(tour);
+		
+		service.insert(tour);
+		Tour tourMax = service.getTourId();
+		List<Discount> lisDiscounts =null;
+		List<TourDiscount> listTourDiscounts = null;
+		if(discount_ids != null) {
+			lisDiscounts = new ArrayList<Discount>();
+			listTourDiscounts = new ArrayList<TourDiscount>();
+			for(int id : discount_ids) {
+				Discount discount =new Discount();
+				TourDiscount tourDiscount = new TourDiscount();
+				discount.setId(id);
+				
+				tourDiscount.setTour(tourMax);
+				tourDiscount.setDiscount(discount);
+				lisDiscounts.add(discount);
+				listTourDiscounts.add(tourDiscount);					
+				
+				
+			}
+			tour.setDiscount(lisDiscounts);
+			tour.setTourdiscount(listTourDiscounts);
+		}
+		
+		List<Place> lisPlaces =null;
+		List<TourPlace> listTourPlaces = null;
+		if(place_ids != null) {
+			lisPlaces = new ArrayList<Place>();
+			listTourPlaces = new ArrayList<TourPlace>();
+			for(int id : place_ids) {
+				Place Place =new Place();
+				TourPlace tourPlace = new TourPlace();
+				Place.setId(id);
+				
+				tourPlace.setTour(tourMax);
+				tourPlace.setPlace(Place);
+				lisPlaces.add(Place);
+				System.out.println(tourPlace);
+				listTourPlaces.add(tourPlace);
+			
+			}
+			System.out.println(listTourPlaces);
+			tour.setPlace(lisPlaces);
+			tour.setTourplace(listTourPlaces);
+			
+		}
+		tourPlaceService.insert(tour.getTourplace());
+		tourDiscountService.insert(tour.getTourdiscount());
+		
 		return "redirect:/admin/tour";
+		
+		
 	}
 	@GetMapping(value = "/edit")
 	public String edit(Model model,Locale locale) {

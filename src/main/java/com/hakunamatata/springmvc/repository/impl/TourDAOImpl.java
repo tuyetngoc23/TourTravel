@@ -9,13 +9,18 @@ import org.springframework.stereotype.Repository;
 import com.hakunamatata.springmvc.entity.CatTour;
 import com.hakunamatata.springmvc.entity.Tour;
 import com.hakunamatata.springmvc.repository.TourDAO;
+/**
+ * @author Manh
+ *
+ */
 @Repository
 public class TourDAOImpl implements TourDAO{
 	@Autowired
 	private SqlSessionTemplate session;
 	@Override
 	public void insert(Tour vo) {
-		
+		session.insert("Tour.insert", vo);
+	
 		
 	}
 
@@ -48,6 +53,14 @@ public class TourDAOImpl implements TourDAO{
 		// TODO Auto-generated method stub
 		return session.selectList("Tour.getListCart",null);
 	}
+
+	@Override
+	public Tour getIdTour() {
+		// TODO Auto-generated method stub
+		return session.selectOne("Tour.selectTourId",null);
+	}
+
+	
 
 
 
