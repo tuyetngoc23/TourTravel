@@ -38,7 +38,9 @@ public class DiscountController {
 		return "admin/discount/new";
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String add(@RequestParam(value="start_day1") Date start, @RequestParam(value="end_day1") Date end, Discount vo, Locale locale, Model model) {
+	public String add(@RequestParam(value="start_day1") Date start, @RequestParam("end_day1") Date end, Discount vo, Locale locale, Model model) {
+		System.out.print(start);
+		System.out.print(end);
 		vo.setStart_day(start);
 		vo.setEnd_day(end);
 		discountService.insert(vo);		
@@ -51,6 +53,7 @@ public class DiscountController {
 		vo.setId(id.intValue());
 		Discount discount = discountService.get(vo);
 		model.addAttribute("discountOne",discount);
+		System.out.println(discount);
 		return "admin/discount/edit";
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
