@@ -79,7 +79,7 @@
                           <th>Address</th>
                           <th>image</th>
                           <th>Action</th>
-                          <th><a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='new'">New</a></th>
+                          <th><a type="button" class="btn btn-gradient-info btn-fw" href="${pageContext.request.contextPath }/admin/place/new">New</a></th>
                         </tr>
                       </thead>
                       <tbody>

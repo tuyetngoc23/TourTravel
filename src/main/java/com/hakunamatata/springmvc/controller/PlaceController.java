@@ -27,7 +27,7 @@ public class PlaceController {
 	@Autowired
 	private PlaceService placeService;
 	
-	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
 	public String list(Locale locale, Model model) {
 		List<Place> list = placeService.list(null);
 		model.addAttribute("placeList",list);
@@ -54,23 +54,26 @@ public class PlaceController {
 		province.setId(province_id);
 		vo.setProvince(province);
 		
-		if(!uploadfile.isEmpty()) {
-			String fileName = uploadfile.getOriginalFilename();
-			// realPath
-			try {
-				uploadfile.transferTo(
-						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-place\\"
-									+fileName)
-				);
-				vo.setImage(fileName);
-				placeService.insert(vo);
-
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}	
+		//doing upload file
+		
+//		if(!uploadfile.isEmpty()) {
+//			String fileName = uploadfile.getOriginalFilename();
+//			// realPath
+//			try {
+//				uploadfile.transferTo(
+//						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-place\\"
+//									+fileName)
+//				);
+//				vo.setImage(fileName);
+//				placeService.insert(vo);
+//
+//			} catch (IllegalStateException e) {
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}	
+		placeService.insert(vo);
 		return "redirect:/admin/place/";
 
 	}

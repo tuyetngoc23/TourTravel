@@ -49,7 +49,7 @@ import com.hakunamatata.springmvc.service.impl.PlaceService;
 
 @Controller
 @RequestMapping("admin/tour")
-
+//doing
 public class TourController {
 	@Autowired
 	ServletContext servletContext;

@@ -24,7 +24,7 @@ public class DiscountController {
 	@Autowired
 	private ServiceInterface<Discount> discountService;
 	
-	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
 	public String list(Locale locale, Model model) {
 		List<Discount> list = discountService.list(null);
 		model.addAttribute("discountList",list);
