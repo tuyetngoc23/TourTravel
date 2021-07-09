@@ -6,13 +6,15 @@
 	<!-- how to mapping table va object -->
 	<resultMap type="blog" id="blogMap">
 		<id property="id" column="ID"/>
-		<result property="title" column="TITLE"/>
-		<result property="wname" column="WNAME"/>
-		<result property="content" column="CONTENT"/>
-		<result property="image" column="IMAGE"/>
-		<result property="wdate" column="WDATE"/>
-		<result property="like_amount" column="LIKE_AMOUNT"/>
-		<result property="state" column="STATE"/>
+		<result property="title" column="title"/>
+		<result property="wname" column="wname"/>
+		<result property="content" column="content"/>
+		
+		<result property="wdate" column="wdate"/>
+		
+		<result property="like_amount" column="like_amount"/>
+		<result property="state" column="state"/>
+		<result property="image" column="image"/>
 	</resultMap>
 
 	<select id="selectOne" parameterType="blog" resultType="blog"><!--//typepara = alias  -->
@@ -21,17 +23,18 @@
 	<select id="selectList" parameterType="blog" resultMap="blogMap">
 		<![CDATA[
 			SELECT * FROM blog
-			WHERE	id <= #{id}
+
 		]]>
 	</select>
 
 	<insert id="insert" parameterType="blog">
-		INSERT INTO blog (title, wname, content) 
-		VALUES (#{title}, #{wname}, #{content})	
+		INSERT INTO blog (title, wname, content, wdate,  like_amount, state, image) 
+		VALUES (#{title}, #{wname}, #{content}, #{wdate}, #{like_amount}, #{state}, #{image})	
 	</insert>
 
 	<update id="update" parameterType="blog">
-		UPDATE blog SET Title=#{title},Name =#{wname},Content= #{content},
+		UPDATE blog SET title=#{title}, wname =#{wname}, content= #{content}, wdate= #{wdate},
+		 like_amount= #{like_amount}, state =#{state}, image =#{image} 
 		WHERE id=#{id}
 	</update>
 

@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
-	 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,13 +81,14 @@
                           <th> Like_amount</th>
                           <th> State </th>
                           <th> Image </th>
+                          <th><a type="button" class="btn btn-gradient-info btn-fw" href="${pageContext.request.contextPath }/admin/blog/new">New</a></th>
                         </tr>
                       </thead>
                     
 	 
                     
                       <tbody>
-                        <c:forEach var="blog" items="${bloglist}">
+                        <c:forEach var="blog" items="${blogList}">
                       
                         <tr>                                        
                           
@@ -98,16 +98,16 @@
 							<td>${blog.title}</td>
 							<td>${blog.wname}</td>
 							<td>${blog.content }</td>
-							<td>${blog.wdate}</td>
+							<td><fmt:formatDate value="${blog.wdate}" pattern="dd-MM-yyyy" /></td>
 							<td>${blog.like_amount}</td>
 							<td>${blog.state}</td>
-							<td>${blog.Image}</td>
+							<td>${blog.image}</td>
 							
 						</tr>				                      
                                                                  
                           <td>
-                            <a type="button"  href="$edit?no=${user.id}"class="btn btn-gradient-info btn-fw">Edit</a>
-                          	<a type="button"  href="delete?no=${user.id}" class="btn btn-gradient-danger btn-fw">Delete</a>
+                           <a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='edit?id=${blog.id}'">Edit</a>
+                          	<a type="button" class="btn btn-gradient-danger btn-fw" onclick="document.location='delete?id=${blog.id}'">Delete</a>
                           </td>
                       
                         
