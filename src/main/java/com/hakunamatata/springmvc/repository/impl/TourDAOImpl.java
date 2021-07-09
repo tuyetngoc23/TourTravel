@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.hakunamatata.springmvc.entity.CatTour;
 import com.hakunamatata.springmvc.entity.Tour;
+import com.hakunamatata.springmvc.repository.DAO;
 import com.hakunamatata.springmvc.repository.TourDAO;
 /**
  * @author Manh
@@ -26,7 +27,7 @@ public class TourDAOImpl implements TourDAO{
 
 	@Override
 	public void update(Tour vo) {
-		// TODO Auto-generated method stub
+		session.update("Tour.update",vo);
 		
 	}
 
@@ -39,7 +40,7 @@ public class TourDAOImpl implements TourDAO{
 	@Override
 	public Tour get(Tour vo) {
 		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("Tour.selectOne",vo);
 	}
 
 	@Override

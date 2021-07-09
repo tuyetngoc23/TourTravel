@@ -31,7 +31,7 @@ public class TourPlaceDAOImpl implements TourPlaceDAO {
 
 	@Override
 	public void delete(TourPlace vo) {
-		session.delete("TourPlace.delete",vo);
+		
 
 	}
 
@@ -50,6 +50,13 @@ public class TourPlaceDAOImpl implements TourPlaceDAO {
 	@Override
 	public void insert(List<TourPlace> list) {
 		session.insert("TourPlace.insert",list);
+		
+	}
+
+	@Override
+	public void delete(List<TourPlace> list) {
+		System.out.println(list);
+		session.delete("TourPlace.delete",list);
 		
 	}
 

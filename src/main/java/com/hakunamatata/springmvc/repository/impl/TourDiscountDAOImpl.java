@@ -30,7 +30,7 @@ public class TourDiscountDAOImpl implements TourDiscountDAO {
 
 	@Override
 	public void delete(TourDiscount vo) {
-		session.insert("TourDiscount.delete",vo);
+		
 
 	}
 
@@ -50,6 +50,13 @@ public class TourDiscountDAOImpl implements TourDiscountDAO {
 	public void insert(List<TourDiscount> list) {
 		
 		session.insert("TourDiscount.insert",list);
+	}
+
+	@Override
+	public void delete(List<TourDiscount> list) {
+		
+		session.insert("TourDiscount.delete",list);
+		
 	}
 
 

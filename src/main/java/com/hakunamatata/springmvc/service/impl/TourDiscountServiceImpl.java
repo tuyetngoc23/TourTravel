@@ -24,7 +24,7 @@ public class TourDiscountServiceImpl implements TourDiscountService {
 
 	@Override
 	public void delete(TourDiscount vo) {
-		dao.delete(vo);
+		
 
 	}
 
@@ -44,6 +44,12 @@ public class TourDiscountServiceImpl implements TourDiscountService {
 	public void insert(List<TourDiscount> list) {
 		dao.insert(list);
 		
+	}
+
+	@Override
+	public void delete(List<TourDiscount> list) {
+		
+		dao.delete(list);
 	}
 
 }

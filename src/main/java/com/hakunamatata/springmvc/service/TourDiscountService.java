@@ -10,4 +10,5 @@ import com.hakunamatata.springmvc.entity.TourDiscount;
  */
 public interface TourDiscountService extends ServiceInterface<TourDiscount>{
 	void insert(List<TourDiscount> list);
+	void delete(List<TourDiscount> list);
 }

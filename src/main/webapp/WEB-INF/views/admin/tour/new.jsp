@@ -145,7 +145,7 @@
                        <div class="row">
                        	    <div class="form-group col ">
                         <label for="exampleSelectGender">Province</label>
-                        <select class="select-vehicle form-control" name="province_id" required="required">
+                        <select class="select-vehicle form-control" name="province_id">
                          	<option > Chọn province</option>
                           <c:forEach items="${listProvince}" var="province">
                           	 <option value="${province.id}">${province.name}</option>

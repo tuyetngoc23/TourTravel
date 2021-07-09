@@ -10,4 +10,5 @@ import com.hakunamatata.springmvc.entity.TourPlace;
  */
 public interface TourPlaceDAO extends DAO<TourPlace>{
 	void insert(List<TourPlace> list);
+	void delete(List<TourPlace> list);
 }

@@ -25,7 +25,10 @@
 		place_id=#{place.id}
 		WHERE id=#{id}
 	</update>
-	<delete id="delete">
-		DELETE FROM tour_place WHERE id=#{id}
+	<delete id="delete"  parameterType="java.util.List">
+		DELETE FROM tour_place WHERE 
+		<foreach item="item" index="index" collection="list" open="(" close=")" separator="OR">
+	       id=#{item.id}
+	    </foreach>
 	</delete>
 </mapper>

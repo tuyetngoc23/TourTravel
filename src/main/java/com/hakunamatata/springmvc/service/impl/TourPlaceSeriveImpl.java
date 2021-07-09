@@ -26,7 +26,7 @@ public class TourPlaceSeriveImpl implements TourPlaceSerivce {
 
 	@Override
 	public void delete(TourPlace vo) {
-		dao.delete(vo);
+		
 
 	}
 
@@ -45,6 +45,12 @@ public class TourPlaceSeriveImpl implements TourPlaceSerivce {
 	@Override
 	public void insert(List<TourPlace> list) {
 		 dao.insert(list);
+		
+	}
+
+	@Override
+	public void delete(List<TourPlace> list) {
+		dao.delete(list);
 		
 	}
 

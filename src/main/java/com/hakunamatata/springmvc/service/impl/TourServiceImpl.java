@@ -21,7 +21,7 @@ public class TourServiceImpl implements TourService{
 
 	@Override
 	public void update(Tour vo) {
-		// TODO Auto-generated method stub
+		dao.update(vo);
 		
 	}
 
@@ -34,7 +34,7 @@ public class TourServiceImpl implements TourService{
 	@Override
 	public Tour get(Tour vo) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.get(vo);
 	}
 
 	@Override

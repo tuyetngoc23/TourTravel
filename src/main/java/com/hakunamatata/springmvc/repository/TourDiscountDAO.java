@@ -11,4 +11,5 @@ import com.hakunamatata.springmvc.entity.TourDiscount;
  */
 public interface TourDiscountDAO extends DAO<TourDiscount>{
 	void insert(List<TourDiscount> list);
+	void delete(List<TourDiscount> list);
 }
