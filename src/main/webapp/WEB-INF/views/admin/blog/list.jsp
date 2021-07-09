@@ -80,14 +80,10 @@
                           <th> Date </th>
                           <th> Like_amount</th>
                           <th> State </th>
-                          <th> Image </th>
-                          <th><a type="button" class="btn btn-gradient-info btn-fw" href="${pageContext.request.contextPath }/admin/blog/new">New</a></th>
+                          <th> Image </th>                         
                         </tr>
                       </thead>
-                    
-	 
-                    
-                      <tbody>
+                       <tbody>
                         <c:forEach var="blog" items="${blogList}">
                       
                         <tr>                                        
@@ -103,13 +99,13 @@
 							<td>${blog.state}</td>
 							<td>${blog.image}</td>
 							
-						</tr>				                      
+										                      
                                                                  
                           <td>
                            <a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='edit?id=${blog.id}'">Edit</a>
                           	<a type="button" class="btn btn-gradient-danger btn-fw" onclick="document.location='delete?id=${blog.id}'">Delete</a>
                           </td>
-                      
+                      </tr>
                         
                        </c:forEach> 
                        

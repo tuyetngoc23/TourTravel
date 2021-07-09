@@ -92,16 +92,7 @@
                         <label for="exampleInputPassword4">Email</label>
                         <input type="email" class="form-control" id="exampleInputPassword4" placeholder="Email">
                       </div>
-                      
                      
-                      <div class="form-group">
-                        <label for="exampleSelectGender">Gender</label>
-                        <select class="form-control" id="exampleSelectGender">
-                          <option>Male</option>
-                          <option>Female</option>
-                        </select>
-                      </div>
-                      
                       <div class="form-group">
                         <label>File upload</label>
                         <input type="file" name="img[]" class="file-upload-default">

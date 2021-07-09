@@ -70,7 +70,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Content</label>
-                        <input type="text" class="form-control" name="content" placeholder="Content" required>
+                        <input type="text" id="editor1" class="form-control" name="content" placeholder="Content" required>
                       </div>
                        <div class="form-group">
                         <label>File upload</label>
