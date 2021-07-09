@@ -79,7 +79,7 @@
                     
                       <div class="form-group">
                         <label for="exampleTextarea1">Textarea</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                        <textarea class="form-control" id="editor1" rows="4"></textarea>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                       <button class="btn btn-light">Cancel</button>
@@ -105,7 +105,8 @@
     <!-- container-scroller -->
    <!-- plugins:js -->
    
-  
+  <script
+		src="${pageContext.request.contextPath }/resources/assets/ckeditor/ckeditor.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script
 		src="${pageContext.request.contextPath }/resources/assets/vendors/js/vendor.bundle.base.js"></script>
@@ -130,7 +131,9 @@
     <script
 		src="${pageContext.request.contextPath }/resources/assets/js/todolist.js"></script>
 		  <!-- Custom js for this page -->
-  
+  	<script>
+		CKEDITOR.replace( 'editor1' );
+		</script>
     <!-- End custom js for this page -->
 </body>
 </html>

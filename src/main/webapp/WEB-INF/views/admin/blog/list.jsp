@@ -44,7 +44,7 @@
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
                 <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
-                <a href="#" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
+                <a href="${pageContext.request.contextPath }/admin/blog/new" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
             </div>
@@ -106,8 +106,8 @@
 						</tr>				                      
                                                                  
                           <td>
-                            <a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
+                            <a type="button"  href="$edit?no=${user.id}"class="btn btn-gradient-info btn-fw">Edit</a>
+                          	<a type="button"  href="delete?no=${user.id}" class="btn btn-gradient-danger btn-fw">Delete</a>
                           </td>
                       
                         

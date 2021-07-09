@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.hakunamatata.springmvc.entity.Blog;
 //import com.hakunamatata.springmvc.service.impl.BlogService;
+import com.hakunamatata.springmvc.entity.Department;
 
 /**
  * @author Hai Van
@@ -63,9 +64,17 @@ public class BlogController {
 //		blogService.delete(vo);
 		return "admin/blog/list";
 	}	
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String add(Blog vo, Locale locale, Model model) {
+		//blogService.insert(vo);		
+		return "redirect:/admin/blog/new";
+	}
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(Blog vo, Locale locale, Model model) {
+		//blogService.update(vo);		
+		return "redirect: admin/blog/edit";
 	
-	
-	
+	}
 	
 	
 	@RequestMapping(value = "/fileupload", method = RequestMethod.GET)

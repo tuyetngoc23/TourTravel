@@ -64,8 +64,16 @@ public class UserController {
 //		userService.deleteUserTour(vo);
 		return "admin/blog/list";
 	}	
-	
-	
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String add(UserTour vo, Locale locale, Model model) {
+		//userService.insert(vo);		
+		return "redirect:/admin/user/new";
+	}
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(UserTour vo, Locale locale, Model model) {
+		//userService.update(vo);		
+		return "redirect: admin/user/edit";
+	}
 	
 	@RequestMapping(value = "/fileupload", method = RequestMethod.GET)
 	public String fileform(Locale locale, Model model) {
