@@ -204,20 +204,29 @@
                         <label for="exampleSelectGender">Discount</label>
                         <select class="select-discount form-control" name="discount_id" multiple="multiple" required="required">
                            <c:forEach items="${listDiscount}" var="discount">
-                             <c:forEach items="${tour.discount}" var="discountone">
+                         <!-- 
+                         		 <c:forEach items="${tour.discount}" var="discountone">
                                    <c:choose>
-									<c:when test="${discountone.id  == discount.id}">
-									  <option selected="selected" value="${discount.id}">${discount.name}</option>
+									<c:when test="${discountone.id  != discount.id}">
+									  <option  value="${discount.id}">${discount.name}</option>
 									</c:when>
-									<c:otherwise>
-	                          		 <option  value="${discount.id}">${discount.name}</option>
+								
+										<c:otherwise>
+	                          		 <option  selected="selected"    value="${discount.id}">${discount.name}</option>
 									</c:otherwise>
 								</c:choose>		  
                           	
                           </c:forEach>
-                          	
+                         
+                          -->
+                          		 <option  selected="selected"    value="${discount.id}">${discount.name}</option>
                           </c:forEach>
                         </select>
+                         <select disabled="disabled" class="select-discount form-control" name="discount_one" multiple="multiple" required="required">
+                        	 <c:forEach items="${tour.discount}" var="discountone">
+                        	 	<option  value="${discountone.id}">${discountone.name}</option>
+                        	 </c:forEach>
+                         </select>
                       </div>
 
                    
@@ -306,6 +315,11 @@ $(".select-discount").select2({
 	 
 	});
 CKEDITOR.replace( 'editor1' );
+
+var arrSelectChecker = document.querySelectorAll('select[name="discount_one"]');
+
+
+
 </script>
 </html>
 

@@ -27,7 +27,7 @@ public class TourServiceImpl implements TourService{
 
 	@Override
 	public void delete(Tour vo) {
-		// TODO Auto-generated method stub
+		dao.delete(vo);
 		
 	}
 

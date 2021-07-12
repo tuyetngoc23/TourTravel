@@ -185,22 +185,26 @@
 		LEFT OUTER JOIN province pro ON p.province_id = pro.id
 	</select>
 	
-	<update id="update">
+	<update id="update" parameterType="tour">
 		UPDATE tour  
 		SET 
-		NAME=${name},
-		price=${price},
-		min_amount=${min_amount},
-		max_amount=${max_amount},
-		start_day=${start_day},
-		end_day=${end_day}
-		location_go=${department.id},
-		cattour_id=${cattour.id},
-		content=${content},
-		note=${note},
-		hotel_id=${hotel.id},
-		vehicle_id=${vehicle.id},
-		image=${image} WHERE id=${id}
+		NAME=#{name},
+		price=#{price},
+		min_amount=#{min_amount},
+		max_amount=#{max_amount},
+		start_day=#{start_day},
+		end_day=#{end_day},
+		location_go=#{department.id},
+		cattour_id=#{cattour.id},
+		content=#{content},
+		note=#{note},
+		hotel_id=#{hotel.id},
+		vehicle_id=#{vehicle.id},
+		image=#{image} WHERE id=${id}
 	</update>
+	
+	<delete id = "delete" parameterType = "tour">
+      DELETE from tour WHERE ID = #{id};
+   </delete>
 
 </mapper>

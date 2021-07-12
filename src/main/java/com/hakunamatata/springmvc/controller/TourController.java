@@ -106,7 +106,7 @@ public class TourController {
 	}
 
 	@PostMapping("/new")
-	public String insert(Tour tour, @RequestParam(value = "startday1") Date start_day1,
+	public  String insert(Tour tour, @RequestParam(value = "startday1") Date start_day1,
 			@RequestParam(value = "endday1") Date end_day1, @RequestParam(value = "location_go") int location_go,
 			@RequestParam(value = "carttour_id") int carttour_id, @RequestParam(value = "hotel_id") int hotel_id,
 			@RequestParam(value = "vehicle_id") int vehicle_id, @RequestParam(value = "discount_id") int[] discount_ids,
@@ -193,7 +193,7 @@ public class TourController {
 		tourDiscountService.insert(tour.getTourdiscount());
 
 		return "redirect:/admin/tour";
-
+//		 return new ResponseEntity<Tour>(tour, HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/edit")
@@ -330,6 +330,21 @@ public class TourController {
  	
 		return "redirect:/admin/tour";
 //		return new ResponseEntity<Tour>(tour, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/delete")
+	public String delete(Tour tour,Locale locale) {
+		Tour tours = service.get(tour);
+		//delete mutile row many to many
+		if(tour.getTourdiscount() != null) {			
+			tourDiscountService.delete(tours.getTourdiscount());
+		}
+		if(tour.getTourplace() != null) {			
+			tourPlaceService.delete(tours.getTourplace());
+		}
+		
+		service.delete(tours);
+		return "redirect:/admin/tour";
 	}
 
 }

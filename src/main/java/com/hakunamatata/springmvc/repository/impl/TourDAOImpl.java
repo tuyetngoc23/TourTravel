@@ -33,7 +33,7 @@ public class TourDAOImpl implements TourDAO{
 
 	@Override
 	public void delete(Tour vo) {
-		// TODO Auto-generated method stub
+		session.update("Tour.delete",vo);
 		
 	}
 

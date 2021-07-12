@@ -110,7 +110,7 @@
                           	
                            
                             <c:forEach items="${listDispartment}" var="dispart">
-                          	 <option value="${dispart.id}">${dispart.tourguide}</option>
+                          	 <option value="${dispart.id}">${dispart.id} ${dispart.tourguide}</option>
                           </c:forEach>
                         </select>
                       </div>
@@ -119,7 +119,7 @@
                         <select class="select-cattour form-control" name="carttour_id" required="required">
                          
                            <c:forEach items="${listCatTours}" var="cattour">
-                          	 <option value="${cattour.id}">${cattour.name}</option>
+                          	 <option value="${cattour.id}">${cattour.id} ${cattour.name}</option>
                           </c:forEach>
                         </select>
                       </div>
@@ -129,7 +129,7 @@
                         <select class="select-hotel form-control" name="hotel_id" required="required">
                         
                            <c:forEach items="${listHotels}" var="hotel">
-                          	 <option value="${hotel.id}">${hotel.name}</option>
+                          	 <option value="${hotel.id}">${hotel.id} ${hotel.name}</option>
                           </c:forEach>
                         </select>
                       </div>
@@ -138,7 +138,7 @@
                         <select class="select-vehicle form-control" name="vehicle_id" required="required">
                         
                            <c:forEach items="${listVehicles}" var="vehicle">
-                          	 <option value="${vehicle.id}">${vehicle.name}</option>
+                          	 <option value="${vehicle.id}">${vehicle.id} ${vehicle.name}</option>
                           </c:forEach>
                         </select>
                       </div>
