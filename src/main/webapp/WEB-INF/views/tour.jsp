@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -217,11 +221,11 @@
 		</section>
 	</header>
 	<main>
-		<!-- Khuyen Mai Đặc Biệt -->
+		<!-- Khuyen Mai Äáº·c Biá»t -->
 		<section id="sale">
 			<div class="about container-fluid text-center">
 				
-				<h2>KHUYẾN MÃI ĐẶC BIỆT</h2>
+				<h2>KHUYáº¾N MÃI Äáº¶C BIá»T</h2>
 				<p>Sale promotion</p>
 				<hr>	
 			</div>
@@ -230,54 +234,62 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 mg-bot30">
-                        <form action="#">
+                        <form action="${pageContext.request.contextPath }/tour" method="post">
 							<div class="searchbar">
 								<div class="titlesearch">TÌM KIẾM</div>
                             	<div class="frsearch" style="clear: both;">
 									<div class="location mg-bot15" >
 										<label for="departure">Nơi Khởi Hành</label>
-										<select id="departure" class="form-control" >
-											<option value="1">1</option>
-											<option value="2">2</option>
+										<select id="departure" class="form-control" name="department">
+										<c:forEach items="${listDepartment}" var="d">
+											<option value="${d.id}">${d.address}</option>
+										</c:forEach>
 										</select>
 									</div>
 									<div class="cat mg-bot15">
 										<label for="cattour">Loại Tour</label>
-										<select id="cattour" class="form-control" >
-											<option value="1">1</option>
-											<option value="2">2</option>
+										<select id="cattour" class="form-control" name="cattour">
+										<c:forEach items="${ listCatTours}" var="cat">
+											<option value="${cat.id }">${cat.name }</option>
+										</c:forEach>
 										</select>
 									</div>
 									<div class="province mg-bot15">
-										<label for="desnitation">Nơi đến</label>
-										<select id="desnitation" class="form-control" >
-											<option value="1">1</option>
-											<option value="2">2</option>
+										<label for="desnitation">Nơi Đến</label>
+										<select id="desnitation" class="form-control" name="desnitation">
+										<c:forEach items="${listProvince }" var="des">
+											<option value="${des.id }">${des.name }</option>
+										</c:forEach>
 										</select>
 									</div>
 									<div class="arival mg-bot15">
 										<label for="ngaykhoihanh">Ngày Khởi Hành</label>
-										<input id="ngaykhoihanh" class="form-control" type="date"/>
+										<input id="ngaykhoihanh" class="form-control" type="date" name="ngaykhoihanh"/>
 									</div>
 									<div class="price mg-bot15">
-										<label for="gia">Giá</label>
-										<select id="gia" class="form-control">
-											<option value="1">1</option>
-											<option value="2">2</option>
+										<label for="gia">Gía</label>
+										<select id="gia" class="form-control" name="price">
+											<option value="1">0-1trVND</option>
+											<option value="2">1tr-2tr</option>
+											<option value="3">2tr-3tr</option>
+											<option value="4">3tr-4tr</option>
+											<option value="5">4tr trở lên</option>
 										</select>
 									</div>
 									<div class="hotel mg-bot15">
 										<label for="ks">Khách Sạn</label>
-										<select id="ks" class="form-control">
-											<option value="1">1</option>
-											<option value="2">2</option>
+										<select id="ks" class="form-control" name="hotel">
+										<c:forEach items="${listHotels }" var="hotel">
+											<option value="${hotel.id }">${hotel.name} - ${hotel.type }</option>
+										</c:forEach>
 										</select>
 									</div>
 									<div class="vehicle mg-bot15">
 										<label for="phuongtien">Phương Tiện</label>
-										<select id="phuongtien" class="form-control">
-											<option value="1">1</option>
-											<option value="2">2</option>
+										<select id="phuongtien" class="form-control" name="vehicle">
+										<c:forEach  items="${listVehicles }" var="vehicle">
+											<option value="${vehicle.id }">${vehicle.name}</option>
+										</c:forEach>
 										</select>
 									</div>
 									<div class="btsearch mg-bot15">
@@ -291,6 +303,45 @@
                         
                     </div>
                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <c:forEach items="${listTour }" var="tour">
+                    	<div id="list">
+							<form action="#">
+								<div class="wrap">
+									<div id="day">
+										<div id="ngay"><fmt:formatDate type="date" value="${tour.start_day}" pattern="dd" var="startday"/>${startday }</div>
+										<div id="monyear"><fmt:formatDate type="date" value="${tour.start_day}" pattern="MM/yyyy" /></div>
+									</div>
+									<div id="box">
+										<div id="imag">
+											<a href="#"><img class="size" src="${pageContext.request.contextPath }/resources/client/images/${tour.image}" /></a>
+										</div>
+										<div id="caption">
+											<div>
+												<a id="tourname" href="#"><strong>${tour.name }</strong></a>
+												<div>
+													<p id="datetime">
+														<span>Thời Gian</span>
+														<span><fmt:formatDate type="date" value="${tour.end_day}" pattern="dd" var="endday" /> ${ endday - startday } ngày ${ endday - startday - 1} đêm</span>
+													</p>
+												</div> 
+											</div>
+											<div id="boxprice">
+												<div>
+													<span><strong>Số chỗ còn: </strong>
+													${tour.max_amount - tour.min_amount + tour.min_amount} chỗ</span>
+												</div>
+												<p>
+													<span id="price">${tour.price } VND</span>
+												</p>
+												<input id="book" type="submit" value="Đặt Tour" class="form-control"/>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</form>
+                        </div>
+                    </c:forEach>
                         <div id="list">
 							<form action="#">
 								<div class="wrap">
@@ -304,17 +355,17 @@
 										</div>
 										<div id="caption">
 											<div>
-												<a id="tourname" href="#"><strong>Du lịch Hè - Tour Du lịch Phú Quốc - Grand World - Checkin Dòng Sông Venice - Vinwonders</strong></a>
+												<a id="tourname" href="#"><strong>Du lịch - Tour Du Lịch - Grand World - Checkin dòng sông Venice - Vinwonders</strong></a>
 												<div>
 													<p id="datetime">
-														<span>Thời gian</span>
+														<span>Thời Gian</span>
 														<span>3 ngày 2 đêm</span>
 													</p>
 												</div> 
 											</div>
 											<div id="boxprice">
 												<div>
-													<span><strong>Số chỗ còn nhận: </strong>
+													<span><strong>Số chỗ còn: </strong>
 													10 chỗ</span>
 												</div>
 												<p>
@@ -328,43 +379,7 @@
 								</div>
 							</form>
                         </div>
-						<div id="list">
-							<form action="#">
-								<div class="wrap">
-									<div id="day">
-										<div id="ngay">01</div>
-										<div id="monyear">7/2021</div>
-									</div>
-									<div id="box">
-										<div id="imag">
-											<a href="#"><img class="size" src="${pageContext.request.contextPath }/resources/client/images/dalat2.jpg" /></a>
-										</div>
-										<div id="caption">
-											<div>
-												<a id="tourname" href="#"><strong>Du lịch Hè - Tour Du lịch Phú Quốc - Grand World - Checkin Dòng Sông Venice - Vinwonders</strong></a>
-												<div>
-													<p id="datetime">
-														<span>Thời gian</span>
-														<span>3 ngày 2 đêm</span>
-													</p>
-												</div> 
-											</div>
-											<div id="boxprice">
-												<div>
-													<span><strong>Số chỗ còn nhận: </strong>
-													10 chỗ</span>
-												</div>
-												<p>
-													<span id="price">4.000.000VND</span>
-												</p>
-												<input id="book" type="submit" value="Đặt Tour" class="form-control"/>
-											</div>
-										</div>
-									</div>
-									
-								</div>
-							</form>
-                        </div>
+						
                     </div>
                 </div>
             </div>
@@ -533,7 +548,7 @@
 		<div class="copy-right text-center">
 			<div class="container-xl">
 				<hr>
-				<p class="title">Coyright © 2021 <a href="#">HakunaMatata Team</a></p>
+				<p class="title">Coyright Â© 2021 <a href="#">HakunaMatata Team</a></p>
 				<a href="javascript:void()" class="back-to-top">
 					<i class="fas fa-angle-up"></i>
 				</a>
