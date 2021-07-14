@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>New Tour</title>
+    <title>Edit Tour</title>
     <!-- plugins:css -->
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -45,7 +48,7 @@
             <h3 class="page-title">
               <span class="page-title-icon bg-gradient-primary text-white mr-2">
                 <i class="mdi mdi-home"></i>
-              </span> New Tour
+              </span> Edit Tour
             </h3>
             <nav aria-label="breadcrumb">
               <ul class="breadcrumb">
@@ -57,33 +60,34 @@
           </div>
         
         	<!-- Form -->
-     		  <div class="col-12 grid-margin stretch-card">
+     	  <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title text-info text-center">New Tour</h4>
+                    <h4 class="card-title text-info text-center">Edit Tour</h4>
                   
-                    <form class="forms-sample" action="#" method="get">
+                    <form class="forms-sample" action="${pageContext.request.contextPath}/admin/tour/edit" method="post"  enctype="multipart/form-data">
                       <div class="form-group">
+                      	<input type="hidden" value="${tour.id}" name="id">
                         <label for="exampleInputName1">Name Tour :</label>
-                        <input type="text" class="form-control" name="name" placeholder="Name Tour">
+                        <input type="text" class="form-control" name="name" placeholder="Name Tour" required="required" value="${tour.name}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Price Tour :</label>
-                        <input type="number" class="form-control" name="price" placeholder="Price Tour">
+                        <input type="number" class="form-control" name="price" placeholder="Price Tour" required="required" value="${tour.price}">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Min Amount Tour :</label>
-                        <input type="number" class="form-control" name="min_amount" placeholder="Min Amount Tour">
+                        <input type="number" class="form-control" name="min_amount" placeholder="Min Amount Tour" required="required" value="${tour.min_amount}">
                       </div>
                        <div class="form-group">
                         <label for="exampleInputPassword4">Max Amount Tour :</label>
-                        <input type="number" class="form-control" name="max_amount" placeholder="Max Amount Tour">
+                        <input type="number" class="form-control" name="max_amount" placeholder="Max Amount Tour" required="required" value="${tour.max_amount}">
                       </div>
                         <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default" onchange="previewFiles()">
+                        <input type="file" name="imageTour" class="file-upload-default" onchange="previewFile()" >
                         <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" >
+                          <input type="text" class="form-control file-upload-info"  value="${tour.image}" name="imageUpdate">
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
@@ -95,75 +99,144 @@
                       <div id="preview"></div>
                       <div class="form-group">
                       		 <label for="birthday">Start Day:</label>
-  							<input type="date" class="form-control" id="birthday" name="start_day">
+  							<input type="date" class="form-control" id="birthday" name="startday1" required="required" value="<fmt:formatDate value="${tour.start_day}" pattern="yyyy-MM-dd" />">
                       </div>
                        <div class="form-group">
                       		 <label for="birthday">Start End:</label>
-  							<input type="date" class="form-control" id="birthday" name="start_end">
+  							<input type="date" class="form-control" id="birthday" name="endday1" required="required"  value="<fmt:formatDate value="${tour.end_day}" pattern="yyyy-MM-dd" />">
                       </div>
                       <div class="form-group">
                         <label for="exampleSelectGender">Location Go Tour :</label>
-                        <select class="select-decreption form-control" name="location_go">
-                          <option>Xe May</option>
-                          <option>May Bay</option>
+                        <select class="select-decreption form-control" name="location_go" required="required">
+                          	
+                           
+                            <c:forEach items="${listDispartment}" var="dispart">
+								<c:choose>
+									<c:when test="${tour.department.id  == dispart.id}">
+									 <option selected="selected" value="${dispart.id}">${dispart.tourguide}</option>	
+									</c:when>
+									<c:otherwise>
+	                          		 <option value="${dispart.id}">${dispart.tourguide}</option>								
+									</c:otherwise>
+								</c:choose>		                            
+                          </c:forEach>
                         </select>
                       </div>
                         <div class="form-group">
                         <label for="exampleSelectGender">Cat Tour :</label>
-                        <select class="select-cattour form-control" name="carttour_id">
-                          <option>cartour1</option>
-                          <option>cartour12</option>
+                        <select class="select-cattour form-control" name="carttour_id" required="required">
+                         
+                           <c:forEach items="${listCatTours}" var="cattour">
+                          	 <option value="${cattour.id}">${cattour.name}</option>
+                          </c:forEach>
                         </select>
                       </div>
                       
                        <div class="form-group">
                         <label for="exampleSelectGender">Hothel</label>
-                        <select class="select-hotel form-control" name="hotel_id">
-                          <option>hotel1</option>
-                          <option>hotel2</option>
+                        <select class="select-hotel form-control" name="hotel_id" required="required">
+                        
+                           <c:forEach items="${listHotels}" var="hotel">
+                           <c:choose>
+									<c:when test="${tour.hotel.id  == hotel.id}">
+									 <option selected="selected" value="${hotel.id}">${hotel.name}</option>
+									</c:when>
+									<c:otherwise>
+	                          		 <option value="${hotel.id}">${hotel.name}</option>						
+									</c:otherwise>
+								</c:choose>		    
+                          	
+                          </c:forEach>
                         </select>
                       </div>
                         <div class="form-group">
                         <label for="exampleSelectGender">Vehicle</label>
-                        <select class="select-vehicle form-control" name="vehicle_id">
-                          <option>Vehicle1</option>
-                          <option>Vehicle12</option>
+                        <select class="select-vehicle form-control" name="vehicle_id" required="required">
+                        
+                           <c:forEach items="${listVehicles}" var="vehicle">
+                                   <c:choose>
+									<c:when test="${tour.vehicle.id  == vehicle.id}">
+									 <option selected="selected" value="${vehicle.id}">${vehicle.name}</option>	
+									</c:when>
+									<c:otherwise>
+	                          		 <option value="${vehicle.id}">${vehicle.name}</option>				
+									</c:otherwise>
+								</c:choose>		  
+                          	
+                          </c:forEach>
                         </select>
                       </div>
                        <div class="row">
                        	    <div class="form-group col ">
                         <label for="exampleSelectGender">Province</label>
-                        <select class="select-vehicle form-control" name="province_id">
-                          <option>Vehicle1</option>
-                          <option>Vehicle12</option>
+                        <select class="select-vehicle form-control" name="province_id" >
+                         	<option > Chọn province</option>
+                          <c:forEach items="${listProvince}" var="province">
+	                          		 <option value="${province.id}">${province.name}</option>			                	
+                          </c:forEach>
+                         
                         </select>
                       </div>
                       
                           <div class="form-group col">
                         <label for="exampleSelectGender">Place</label>
-                        <select class="select-palace form-control" name="place_id" multiple="multiple">
-                          <option value="vehi1">1</option>
-                          <option value="vehi2">2</option>
+                        <select class="select-palace form-control" name="place_id" multiple="multiple" required="required">
+                         	
+                          
+                            <c:forEach items="${listPlaces}" var="place">
+                             <c:forEach items="${tour.place}" var="placeone">
+                                   <c:choose>
+									<c:when test="${placeone.id  == place.id}">
+									  <option selected="selected" value="${place.id}">  ${place.name}</option>
+									</c:when>
+									<c:otherwise>
+	                          		 <option value="${place.id}">  ${place.name}</option>		
+									</c:otherwise>
+								</c:choose>		  
+                          	
+                          </c:forEach>
+                          	
+                          </c:forEach>
                         </select>
                       </div>
                        </div>
                             <div class="form-group">
                         <label for="exampleSelectGender">Discount</label>
-                        <select class="select-discount form-control" name="discount_id" multiple="multiple">
-                          <option value="discount1">1</option>
-                          <option value="discount2">2</option>
-                           <option value="discount3">3</option>
+                        <select class="select-discount form-control" name="discount_id" multiple="multiple" required="required">
+                           <c:forEach items="${listDiscount}" var="discount">
+                         <!-- 
+                         		 <c:forEach items="${tour.discount}" var="discountone">
+                                   <c:choose>
+									<c:when test="${discountone.id  != discount.id}">
+									  <option  value="${discount.id}">${discount.name}</option>
+									</c:when>
+								
+										<c:otherwise>
+	                          		 <option  selected="selected"    value="${discount.id}">${discount.name}</option>
+									</c:otherwise>
+								</c:choose>		  
+                          	
+                          </c:forEach>
+                         
+                          -->
+                          		 <option  selected="selected"    value="${discount.id}">${discount.name}</option>
+                          </c:forEach>
                         </select>
+                         <select disabled="disabled" class="select-discount form-control" name="discount_one" multiple="multiple" required="required">
+                        	 <c:forEach items="${tour.discount}" var="discountone">
+                        	 	<option  value="${discountone.id}">${discountone.name}</option>
+                        	 </c:forEach>
+                         </select>
                       </div>
 
                    
                       <div class="form-group">
                         <label for="exampleInputCity1">Content Tour</label>
-                        <textarea  id="editor1" class="form-control" name="content" placeholder="Content" rows="4"></textarea>
+                        <textarea  id="editor1" class="form-control" name="content" placeholder="Content" rows="4" required="required" >${tour.content}</textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleTextarea1">Note Tour</label>
-                        <textarea class="form-control" name="note" placeholder="Note Tour" rows="4"></textarea>
+                        <textarea class="form-control" name="note" placeholder="Note Tour" rows="4" required="required">${tour.note}</textarea>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                       <button class="btn btn-light">Cancel</button>
@@ -242,6 +315,11 @@ $(".select-discount").select2({
 	 
 	});
 CKEDITOR.replace( 'editor1' );
+
+var arrSelectChecker = document.querySelectorAll('select[name="discount_one"]');
+
+
+
 </script>
 </html>
 

@@ -60,6 +60,10 @@
 			<page-encoding>UTF-8</page-encoding>
 		</jsp-property-group>
 	</jsp-config>
+	<context-param>
+		<param-name>urloadTour</param-name>
+		<param-value>/uploads/iamge-tour</param-value>
+	</context-param>
 
 
 </web-app>
