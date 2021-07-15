@@ -310,7 +310,7 @@
                     </div>
                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                     
-                    <c:forEach items="${listTourByVehicle} " var="tour">
+                    <%-- <c:forEach items="${listTourByVehicle} " var="tour">
                     <c:if test="${tour != null}">
                     	<div id="list">
 							<form action="#">
@@ -350,7 +350,7 @@
 							</form>
                         </div>
                         </c:if>
-                    </c:forEach>
+                    </c:forEach> --%>
                         <div id="list">
 							<form action="#">
 								<div class="wrap">
