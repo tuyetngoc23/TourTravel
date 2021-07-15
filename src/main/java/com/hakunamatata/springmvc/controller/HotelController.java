@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,8 @@ import com.hakunamatata.springmvc.service.ServiceInterface;
 @Controller
 @RequestMapping("admin/hotel")
 public class HotelController {
+	@Autowired
+	ServletContext servletContext;
 	@Autowired
 	private ServiceInterface<Hotel> hotelService;
 	
@@ -50,23 +54,24 @@ public class HotelController {
 	public String add(MultipartFile uploadfile, Hotel vo, Locale locale, Model model) {
 		/*
 		 * doing file upload*/
-//		if(!uploadfile.isEmpty()) {
-//			String fileName = uploadfile.getOriginalFilename();
-//			// realPath
-//			try {
-//				uploadfile.transferTo(
-//						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-hotel\\"
-//									+fileName)
-//				);
-//				vo.setImage(fileName);
-//				hotelService.insert(vo);
-//			} catch (IllegalStateException e) {
-//				e.printStackTrace();
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}	
-		hotelService.insert(vo);
+		if(!uploadfile.isEmpty()) {
+			String fileName = uploadfile.getOriginalFilename();
+			String realPath = servletContext.getRealPath(servletContext.getInitParameter("urloadHotel"));
+			// realPath
+			try {
+				uploadfile.transferTo(
+						new File(realPath + File.separator
+									+fileName)
+				);
+				vo.setImage(fileName);
+				hotelService.insert(vo);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
+//		hotelService.insert(vo);
 		return "redirect:/admin/hotel/";
 	}
 	
@@ -81,11 +86,12 @@ public class HotelController {
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(@RequestParam(value="image1") String image, MultipartFile uploadfile, Hotel vo, Locale locale, Model model) {
 		String fileName = uploadfile.getOriginalFilename();
+		String realPath = servletContext.getRealPath(servletContext.getInitParameter("urloadHotel"));
 		if(!uploadfile.isEmpty()) {
 			// realPath
 			try {
 				uploadfile.transferTo(
-						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-hotel\\"
+						new File(realPath + File.separator
 									+fileName)
 				);
 				vo.setImage(fileName);

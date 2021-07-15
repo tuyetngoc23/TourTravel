@@ -64,6 +64,14 @@
 		<param-name>urloadTour</param-name>
 		<param-value>/uploads/iamge-tour</param-value>
 	</context-param>
+		<context-param>
+		<param-name>urloadHotel</param-name>
+		<param-value>/uploads/image-hotel</param-value>
+	</context-param>
+	<context-param>
+		<param-name>urloadPlace</param-name>
+		<param-value>/uploads/image-place</param-value>
+	</context-param>
 
 
 </web-app>
