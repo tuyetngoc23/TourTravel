@@ -301,7 +301,7 @@ $(".select-discount"	).select2({
 CKEDITOR.replace( 'editor1' );
 
 
-
+var select = document.getElementById("DropList");
 
 </script>
 </html>
