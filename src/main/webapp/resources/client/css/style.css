@@ -13,6 +13,10 @@
  }
 
 
+  .body-dummy-padding-top {
+	padding-top: 95px;
+ }
+
 /*Declare fonts*/
 @font-face {
 	font-family: KaushanScript-Regular;
@@ -33,21 +37,6 @@ header .home {
     margin-bottom: 40px;
 }
 
-header .home h2 {
- 	font-family: KaushanScript-Regular;
- 	font-size: 72px;
- 	line-height: 57px;
- 	margin-bottom: 29px;
- 	margin-top: 100px;
- }
-
-header .home h1 {
-  	font-size: 150px;
- 	line-height: 140px;
- 	margin-bottom: 29px;
- 	/*max-width: 1000px;*/
- }
-
 header .home-slide {
 	padding-top: 130px;
 }
@@ -61,7 +50,7 @@ header .home-slide .creative-template {
 }
 
 header .home-slide .slogan {
-	font-family: "Roboto";
+	font-family: "Kaushan Script";;
     font-size: 150px;
     color: #fff;
     text-transform: uppercase;
@@ -73,7 +62,7 @@ header .home-slide hr {
 	display: inline-block;
 	width: 60px;
     height: 3px;
-    background-color: red;
+    background-color: #f38181;
     border: none;
 	margin-bottom: 100px;
 }
@@ -110,6 +99,52 @@ header .home-slide .carousel-box::before {
     background-color: #f38181;
     margin-bottom: 30px;
 }
+
+header .mogo-fixed-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(243,129,129,0.9);
+    animation: menuAnimation 1s;
+    animation-fill-mode: both;
+    padding: 7px 0px;
+}
+
+@keyframes menuAnimation {
+	from {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 0.8;
+	}
+}
+
+/* header .navbar-fixed-top .container-fluid {
+	max-width: 1020px;
+}
+
+@media only screen and (min-width: 768px) {
+	header .navbar-fixed-top .navbar-nav>li {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	header .navbar-fixed-top .navbar-brand {
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+
+	header .navbar-default .navbar-nav>li {
+		margin-left:5px;
+		margin-right:5px;
+	}
+} */
+
+
 
 /* End Header */
 

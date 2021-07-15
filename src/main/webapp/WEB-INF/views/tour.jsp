@@ -221,15 +221,6 @@
 		</section>
 	</header>
 	<main>
-		<!-- Khuyen Mai Äáº·c Biá»t -->
-		<section id="sale">
-			<div class="about container-fluid text-center">
-				
-				<h2>KHUYáº¾N MÃI Äáº¶C BIá»T</h2>
-				<p>Sale promotion</p>
-				<hr>	
-			</div>
-		</section>
         <section id="tour">
             <div class="container">
                 <div class="row">
