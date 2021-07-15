@@ -1,4 +1,41 @@
 
+$(function(){
+//Tạo hiệu ứng menu
+	// alert($(window).scrollTop());
+	// 
+	$(window).scroll(function(event) {
+		/* Act on the event */
+		//Code chạy khi scroll chuột (kéo thanh cuộn dọc)
+		// console.log($(window).scrollTop());
+		console.log($("#quote").offset().top);
+		if ($(window).scrollTop() >= $("#quote").offset().top) {
+			//thêm cái class navbar-fixed-top vào cái menu
+			$("header .hakunamatata-menu").addClass('mogo-fixed-menu');
+			$("#home").addClass('body-dummy-padding-top');
+		}
+		else {
+			$("header .hakunamatata-menu").removeClass('mogo-fixed-menu');
+			$("#home").removeClass('body-dummy-padding-top');
+		}
+	});
+
+	//Click trên menu, sẽ target đến id tương ứng
+	// $('header nav ul li a').on('click',function (e) {
+	//     e.preventDefault();
+	//     var target = this.hash;
+	//     if (target) {
+	// 	    var targetObj = $(target);
+
+	// 	    $('html, body').stop().animate({
+	// 	        'scrollTop': targetObj.offset().top
+	// 	    }, 500, 'swing', function () {
+	// 	        window.location.hash = target;
+	// 	    });
+	//     }
+	// });
+
+});
+
 //CounterUp
 $(document).ready(function(){
     $(".counter").counterUp({
