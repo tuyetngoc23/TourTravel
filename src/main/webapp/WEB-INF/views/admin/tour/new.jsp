@@ -251,11 +251,11 @@ $('.select-decreption').select2({
 	});	
 	
 
-$(".select-palace").select2({
+$('.select-palace').select2({
 	 placeholder: 'Select an place',
 	
 	});
-$(".select-discount").select2({
+$('.select-discount').select2({
 	placeholder: 'Select an discount',
 	 
 	});

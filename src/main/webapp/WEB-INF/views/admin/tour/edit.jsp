@@ -184,9 +184,9 @@
                          	
                           
                             <c:forEach items="${listPlaces}" var="place">
-                             <c:forEach items="${tour.place}" var="placeone">
+                             <c:forEach items="${tour.place}" var="placeone" varStatus="loop">
                                    <c:choose>
-									<c:when test="${placeone.id  == place.id}">
+									<c:when test="${placeone.id  == place.id }">
 									  <option selected="selected" value="${place.id}">  ${place.name}</option>
 									</c:when>
 									<c:otherwise>
@@ -204,29 +204,10 @@
                         <label for="exampleSelectGender">Discount</label>
                         <select class="select-discount form-control" name="discount_id" multiple="multiple" required="required">
                            <c:forEach items="${listDiscount}" var="discount">
-                         <!-- 
-                         		 <c:forEach items="${tour.discount}" var="discountone">
-                                   <c:choose>
-									<c:when test="${discountone.id  != discount.id}">
-									  <option  value="${discount.id}">${discount.name}</option>
-									</c:when>
-								
-										<c:otherwise>
-	                          		 <option  selected="selected"    value="${discount.id}">${discount.name}</option>
-									</c:otherwise>
-								</c:choose>		  
-                          	
-                          </c:forEach>
-                         
-                          -->
                           		 <option  selected="selected"    value="${discount.id}">${discount.name}</option>
                           </c:forEach>
                         </select>
-                         <select disabled="disabled" class="select-discount form-control" name="discount_one" multiple="multiple" required="required">
-                        	 <c:forEach items="${tour.discount}" var="discountone">
-                        	 	<option  value="${discountone.id}">${discountone.name}</option>
-                        	 </c:forEach>
-                         </select>
+                        
                       </div>
 
                    
@@ -261,12 +242,12 @@
 
     <!-- container-scroller -->
    <!-- plugins:js -->
-   
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		    <script
+		src="${pageContext.request.contextPath }/resources/assets/vendors/js/vendor.bundle.base.js"></script>
      <script
 		src="${pageContext.request.contextPath }/resources/assets/ckeditor/ckeditor.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script
-		src="${pageContext.request.contextPath }/resources/assets/vendors/js/vendor.bundle.base.js"></script>
+
     <!-- endinject -->
     <!-- Plugin js for this page -->
       <script src="${pageContext.request.contextPath }/resources/assets/js/file-upload.js"></script>
@@ -290,6 +271,8 @@
 		  <!-- Custom js for this page -->
   <script src="${pageContext.request.contextPath }/resources/assets/js/select2.min.js"></script>
     <!-- End custom js for this page -->
+       
+
 </body>
 <script >
 $('.select-vehicle').select2({
@@ -310,13 +293,13 @@ $(".select-palace").select2({
 	 placeholder: 'Select an place',
 	
 	});
-$(".select-discount").select2({
-	placeholder: 'Select an discount',
-	 
+$(".select-discount"	).select2({
+	 placeholder: 'Select an place',
+	
 	});
+
 CKEDITOR.replace( 'editor1' );
 
-var arrSelectChecker = document.querySelectorAll('select[name="discount_one"]');
 
 
 
