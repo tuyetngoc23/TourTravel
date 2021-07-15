@@ -234,8 +234,8 @@ public class TourController {
 		
 		Tour tours = service.get(tour);
 		//delete mutile row many to many
-//		tourDiscountService.delete(tours.getTourdiscount());
-//		tourPlaceService.delete(tours.getTourplace());
+		tourDiscountService.delete(tours.getTourdiscount());
+		tourPlaceService.delete(tours.getTourplace());
 		Tour tourUpdate = new Tour();
 		tourUpdate.setId(tours.getId());
 		List<Discount> lisDiscounts = null;
@@ -325,8 +325,8 @@ public class TourController {
 			tour.setImage(imageUpdate);
 		}
 		service.update(tour);
-//		tourPlaceService.insert(tour.getTourplace());
-//		tourDiscountService.insert(tour.getTourdiscount());
+		tourPlaceService.insert(tour.getTourplace());
+		tourDiscountService.insert(tour.getTourdiscount());
  	
 		return "redirect:/admin/tour";
 //		return new ResponseEntity<Tour>(tour, HttpStatus.OK);

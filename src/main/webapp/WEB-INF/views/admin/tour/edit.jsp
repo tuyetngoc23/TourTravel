@@ -1,3 +1,8 @@
+<%@page import="com.hakunamatata.springmvc.entity.Discount"%>
+<%@page import="com.hakunamatata.springmvc.entity.Place"%>
+<%@page import="com.hakunamatata.springmvc.entity.Tour"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
@@ -180,32 +185,85 @@
                       
                           <div class="form-group col">
                         <label for="exampleSelectGender">Place</label>
+					 
                         <select class="select-palace form-control" name="place_id" multiple="multiple" required="required">
-                         	
+                  	<%
+                  		List listPlace = (ArrayList)request.getAttribute("listPlaces");
+                       	List listDiscount = (ArrayList)request.getAttribute("listDiscount");
+                        Tour tour = (Tour)request.getAttribute("tour");
+                        		List listTourPlace = (ArrayList)tour.getPlace();
+                        		List listTourDiscount= (ArrayList)tour.getDiscount();
+                  	%>
+                  	
+                  	<%
+						for(int i = 0 ; i < listPlace.size();i++){
+						 Place place = (Place)listPlace.get(i);
+						 for(int j = 0 ; j < listTourPlace.size();j++){
+						     Place placeTour = (Place)listTourPlace.get(j);
+						     if(place.getId() == placeTour.getId()){ %>                              		
+						          <option selected="selected" value="<%=place.getId() %>"><%=place.getName()%></option>                              			
+						      <% 
+						      break;
+						     }
+						     if(j == listTourPlace.size() - 1 ){
+						     %>
+						         <option  value="<%=place.getId() %>"><%=place.getName() %></option>
+						        
+						    <% 
+						     }
+						 }
+						}
+						%>
+					<!-- 
+					
+							<c:forEach items="${listPlaces}" var="place">
+							<c:forEach items="${tour.place}" var="placeone" varStatus="loop">
+							   <c:choose>
+							       <c:when test="${placeone.id  == place.id }">
+							         <option selected="selected" value="${place.id}">  ${place.name}</option>
+							         
+							       </c:when>
+							       <c:otherwise>
+							          <option value="${place.id}">  ${place.name}</option>		
+							       </c:otherwise>
+							   </c:choose>		  				 
+							</c:forEach>						 
+							</c:forEach>
+					 -->
                           
-                            <c:forEach items="${listPlaces}" var="place">
-                             <c:forEach items="${tour.place}" var="placeone" varStatus="loop">
-                                   <c:choose>
-									<c:when test="${placeone.id  == place.id }">
-									  <option selected="selected" value="${place.id}">  ${place.name}</option>
-									</c:when>
-									<c:otherwise>
-	                          		 <option value="${place.id}">  ${place.name}</option>		
-									</c:otherwise>
-								</c:choose>		  
-                          	
-                          </c:forEach>
-                          	
-                          </c:forEach>
+                  
+                  
+                                   
                         </select>
                       </div>
                        </div>
                             <div class="form-group">
                         <label for="exampleSelectGender">Discount</label>
                         <select class="select-discount form-control" name="discount_id" multiple="multiple" required="required">
-                           <c:forEach items="${listDiscount}" var="discount">
+                         <!-- 
+                         	  <c:forEach items="${listDiscount}" var="discount">
                           		 <option  selected="selected"    value="${discount.id}">${discount.name}</option>
                           </c:forEach>
+                          -->
+                          	<%
+						for(int i = 0 ; i < listDiscount.size();i++){
+						 Discount discount = (Discount)listDiscount.get(i);
+						 for(int j = 0 ; j < listTourDiscount.size();j++){
+						     Discount discountTour = (Discount)listTourDiscount.get(j);
+						     if(discount.getId() == discountTour.getId()){ %>                              		
+						          <option selected="selected" value="<%=discount.getId() %>"><%=discount.getName()%></option>                              			
+						      <% 
+						      break;
+						     }
+						     if(j == listTourDiscount.size() - 1 ){
+						     %>
+						         <option  value="<%=discount.getId() %>"><%=discount.getName() %></option>
+						        
+						    <% 
+						     }
+						 }
+						}
+						%>
                         </select>
                         
                       </div>
