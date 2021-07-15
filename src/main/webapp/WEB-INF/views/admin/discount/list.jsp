@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Discount List</title>
     <!-- plugins:css -->
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -42,8 +42,8 @@
         	  <div class="row" id="proBanner">
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
-                <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
-                <a href="#" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
+                <p>Admin Discount List !</p>
+                <a href="${pageContext.request.contextPath }/admin/discount/new"  class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
             </div>
@@ -68,9 +68,7 @@
      		   <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
-                    <p class="card-description"> Add class <code>.table-hover</code>
-                    </p>
+                    <h4 class="card-title text-center text-info">List Discount</h4>            
                     <table class="table table-hover">
                       <thead>
                         <tr>
@@ -80,7 +78,9 @@
                           <th>Start day</th>
                           <th>End day</th>
                           <th>Action</th>
+                        <!-- 
                           <th><a type="button" class="btn btn-gradient-info btn-fw" href="${pageContext.request.contextPath }/admin/discount/new">New</a></th>
+                         -->
                         </tr>
                       </thead>
                       <tbody>
@@ -92,8 +92,8 @@
                           <td><fmt:formatDate value="${discount.start_day}" pattern="dd-MM-yyyy" /></td>
                           <td><fmt:formatDate value="${discount.end_day}" pattern="dd-MM-yyyy" /></td>
                           <td>
-                          	<a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='edit?id=${discount.id}'">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw" onclick="document.location='delete?id=${discount.id}'">Delete</a>
+                          	<a type="button" class="btn btn-gradient-info btn-sm" href="${pageContext.request.contextPath }/admin/discount/edit?id=${discount.id}">Edit</a>
+                          	<a type="button" class="btn btn-gradient-danger btn-sm" onclick="${pageContext.request.contextPath }/admin/discount/delete?id=${discount.id}">Delete</a>
                           </td>
                         </tr>
                        </c:forEach> 
