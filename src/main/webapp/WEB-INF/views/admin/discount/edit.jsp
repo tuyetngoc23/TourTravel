@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,11 +78,13 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Start day</label>
-                        <input type="date" class="form-control" name="start_day1" value="${discountOne.start_day}" required>
+                        <input type="date" class="form-control" name="start_day1" 
+                        value="<fmt:formatDate value="${discountOne.start_day}" pattern="yyyy-MM-dd" />" required>
                       </div>
                      <div class="form-group">
                         <label for="exampleInputPassword4">End day</label>
-                        <input type="date" class="form-control" name="end_day1" value="${discountOne.end_day}" required>
+                        <input type="date" class="form-control" name="end_day1" 
+                        value="<fmt:formatDate value="${discountOne.end_day}" pattern="yyyy-MM-dd" />" required>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                       <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/admin/discount/'">Cancel</a>
