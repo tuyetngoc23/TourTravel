@@ -40,8 +40,8 @@
               </a>
               <div class="collapse" id="user">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="list">List User</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="new">New User</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/user">List User</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/user/new">New User</a></li>
                 </ul>
               </div>
               
@@ -54,8 +54,8 @@
               </a>
               <div class="collapse" id="blog">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">List Blog</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Add Blog</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/blog">List Blog</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/blog/new">Add Blog</a></li>
                 </ul>
               </div>
             </li>
@@ -68,8 +68,8 @@
               </a>
               <div class="collapse" id="tour">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">List Tour</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Add Tour</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/tour">List Tour</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/tour/new">Add Tour</a></li>
                 </ul>
               </div>
             </li>
@@ -82,8 +82,8 @@
               </a>
               <div class="collapse" id="vehicle">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">List Vehicle</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Add Vehicle</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/vehicle">List Vehicle</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/vehicle/new">Add Vehicle</a></li>
                 </ul>
               </div>
             </li>
@@ -96,8 +96,8 @@
               </a>
               <div class="collapse" id="place">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">List Place</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Add Place</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/place">List Place</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/place/new">Add Place</a></li>
                 </ul>
               </div>
             </li>
@@ -110,8 +110,8 @@
               </a>
               <div class="collapse" id="hotel">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">List Hotel</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Add Hotel</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/hotel">List Hotel</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/hotel/new">Add Hotel</a></li>
                 </ul>
               </div>
             </li>
@@ -123,8 +123,8 @@
               </a>
               <div class="collapse" id="discount">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">List Discount</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Add Discount</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/discount">List Discount</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/discount/new">Add Discount</a></li>
                 </ul>
               </div>
             </li>
@@ -137,8 +137,8 @@
               </a>
               <div class="collapse" id="department">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">List Department</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Add Department</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/department">List Department</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath }/admin/department/new">Add Department</a></li>
                 </ul>
               </div>
             </li>

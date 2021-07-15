@@ -60,8 +60,8 @@
      		  <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description"> Basic form elements </p>
+                    <h4 class="card-title text-center text-info">New Department</h4>
+                   
                     <form class="forms-sample" method= "post" action="add">
                       <div class="form-group">
                         <label for="exampleInputEmail3">Tour guide</label>

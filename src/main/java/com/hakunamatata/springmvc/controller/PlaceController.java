@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,8 @@ import com.hakunamatata.springmvc.service.impl.PlaceService;
 @Controller
 @RequestMapping("admin/place")
 public class PlaceController {
+	@Autowired
+	ServletContext servletContext;
 	@Autowired
 	private PlaceService placeService;
 	
@@ -56,24 +60,25 @@ public class PlaceController {
 		
 		//doing upload file
 		
-//		if(!uploadfile.isEmpty()) {
-//			String fileName = uploadfile.getOriginalFilename();
-//			// realPath
-//			try {
-//				uploadfile.transferTo(
-//						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-place\\"
-//									+fileName)
-//				);
-//				vo.setImage(fileName);
-//				placeService.insert(vo);
-//
-//			} catch (IllegalStateException e) {
-//				e.printStackTrace();
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}	
-		placeService.insert(vo);
+		if(!uploadfile.isEmpty()) {
+			String fileName = uploadfile.getOriginalFilename();
+			String realPath = servletContext.getRealPath(servletContext.getInitParameter("urloadPlace"));
+			// realPath
+			try {
+				uploadfile.transferTo(
+						new File(realPath + File.separator
+									+fileName)
+				);
+				vo.setImage(fileName);
+				placeService.insert(vo);
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
+//		placeService.insert(vo);
 		return "redirect:/admin/place/";
 
 	}
@@ -100,10 +105,11 @@ public class PlaceController {
 		vo.setProvince(province);
 		if(!uploadfile.isEmpty()) {
 			String fileName = uploadfile.getOriginalFilename();
+			String realPath = servletContext.getRealPath(servletContext.getInitParameter("urloadPlace"));
 			// realPath
 			try {
 				uploadfile.transferTo(
-						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-place\\"
+						new File(realPath + File.separator
 									+fileName)
 				);
 				vo.setImage(fileName);

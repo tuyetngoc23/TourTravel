@@ -34,7 +34,8 @@
 		<mapper resource="mapper/place-mapper.xml"/>
 		<mapper resource="mapper/province-mapper.xml"/>
 		<mapper resource="mapper/discount-mapper.xml"/>
-
+		<mapper resource="mapper/tour-place-mapper.xml"/>
+		<mapper resource="mapper/tour-discount-mapper.xml"/>
 	</mappers>
 	
 </configuration>

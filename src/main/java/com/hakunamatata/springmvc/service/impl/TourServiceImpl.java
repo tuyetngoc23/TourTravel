@@ -15,26 +15,26 @@ public class TourServiceImpl implements TourService{
 	private TourDAO dao;
 	@Override
 	public void insert(Tour vo) {
-		// TODO Auto-generated method stub
+		dao.insert(vo);
 		
 	}
 
 	@Override
 	public void update(Tour vo) {
-		// TODO Auto-generated method stub
+		dao.update(vo);
 		
 	}
 
 	@Override
 	public void delete(Tour vo) {
-		// TODO Auto-generated method stub
+		dao.delete(vo);
 		
 	}
 
 	@Override
 	public Tour get(Tour vo) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.get(vo);
 	}
 
 	@Override
@@ -48,6 +48,14 @@ public class TourServiceImpl implements TourService{
 		// TODO Auto-generated method stub
 		return dao.getCattour();
 	}
+
+	@Override
+	public Tour getTourId() {
+		// TODO Auto-generated method stub
+		return dao.getIdTour();
+	}
+
+	
 
 
 

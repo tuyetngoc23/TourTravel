@@ -65,7 +65,7 @@
                   <div class="card-body">
                     <h4 class="card-title text-info text-center">New Tour</h4>
                   
-                    <form class="forms-sample" action="${pageContext.request.contextPath }/admin/tour/new" method="post">
+                    <form class="forms-sample" action="${pageContext.request.contextPath }/admin/tour/new" method="post"  enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="exampleInputName1">Name Tour :</label>
                         <input type="text" class="form-control" name="name" placeholder="Name Tour" required="required">
@@ -84,7 +84,7 @@
                       </div>
                         <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="image" class="file-upload-default" onchange="previewFiles()" required="required">
+                        <input type="file" name="imageTour" class="file-upload-default" onchange="previewFile()" required="required">
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" >
                           <span class="input-group-append">
@@ -98,28 +98,28 @@
                       <div id="preview"></div>
                       <div class="form-group">
                       		 <label for="birthday">Start Day:</label>
-  							<input type="date" class="form-control" id="birthday" name="startday" required="required">
+  							<input type="date" class="form-control" id="birthday" name="startday1" required="required">
                       </div>
                        <div class="form-group">
                       		 <label for="birthday">Start End:</label>
-  							<input type="date" class="form-control" id="birthday" name="endday" required="required">
+  							<input type="date" class="form-control" id="birthday" name="endday1" required="required">
                       </div>
                       <div class="form-group">
                         <label for="exampleSelectGender">Location Go Tour :</label>
                         <select class="select-decreption form-control" name="location_go" required="required">
-                          	<option >Chon Location Go</option>
+                          	
                            
                             <c:forEach items="${listDispartment}" var="dispart">
-                          	 <option value="${dispart.id}">${dispart.tourguide}</option>
+                          	 <option value="${dispart.id}">${dispart.id} ${dispart.tourguide}</option>
                           </c:forEach>
                         </select>
                       </div>
                         <div class="form-group">
                         <label for="exampleSelectGender">Cat Tour :</label>
                         <select class="select-cattour form-control" name="carttour_id" required="required">
-                         	<option >Chon Cat tour</option>
+                         
                            <c:forEach items="${listCatTours}" var="cattour">
-                          	 <option value="${cattour.id}">${cattour.name}</option>
+                          	 <option value="${cattour.id}">${cattour.id} ${cattour.name}</option>
                           </c:forEach>
                         </select>
                       </div>
@@ -127,26 +127,26 @@
                        <div class="form-group">
                         <label for="exampleSelectGender">Hothel</label>
                         <select class="select-hotel form-control" name="hotel_id" required="required">
-                          <option >Chon Hotel</option>
+                        
                            <c:forEach items="${listHotels}" var="hotel">
-                          	 <option value="${hotel.id}">${hotel.name}</option>
+                          	 <option value="${hotel.id}">${hotel.id} ${hotel.name}</option>
                           </c:forEach>
                         </select>
                       </div>
                         <div class="form-group">
                         <label for="exampleSelectGender">Vehicle</label>
                         <select class="select-vehicle form-control" name="vehicle_id" required="required">
-                          <option >Chon Vehicle</option>
+                        
                            <c:forEach items="${listVehicles}" var="vehicle">
-                          	 <option value="${vehicle.id}">${vehicle.name}</option>
+                          	 <option value="${vehicle.id}">${vehicle.id} ${vehicle.name}</option>
                           </c:forEach>
                         </select>
                       </div>
                        <div class="row">
                        	    <div class="form-group col ">
                         <label for="exampleSelectGender">Province</label>
-                        <select class="select-vehicle form-control" name="province_id" required="required">
-                          <option >Chọn Province</option>
+                        <select class="select-vehicle form-control" name="province_id">
+                         	<option > Chọn province</option>
                           <c:forEach items="${listProvince}" var="province">
                           	 <option value="${province.id}">${province.name}</option>
                           </c:forEach>
@@ -160,7 +160,7 @@
                          	
                           
                             <c:forEach items="${listPlaces}" var="place">
-                          	 <option value="${place.id}">${place.name}</option>
+                          	 <option value="${place.id}">${place.id}  ${place.name}</option>
                           </c:forEach>
                         </select>
                       </div>
@@ -251,11 +251,11 @@ $('.select-decreption').select2({
 	});	
 	
 
-$(".select-palace").select2({
+$('.select-palace').select2({
 	 placeholder: 'Select an place',
 	
 	});
-$(".select-discount").select2({
+$('.select-discount').select2({
 	placeholder: 'Select an discount',
 	 
 	});

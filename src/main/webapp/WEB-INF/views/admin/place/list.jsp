@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>List Place</title>
     <!-- plugins:css -->
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -41,8 +41,8 @@
         	  <div class="row" id="proBanner">
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
-                <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
-                <a href="#" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
+                <p>Admin List Place !</p>
+                <a href="${pageContext.request.contextPath }/admin/place/new" class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
             </div>
@@ -67,7 +67,7 @@
      		   <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
+                    <h4 class="card-title text-center text-info">List Place</h4>
                     <p class="card-description"> Add class <code>.table-hover</code>
                     </p>
                     <table class="table table-hover">
@@ -79,7 +79,9 @@
                           <th>Address</th>
                           <th>image</th>
                           <th>Action</th>
+                         <!-- 
                           <th><a type="button" class="btn btn-gradient-info btn-fw" href="${pageContext.request.contextPath }/admin/place/new">New</a></th>
+                          -->
                         </tr>
                       </thead>
                       <tbody>
@@ -92,8 +94,8 @@
                           <td><img src="${pageContext.request.contextPath }/uploads/image-place/${place.image}"></td> 
                           <td>${place.description}</td>
                           <td>
-                          	<a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='edit?id=${place.id}'">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw" onclick="document.location='delete?id=${place.id}'">Delete</a>
+                          	<a type="button" class="btn btn-gradient-info btn-sm" href="${pageContext.request.contextPath }/admin/place/edit?id=${place.id}">Edit</a>
+                          	<a type="button" class="btn btn-gradient-danger btn-sm" href="${pageContext.request.contextPath }/admin/place/delete?id=${place.id}">Delete</a>
                           </td>
                         </tr>
 						</c:forEach>

@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>New Discount</title>
     <!-- plugins:css -->
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -61,8 +61,8 @@
      		  <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description"> Basic form elements </p>
+                    <h4 class="card-title text-center text-info">New Discount</h4>
+                  
                     <form class="forms-sample" method="post" action="add">
                       <div class="form-group">
                       <label for="exampleInputEmail3">Name</label>
