@@ -60,31 +60,48 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Edit</h4>
-                    
-                    <form class="forms-sample">
-                      
+                    <form class="forms-sample" method="post" action="update">
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">ID</label>
+                        <input type="text" class="form-control" name="id" value="${blogOne.id}" readonly>
+                      </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail3">Title</label>
-                        <input type= "text" class="form-control" name="title" value="${blog.title}" required >
-                      </div>                                          
-                     
-                      <div class="form-group" method= "get" action="" enctype="multipart/form-data">
+                      <label for="exampleInputEmail3">Title</label>
+                        <input type="text" class="form-control" name="title" value="${blogOne.title}" required >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Wname</label>
+                        <input type="text" class="form-control" name="wname" value="${blogOne.wname}" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Content</label>
+                        <input type="text" id="editor1" class="form-control" name="content" value="${blogOne.content}" required>
+                      </div>
+                       <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="Image" class="file-upload-default">
+                        <input type="file" name="uploadfile" class="file-upload-default">
                         <div class="input-group col-xs-12">
-                          <input type="image" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <input type="text"  class="form-control file-upload-info"  disabled="" placeholder="Upload Image">
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
                         </div>
                       </div>
-                    
-                    <div class="form-group">
-                        <label for="exampleTextarea1">Text</label>
-                        <textarea  id="editor1" class="form-control" name="content" value = "${blog.content}" required></textarea>
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Day</label>
+                        <input type="date" class="form-control" name="wdate1" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">like Amount</label>
+                        <input type="number" min="1" class="form-control"value="${blogOne.like_amount}" name="like_amount" placeholder="like Amount" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">State</label>
+                        <input type="number" min="0" max="1" class="form-control"value="${blogOne.state}" name="state" placeholder="State" required>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                      <button class="btn btn-light">Cancel</button>
+                      <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/admin/blog/'">Cancel</a>
+                    	<input type="hidden" name="image1" value="${blogOne.image}">
                     </form>
                   </div>
                 </div>

@@ -59,30 +59,44 @@
                   <div class="card-body">
                     <h4 class="card-title">New Blog</h4>
                   
-                    <form class="forms-sample">
-                      
+                    <form class="forms-sample" method="post" action="add" enctype="multipart/form-data">
                       <div class="form-group">
-                        <label for="exampleInputEmail3">Title</label>
-                        <input type="title" class="form-control" id="exampleInputEmail3" placeholder="Title">
-                      </div>                                          
-                     
-                      <div class="form-group" method= "get" action="  " enctype="multipart/form-data">
+                      <label for="exampleInputEmail3">Title</label>
+                        <input type="text" class="form-control" name="title" placeholder="Title" required >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Wname</label>
+                        <input type="text" class="form-control" name="wname" placeholder="wname" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Content</label>
+                        <input type="text" id="editor1" class="form-control" name="content" placeholder="Content" required>
+                      </div>
+                       <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <input type="file" name="uploadfile" class="file-upload-default">
                         <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <input type="text"  class="form-control file-upload-info"  disabled="" placeholder="Upload Image">
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
                         </div>
                       </div>
-                    
                       <div class="form-group">
-                        <label for="exampleTextarea1">Textarea</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                        <label for="exampleInputPassword4">Day</label>
+                        <input type="date" class="form-control" name="wdate1" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">like Amount</label>
+                        <input type="number" min="1" class="form-control" name="like_amount" placeholder="like Amount" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">State</label>
+                        <input type="number" min="0" max="1" class="form-control" name="state" placeholder="State" required>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                      <button class="btn btn-light">Cancel</button>
+                      <a type="button" class="btn btn-gradient-danger btn-fw"onclick="document.location='${pageContext.request.contextPath }/admin/blog/'">Cancel</a>
+                      
                     </form>
                   </div>
                 </div>
@@ -105,7 +119,8 @@
     <!-- container-scroller -->
    <!-- plugins:js -->
    
-  
+  <script
+		src="${pageContext.request.contextPath }/resources/assets/ckeditor/ckeditor.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script
 		src="${pageContext.request.contextPath }/resources/assets/vendors/js/vendor.bundle.base.js"></script>
@@ -130,7 +145,9 @@
     <script
 		src="${pageContext.request.contextPath }/resources/assets/js/todolist.js"></script>
 		  <!-- Custom js for this page -->
-  
+  	<script>
+		CKEDITOR.replace( 'editor1' );
+		</script>
     <!-- End custom js for this page -->
 </body>
 </html>

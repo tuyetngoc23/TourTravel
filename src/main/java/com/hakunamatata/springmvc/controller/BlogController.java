@@ -1,12 +1,9 @@
 package com.hakunamatata.springmvc.controller;
 
-import java.io.File;
-import java.io.IOException;
+import java.sql.Date;
 import java.util.List;
 import java.util.Locale;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,85 +13,91 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hakunamatata.springmvc.entity.Blog;
-//import com.hakunamatata.springmvc.service.impl.BlogService;
-
+import com.hakunamatata.springmvc.service.ServiceInterface;
 /**
  * @author Hai Van
  *
  */
 @Controller
-@RequestMapping("/admin/blog")
-//doing
+@RequestMapping("admin/blog")
 public class BlogController {
-	private static final Logger logger = LoggerFactory.getLogger(BlogController.class);
-	
-	
-//	@Autowired
-//	private BlogService blogService;
-	
+	@Autowired
+	private ServiceInterface<Blog> blogService;
 	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
 	public String list(Locale locale, Model model) {
-		logger.info("blog list {}.", locale);		
-//		List<Blog> list = blogService.listBlog(null);
-//		model.addAttribute("blogList",list);
+		List<Blog> list = blogService.list(null);
+		model.addAttribute("blogList",list);
+		System.out.println(list);
 		return "admin/blog/list";
-	}
-
-	
-	@RequestMapping(value = "/new", method = RequestMethod.GET)
-	public String write(Locale locale, Model model) {
-		logger.info("Blog new {}.", locale);
-		return "admin/blog/new";
-	}
-
-	
-	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public String edit(Locale locale, Model model) {
-		logger.info("blog edit {}.", locale);
-		return "admin/blog/edit";
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String delete(@RequestParam(value="no") Integer aid,
-			Locale locale, Model model) {
-		logger.info("blog delete {}.", locale);
+	public String delete(@RequestParam(value="id") Integer id,Locale locale, Model model) {
 		Blog vo = new Blog();
-		//vo.setId(id.intValue());		
-//		blogService.delete(vo);
-		return "admin/blog/list";
-	}	
-	
-	
-	
-	
-	
-	@RequestMapping(value = "/fileupload", method = RequestMethod.GET)
-	public String fileform(Locale locale, Model model) {
-		logger.info("get : fileform");
-		return "form";
+		vo.setId(id.intValue());
+		blogService.delete(vo);
+		return "redirect:/admin/blog/";
 	}
 	
-	@RequestMapping(value = "/fileupload", method = RequestMethod.POST)
-	public String savefile(MultipartFile uploadfile, Locale locale, Model model) {
-		logger.info("post : savefile");
-		if( !uploadfile.isEmpty() ) {
-			String fileName = uploadfile.getOriginalFilename();
-			String name = uploadfile.getName();
-			String type = uploadfile.getContentType();
-			logger.info(fileName+","+name+","+type);
-			// realPath
-			try {
-				uploadfile.transferTo(
-						new File("C:\\Users\\Administrator\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-blog\\"
-									+ uploadfile.getOriginalFilename())
-				);
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return "redirect:/";
+	@RequestMapping(value = "/new", method = RequestMethod.GET)
+	public String regis(Locale locale, Model model) {
+		return "admin/blog/new";
 	}
-
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String add(@RequestParam(value = "wdate1")Date date,MultipartFile uploadfile, Blog vo, Locale locale, Model model) {
+		vo.setWdate(date);
+		System.out.println(vo);
+//		if(!uploadfile.isEmpty()) {
+//			String fileName = uploadfile.getOriginalFilename();
+//			// realPath
+//			try {
+//				uploadfile.transferTo(
+//						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-place\\"
+//									+fileName)
+//				);
+//				vo.setImage(fileName);
+//
+//			} catch (IllegalStateException e) {
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+		blogService.insert(vo);		
+		return "redirect:/admin/blog/";
+	}
+	
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	public String edit(@RequestParam(value="id") Integer id,Locale locale, Model model) {
+		Blog vo = new Blog();
+		vo.setId(id.intValue());
+		Blog blog = blogService.get(vo);
+		model.addAttribute("blogOne",blog);
+		return "admin/blog/edit";
+	}
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(@RequestParam(value="image1") String image, @RequestParam(value = "wdate1")Date date,MultipartFile uploadfile, Blog vo, Locale locale, Model model) {
+		vo.setWdate(date);
+		System.out.println(vo);
+//		if(!uploadfile.isEmpty()) {
+//			String fileName = uploadfile.getOriginalFilename();
+//			// realPath
+//			try {
+//				uploadfile.transferTo(
+//						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-place\\"
+//									+fileName)
+//				);
+//				vo.setImage(fileName);
+//
+//			} catch (IllegalStateException e) {
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}else {
+//		vo.setImage(image);
+//	}
+		blogService.update(vo);		
+		return "redirect:/admin/blog/";
+	}
 }

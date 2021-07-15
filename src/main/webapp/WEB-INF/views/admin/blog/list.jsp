@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
-	 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +43,7 @@
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
                 <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
-                <a href="#" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
+                <a href="${pageContext.request.contextPath }/admin/blog/new" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
             </div>
@@ -81,14 +80,11 @@
                           <th> Date </th>
                           <th> Like_amount</th>
                           <th> State </th>
-                          <th> Image </th>
+                          <th> Image </th>                         
                         </tr>
                       </thead>
-                    
-	 
-                    
-                      <tbody>
-                        <c:forEach var="blog" items="${bloglist}">
+                       <tbody>
+                        <c:forEach var="blog" items="${blogList}">
                       
                         <tr>                                        
                           
@@ -98,18 +94,18 @@
 							<td>${blog.title}</td>
 							<td>${blog.wname}</td>
 							<td>${blog.content }</td>
-							<td>${blog.wdate}</td>
+							<td><fmt:formatDate value="${blog.wdate}" pattern="dd-MM-yyyy" /></td>
 							<td>${blog.like_amount}</td>
 							<td>${blog.state}</td>
-							<td>${blog.Image}</td>
+							<td>${blog.image}</td>
 							
-						</tr>				                      
+										                      
                                                                  
                           <td>
-                            <a type="button" class="btn btn-gradient-info btn-fw">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw">Delete</a>
+                           <a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='edit?id=${blog.id}'">Edit</a>
+                          	<a type="button" class="btn btn-gradient-danger btn-fw" onclick="document.location='delete?id=${blog.id}'">Delete</a>
                           </td>
-                      
+                      </tr>
                         
                        </c:forEach> 
                        

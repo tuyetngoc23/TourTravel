@@ -44,7 +44,6 @@ public class BlogDAO implements DAO<Blog> {
 
 	@Override
 	public List<Blog> list(Blog vo) {
-		// TODO Auto-generated method stub
 		return session.selectList("Blog.selectList", vo);
 	}
 
