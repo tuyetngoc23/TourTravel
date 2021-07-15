@@ -25,6 +25,7 @@ import com.hakunamatata.springmvc.service.impl.VehicleServiceImpl;
 public class VehicleController {
 	@Autowired
 	private VehicleService service;
+	
 	@RequestMapping(value = {"","/"},method = RequestMethod.GET)
 	public String list(Model model,Locale locale) {
 		

@@ -206,5 +206,41 @@
 	<delete id = "delete" parameterType = "tour">
       DELETE from tour WHERE ID = #{id};
    </delete>
+   <select id="getSearchTourByVehicle" resultMap="tourMap">
+   		SELECT	 t.id AS t_id,t.name AS t_name,t.price AS t_price,t.min_amount AS
+			t_min_amount,t.max_amount AS t_max_amount ,t.start_day AS
+			t_start_day,t.end_day AS t_end_day,t.location_go AS
+			t_location_go,t.cattour_id AS t_cattour_id,t.content AS t_content
+			,t.note AS t_note,t.hotel_id AS t_hotel_id ,t.image AS t_image 
+		FROM tour t 
+		WHERE t.vehicle_id = #{vehicle.id}
+   </select>
+   <select id="getSearchTourByDepartment" resultMap="tourMap">
+   		SELECT	 t.id AS t_id,t.name AS t_name,t.price AS t_price,t.min_amount AS
+			t_min_amount,t.max_amount AS t_max_amount ,t.start_day AS
+			t_start_day,t.end_day AS t_end_day,t.location_go AS
+			t_location_go,t.cattour_id AS t_cattour_id,t.content AS t_content
+			,t.note AS t_note,t.hotel_id AS t_hotel_id ,t.image AS t_image 
+		FROM tour t 
+		WHERE t.location_go=#{department.id}
+   </select>
+   <select id="getSearchTourByCatTour" resultMap="tourMap">
+   		SELECT	 t.id AS t_id,t.name AS t_name,t.price AS t_price,t.min_amount AS
+			t_min_amount,t.max_amount AS t_max_amount ,t.start_day AS
+			t_start_day,t.end_day AS t_end_day,t.location_go AS
+			t_location_go,t.cattour_id AS t_cattour_id,t.content AS t_content
+			,t.note AS t_note,t.hotel_id AS t_hotel_id ,t.image AS t_image 
+		FROM tour t 
+		WHERE t.cattour_id=#{cattour.id}
+   </select>
+   <select id="getSearchTourByHotel" resultMap="tourMap">
+   		SELECT	 t.id AS t_id,t.name AS t_name,t.price AS t_price,t.min_amount AS
+			t_min_amount,t.max_amount AS t_max_amount ,t.start_day AS
+			t_start_day,t.end_day AS t_end_day,t.location_go AS
+			t_location_go,t.cattour_id AS t_cattour_id,t.content AS t_content
+			,t.note AS t_note,t.hotel_id AS t_hotel_id ,t.image AS t_image 
+		FROM tour t 
+		WHERE t.hotel_id=#{hotel.id}
+   </select>
 
 </mapper>

@@ -12,4 +12,8 @@ import com.hakunamatata.springmvc.entity.Tour;
 public interface TourDAO extends DAO<Tour> {
 	List<CatTour> getCattour();
 	Tour getIdTour();
+	List<Tour> getSearchTourVehicle(Tour tour);
+	List<Tour> getSearchTourByDepartment(Tour vo);
+	List<Tour> getSearchTourByCatTour(Tour vo);
+	List<Tour> getSearchTourByHotel(Tour vo);
 }

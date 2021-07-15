@@ -55,6 +55,30 @@ public class TourServiceImpl implements TourService{
 		return dao.getIdTour();
 	}
 
+	@Override
+	public List<Tour> getSearchTourVehicle(Tour tour) {
+		// TODO Auto-generated method stub
+		return dao.getSearchTourVehicle(tour);
+	}
+
+	@Override
+	public List<Tour> getSearchTourByDepartment(Tour tour) {
+		// TODO Auto-generated method stub
+		return dao.getSearchTourByDepartment(tour);
+	}
+
+	@Override
+	public List<Tour> getSearchTourByCatTour(Tour tour) {
+		// TODO Auto-generated method stub
+		return dao.getSearchTourByCatTour(tour);
+	}
+
+	@Override
+	public List<Tour> getSearchTourByHotel(Tour tour) {
+		// TODO Auto-generated method stub
+		return dao.getSearchTourByHotel(tour);
+	}
+
 	
 
 

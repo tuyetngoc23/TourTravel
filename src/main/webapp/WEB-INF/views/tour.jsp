@@ -241,6 +241,7 @@
 									<div class="location mg-bot15" >
 										<label for="departure">Nơi Khởi Hành</label>
 										<select id="departure" class="form-control" name="department">
+											<option value="0">--Chọn nơi khởi hành--</option>
 										<c:forEach items="${listDepartment}" var="d">
 											<option value="${d.id}">${d.address}</option>
 										</c:forEach>
@@ -249,6 +250,7 @@
 									<div class="cat mg-bot15">
 										<label for="cattour">Loại Tour</label>
 										<select id="cattour" class="form-control" name="cattour">
+											<option value="0">--Chọn Loại Tour--</option>
 										<c:forEach items="${ listCatTours}" var="cat">
 											<option value="${cat.id }">${cat.name }</option>
 										</c:forEach>
@@ -257,6 +259,7 @@
 									<div class="province mg-bot15">
 										<label for="desnitation">Nơi Đến</label>
 										<select id="desnitation" class="form-control" name="desnitation">
+											<option value="0">--Chọn nơi đến--</option>
 										<c:forEach items="${listProvince }" var="des">
 											<option value="${des.id }">${des.name }</option>
 										</c:forEach>
@@ -269,6 +272,7 @@
 									<div class="price mg-bot15">
 										<label for="gia">Gía</label>
 										<select id="gia" class="form-control" name="price">
+											<option value="0">--Chọn Giá--</option>
 											<option value="1">0-1trVND</option>
 											<option value="2">1tr-2tr</option>
 											<option value="3">2tr-3tr</option>
@@ -279,6 +283,7 @@
 									<div class="hotel mg-bot15">
 										<label for="ks">Khách Sạn</label>
 										<select id="ks" class="form-control" name="hotel">
+											<option value="0">--Chọn Khách Sạn--</option>
 										<c:forEach items="${listHotels }" var="hotel">
 											<option value="${hotel.id }">${hotel.name} - ${hotel.type }</option>
 										</c:forEach>
@@ -287,6 +292,7 @@
 									<div class="vehicle mg-bot15">
 										<label for="phuongtien">Phương Tiện</label>
 										<select id="phuongtien" class="form-control" name="vehicle">
+											<option value="0">--Chọn Phương Tiện--</option>
 										<c:forEach  items="${listVehicles }" var="vehicle">
 											<option value="${vehicle.id }">${vehicle.name}</option>
 										</c:forEach>
@@ -303,7 +309,9 @@
                         
                     </div>
                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                    <c:forEach items="${listTour }" var="tour">
+                    
+                    <c:forEach items="${listTourByVehicle} " var="tour">
+                    <c:if test="${tour != null}">
                     	<div id="list">
 							<form action="#">
 								<div class="wrap">
@@ -341,6 +349,7 @@
 								</div>
 							</form>
                         </div>
+                        </c:if>
                     </c:forEach>
                         <div id="list">
 							<form action="#">
