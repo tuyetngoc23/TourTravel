@@ -1,6 +1,7 @@
 package com.hakunamatata.springmvc.repository.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +9,10 @@ import org.springframework.stereotype.Repository;
 
 import com.hakunamatata.springmvc.entity.CatTour;
 import com.hakunamatata.springmvc.entity.Tour;
-import com.hakunamatata.springmvc.repository.DAO;
 import com.hakunamatata.springmvc.repository.TourDAO;
 /**
  * @author Manh
+ * @author Huynh Thi Tuyet Ngoc
  *
  */
 @Repository
@@ -61,28 +62,11 @@ public class TourDAOImpl implements TourDAO{
 		return session.selectOne("Tour.selectTourId",null);
 	}
 
-	@Override
-	public List<Tour> getSearchTourVehicle(Tour vo) {
-		// TODO Auto-generated method stub
-		return session.selectList("Tour.getSearchTourByVehicle", vo);
-	}
 
 	@Override
-	public List<Tour> getSearchTourByDepartment(Tour vo) {
+	public List<Tour> getSearchTourByTest(Map<Object, Object> map) {
 		// TODO Auto-generated method stub
-		return session.selectList("Tour.getSearchTourByDepartment", vo);
-	}
-
-	@Override
-	public List<Tour> getSearchTourByCatTour(Tour vo) {
-		// TODO Auto-generated method stub
-		return session.selectList("Tour.getSearchTourByCatTour", vo);
-	}
-
-	@Override
-	public List<Tour> getSearchTourByHotel(Tour vo) {
-		// TODO Auto-generated method stub
-		return session.selectList("Tour.getSearchTourByHotel", vo);
+		return session.selectList("Tour.getSearchTourByTest", map);
 	}
 	
 	
