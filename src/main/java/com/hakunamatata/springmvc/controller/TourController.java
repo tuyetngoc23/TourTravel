@@ -91,7 +91,7 @@ public class TourController {
 		List<CatTour> catTours = service.getCattour();
 		List<Hotel> hotels = hotelService.list(null);
 		List<Vehicle> vehicles = vehcleService.list(null);
-		List<TourPlace> listTourPlace = tourPlaceService.list(null);
+		//List<TourPlace> listTourPlace = tourPlaceService.list(null);
 //		System.out.println(listTourPlace);
 		model.addAttribute("listProvince", listProvinces);
 		model.addAttribute("listPlaces", Places);
