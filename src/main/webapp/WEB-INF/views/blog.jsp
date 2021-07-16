@@ -1,21 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>MoGo</title>
+	<title>HakunaMatata</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
 	<script src="${pageContext.request.contextPath }/resources/client/vendor/jquery/jquery-1.12.4.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/css/style.css">
 </head>
 <style>
 	/* all */
@@ -222,60 +221,95 @@
 </style>
 
 <body>
-	<header>
-		<!-- HOME -->
-		<section id="home">
-			<div id="header">
-				<nav class="navbar navbar-expand-md navbar-light bg-none">
-					<a class="navbar-brand" href="#">MoGo</a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarNav">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item active">
-								<a class="nav-link" href="#">HOME</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">TOUR</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">ABOUT</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">BLOG</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">CONTACT</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">SIGN IN</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
-				<div class="home container-fluid text-center">
-					<h2>Hakuna Matata</h2>
-					<h1>Enjoy your life</h1>
-					<hr>
-				</div>
-				<div class="container-fluid">
-					<div class="row">
-						<!-- column 1 -->
-						<div class="col-md-3">
-						</div>
-						<div class="col-md-3 padding-right">
-						</div>
-						<div class="col-md-3 padding-right">
-						</div>
-						<div class="col-md-3 padding-right">
-						</div>
-					</div>
-				</div>
+	<!-- Start Header -->
+	<header id="home">
+		<div class="home">
+			<div class="hakunamatata-menu">
+				<div class="container-xl">
+					<nav class="navbar navbar-expand-lg navbar-dark p-0">
+						<a class="navbar-brand logo emphasized-phrase" href="#">
+							Hakuna Matata
+						</a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mogo-menu" aria-controls="navbar-mogo-menu" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
 
+						<div class="collapse navbar-collapse" id="navbar-mogo-menu">
+							<ul class="navbar-nav menu-item ml-auto">
+								<li class="nav-item active">
+									<a class="nav-link" href="#">HOME</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">TOUR</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">ABOUT</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">BLOG</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">CONTACT</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">SIGN IN</a>
+								</li>	
+							</ul>
+						</div>
+					</nav>
+				</div>
 			</div>
-		</section>
+			<div class="home-slide text-center">
+				<div class="container-fluid">
+					<div id="home-slide" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item">
+								<h2 class="creative-template">Hakuna Matata</h2>
+								<h1 class="emphasized-phrase slogan">Enjoy<br>
+									your life
+								</h1>
+								<hr>
+							</div>
+							<div class="carousel-item">
+								<h2 class="creative-template">Hakuna Matata</h2>
+								<h1 class="emphasized-phrase slogan">Discover<br>
+									the Word
+								</h1>
+								<hr>
+							</div>
+							<div class="carousel-item active">
+								<h2 class="creative-template">Hakuna Matata</h2>
+								<h1 class="emphasized-phrase slogan">Invest in<br>
+									yourself
+								</h1>
+								<hr>
+							</div>
+						</div>
+						<div class="container-xl">
+							<div class="row carousel-indicators">
+								<div class="col-sm-4 col-md-4" data-target="#home-slide" data-slide-to="0">
+									<div class="carousel-box">
+										<!-- <hr id="hr-left"> -->
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-4" data-target="#home-slide" data-slide-to="1">
+									<div class="carousel-box">
+										<!-- <hr id="hr-center"> -->
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-4 active" data-target="#home-slide" data-slide-to="2">
+									<div class="carousel-box">
+										<!-- <hr id="hr-right"> -->
+									</div>
+								</div>								
+							</div>
+						</div>
+					</div>
+				</div>			
+			</div>
+		</div>	
 	</header>
+	<!-- End Header -->
 	<div style="clear: both;"></div>
 	<main class="site-main">
 
@@ -295,28 +329,7 @@
 					<div class="col-lg-8">
 						<div class="single-recent-blog-post">
 							<div class="thumb">
-								<img class="img-fluid" src="${pageContext.request.contextPath }/resources/client/images/hồ-ba-bể-1.jpg" alt="">
-								<ul class="thumb-info">
-									<li><a href="#"><i class="fas fa-user"></i>Admin</a></li>
-									<li><a href="#"><i class="fas fa-calendar-alt"></i>January 12,2019</a></li>
-									<li><a href="#"><i class="fas fa-comments"></i>2 Comments</a></li>
-								</ul>
-							</div>
-							<div class="details mt-20">
-								<a href="#">
-									<h3>Woman claims husband wants to name baby girl
-										after his ex-lover sparking.</h3>
-								</a>
-								<p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding
-									lesser cattle were fruitful lights. Given let have, lesser their made him above
-									gathered dominion sixth. Creeping deep said can't called second. Air created seed
-									heaven sixth created living</p>
-								<a class="button" href="#">Read More <i class="fas fa-arrow-right"></i></a>
-							</div>
-						</div>
-						<div class="single-recent-blog-post">
-							<div class="thumb">
-								<img class="img-fluid" src="images/nhatrang.jpg" alt="">
+								<img class="img-fluid" src="${pageContext.request.contextPath }/resources/client/images/nhatrang.jpg" alt="">
 								<ul class="thumb-info">
 									<li><a href="#"><i class="fas fa-user"></i>Admin</a></li>
 									<li><a href="#"><i class="fas fa-calendar-alt"></i>January 12,2019</a></li>
@@ -358,7 +371,7 @@
 						</div>
 						<div class="single-recent-blog-post">
 							<div class="thumb">
-								<img class="img-fluid" src="images/sapaaa.jpg" alt="">
+								<img class="img-fluid" src="${pageContext.request.contextPath }/resources/client/images/sapaaa.jpg" alt="">
 								<ul class="thumb-info">
 									<li><a href="#"><i class="fas fa-user"></i>Admin</a></li>
 									<li><a href="#"><i class="fas fa-calendar-alt"></i>January 12,2019</a></li>
@@ -411,7 +424,7 @@
 									<div class="single-post-list">
 										<div class="thumb">
 											<img class="card-img rounded-0"
-												src="images/quy-nhon.jpg" alt="">
+												src="${pageContext.request.contextPath }/resources/client/images/quy-nhon.jpg" alt="">
 											<ul class="thumb-info">
 												<li><a href="#">Adam Colinge</a></li>
 												<li><a href="#">Dec 15</a></li>
@@ -426,7 +439,7 @@
 									<div class="single-post-list">
 										<div class="thumb">
 											<img class="card-img rounded-0"
-												src="images/quy-nhon.jpg" alt="">
+												src="${pageContext.request.contextPath }/resources/client/images/quy-nhon.jpg" alt="">
 											<ul class="thumb-info">
 												<li><a href="#">Adam Colinge</a></li>
 												<li><a href="#">Dec 15</a></li>
@@ -442,7 +455,7 @@
 									<div class="single-post-list">
 										<div class="thumb">
 											<img class="card-img rounded-0"
-												src="images/sapa (1).jpg" alt="">
+												src="${pageContext.request.contextPath }/resources/client/images/sapa (1).jpg" alt="">
 											<ul class="thumb-info">
 												<li><a href="#">Adam Colinge</a></li>
 												<li><a href="#">Dec 15</a></li>
@@ -466,9 +479,10 @@
 
 	</main>
 	<div style="clear: both;"></div>
+	<!-- Start Footer -->
 	<footer id="contact">
 		<div class="map text-center">
-			<img src="images/icon/location.png" alt="">
+			<img src="${pageContext.request.contextPath }/resources/client/images/icon/location.png" alt="">
 			<p class="emphasized-phrase open-map">Open map</p>
 			<hr class="h-line mb-0">
 		</div>
@@ -476,153 +490,125 @@
 		<div class="social">
 			<div class="container-xl">
 				<div class="row">
-					<div class="col-md-12 col-lg-5 subscribe-section">
+					<div class="col-md-4 col-lg-4 subscribe-section">
 						<span class="emphasized-phrase footer-logo">Hakuna Matata</span>
 						<p class="desc">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-							labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-							laboris nisi ut aliquip ex ea commodo consequat.
+							LiÃªn há»: 89 Tráº§m VÄn DÆ°, Quáº­n TÃ¢n BÃ¬nh, Tp. HCM
 						</p>
-						<span class="emphasized-phrase follower-number">15k</span>
+						<p>135 Hai BÃ  TrÆ°ng, Báº¿n NghÃ©, Quáº­n 1, TP. HCM</p>
+						<br>
+						<p>Phone: 0902345678 or 0903040506</p>
+						<p>Fax: 277266255</p>
+						<p>Email: hakunamatata@gmail.com</p>						
+						<span class="emphasized-phrase follower-number">25k</span>
 						<span class="title">followers</span>
 						<hr>
 						<p>
-							<span class="follow-us">Flow Us:</span>
+							<span class="follow-us">Flow Us:</span> 
 							<a href="#">
-								<img src="images/icon/facebook.png" alt="">
+								<i class="fab fa-facebook"></i>
 							</a>
 							<a href="#">
-								<img src="images/icon/twitter.png" alt="">
+								<i class="fab fa-twitter"></i>
+							</a> 
+							<a href="#">
+								<i class="fab fa-instagram"></i>
 							</a>
 							<a href="#">
-								<img src="images/icon/instagram.png" alt="">
+								<i class="fab fa-pinterest"></i>
 							</a>
 							<a href="#">
-								<img src="images/icon/pinterest.png" alt="">
+								<i class="fab fa-google"></i>
 							</a>
 							<a href="#">
-								<img src="images/icon/google-plus.png" alt="">
-							</a>
-							<a href="#">
-								<img src="images/icon/youtube.png" alt="">
-							</a>
-							<a href="#">
-								<img src="images/icon/dribbble.png" alt="">
-							</a>
-							<a href="#">
-								<img src="images/icon/tumblr.png" alt="">
+								<i class="fab fa-youtube"></i>
 							</a>
 						</p>
 						<form>
 							<div>
-								<input type="text" name="email" class="form-control" required="required"
-									placeholder="Your Email">
+								<input type="text" name="email" class="form-control" required="required" placeholder="Your Email">
 								<button type="submit" class="btn btn-primary emphasized-phrase">Subscribe</button>
 							</div>
-
+							
 						</form>
 					</div>
-					<div class="col-md-6 col-lg-4 blog-section">
+					<div class="col-md-4 col-lg-4 blog-section">
 						<span class="title">Blogs</span>
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="images/contact/blog1.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/resources/client/images/footer/songhuong.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
 									<a href="#" class="title">
-										Lorem ipsum dolor sit amet,
-										consectetur adipiscing
+										SÃNG HÆ¯Æ NG ÄIá»M DU Lá»CH LÃ 
+										TÆ¯á»NG TRONG CHUYáº¾N DU Lá»CH HUáº¾
 									</a>
 								</p>
-								<span class="blog-date">Jan 9, 2016</span>
+								<span class="blog-date">July 7, 2021</span>
 							</div>
 						</div>
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="images/contact/blog2.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/resources/client/images/footer/cucangchai.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
 									<a href="#" class="title">
-										Consectetur adipiscing elit,
-										sed do eiusmod tempor
+										TOP 4 ÄIá»M DU Lá»CH TUYá»T Háº¢O á» 
+										MÃ CANG CHáº¢I KHÃNG NÃN Bá» QUA
 									</a>
 								</p>
-								<span class="blog-date">Jan 9, 2016</span>
+								<span class="blog-date">July 3, 2021</span>
 							</div>
 						</div>
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="images/contact/blog3.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/resources/client/images/footer/deodatrang.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
 									<a href="#" class="title">
-										sed do eiusmod tempor
-										incididunt ut labore
+										THá»I ÄIá»M Äáº¸P NHáº¤T Äá» KHÃM PHÃ
+										ÄÃO ÄÃ TRáº®NG á» HÃA BÃNH
 									</a>
 								</p>
-								<span class="blog-date">Jan 9, 2016</span>
+								<span class="blog-date">July 3, 2021</span>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6 col-lg-3 instagram-section">
-						<span class="title">Instagram</span>
+					<div class="col-md-4 col-lg-4">
+						<span class="title">CHá»¨NG NHáº¬N</span>
 						<div class="container-xl">
-
 							<div class="row">
-								<div class="col-4">
-									<a href="#">
-										<img src="images/contact/instagram1.jpg" alt="">
-									</a>
-								</div>
-								<div class="col-4">
-									<a href="#">
-										<img src="images/contact/instagram2.jpg" alt="">
-									</a>
-								</div>
-								<div class="col-4">
-									<a href="#">
-										<img src="images/contact/instagram3.jpg" alt="">
-									</a>
-								</div>
-								<div class="col-4">
-									<a href="#">
-										<img src="images/contact/instagram4.jpg" alt="">
-									</a>
-								</div>
-								<div class="col-4">
-									<a href="#">
-										<img src="images/contact/instagram5.jpg" alt="">
-									</a>
-								</div>
-								<div class="col-4">
-									<a href="#">
-										<img src="images/contact/instagram6.jpg" alt="">
-									</a>
-								</div>
-								<div class="col-4">
-									<a href="#">
-										<img src="images/contact/instagram7.jpg" alt="">
-									</a>
-								</div>
-								<div class="col-4">
-									<a href="#">
-										<img src="images/contact/instagram8.jpg" alt="">
-									</a>
-								</div>
-								<div class="col-4">
-									<a href="#">
-										<img src="images/contact/instagram9.jpg" alt="">
-									</a>
-								</div>
-							</div>
-
+								<div>
+									<img id="bct-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/Bo-Cong-Thuong.png" alt="">
+									<br>
+									<img id="dm-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/dmca_logo.png" alt="">
+								</div>		
+							</div>	
 						</div>
-						<a href="#" class="view-more-photo">View more photos</a>
+						<br>
+						<span class="title">Cháº¥p nháº­n thanh toÃ¡n</span>
+						<div class="container-xl">
+							<div class="row">
+								<div>
+									<img id="momo-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/momo.png" alt="">
+									<img id="visa-icon"src="${pageContext.request.contextPath }/resources/client/images/footer/Visa-icon.png" alt="">
+								</div>		
+							</div>	
+						</div>
+						<br>
+						<span class="title">HOT LINE</span>
+						<div class="container-xl">
+							<div class="row">
+								<div>
+									<h3>19001000</h3>
+								</div>		
+							</div>	
+						</div>
 					</div>
 				</div>
 			</div>
@@ -633,9 +619,10 @@
 				<hr>
 				<p class="title">Coyright Â© 2021 <a href="#">HakunaMatata Team</a></p>
 				<a href="javascript:void()" class="back-to-top">
-					<i class="fas fa-angle-up"></i>
+					<!-- <i class="fas fa-angle-up"></i> -->
 				</a>
 			</div>
 		</div>
 	</footer>
+	<!-- End footer -->
 </body>
