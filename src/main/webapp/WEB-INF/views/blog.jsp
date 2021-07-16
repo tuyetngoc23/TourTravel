@@ -17,6 +17,9 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/css/style.css">
 </head>
 <style>
+header .home{
+    	background-image: url(${pageContext.request.contextPath }/resources/client/images/Home/Bg_home.png);
+    } 
 	/* all */
 	main{
 		font-family: "Source Sans Pro",sans-serif;
