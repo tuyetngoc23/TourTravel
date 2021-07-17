@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -230,7 +232,7 @@ header .home{
 			<div class="hakunamatata-menu">
 				<div class="container-xl">
 					<nav class="navbar navbar-expand-lg navbar-dark p-0">
-						<a class="navbar-brand logo emphasized-phrase" href="#">
+						<a class="navbar-brand logo emphasized-phrase" href="${pageContext.request.contextPath }/">
 							Hakuna Matata
 						</a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mogo-menu" aria-controls="navbar-mogo-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -240,16 +242,16 @@ header .home{
 						<div class="collapse navbar-collapse" id="navbar-mogo-menu">
 							<ul class="navbar-nav menu-item ml-auto">
 								<li class="nav-item active">
-									<a class="nav-link" href="#">HOME</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/">HOME</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">TOUR</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/tour">TOUR</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="#">ABOUT</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">BLOG</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/blog">BLOG</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="#">CONTACT</a>
@@ -330,69 +332,25 @@ header .home{
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8">
+						<c:forEach items="${ list}" var="blog">
 						<div class="single-recent-blog-post">
 							<div class="thumb">
-								<img class="img-fluid" src="${pageContext.request.contextPath }/resources/client/images/nhatrang.jpg" alt="">
+								<img class="img-fluid" src="${pageContext.request.contextPath }/resources/client/images/${blog.image}" alt="">
 								<ul class="thumb-info">
-									<li><a href="#"><i class="fas fa-user"></i>Admin</a></li>
-									<li><a href="#"><i class="fas fa-calendar-alt"></i>January 12,2019</a></li>
-									<li><a href="#"><i class="fas fa-comments"></i>2 Comments</a></li>
+									<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}"><i class="fas fa-user"></i>${blog.wname }</a></li>
+									<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}"><i class="fas fa-calendar-alt"></i><fmt:formatDate type="date" value="${blog.wdate}"/></a></li>
+									<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}"><i class="fas fa-comments"></i>2 Comments</a></li>
 								</ul>
 							</div>
 							<div class="details mt-20">
-								<a href="#">
-									<h3>Woman claims husband wants to name baby girl
-										after his ex-lover sparking.</h3>
+								<a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}">
+									<h3>${blog.title }</h3>
 								</a>
-								<p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding
-									lesser cattle were fruitful lights. Given let have, lesser their made him above
-									gathered dominion sixth. Creeping deep said can't called second. Air created seed
-									heaven sixth created living</p>
-								<a class="button" href="#">Read More <i class="fas fa-arrow-right"></i></a>
+								<p>${fn:substring(blog.content, 0, 255)}...</p>
+								<a class="button" href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}">Read More <i class="fas fa-arrow-right"></i></a>
 							</div>
 						</div>
-						<div class="single-recent-blog-post">
-							<div class="thumb">
-								<img class="img-fluid" src="${pageContext.request.contextPath }/resources/client/images/phanthiet.png" alt="">
-								<ul class="thumb-info">
-									<li><a href="#"><i class="fas fa-user"></i>Admin</a></li>
-									<li><a href="#"><i class="fas fa-calendar-alt"></i>January 12,2019</a></li>
-									<li><a href="#"><i class="fas fa-comments"></i>2 Comments</a></li>
-								</ul>
-							</div>
-							<div class="details mt-20">
-								<a href="#">
-									<h3>Tourist deaths in Costa Rica jeopardize safe dest
-										ination reputation all time. </h3>
-								</a>
-								<p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding
-									lesser cattle were fruitful lights. Given let have, lesser their made him above
-									gathered dominion sixth. Creeping deep said can't called second. Air created seed
-									heaven sixth created living</p>
-								<a class="button" href="#">Read More <i class="fas fa-arrow-right"></i></a>
-							</div>
-						</div>
-						<div class="single-recent-blog-post">
-							<div class="thumb">
-								<img class="img-fluid" src="${pageContext.request.contextPath }/resources/client/images/sapaaa.jpg" alt="">
-								<ul class="thumb-info">
-									<li><a href="#"><i class="fas fa-user"></i>Admin</a></li>
-									<li><a href="#"><i class="fas fa-calendar-alt"></i>January 12,2019</a></li>
-									<li><a href="#"><i class="fas fa-comments"></i>2 Comments</a></li>
-								</ul>
-							</div>
-							<div class="details mt-20">
-								<a href="#">
-									<h3>Tourist deaths in Costa Rica jeopardize safe dest
-										ination reputation all time. </h3>
-								</a>
-								<p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding
-									lesser cattle were fruitful lights. Given let have, lesser their made him above
-									gathered dominion sixth. Creeping deep said can't called second. Air created seed
-									heaven sixth created living</p>
-								<a class="button" href="#">Read More <i class="fas fa-arrow-right"></i></a>
-							</div>
-						</div>
+						</c:forEach>
 						<!-- <div class="row">
 							<div class="col-lg-12">
 								<nav class="blog-pagination justify-content-center d-flex">
@@ -424,53 +382,25 @@ header .home{
 							<div class="single-sidebar-widget popular-post-widget">
 								<h4 class="single-sidebar-widget__title">Popular Post</h4>
 								<div class="popular-post-list">
+								<c:forEach items="${ list}" var="blog1">
+								<c:if test="${blog1.like_amount >= 10}">
 									<div class="single-post-list">
 										<div class="thumb">
 											<img class="card-img rounded-0"
-												src="${pageContext.request.contextPath }/resources/client/images/quy-nhon.jpg" alt="">
+												src="${pageContext.request.contextPath }/resources/client/images/${blog1.image}" alt="">
 											<ul class="thumb-info">
-												<li><a href="#">Adam Colinge</a></li>
-												<li><a href="#">Dec 15</a></li>
+												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}">${blog1.wname}</a></li>
+												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}"><fmt:formatDate type="date" value="${blog1.wdate}"/></a></li>
 											</ul>
 										</div>
 										<div class="details mt-20">
-											<a href="#">
-												<h6>Accused of assaulting flight attendant miktake alaways</h6>
+											<a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}">
+												<h6>${blog1.title }</h6>
 											</a>
 										</div>
 									</div>
-									<div class="single-post-list">
-										<div class="thumb">
-											<img class="card-img rounded-0"
-												src="${pageContext.request.contextPath }/resources/client/images/quy-nhon.jpg" alt="">
-											<ul class="thumb-info">
-												<li><a href="#">Adam Colinge</a></li>
-												<li><a href="#">Dec 15</a></li>
-											</ul>
-										</div>
-										<div class="details mt-20">
-											<a href="#">
-												<h6>Tennessee outback steakhouse the
-													worker diagnosed</h6>
-											</a>
-										</div>
-									</div>
-									<div class="single-post-list">
-										<div class="thumb">
-											<img class="card-img rounded-0"
-												src="${pageContext.request.contextPath }/resources/client/images/sapa (1).jpg" alt="">
-											<ul class="thumb-info">
-												<li><a href="#">Adam Colinge</a></li>
-												<li><a href="#">Dec 15</a></li>
-											</ul>
-										</div>
-										<div class="details mt-20">
-											<a href="#">
-												<h6>Tennessee outback steakhouse the
-													worker diagnosed</h6>
-											</a>
-										</div>
-									</div>
+									</c:if>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
@@ -496,9 +426,9 @@ header .home{
 					<div class="col-md-4 col-lg-4 subscribe-section">
 						<span class="emphasized-phrase footer-logo">Hakuna Matata</span>
 						<p class="desc">
-							LiÃªn há»: 89 Tráº§m VÄn DÆ°, Quáº­n TÃ¢n BÃ¬nh, Tp. HCM
+							Liên hệ: 89 Trầm Văn Dư, Quận Tân Bình, Tp. HCM
 						</p>
-						<p>135 Hai BÃ  TrÆ°ng, Báº¿n NghÃ©, Quáº­n 1, TP. HCM</p>
+						<p>135 Hai Bà Trưng, Bến Nghé, Quận 1, TP. HCM</p>
 						<br>
 						<p>Phone: 0902345678 or 0903040506</p>
 						<p>Fax: 277266255</p>
@@ -544,8 +474,8 @@ header .home{
 							<div class="blog-box">
 								<p>
 									<a href="#" class="title">
-										SÃNG HÆ¯Æ NG ÄIá»M DU Lá»CH LÃ 
-										TÆ¯á»NG TRONG CHUYáº¾N DU Lá»CH HUáº¾
+										SÔNG HƯƠNG ĐIỂM DU LỊCH LÝ 
+										TƯỞNG TRONG CHUYẾN DU LỊCH HUẾ
 									</a>
 								</p>
 								<span class="blog-date">July 7, 2021</span>
@@ -559,8 +489,8 @@ header .home{
 							<div class="blog-box">
 								<p>
 									<a href="#" class="title">
-										TOP 4 ÄIá»M DU Lá»CH TUYá»T Háº¢O á» 
-										MÃ CANG CHáº¢I KHÃNG NÃN Bá» QUA
+										TOP 4 ĐIỂM DU LỊCH TUYỆT HẢO Ở 
+										MÙ CANG CHẢI KHÔNG NÊN BỎ QUA
 									</a>
 								</p>
 								<span class="blog-date">July 3, 2021</span>
@@ -574,8 +504,8 @@ header .home{
 							<div class="blog-box">
 								<p>
 									<a href="#" class="title">
-										THá»I ÄIá»M Äáº¸P NHáº¤T Äá» KHÃM PHÃ
-										ÄÃO ÄÃ TRáº®NG á» HÃA BÃNH
+										THỜI ĐIỂM ĐẸP NHẤT ĐỂ KHÁM PHÁ
+										ĐÈO ĐÁ TRẮNG Ở HÒA BÌNH
 									</a>
 								</p>
 								<span class="blog-date">July 3, 2021</span>
@@ -583,7 +513,7 @@ header .home{
 						</div>
 					</div>
 					<div class="col-md-4 col-lg-4">
-						<span class="title">CHá»¨NG NHáº¬N</span>
+						<span class="title">CHỨNG NHẬN</span>
 						<div class="container-xl">
 							<div class="row">
 								<div>
@@ -594,7 +524,7 @@ header .home{
 							</div>	
 						</div>
 						<br>
-						<span class="title">Cháº¥p nháº­n thanh toÃ¡n</span>
+						<span class="title">Chấp nhận thanh toán</span>
 						<div class="container-xl">
 							<div class="row">
 								<div>
@@ -620,7 +550,7 @@ header .home{
 		<div class="copy-right text-center">
 			<div class="container-xl">
 				<hr>
-				<p class="title">Coyright Â© 2021 <a href="#">HakunaMatata Team</a></p>
+				<p class="title">Coyright © 2021 <a href="#">HakunaMatata Team</a></p>
 				<a href="javascript:void()" class="back-to-top">
 					<!-- <i class="fas fa-angle-up"></i> -->
 				</a>

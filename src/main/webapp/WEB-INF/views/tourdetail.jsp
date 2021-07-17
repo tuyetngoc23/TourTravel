@@ -462,7 +462,7 @@
 			<div class="hakunamatata-menu">
 				<div class="container-xl">
 					<nav class="navbar navbar-expand-lg navbar-dark p-0">
-						<a class="navbar-brand logo emphasized-phrase" href="#">
+						<a class="navbar-brand logo emphasized-phrase" href="${pageContext.request.contextPath }/">
 							Hakuna Matata
 						</a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mogo-menu" aria-controls="navbar-mogo-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -472,7 +472,7 @@
 						<div class="collapse navbar-collapse" id="navbar-mogo-menu">
 							<ul class="navbar-nav menu-item ml-auto">
 								<li class="nav-item active">
-									<a class="nav-link" href="#">HOME</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/">HOME</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="${pageContext.request.contextPath }/tour">TOUR</a>
