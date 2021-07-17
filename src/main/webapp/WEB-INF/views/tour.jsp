@@ -379,7 +379,7 @@
 									</div>
 									<div id="box">
 										<div id="imag">
-											<a href="#"><img class="size" src="${pageContext.request.contextPath }/resources/client/images/${tour.image}" /></a>
+											<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}"><img class="size" src="${pageContext.request.contextPath }/resources/client/images/${tour.image}" /></a>
 										</div>
 										<div id="caption">
 											<div>
