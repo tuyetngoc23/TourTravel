@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.hakunamatata.springmvc.entity.Blog;
 import com.hakunamatata.springmvc.service.ServiceInterface;
 
+
+/**
+ * @author Huynh Thi Tuyet Ngoc
+ *
+ */
 @Controller
 @RequestMapping("/blog")
 public class BlogClientController {

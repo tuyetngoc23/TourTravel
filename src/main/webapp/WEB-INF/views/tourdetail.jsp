@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoGo</title>
+    <title>HakunaMatata</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath }/resources/client/vendor/jquery/jquery-1.12.4.min.js"></script>
     <script src="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
@@ -782,7 +782,7 @@
 						</div>
 					</div>
 					<div class="col-md-4 col-lg-4">
-						<span class="title">CHá»¨NG NHáº¬N</span>
+						<span class="title">CHỨNG NHẬN</span>
 						<div class="container-xl">
 							<div class="row">
 								<div>

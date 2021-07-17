@@ -389,12 +389,12 @@ header .home{
 											<img class="card-img rounded-0"
 												src="${pageContext.request.contextPath }/resources/client/images/${blog1.image}" alt="">
 											<ul class="thumb-info">
-												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}">${blog1.wname}</a></li>
-												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}"><fmt:formatDate type="date" value="${blog1.wdate}"/></a></li>
+												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}">${blog1.wname}</a></li>
+												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}"><fmt:formatDate type="date" value="${blog1.wdate}"/></a></li>
 											</ul>
 										</div>
 										<div class="details mt-20">
-											<a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}">
+											<a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}">
 												<h6>${blog1.title }</h6>
 											</a>
 										</div>

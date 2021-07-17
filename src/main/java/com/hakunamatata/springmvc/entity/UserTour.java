@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author Huynh Thi Tuyet Ngoc
- * Van:@Jsongnore
+ * 			Van:@Jsongnore
  *
  */
 public class UserTour {
