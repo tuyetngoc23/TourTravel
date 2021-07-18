@@ -1,10 +1,10 @@
 package com.hakunamatata.springmvc.controller;
 
-import java.math.BigDecimal;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import java.util.Locale;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,10 +18,8 @@ import com.hakunamatata.springmvc.entity.CatTour;
 import com.hakunamatata.springmvc.entity.Department;
 import com.hakunamatata.springmvc.entity.Discount;
 import com.hakunamatata.springmvc.entity.Hotel;
-import com.hakunamatata.springmvc.entity.Place;
 import com.hakunamatata.springmvc.entity.Province;
 import com.hakunamatata.springmvc.entity.Tour;
-import com.hakunamatata.springmvc.entity.TourPlace;
 import com.hakunamatata.springmvc.entity.Vehicle;
 import com.hakunamatata.springmvc.service.TourService;
 import com.hakunamatata.springmvc.service.VehicleService;
@@ -79,63 +77,35 @@ public class TourClientController {
 		List<Department> departments = departmentService.list(null);
 		model.addAttribute("listDepartment", departments);
 		
-//		List<Tour> list = service.list(null);
-//		model.addAttribute("listTour", list);
-//		System.out.print(list);
-		
 		return "tour";
 	}
-//	@RequestParam(name="ngaykhoihanh") Date startday,
+	
 	@PostMapping(value={"","/"})
 	public String search(Model model, Locale locale, @RequestParam(name="department") int departmentId,
 			@RequestParam(name="cattour") int cattour, @RequestParam(name="desnitation") int desId,
-			 @RequestParam(name="price") BigDecimal price,
-			@RequestParam(name="hotel") int hotelId, @RequestParam(name="vehicle") int vehicleId) {
+			@RequestParam(name="ngaykhoihanh", required = false) String startday,
+			@RequestParam(name="timgiatu", required = false) int giatu,
+			@RequestParam(name="timgiaden", required = false) int giaden,
+			@RequestParam(name="hotel") int hotelId, @RequestParam(name="vehicle") int vehicleId) throws Exception {
 		
 		view(model, locale);
 		
-		System.out.println("post");
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("vehicle_id", vehicleId);
+		map.put("cattour_id", cattour);
+		map.put("department_id", departmentId);
+		map.put("hotel_id", hotelId);
+		map.put("pro_id", desId);
+		map.put("price1", giatu);
+		map.put("price2", giaden);
+		map.put("start_day", startday);
+		List<Tour> listTourTest = service.getSearchTourByTest(map);
 		
-		CatTour cat = new CatTour();
-		cat.setId(cattour);
-		
-		Department department = new Department();
-		department.setId(departmentId);
-		
-//		Province province = new Province();
-//		province.setId(desId);
-//		Place place = new Place();
-//		place.setProvince(province);
-//		TourPlace tourplace = new TourPlace();
-//		tourplace.setPlace(place);
-		
-		Hotel hotel = new Hotel();
-		hotel.setId(hotelId);
-		
-		Vehicle vehicle = new Vehicle();
-		vehicle.setId(vehicleId);
-		
-		Tour tour = new Tour();
-		tour.setCattour(cat);
-		tour.setDepartment(department);
-		//tourplace -> desID???
-//		tour.setStart_day(startday);
-//		tour.setPrice(price);
-		tour.setHotel(hotel);
-		tour.setVehicle(vehicle);
-		
-		List<Tour> listTourByVehicle = service.getSearchTourVehicle(tour);
-//		List<Tour> listTourByDepartment = service.getSearchTourByDepartment(tour);
-		
-		if(listTourByVehicle != null || !listTourByVehicle.isEmpty()) {
-			model.addAttribute("listTourByVehicle", listTourByVehicle);
+		if(listTourTest != null || !listTourTest.isEmpty()) {
+			model.addAttribute("listTourTest", listTourTest);
 		}
-//		if(listTourByDepartment != null || !listTourByDepartment.isEmpty()) {
-//			model.addAttribute("listTourByDepartment", listTourByDepartment);
-//		}
-		
-		System.out.println(listTourByVehicle);
-//		System.out.println(listTourByDepartment);
+
+		System.out.println("listTourTest" + listTourTest);
 		
 		return "tour";
 	}

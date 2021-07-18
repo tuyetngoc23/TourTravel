@@ -47,6 +47,40 @@
 			background-color: #1de45f;
 			color: #f1f1f1;
 		}
+		.slidecontainer {
+        	width: 100%;
+	    }
+	
+	    .slider {
+	        -webkit-appearance: none;
+	        width: 100%;
+	        height: 25px;
+	        background: #d3d3d3;
+	        outline: none;
+	        opacity: 0.7;
+	        -webkit-transition: .2s;
+	        transition: opacity .2s;
+	    }
+	
+	    .slider:hover {
+	        opacity: 1;
+	    }
+	
+	    .slider::-webkit-slider-thumb {
+	        -webkit-appearance: none;
+	        appearance: none;
+	        width: 25px;
+	        height: 25px;
+	        background: #04AA6D;
+	        cursor: pointer;
+	    }
+	
+	    .slider::-moz-range-thumb {
+	        width: 25px;
+	        height: 25px;
+	        background: #04AA6D;
+	        cursor: pointer;
+	    }
 		/* list tour */
         #list{
             font-family: Muli,sans-serif;
@@ -97,8 +131,8 @@
 			overflow: hidden
         }
         .size {
-            width: 330px;
-            height: 227px;
+            width: 340px;
+            height: 260px;
 			transition: 0.5s;
         }
 		
@@ -297,14 +331,12 @@
 									</div>
 									<div class="price mg-bot15">
 										<label for="gia">Gía</label>
-										<select id="gia" class="form-control" name="price">
-											<option value="0">--Chọn Giá--</option>
-											<option value="1">0-1trVND</option>
-											<option value="2">1tr-2tr</option>
-											<option value="3">2tr-3tr</option>
-											<option value="4">3tr-4tr</option>
-											<option value="5">4tr trở lên</option>
-										</select>
+										<div class="slidecontainer">
+					                        <input type="range" min="1000000" max="10000000" value="1000000" class="slider" id="myRange" name ="timgiatu">
+					                        <p>Giá từ: <span id="demo"></span></p>
+					                        <input type="range" min="1000000" max="10000000" value="1000000" class="slider" id="myRange2" name ="timgiaden">
+					                        <p>Giá đến: <span id="demo2"></span></p>
+					                    </div>
 									</div>
 									<div class="hotel mg-bot15">
 										<label for="ks">Khách Sạn</label>
@@ -335,15 +367,15 @@
                         
                     </div>
                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                    
-                    <%-- <c:forEach items="${listTourByVehicle} " var="tour">
-                    <c:if test="${tour != null}">
+                      <c:choose>
+                      <c:when test="${listTourTest != null}">
+                    <c:forEach items="${listTourTest}" var="tour">
                     	<div id="list">
 							<form action="#">
 								<div class="wrap">
 									<div id="day">
 										<div id="ngay"><fmt:formatDate type="date" value="${tour.start_day}" pattern="dd" var="startday"/>${startday }</div>
-										<div id="monyear"><fmt:formatDate type="date" value="${tour.start_day}" pattern="MM/yyyy" /></div>
+										<div id="monyear"><fmt:formatDate type="date" value="${tour.start_day}" pattern="MM/yyyy" var="monthyear"/>${monthyear}</div>
 									</div>
 									<div id="box">
 										<div id="imag">
@@ -356,6 +388,11 @@
 													<p id="datetime">
 														<span>Thời Gian</span>
 														<span><fmt:formatDate type="date" value="${tour.end_day}" pattern="dd" var="endday" /> ${ endday - startday } ngày ${ endday - startday - 1} đêm</span>
+														
+													</p>
+													<p id="datetime">
+														<span>Hotel :${tour.hotel.type}</span>
+														<span>Phương Tiện: ${tour.vehicle.name}</span>
 													</p>
 												</div> 
 											</div>
@@ -375,9 +412,15 @@
 								</div>
 							</form>
                         </div>
-                        </c:if>
-                    </c:forEach> --%>
-                        <div id="list">
+                    </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                    <div class="alert alert-danger" role="alert">
+                       		Không tìm thấy tour phù hợp
+                    	</div>
+                    </c:otherwise>
+                    </c:choose>
+                        <%-- <div id="list">
 							<form action="#">
 								<div class="wrap">
 									<div id="day">
@@ -396,6 +439,10 @@
 														<span>Thời Gian</span>
 														<span>3 ngày 2 đêm</span>
 													</p>
+													<p id="datetime">
+														<span>Hotel : 3*</span>
+														<span>Phương Tiện: Tàu lửa</span>
+													</p>
 												</div> 
 											</div>
 											<div id="boxprice">
@@ -413,7 +460,7 @@
 									
 								</div>
 							</form>
-                        </div>
+                        </div> --%>
 						
                     </div>
                 </div>
@@ -567,5 +614,25 @@
 		</div>
 	</footer>
 	<!-- End footer -->
+	<script>
+    var slider = document.getElementById("myRange");
+    var output1 = document.getElementById("demo");
+    output1.innerHTML = slider.value;
+
+    slider.oninput = function () {
+       var x = parseInt(this.value)
+        x = x.toLocaleString('vi', {style: 'currency', currency: 'VND'});
+        output1.innerHTML = x;
+    }
+    var slider = document.getElementById("myRange2");
+    var output = document.getElementById("demo2");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+        var x = parseInt(this.value)
+        x = x.toLocaleString('vi', {style: 'currency', currency: 'VND'});
+        output.innerHTML = x;
+    }
+</script>
 </body>
 </html>

@@ -206,41 +206,27 @@
 	<delete id = "delete" parameterType = "tour">
       DELETE from tour WHERE ID = #{id};
    </delete>
-   <select id="getSearchTourByVehicle" resultMap="tourMap">
+   <select id="getSearchTourByTest" resultMap="tourMap" parameterType="HashMap">
    		SELECT	 t.id AS t_id,t.name AS t_name,t.price AS t_price,t.min_amount AS
 			t_min_amount,t.max_amount AS t_max_amount ,t.start_day AS
 			t_start_day,t.end_day AS t_end_day,t.location_go AS
 			t_location_go,t.cattour_id AS t_cattour_id,t.content AS t_content
-			,t.note AS t_note,t.hotel_id AS t_hotel_id ,t.image AS t_image 
-		FROM tour t 
-		WHERE t.vehicle_id = #{vehicle.id}
-   </select>
-   <select id="getSearchTourByDepartment" resultMap="tourMap">
-   		SELECT	 t.id AS t_id,t.name AS t_name,t.price AS t_price,t.min_amount AS
-			t_min_amount,t.max_amount AS t_max_amount ,t.start_day AS
-			t_start_day,t.end_day AS t_end_day,t.location_go AS
-			t_location_go,t.cattour_id AS t_cattour_id,t.content AS t_content
-			,t.note AS t_note,t.hotel_id AS t_hotel_id ,t.image AS t_image 
-		FROM tour t 
-		WHERE t.location_go=#{department.id}
-   </select>
-   <select id="getSearchTourByCatTour" resultMap="tourMap">
-   		SELECT	 t.id AS t_id,t.name AS t_name,t.price AS t_price,t.min_amount AS
-			t_min_amount,t.max_amount AS t_max_amount ,t.start_day AS
-			t_start_day,t.end_day AS t_end_day,t.location_go AS
-			t_location_go,t.cattour_id AS t_cattour_id,t.content AS t_content
-			,t.note AS t_note,t.hotel_id AS t_hotel_id ,t.image AS t_image 
-		FROM tour t 
-		WHERE t.cattour_id=#{cattour.id}
-   </select>
-   <select id="getSearchTourByHotel" resultMap="tourMap">
-   		SELECT	 t.id AS t_id,t.name AS t_name,t.price AS t_price,t.min_amount AS
-			t_min_amount,t.max_amount AS t_max_amount ,t.start_day AS
-			t_start_day,t.end_day AS t_end_day,t.location_go AS
-			t_location_go,t.cattour_id AS t_cattour_id,t.content AS t_content
-			,t.note AS t_note,t.hotel_id AS t_hotel_id ,t.image AS t_image 
-		FROM tour t 
-		WHERE t.hotel_id=#{hotel.id}
+			,t.note AS t_note,t.hotel_id AS t_hotel_id ,t.image AS t_image ,
+			h.id AS	h_id,h.type AS h_type,h.name AS h_name ,h.image AS h_image,h.address
+			AS h_address,
+			v.id AS v_id,v.name AS v_name,
+			tp.id AS tp_id,tp.place_id AS tp_place_id,tp.tour_id AS td_tour_id,
+			p.id AS	p_id, p.name AS p_name,p.province_id AS p_province,p.address AS
+			p_address,p.image AS p_image,p.description AS p_description,
+			pro.id AS	pro_id ,pro.name AS pro_name
+		FROM tour t LEFT OUTER JOIN hotel h ON t.hotel_id = h.id
+					LEFT OUTER JOIN vehicle v ON t.vehicle_id = v.id
+					LEFT OUTER JOIN tour_place tp ON t.id = tp.tour_id
+					LEFT OUTER JOIN place p ON tp.place_id = p.id
+					LEFT OUTER JOIN province pro ON p.province_id = pro.id
+		WHERE t.vehicle_id = #{vehicle_id} or t.cattour_id=#{cattour_id} or 
+				t.location_go=#{department_id} or t.hotel_id=#{hotel_id} or pro.id = #{pro_id}
+				or (t.price BETWEEN #{price1} AND #{price2}) or t.start_day=#{start_day}
    </select>
 
 </mapper>
