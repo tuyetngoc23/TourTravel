@@ -21,16 +21,25 @@ public class UserTour {
 	private String address;
 	private String email;
 	private String avatar;
+	private int state;
 	
+
 	private UserRole user_role;
 	
 	
 	
+
 	@Override
 	public String toString() {
 		return "UserTour [id=" + id + ", username=" + username + ", passwd=" + passwd + ", cusname=" + cusname
 				+ ", phone=" + phone + ", birthday=" + birthday + ", address=" + address + ", email=" + email
-				+ ", avatar=" + avatar + ", user_role=" + user_role + "]";
+				+ ", avatar=" + avatar + ", state=" + state + ", user_role=" + user_role + "]";
+	}
+	public int getState() {
+		return state;
+	}
+	public void setState(int state) {
+		this.state = state;
 	}
 	public UserRole getUser_role() {
 		return user_role;

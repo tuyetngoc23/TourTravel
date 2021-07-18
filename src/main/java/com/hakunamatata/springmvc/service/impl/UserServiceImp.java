@@ -5,9 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hakunamatata.springmvc.entity.UserRole;
 import com.hakunamatata.springmvc.entity.UserTour;
-import com.hakunamatata.springmvc.repository.impl.UserDAO;
-import com.hakunamatata.springmvc.service.ServiceInterface;
+import com.hakunamatata.springmvc.repository.impl.UserDAOImp;
+import com.hakunamatata.springmvc.service.UserService;
 /**
  * @author Hai Van
  *
@@ -15,10 +16,10 @@ import com.hakunamatata.springmvc.service.ServiceInterface;
 
 @Service
 //@Transactional
-public class UserService implements ServiceInterface<UserTour>{
+public class UserServiceImp implements UserService{
 	
 	@Autowired
-	private UserDAO	userDao;
+	private UserDAOImp	userDao;
 
 	@Override
 	public void insert(UserTour vo) {
@@ -43,6 +44,16 @@ public class UserService implements ServiceInterface<UserTour>{
 	@Override
 	public List<UserTour> list(UserTour vo) {
 		return userDao.list(vo);
+	}
+
+	@Override
+	public List<UserRole> listRole(UserRole vo) {
+		return userDao.listRole(vo);
+	}
+
+	@Override
+	public UserTour login(UserTour vo) {
+		return userDao.login(vo);
 	}
 
 }
