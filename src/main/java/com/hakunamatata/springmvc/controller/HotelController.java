@@ -58,7 +58,7 @@ public class HotelController {
 		 * doing file upload*/
 		if(!uploadfile.isEmpty()) {
 			String fileName = uploadfile.getOriginalFilename();
-			String realPath = servletContext.getRealPath(servletContext.getInitParameter("urloadHotel"));
+//			String realPath = servletContext.getRealPath(servletContext.getInitParameter("urloadHotel"));
 			GetPathUtil paths = new GetPathUtil();
 			// realPath
 			try {

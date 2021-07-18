@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.hakunamatata.springmvc.entity.UserRole;
 import com.hakunamatata.springmvc.entity.UserTour;
 import com.hakunamatata.springmvc.repository.UserDAO;
-import com.hakunamatata.springmvc.repository.impl.UserDAOImp;
 import com.hakunamatata.springmvc.service.UserService;
 /**
  * @author Hai Van
@@ -20,7 +19,7 @@ import com.hakunamatata.springmvc.service.UserService;
 public class UserServiceImp implements UserService{
 	
 	@Autowired
-	private UserDAOImp	userDao;
+	private UserDAO	userDao;
 
 	@Override
 	public void insert(UserTour vo) {
