@@ -264,6 +264,24 @@
 		font-family: "Lora",serif;
     	color: #3a414e;
 	}
+	/*  TEst*/
+	/* .h_container{
+    background-color: #cac7c7;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    display: inline-block;
+    width:35px;
+    height:35px;
+    text-align:center;
+    line-height:45px;
+
+	} */
+	#heart{
+	    font-size: 25px;
+	}
+	#heart:hover{
+	    color:red;
+	}
 </style>
 
 <body>
@@ -406,6 +424,14 @@
                                 you should have to spend money on boot camp when you can get the MCSE study materials
                                 yourself at a fraction of the camp price. However, who has the willpower</p>
                         </div>
+	                    <h3 id ="demo2"class="heading mb-4" >Số Lượt Thích: ${getBlog.like_amount } </h3>
+	                    <form action="${pageContext.request.contextPath }/blogdetail?id=${getBlog.id}" method="post">
+	                    	<div class="form-group" style="display: inline-block;">
+	                    		<input type="number" hidden="true" value="${getBlog.like_amount + 1}" name="amount"/>
+					            <input type="submit" value="Like" class="form-control">
+					      	</div>
+	                    </form>
+	                    
                         <div class="comments-area">
                             <h4>${commentList.size() } Comments</h4>
                             <c:forEach items="${commentList }" var="comment">
@@ -640,4 +666,5 @@
 		</div>
 	</footer>
 	<!-- End footer -->
+	
 </body>
