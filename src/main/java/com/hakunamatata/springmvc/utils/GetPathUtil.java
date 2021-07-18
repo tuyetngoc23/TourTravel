@@ -22,6 +22,7 @@ public class GetPathUtil {
 
 	public String getWorkspacePath() {
 		String runtimePath = getRuntimePath();
+		
 		return runtimePath.substring(0, runtimePath.indexOf(".metadata"));
 	}
 	
@@ -34,6 +35,5 @@ public class GetPathUtil {
 	public String toString() {
 		return "Project path : "+ getProjectPath();
 	}
-	
 	
 }

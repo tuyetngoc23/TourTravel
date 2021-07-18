@@ -24,6 +24,7 @@ import com.hakunamatata.springmvc.service.impl.UserServiceImp;
 public class registerController {
 	@Autowired
 	private UserServiceImp userServiceImp;
+	//private UserService userService;
 	
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {

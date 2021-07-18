@@ -67,7 +67,7 @@ public class HotelController {
 									+fileName)
 				);
 				vo.setImage(fileName);
-				hotelService.insert(vo);
+//				hotelService.insert(vo);
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -77,7 +77,7 @@ public class HotelController {
 //		
 		System.out.println(vo);
 		hotelService.insert(vo);
-		return "redirect:/hotel/";
+		return "redirect:/admin/hotel/";
 	}
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
