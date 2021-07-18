@@ -6,8 +6,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-import javax.servlet.ServletContext;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.hakunamatata.springmvc.entity.Hotel;
 import com.hakunamatata.springmvc.service.ServiceInterface;
+import com.hakunamatata.springmvc.utils.GetPathUtil;
 
 /**
  * @author BaoBB
@@ -47,7 +49,7 @@ public class HotelController {
 	}
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
-	public String regis(Locale locale, Model model) {
+	public String regis(Locale locale, Model model) {		
 		return "admin/hotel/new";
 	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -57,10 +59,11 @@ public class HotelController {
 		if(!uploadfile.isEmpty()) {
 			String fileName = uploadfile.getOriginalFilename();
 			String realPath = servletContext.getRealPath(servletContext.getInitParameter("urloadHotel"));
+			GetPathUtil paths = new GetPathUtil();
 			// realPath
 			try {
 				uploadfile.transferTo(
-						new File(realPath + File.separator
+						new File(paths.getRuntimePath()+"\\uploads\\image-hotel\\"
 									+fileName)
 				);
 				vo.setImage(fileName);
@@ -71,8 +74,10 @@ public class HotelController {
 				e.printStackTrace();
 			}
 		}	
-//		hotelService.insert(vo);
-		return "redirect:/admin/hotel/";
+//		
+		System.out.println(vo);
+		hotelService.insert(vo);
+		return "redirect:/hotel/";
 	}
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)

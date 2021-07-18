@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hakunamatata.springmvc.entity.UserRole;
 import com.hakunamatata.springmvc.entity.UserTour;
+import com.hakunamatata.springmvc.repository.UserDAO;
 import com.hakunamatata.springmvc.repository.impl.UserDAOImp;
 import com.hakunamatata.springmvc.service.UserService;
 /**
