@@ -7,8 +7,8 @@
 		<result property="content" column="content"/>
 		<result property="date" column="date"/>
 		
-		<!-- <association property="usertour" column="usertour_id"
-			javaType="user" select="UserTour.selectOne"></association> -->
+		<association property="usertour" column="usertour_id"
+			javaType="user" select="UserTour.selectOne"></association>
 		<association property="blog" column="blog_id"
 			javaType="blog" select="Blog.selectOne"></association>
 	</resultMap>
@@ -25,4 +25,5 @@
 		SELECT comment.id, comment.content, comment.blog_id, comment.date FROM comment 
 		WHERE comment.blog_id = #{blog_id}
 	</select>
+	
 </mapper>

@@ -26,7 +26,7 @@ public class registerController {
 	private UserServiceImp userServiceImp;
 	//private UserService userService;
 	
-	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/", ""}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		return "register";
 	}

@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.hakunamatata.springmvc.entity.Blog;
 import com.hakunamatata.springmvc.entity.Comment;
 import com.hakunamatata.springmvc.entity.LikeBlog;
+import com.hakunamatata.springmvc.entity.UserTour;
 import com.hakunamatata.springmvc.service.CommentService;
 import com.hakunamatata.springmvc.service.LikeBlogService;
 import com.hakunamatata.springmvc.service.ServiceInterface;
@@ -60,15 +64,29 @@ public class BlogDetailController {
 	@PostMapping({"", "/"})
 	public String comment(Model model, Locale locale, @RequestParam("id") int id,
 						@RequestParam(name = "message", required = false) String content,
-						@RequestParam(name="amount", required = false, defaultValue = "0") int amount) {
-		
+						@RequestParam(name="amount", required = false, defaultValue = "0") int amount,
+						HttpServletRequest request) {
+		String url = "blogdetail";
 		view(model, locale, id);
+		
+		HttpSession session = request.getSession();
+		int idSession = (int)session.getAttribute("id");
+		System.out.println(idSession);
 		
 		Blog vo = new Blog();
 		vo.setId(id);
+		UserTour user = new UserTour();
+		if(idSession <= 0 ) {
+			url = "login";
+		}else {
+			
+			user.setId(idSession);
+		}
+		
 		Comment comment = new Comment();
 		comment.setContent(content);
 		comment.setBlog(vo);
+		comment.setUsertour(user);
 		
 		if(content != null) {
 			commentService.insert(comment);
@@ -76,6 +94,8 @@ public class BlogDetailController {
 		
 		LikeBlog likeBlog = new LikeBlog();
 		likeBlog.setBlog(vo);
+		
+		likeBlog.setUsertour(user);
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("like_amount", amount);
 		map.put("id", id);
@@ -86,6 +106,6 @@ public class BlogDetailController {
 		
 		view(model, locale, id);
 		
-		return "blogdetail";
+		return url;
 	}
 }

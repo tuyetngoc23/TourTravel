@@ -25,7 +25,7 @@ public class LoginController {
 	@Autowired
 	private UserServiceImp userServiceImp;
 	
-	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
 	public String home(HttpServletRequest request, Locale locale, Model model) {
 		request.getSession().invalidate();
 		return "/login";
@@ -49,7 +49,7 @@ public class LoginController {
 		}
 		if(user!=null && role == 2) {
 			request.getSession().setAttribute("auth", "USER");
-			url = "redirect:/client/index";
+			url = "redirect:/blog";
 		}
 		return url;		
 	}

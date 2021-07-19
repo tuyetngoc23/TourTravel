@@ -443,7 +443,7 @@
                                                 data-pagespeed-url-hash="323181169" >
                                         </div>
                                         <div class="desc">
-                                            <h5>Emilly Blunt</h5>
+                                            <h5>${comment.usertour.username}</h5>
                                             <p class="date"><fmt:formatDate type="both" value="${comment.date}"/></p>
                                             <p class="comment">
                                                 ${comment.content }
