@@ -2,6 +2,8 @@ package com.hakunamatata.springmvc.controller;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,10 @@ import com.hakunamatata.springmvc.entity.UserTour;
 import com.hakunamatata.springmvc.service.impl.UserServiceImp;
 
 
+/**
+ * @author BaoBB
+ *
+ */
 @Controller
 @RequestMapping("login")
 public class LoginController {
@@ -20,26 +26,32 @@ public class LoginController {
 	private UserServiceImp userServiceImp;
 	
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		return "login";
+	public String home(HttpServletRequest request, Locale locale, Model model) {
+		request.getSession().invalidate();
+		return "/login";
 	}
 	
 	@RequestMapping(value = "/checkout", method = RequestMethod.POST)
 	public String login(@RequestParam(value="username") String username, 
-			@RequestParam(value="passwd") String passwd,UserTour vo, Locale locale, Model model) {
+			@RequestParam(value="passwd") String passwd, HttpServletRequest request, UserTour vo, Locale locale, Model model) {
 		vo.setUsername(username);
 		vo.setPasswd(passwd);
-		System.out.println(vo);
-		userServiceImp.login(vo);
-		System.out.println(userServiceImp.login(vo));
-		if(userServiceImp.login(vo)!=null) 
-		{
-			System.out.println(1);
-			return "redirect:/admin/department";
-		}else {
-			System.out.println("null");
-			return "redirect:/login/";
+		UserTour user = userServiceImp.login(vo);
+		int role = 0;
+		String url = "redirect:/login/";
+		if(user!=null){
+			role = user.getUser_role().getId();
 		}
-		
+		if(user!=null && role == 1) {
+			request.getSession().setAttribute("id", user.getId());
+			request.getSession().setAttribute("auth", "ADMIN");
+			url = "redirect:/admin/department";
+		}
+		if(user!=null && role == 2) {
+			request.getSession().setAttribute("auth", "USER");
+			request.getSession().setAttribute("id", user.getId());
+			url = "redirect:/client/index";
+		}
+		return url;		
 	}
 }

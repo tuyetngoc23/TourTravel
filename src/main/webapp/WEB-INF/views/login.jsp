@@ -32,7 +32,7 @@
                 </div>
                 <h4>Hello! let's get started</h4>
                 <h6 class="font-weight-light">Sign in to continue.</h6>
-                <form class="pt-3" method= "post" action="checkout">
+                <form class="pt-3" method= "post" action="${pageContext.request.contextPath }/login/checkout">
                   <div class="form-group">
                     <input type="text" class="form-control form-control-lg" name="username" placeholder="Username">
                   </div>
