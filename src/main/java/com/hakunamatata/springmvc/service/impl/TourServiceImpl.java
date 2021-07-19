@@ -1,6 +1,7 @@
 package com.hakunamatata.springmvc.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,8 +10,15 @@ import com.hakunamatata.springmvc.entity.CatTour;
 import com.hakunamatata.springmvc.entity.Tour;
 import com.hakunamatata.springmvc.repository.TourDAO;
 import com.hakunamatata.springmvc.service.TourService;
+
+/**
+ * @author Manh
+ * @author Huynh Thi Tuyet Ngoc
+ *
+ */
 @Service
 public class TourServiceImpl implements TourService{
+	
 	@Autowired 
 	private TourDAO dao;
 	@Override
@@ -55,28 +63,11 @@ public class TourServiceImpl implements TourService{
 		return dao.getIdTour();
 	}
 
-	@Override
-	public List<Tour> getSearchTourVehicle(Tour tour) {
-		// TODO Auto-generated method stub
-		return dao.getSearchTourVehicle(tour);
-	}
 
 	@Override
-	public List<Tour> getSearchTourByDepartment(Tour tour) {
+	public List<Tour> getSearchTourByTest(Map<Object, Object> map) {
 		// TODO Auto-generated method stub
-		return dao.getSearchTourByDepartment(tour);
-	}
-
-	@Override
-	public List<Tour> getSearchTourByCatTour(Tour tour) {
-		// TODO Auto-generated method stub
-		return dao.getSearchTourByCatTour(tour);
-	}
-
-	@Override
-	public List<Tour> getSearchTourByHotel(Tour tour) {
-		// TODO Auto-generated method stub
-		return dao.getSearchTourByHotel(tour);
+		return dao.getSearchTourByTest(map);
 	}
 
 	
