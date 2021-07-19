@@ -38,8 +38,12 @@ public class registerController {
 		vo.setBirthday(birthday);
 		vo.setState(1);
 		System.out.print(vo);
+		userServiceImp.checkUserName(vo);
+		if(userServiceImp.checkUserName(vo)!=null){
+			return "redirect:/register/";
+		}
 		userServiceImp.insert(vo);		
-		return "redirect:/login";
+		return "redirect:/login/";
 	}
 	
 }

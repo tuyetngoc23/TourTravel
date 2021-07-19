@@ -19,26 +19,26 @@ public class LoginController {
 	@Autowired
 	private UserServiceImp userServiceImp;
 	
-	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/checkout", method = RequestMethod.POST)
 	public String login(@RequestParam(value="username") String username, 
 			@RequestParam(value="passwd") String passwd,UserTour vo, Locale locale, Model model) {
 		vo.setUsername(username);
 		vo.setPasswd(passwd);
-		System.out.print(vo);
+		System.out.println(vo);
 		userServiceImp.login(vo);
-		System.out.print(userServiceImp.login(vo));
+		System.out.println(userServiceImp.login(vo));
 		if(userServiceImp.login(vo)!=null) 
 		{
 			System.out.println(1);
-			return "redirect:/home";
+			return "redirect:/admin/department";
 		}else {
 			System.out.println("null");
-			return "redirect:/login";
+			return "redirect:/login/";
 		}
 		
 	}

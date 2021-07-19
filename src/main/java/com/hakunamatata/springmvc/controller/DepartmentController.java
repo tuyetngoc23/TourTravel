@@ -35,6 +35,7 @@ public class DepartmentController {
 	public String delete(@RequestParam(value="id") Integer id,Locale locale, Model model) {
 		Department vo = new Department();
 		vo.setId(id.intValue());
+		System.out.print(vo);
 		departmentService.delete(vo);
 		return "redirect:/admin/department/";
 	}

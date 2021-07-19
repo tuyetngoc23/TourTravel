@@ -56,4 +56,10 @@ public class UserServiceImp implements UserService{
 		return userDao.login(vo);
 	}
 
+	@Override
+	public UserTour checkUserName(UserTour vo) {
+		// TODO Auto-generated method stub
+		return userDao.checkUserName(vo);
+	}
+
 }
