@@ -200,7 +200,7 @@
 		note=#{note},
 		hotel_id=#{hotel.id},
 		vehicle_id=#{vehicle.id},
-		image=#{image} WHERE id=${id}
+		image=#{image} WHERE id=#{id}
 	</update>
 	
 	<delete id = "delete" parameterType = "tour">

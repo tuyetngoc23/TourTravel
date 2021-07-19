@@ -20,6 +20,8 @@
 		<typeAlias alias="comment" type="com.hakunamatata.springmvc.entity.Comment"/> 
 		<typeAlias alias="likeblog" type="com.hakunamatata.springmvc.entity.LikeBlog"/>
 		<typeAlias alias="user_role" type="com.hakunamatata.springmvc.entity.UserRole"/>  
+		<typeAlias alias="book" type="com.hakunamatata.springmvc.entity.Book"/>
+		<typeAlias alias="ticket"	type="com.hakunamatata.springmvc.entity.Ticket"/>
 
 	</typeAliases>		
 
@@ -42,6 +44,8 @@
 		<mapper resource="mapper/comment-mapper.xml"/>
 		<mapper resource="mapper/likeblog-mapper.xml"/>
 		<mapper resource="mapper/role-mapper.xml"/>
+		<mapper resource="mapper/book-mapper.xml"/>
+		<mapper resource="mapper/ticket-mapper.xml"/>
 	</mappers>
 	
 </configuration>

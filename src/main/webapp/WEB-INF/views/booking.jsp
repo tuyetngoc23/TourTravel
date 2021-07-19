@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +13,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <link rel="stylesheet" href="css/booking.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/css/booking.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -71,8 +75,8 @@
           <div class="row">
             <div class="tour__infomation__content__img col-3">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
-                alt=""
+                src="${pageContext.request.contextPath }/${initParam.urloadTour}/${tour.image}"
+                alt="${tour.name}"
                 style="width: 100%"
               />
             </div>
@@ -83,18 +87,22 @@
               <div class="row tour__infomation__content__detail__content">
                 <div class="col-6">
                   <i class="fa fa-barcode"></i>
-                  <span>12512</span>
+                  <span>${tour.id}</span>
                 </div>
                 <div class="col-6">
                   <i class="fa fa-address-book"></i>
 
-                  <span>10</span>
+                  <span>${tour.max_amount}</span>
                 </div>
               </div>
               <div class="row tour__infomation__content__detail__content">
                 <div class="col-6">
                   <i class="fa fa-calendar"></i>
-                  <span>10/10/1999</span>
+                  <span>
+                  <fmt:formatDate value="${tour.start_day}" pattern="yyyy-MM-dd" />
+               
+              	
+              
                 </div>
                 <div class="col-6">
                   <i class="fa fa-calendar"></i>
@@ -108,13 +116,17 @@
               <div class="row tour__infomation__content__detail__content">
                 <div class="col-6">
                   <i class="fa fa-hourglass"></i>
-                  <span>5 Ngày</span>
+                  <span>    
+                   <fmt:formatDate value="${tour.end_day}" pattern="yyyy-MM-dd" />           
+       				
+               
+      			   </span>
                 </div>
                 <div class="col-6">
                   <i class="fa fa-credit-card"></i>
                   <span>Giá : </span>
                   <span class="text-danger" style="font-weight: 500"
-                    >1500.000đ</span
+                    >${tour.price}</span
                   >
                 </div>
               </div>
@@ -143,9 +155,9 @@
             </thead>
             <tbody>
               <tr>
-                <td><span id="price_nguoi_lon">1200000</span>đ</td>
-                <td ><span id="price_tre_em">800000</span>đ</td>
-                <td ><span id="price_tre_nho">400000</span>đ</td>
+                <td><span id="price_nguoi_lon">${tour.price * 1}</span>đ</td>
+                <td ><span id="price_tre_em">${tour.price * 0.8}</span>đ</td>
+                <td ><span id="price_tre_nho">${tour.price * 0.4}</span>đ</td>
               </tr>
             </tbody>
           </table>
@@ -154,9 +166,10 @@
       <div class="tour__contact mt-5">
         <h1 class="tour__infomation__title text-center">THÔNG TIN LIÊN LẠC</h1>
         <div>
-          <form action="" class="row">
-            <input type="hidden" value="" name="tour_id">
-            <input type="hidden" value="" name="usertour_id">
+          <form action="booking" method="post" class="row">
+            <input type="hidden" value="${tour.id}" name="tour_id">
+            <input type="hidden" value="1" name="user_id">
+            <input type="hidden" name="date" value="10/10/2021">
             <div class="col-6">
               <div>
                 <label for="">Họ tên(<span>*</span>)</label>
@@ -165,6 +178,7 @@
                 class="tour__contact__input col-12"
                 type="text"
                 placeholder="Nhập họ tên"
+                value="${user.username}"
               />
             </div>
             <div class="col-6">
@@ -175,6 +189,7 @@
                 class="tour__contact__input col-12"
                 type="text"
                 placeholder="Nhập email"
+                 value="${user.email}"
               />
             </div>
 
@@ -185,10 +200,13 @@
               <input
                 class="tour__contact__input col-12"
                 type="text"
+                value="${user.phone}"
                 placeholder="Nhập họ tên"
               />
             </div>
             <div class="col-6">
+             <!-- 
+             
               <div>
                 <label for="">Email(<span>*</span>)</label>
               </div>
@@ -197,6 +215,7 @@
                 type="text"
                 placeholder="Nhập email"
               />
+              -->
             </div>
             <div class="col-6">
               <div>
@@ -206,6 +225,7 @@
                 class="tour__contact__input col-12"
                 type="text"
                 placeholder="Nhập email"
+                  value="${user.address}"
               />
             </div>
             <div class="col-6">
@@ -254,11 +274,12 @@
                     <label for="">Số Lượng(<span>*</span>)</label>
                   </div>
                   <input
-                    disabled
+                    
                     class="
                       tour__contact__input tour__contact__input__user
                       col-12
                     "
+                    name="soluong"
                     value="1"
                     type="text"
                     id="tour_so_luong"
@@ -268,7 +289,7 @@
             </div>
             <div class="col-12">
               <div>
-                <label for="">Email(<span>*</span>)</label>
+                <label for="">Ghi Chú</label>
               </div>
               <textarea class="col-12" placeholder="Ghi chú !"></textarea>
             </div>
@@ -312,7 +333,7 @@
               <div class="tour_payment">
                 <div>
                   
-                  <input type="radio" name="tour_payment_type" value="1">
+                  <input checked="checked" type="radio" name="tour_payment_type" value="1">
                   <label for="">Thanh Toán MoMo</label>
                  
                 </div>
@@ -348,6 +369,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/booking.js"></script>
+    <script src="${pageContext.request.contextPath }/resources/client/js/booking.js"></script>
   </body>
 </html>
+    
