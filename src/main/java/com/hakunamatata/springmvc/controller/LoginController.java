@@ -25,7 +25,7 @@ public class LoginController {
 	@Autowired
 	private UserServiceImp userServiceImp;
 	
-	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
 	public String home(HttpServletRequest request, Locale locale, Model model) {
 		request.getSession().invalidate();
 		return "/login";
