@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hakunamatata.springmvc.entity.UserTour;
-import com.hakunamatata.springmvc.service.ServiceInterface;
+import com.hakunamatata.springmvc.service.UserService;
 /**
  * @author Hai Van
  *
@@ -22,7 +22,7 @@ import com.hakunamatata.springmvc.service.ServiceInterface;
 @RequestMapping("admin/user")
 public class UserController {
 	@Autowired
-	private ServiceInterface<UserTour> userService;
+	private UserService userService;
 	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
 	public String list(Locale locale, Model model) {
 		List<UserTour> list = userService.list(null);

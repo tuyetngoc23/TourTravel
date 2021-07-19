@@ -32,34 +32,48 @@
                 </div>
                 <h4>New here?</h4>
                 <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
-                <form class="pt-3">
+                <form class="pt-3" method= "post" action="add">
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Username">
+                  <label for="exampleInputEmail3">User name</label>
+                    <input type="text" class="form-control form-control-lg" 
+                    name="username" placeholder="Username" required>
                   </div>
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                  <label for="exampleInputEmail3">Password</label>
+                    <input type="password" class="form-control form-control-lg" 
+                    name="passwd" placeholder="Password" required>
                   </div>
                   <div class="form-group">
-                    <select class="form-control form-control-lg" id="exampleFormControlSelect2">
-                      <option>Country</option>
-                      <option>United States of America</option>
-                      <option>United Kingdom</option>
-                      <option>India</option>
-                      <option>Germany</option>
-                      <option>Argentina</option>
-                    </select>
+                  <label for="exampleInputEmail3">Name</label>
+                    <input type="text" class="form-control form-control-lg" name="cusname" placeholder="Name" required>
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                  <label for="exampleInputEmail3">Birth day</label>
+                    <input type="date" class="form-control" placeholder="Birth day" name="day" required>
                   </div>
+                  <div class="form-group">
+                  <label for="exampleInputEmail3">Email</label>
+                    <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" required>
+                  </div>
+				  <div class="form-group">
+				  <label for="exampleInputEmail3">Phone</label>
+                    <input type="text" class="form-control form-control-lg" name="phone" placeholder="Phone" required>
+                  </div>
+                  <div class="form-group">
+                  <label for="exampleInputEmail3">address</label>
+                    <input type="text" class="form-control form-control-lg" name="address" placeholder="address" required>
+                  </div>
+                  
                   <div class="mb-4">
                     <div class="form-check">
                       <label class="form-check-label text-muted">
-                        <input type="checkbox" class="form-check-input"> I agree to all Terms & Conditions </label>
+                        <input type="checkbox" class="form-check-input" required> I agree to all Terms & Conditions </label>
                     </div>
                   </div>
+                  
                   <div class="mt-3">
-                    <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="${pageContext.request.contextPath }/resources/index.html">SIGN UP</a>
+                   
+                    <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
                   </div>
                   <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="login.html" class="text-primary">Login</a>
                   </div>

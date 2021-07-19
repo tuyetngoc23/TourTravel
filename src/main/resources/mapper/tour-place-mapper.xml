@@ -31,4 +31,10 @@
 	       id=#{item.id}
 	    </foreach>
 	</delete>
+	<select id="getPlace" resultMap="Place.placeMap">
+		SELECT place.id, place.name, place.image, place.description, place.address
+		FROM tour_place, place, tour
+		WHERE tour_id=#{tour.id} and place.id = tour_place.place_id and tour.id=tour_place.tour_id
+	</select>
+	
 </mapper>

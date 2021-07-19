@@ -21,6 +21,7 @@ public class TourServiceImpl implements TourService{
 	
 	@Autowired 
 	private TourDAO dao;
+	
 	@Override
 	public void insert(Tour vo) {
 		dao.insert(vo);

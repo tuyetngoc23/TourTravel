@@ -28,11 +28,15 @@ CREATE TABLE IF NOT EXISTS `blog` (
   `state` bit(1) DEFAULT NULL,
   `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tour.blog: ~0 rows (approximately)
+-- Dumping data for table tour.blog: ~3 rows (approximately)
 DELETE FROM `blog`;
 /*!40000 ALTER TABLE `blog` DISABLE KEYS */;
+INSERT INTO `blog` (`id`, `title`, `wname`, `content`, `wdate`, `like_amount`, `state`, `image`) VALUES
+	(1, 'Tràng An-Ninh Bình', 'Admin', 'TRANG AN NINH BÌNH – Chưa đi chưa biết Tràng An đi rồi mới biết ko hề gian nan, còn đẹp như tranh xứng đáng di sản văn hóa và thiên nhiên thế giới do UNESCO công nhận. Đợt đó mình đi tour 3, tour này cũng được nhiều người gợi ý khi đi Tràng An Ninh Bình vì đi qua nhiều khung cảnh đẹp và không bị lặp lại quá nhiều. Giá vé 250k 1 người đi thuyền ghép 4 người, nếu như bạn muốn bao nguyên thuyền riêng tư thì giá 1 triệu 1 thuyền nhé', '2021-07-17', 12, b'1', 'deodatrang.jpg'),
+	(2, 'Rong ruổi đường ven biển Việt Nam từ Bà Rịa tới Lăng Cô Huế- Hướng dẫn chi tiết', 'Minh', 'Với cung đường biển này bạn có thể đi trong vòng 7 ngày hoặc 10 ngày, càng dài ngày thì khám phá được nhiều sức khỏe cũng sẽ đảm bảo hơn, đường biển xuất phát từ Vũng Tàu đến Lăng Cô. Mình sẽ chia từng chặng cho các bạn tiện việc chọn cung phù hợp với sức khỏe và túi tiền của mình.\r\n– Đây là bài viết chia sẻ cá nhân của mình, có nhiều địa điểm trên hành trình này mình không ghé được nên không biết để review như thế nào\r\n\r\n– Đây là hành trình kiểu “rong ruổi” chứ không ghé thăm nhiều tuy nhiên có 1 số nơi bạn nên nán lại 1 ngày để đi : Quy Nhơn đi Nhơn Lý, Eo Gió, Quảng Ngãi có thời gian thì nên đi Lý Sơn, Đà Nẵng nên ở lại để đi thăm thành phố…', '2015-04-15', 10, b'1', 'coco-beach-phan-thiet.jpg'),
+	(3, 'Kinh nghiệm phượt mũi Kê Gà điểm đổi gió gần Sài Gòn', 'Ngoc', 'Mũi Kê Gà cách Sài Gòn khoảng 180km đường bộ, nó làm một hòn đảo nhỏ cách đất liền khoảng 10 phút đi cano ,có ngọn hải đăng (hải đăng Kê Gà), đây là địa điểm thích hợp cho dân phượt ở Sài Gòn muốn đổi gió vào ngày cuối tuần, đợt trước Tuân đi vào sáng thứ 7 và chiều chủ nhật lên đủ để thỏa mãn cái sự cuồng chân của mình.', '2014-05-14', 2, b'1', 'dao-ly-son-tu-da-nang.jpg');
 /*!40000 ALTER TABLE `blog` ENABLE KEYS */;
 
 -- Dumping structure for table tour.book
@@ -78,6 +82,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `usertour_id` int(11) DEFAULT NULL,
   `blog_id` int(11) DEFAULT NULL,
   `content` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date` date DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `comment_ibfk_1` (`usertour_id`),
   KEY `comment_ibfk_2` (`blog_id`),
@@ -96,11 +101,15 @@ CREATE TABLE IF NOT EXISTS `department` (
   `tourguide` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tour.department: ~0 rows (approximately)
+-- Dumping data for table tour.department: ~2 rows (approximately)
 DELETE FROM `department`;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
+INSERT INTO `department` (`id`, `tourguide`, `address`) VALUES
+	(4, 'Yến Dương', 'Tp.HCM'),
+	(5, 'Hoàng Duy', 'Quận Tân Bình'),
+	(6, 'Ngân Võ', 'Quận 1');
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 
 -- Dumping structure for table tour.discount
@@ -111,11 +120,13 @@ CREATE TABLE IF NOT EXISTS `discount` (
   `start_day` date DEFAULT NULL,
   `end_day` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.discount: ~0 rows (approximately)
 DELETE FROM `discount`;
 /*!40000 ALTER TABLE `discount` DISABLE KEYS */;
+INSERT INTO `discount` (`id`, `name`, `scope`, `start_day`, `end_day`) VALUES
+	(2, 'CK GO', 12, '2021-07-09', '2021-07-22');
 /*!40000 ALTER TABLE `discount` ENABLE KEYS */;
 
 -- Dumping structure for table tour.evaluate
@@ -145,11 +156,14 @@ CREATE TABLE IF NOT EXISTS `hotel` (
   `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tour.hotel: ~0 rows (approximately)
+-- Dumping data for table tour.hotel: ~2 rows (approximately)
 DELETE FROM `hotel`;
 /*!40000 ALTER TABLE `hotel` DISABLE KEYS */;
+INSERT INTO `hotel` (`id`, `type`, `name`, `image`, `address`) VALUES
+	(3, '3*', 'nơi chào mừng', 'phuyen.jpg', 'Gò Vấp, Tp.HCM'),
+	(4, '4*', 'luxury', 'dalat2.jpg', 'Tân Bình');
 /*!40000 ALTER TABLE `hotel` ENABLE KEYS */;
 
 -- Dumping structure for table tour.image_blog
@@ -241,11 +255,14 @@ CREATE TABLE IF NOT EXISTS `place` (
   PRIMARY KEY (`id`),
   KEY `province_id` (`province_id`) USING BTREE,
   CONSTRAINT `FK_place_province` FOREIGN KEY (`province_id`) REFERENCES `province` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tour.place: ~0 rows (approximately)
+-- Dumping data for table tour.place: ~1 rows (approximately)
 DELETE FROM `place`;
 /*!40000 ALTER TABLE `place` DISABLE KEYS */;
+INSERT INTO `place` (`id`, `name`, `province_id`, `address`, `image`, `description`) VALUES
+	(2, 'huy', 1, 'huy', 'deodatrang.jpg', 'nfggtfbfgvbfdgvre'),
+	(3, 'DakLak', 16, 'Huyện Châu Thành', 'phanthiet.png', 'Với những món ngon bổ dưỡng, thăm cây cỏ núi rừng');
 /*!40000 ALTER TABLE `place` ENABLE KEYS */;
 
 -- Dumping structure for table tour.province
@@ -370,11 +387,15 @@ CREATE TABLE IF NOT EXISTS `tour` (
   CONSTRAINT `FK_tour_hotel` FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_tour_vehicle` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicle` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `tour_ibfk_3` FOREIGN KEY (`cattour_id`) REFERENCES `cat_tour` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tour.tour: ~0 rows (approximately)
+-- Dumping data for table tour.tour: ~3 rows (approximately)
 DELETE FROM `tour`;
 /*!40000 ALTER TABLE `tour` DISABLE KEYS */;
+INSERT INTO `tour` (`id`, `name`, `price`, `min_amount`, `max_amount`, `start_day`, `end_day`, `location_go`, `cattour_id`, `content`, `note`, `hotel_id`, `vehicle_id`, `image`) VALUES
+	(1, 'Tour Du Lịch Phú Quốc', 1200000, 10, 20, '2021-07-14', '2021-07-16', 4, 1, 'Du lich He - Tour Du lịch Hà Giang nổi tiếng với phong cảnh hùng vĩ cùng với mùa lúa chín nhuộm vàng lên tận cả chân mây, những thửa ruộng bậc thang ngút tầm mắt hay những cánh đồng hoa tam giác mạch phủ tím những quả đồi, hòa quyện với bản sắc văn hóa dân tộc vùng cao là những điều thu hút mọi du khách trong và ngoài nước đến du lịch Hà Giang trong thời gian qua. Hãy cùng Du Lịch Việt khám phá những điểm đến hấp dẫn không thể bỏ qua đến vùng đất tươi đẹp này.', NULL, 3, 2, 'dalat2.jpg'),
+	(2, 'Tour Du Lịch Đà Nẵng', 3000000, 12, 25, '2021-07-17', '2021-07-18', 5, 2, NULL, NULL, 4, 3, 'hitashi-nhat-ban.jpg'),
+	(3, 'Du Lịch Đà Lạt', 4500000, 12, 30, '2021-07-15', '2021-07-18', 6, 1, '<p><span style="font-size:16px">Theo đ&oacute;, du kh&aacute;ch đến Kh&aacute;nh H&ograve;a phải c&oacute; giấy chứng nhận ti&ecirc;m đủ liều vaccine Covid-19 do c&aacute;c cơ quan c&oacute; thẩm quyền cấp. Liều cuối c&ugrave;ng được ti&ecirc;m trong thời gian &iacute;t nhất 14 ng&agrave;y, kh&ocirc;ng qu&aacute; 12 th&aacute;ng t&iacute;nh đến l&uacute;c nhập cảnh.</span></p>\r\n\r\n<p><span style="font-size:16px">Khu vực đ&oacute;n kh&aacute;ch l&agrave; c&aacute;c kh&aacute;ch sạn, khu nghỉ dưỡng ở B&atilde;i D&agrave;i. &quot;B&atilde;i d&agrave;i Cam Ranh c&oacute; cụm du lịch, nghĩ dưỡng nằm xa khu d&acirc;n cư, cơ sở hạ tầng dễ d&agrave;ng kiểm so&aacute;t, đảm bảo an to&agrave;n cho du kh&aacute;ch&quot;, b&agrave; Thanh n&oacute;i.</span></p>\r\n\r\n<p><img alt="" src="https://dulichvietnam.com.vn/vnt_upload/File/Image/Du_lich_Khanh_Hoa1.jpg" style="height:525px; width:700px" /></p>\r\n\r\n<p><span style="font-size:16px">Trong đ&oacute; lưu &yacute; th&iacute; điểm đ&oacute;n kh&aacute;ch bằng c&aacute;c chuyến bay thu&ecirc; bao đến tỉnh phải cập nhật chỉ đạo mới nhất của Ch&iacute;nh phủ v&agrave; c&aacute;c bộ, ng&agrave;nh. Khu vực th&iacute; điểm trong phạm vi nhỏ, &iacute;t ảnh hưởng đến đến hoạt động kinh tế - x&atilde; hội địa phương v&agrave; đời sống nh&acirc;n d&acirc;n.</span></p>\r\n\r\n<p><img alt="" src="https://dulichvietnam.com.vn/vnt_upload/File/Image/Du_lich_Khanh_Hoa3.jpg" style="height:448px; width:700px" /></p>\r\n', 'Không bao gồm chi phí nằm ngoài', 4, 3, 'dalat2.jpg');
 /*!40000 ALTER TABLE `tour` ENABLE KEYS */;
 
 -- Dumping structure for table tour.tour_discount
@@ -387,11 +408,13 @@ CREATE TABLE IF NOT EXISTS `tour_discount` (
   KEY `discount_id` (`discount_id`),
   CONSTRAINT `FK_tour_discount_discount` FOREIGN KEY (`discount_id`) REFERENCES `discount` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `FK_tour_discount_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.tour_discount: ~0 rows (approximately)
 DELETE FROM `tour_discount`;
 /*!40000 ALTER TABLE `tour_discount` DISABLE KEYS */;
+INSERT INTO `tour_discount` (`id`, `tour_id`, `discount_id`) VALUES
+	(2, 3, 2);
 /*!40000 ALTER TABLE `tour_discount` ENABLE KEYS */;
 
 -- Dumping structure for table tour.tour_place
@@ -404,11 +427,16 @@ CREATE TABLE IF NOT EXISTS `tour_place` (
   KEY `tour_id` (`tour_id`),
   CONSTRAINT `FK__place` FOREIGN KEY (`place_id`) REFERENCES `place` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK__tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table tour.tour_place: ~0 rows (approximately)
+-- Dumping data for table tour.tour_place: ~2 rows (approximately)
 DELETE FROM `tour_place`;
 /*!40000 ALTER TABLE `tour_place` DISABLE KEYS */;
+INSERT INTO `tour_place` (`id`, `place_id`, `tour_id`) VALUES
+	(1, 2, 2),
+	(2, 3, 1),
+	(4, 3, 3),
+	(5, 3, 2);
 /*!40000 ALTER TABLE `tour_place` ENABLE KEYS */;
 
 -- Dumping structure for table tour.user_role
@@ -458,14 +486,14 @@ CREATE TABLE IF NOT EXISTS `vehicle` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table tour.vehicle: ~2 rows (approximately)
 DELETE FROM `vehicle`;
 /*!40000 ALTER TABLE `vehicle` DISABLE KEYS */;
 INSERT INTO `vehicle` (`id`, `name`) VALUES
-	(1, 'xe máy'),
-	(2, 'buýt');
+	(2, 'máy bay'),
+	(3, 'tàu lửa');
 /*!40000 ALTER TABLE `vehicle` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

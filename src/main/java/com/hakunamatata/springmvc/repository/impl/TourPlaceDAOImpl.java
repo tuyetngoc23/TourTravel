@@ -6,11 +6,12 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.hakunamatata.springmvc.entity.Place;
 import com.hakunamatata.springmvc.entity.TourPlace;
 import com.hakunamatata.springmvc.repository.TourPlaceDAO;
 /**
  * @author Manh
- *
+ * @author Huynh Thi Tuyet Ngoc
  */
 @Repository
 public class TourPlaceDAOImpl implements TourPlaceDAO {
@@ -58,6 +59,12 @@ public class TourPlaceDAOImpl implements TourPlaceDAO {
 		System.out.println(list);
 		session.delete("TourPlace.delete",list);
 		
+	}
+
+	@Override
+	public List<Place> getPlace(TourPlace vo) {
+		// TODO Auto-generated method stub
+		return session.selectList("TourPlace.getPlace", vo);
 	}
 
 }

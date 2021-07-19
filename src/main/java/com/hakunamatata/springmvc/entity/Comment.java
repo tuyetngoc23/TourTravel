@@ -1,5 +1,6 @@
 package com.hakunamatata.springmvc.entity;
 
+import java.util.Date;
 
 /**
  * @author Huynh Thi Tuyet Ngoc
@@ -13,13 +14,20 @@ public class Comment {
 	}
 	private int id;
 	private String content;
+	private Date date;
+	
 	
 	
 	private UserTour usertour;
 	private Blog blog;
 	
 	
-	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	public UserTour getUsertour() {
 		return usertour;
 	}

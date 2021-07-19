@@ -7,7 +7,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>MoGo</title>
+	<title>HakunaMatata</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
 	<script src="${pageContext.request.contextPath }/resources/client/vendor/jquery/jquery-1.12.4.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
@@ -206,7 +206,7 @@
 			<div class="hakunamatata-menu">
 				<div class="container-xl">
 					<nav class="navbar navbar-expand-lg navbar-dark p-0">
-						<a class="navbar-brand logo emphasized-phrase" href="#">
+						<a class="navbar-brand logo emphasized-phrase" href="${pageContext.request.contextPath }/">
 							Hakuna Matata
 						</a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mogo-menu" aria-controls="navbar-mogo-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -216,16 +216,16 @@
 						<div class="collapse navbar-collapse" id="navbar-mogo-menu">
 							<ul class="navbar-nav menu-item ml-auto">
 								<li class="nav-item active">
-									<a class="nav-link" href="#">HOME</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/">HOME</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">TOUR</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/tour">TOUR</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="#">ABOUT</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">BLOG</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/blog">BLOG</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="#">CONTACT</a>
@@ -379,11 +379,11 @@
 									</div>
 									<div id="box">
 										<div id="imag">
-											<a href="#"><img class="size" src="${pageContext.request.contextPath }/resources/client/images/${tour.image}" /></a>
+											<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}"><img class="size" src="${pageContext.request.contextPath }/resources/client/images/${tour.image}" /></a>
 										</div>
 										<div id="caption">
 											<div>
-												<a id="tourname" href="#"><strong>${tour.name }</strong></a>
+												<a id="tourname" href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}"><strong>${tour.name }</strong></a>
 												<div>
 													<p id="datetime">
 														<span>Thời Gian</span>
@@ -402,7 +402,9 @@
 													${tour.max_amount - tour.min_amount + tour.min_amount} chỗ</span>
 												</div>
 												<p>
-													<span id="price">${tour.price } VND</span>
+													<span id="price"><fmt:parseNumber type="number" integerOnly="true" value="${tour.price }" var="Nprice"/>
+                                   					 <fmt:formatNumber value="${Nprice}" type="number" maxFractionDigits="3"/>
+                                     				VND</span>
 												</p>
 												<input id="book" type="submit" value="Đặt Tour" class="form-control"/>
 											</div>

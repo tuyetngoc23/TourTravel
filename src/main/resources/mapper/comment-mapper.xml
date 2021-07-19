@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Comment">
+	<resultMap type="comment" id="commentMap">
+		<id property="id" column="id"/>
+		<result property="content" column="content"/>
+		<result property="date" column="date"/>
+		
+		<!-- <association property="usertour" column="usertour_id"
+			javaType="user" select="UserTour.selectOne"></association> -->
+		<association property="blog" column="blog_id"
+			javaType="blog" select="Blog.selectOne"></association>
+	</resultMap>
+	
+	<select id="selectList" resultMap="commentMap">
+		SELECT * FROM comment, blog 
+		WHERE comment.blog_id = blog.id
+	</select>
+	<insert id="insert" parameterType="comment">
+		INSERT INTO comment( blog_id, content) 
+		VALUES (#{blog.id}, #{content})
+	</insert>
+	<select id="selectListByBlog" resultMap="commentMap">
+		SELECT comment.id, comment.content, comment.blog_id, comment.date FROM comment 
+		WHERE comment.blog_id = #{blog_id}
+	</select>
+</mapper>
