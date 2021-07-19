@@ -41,15 +41,14 @@ public class LoginController {
 		String url = "redirect:/login/";
 		if(user!=null){
 			role = user.getUser_role().getId();
+			request.getSession().setAttribute("id", user.getId());
 		}
 		if(user!=null && role == 1) {
-			request.getSession().setAttribute("id", user.getId());
 			request.getSession().setAttribute("auth", "ADMIN");
 			url = "redirect:/admin/department";
 		}
 		if(user!=null && role == 2) {
 			request.getSession().setAttribute("auth", "USER");
-			request.getSession().setAttribute("id", user.getId());
 			url = "redirect:/client/index";
 		}
 		return url;		
