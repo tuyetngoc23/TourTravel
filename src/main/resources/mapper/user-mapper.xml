@@ -24,6 +24,9 @@
 	<select id="login" parameterType="user" resultMap="userMap">
 		SELECT * FROM user_tour WHERE username=#{username} and passwd=#{passwd}
 	</select>
+	<select id="checkUserName" parameterType="user" resultMap="userMap">
+		SELECT * FROM user_tour WHERE username=#{username}
+	</select>
 	<select id="selectList" parameterType="user" resultMap="userMap">
 		<![CDATA[
 			SELECT * FROM user_tour

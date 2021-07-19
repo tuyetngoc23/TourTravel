@@ -61,4 +61,10 @@ public class UserDAOImp implements UserDAO {
 		return session.selectOne("UserTour.login", vo);
 	}
 
+	@Override
+	public UserTour checkUserName(UserTour vo) {
+		// TODO Auto-generated method stub
+		return session.selectOne("UserTour.checkUserName", vo);
+	}
+
 }
