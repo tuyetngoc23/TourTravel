@@ -1,7 +1,9 @@
 package com.hakunamatata.springmvc.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
@@ -74,9 +76,12 @@ public class BlogDetailController {
 		
 		LikeBlog likeBlog = new LikeBlog();
 		likeBlog.setBlog(vo);
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("like_amount", amount);
+		map.put("id", id);
 		if(amount > vo.getLike_amount()) {
 			likeBlogService.insert(likeBlog);
-			likeBlogService.UpdateLike(amount);
+			likeBlogService.UpdateLike(map);
 		}
 		
 		view(model, locale, id);

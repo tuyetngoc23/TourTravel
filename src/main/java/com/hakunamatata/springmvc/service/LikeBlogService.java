@@ -1,5 +1,8 @@
 package com.hakunamatata.springmvc.service;
 
+import java.util.Map;
+
+import com.hakunamatata.springmvc.entity.Blog;
 import com.hakunamatata.springmvc.entity.LikeBlog;
 
 /**
@@ -7,5 +10,5 @@ import com.hakunamatata.springmvc.entity.LikeBlog;
  *
  */
 public interface LikeBlogService extends ServiceInterface<LikeBlog>{
-	void UpdateLike(int vo);
+	void UpdateLike(Map<Object, Object> vo);
 }
