@@ -42,6 +42,12 @@ public class TicketDAOImpl implements TicketDAO {
 		return session.selectList("Ticket.selectAll",null);
 	}
 
+	@Override
+	public List<Ticket> listTicketByBookId(int id) {
+		// TODO Auto-generated method stub
+		return session.selectList("Ticket.selectByBookId",id);
+	}
+
 
 
 }

@@ -59,6 +59,12 @@
                 </ul>
               </div>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="${pageContext.request.contextPath }/admin/booking">
+                <span class="menu-title">Booking</span>
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+              </a>
+            </li>
             
                   <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#tour" aria-expanded="false" aria-controls="tour">

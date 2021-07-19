@@ -42,4 +42,10 @@ public class TicketServiceImpl implements TicketService {
 		return dao.list(vo);
 	}
 
+	@Override
+	public List<Ticket> listTicketByBookId(int id) {
+		// TODO Auto-generated method stub
+		return dao.listTicketByBookId(id);
+	}
+
 }

@@ -29,6 +29,13 @@
 						FROM ticket AS tk where tk.id = #{id}
 </select>
 
+<select id="selectByBookId" resultMap="ticketMap" parameterType="Integer"> 
+SELECT tk.id AS tk_id,tk.book_id AS tk_book_id,tk.name AS tk_name,tk.email AS tk_email,
+						tk.ticket_code AS tk_ticket_code,tk.phone AS tk_phone,tk.state AS tk_state,
+						tk.giveDate AS tk_giveDate,tk.unitprice AS tk_unitprice 
+						FROM ticket AS tk where tk.book_id = #{id}
+</select>
+
 <insert id="insert" parameterType="ticket">
 	INSERT INTO  ticket(book_id,NAME,email,ticket_code,phone,state,giveDate,unitprice)
 	 VALUES(#{book.id},#{name},#{email},#{ticket_code},#{phone},#{state},#{giveDate},#{unitprice})
