@@ -39,6 +39,7 @@
                   <div class="form-group">
                     <input type="password" class="form-control form-control-lg" name="passwd" placeholder="Password">
                   </div>
+                  <input type="hidden" name="URL" value="${URL }">
                   <div class="mt-3">
                    
                     <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</button>

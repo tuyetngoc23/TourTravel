@@ -3,6 +3,7 @@ package com.hakunamatata.springmvc.controller;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,25 +34,32 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/checkout", method = RequestMethod.POST)
-	public String login(@RequestParam(value="username") String username, 
+	public String login(@RequestParam(value="URL") String reurl, 
+			@RequestParam(value="username") String username, 
 			@RequestParam(value="passwd") String passwd, HttpServletRequest request, UserTour vo, Locale locale, Model model) {
+		HttpSession session = request.getSession();	
 		vo.setUsername(username);
 		vo.setPasswd(passwd);
 		UserTour user = userServiceImp.login(vo);
-		int role = 0;
+		int role = 0;	
 		String url = "redirect:/login/";
+		System.out.println(reurl);
+//		if(reurl != null) {
+//			reurl = reurl.substring(request.getContextPath().length());
+//		}
 		if(user!=null){
 			role = user.getUser_role().getId();
-			request.getSession().setAttribute("id", user.getId());
-			System.out.print(user.getId());
+			session.setAttribute("id", user.getId());
+			session.setAttribute("username", user.getUsername());
+			System.out.print(user.getId()+" "+user.getUsername());
 		}
 		if(user!=null && role == 1) {
-			request.getSession().setAttribute("auth", "ADMIN");
-			url = "redirect:/admin/dashboard";
+			session.setAttribute("auth", "ADMIN");
+			url = "redirect:/admin/department";
 		}
 		if(user!=null && role == 2) {
-			request.getSession().setAttribute("auth", "USER");
-			url = "redirect:/blog";
+			session.setAttribute("auth", "USER");
+			url = (reurl.isEmpty())?"redirect:/home":"redirect:"+reurl.substring(request.getContextPath().length());
 		}
 		return url;		
 	}
