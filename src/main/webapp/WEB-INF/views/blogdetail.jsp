@@ -439,14 +439,21 @@
                                 <div class="single-comment justify-content-between d-flex">
                                     <div class="user justify-content-between d-flex">
                                         <div class="thumb">
-                                            <img src="${pageContext.request.contextPath }/resources/client/images/people.png" alt=""
+                                        	<c:if test="${comment.usertour.avatar == null}">
+                                        		<img src="${pageContext.request.contextPath }/resources/client/images/people.png" alt=""
                                                 data-pagespeed-url-hash="323181169" >
+                                        	</c:if>
+                                        	<c:if test="${comment.usertour.avatar != null}">
+                                        		<img src="${pageContext.request.contextPath }/uploads/image-user/${comment.usertour.avatar}" alt=""
+                                                data-pagespeed-url-hash="323181169" >
+                                        	</c:if>
+                                            
                                         </div>
                                         <div class="desc">
                                             <h5>${comment.usertour.username}</h5>
                                             <p class="date"><fmt:formatDate type="both" value="${comment.date}"/></p>
                                             <p class="comment">
-                                                ${comment.content }
+                                                ${comment.content}
                                             </p>
                                         </div>
                                     </div>

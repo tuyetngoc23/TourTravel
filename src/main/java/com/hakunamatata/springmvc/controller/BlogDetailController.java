@@ -43,10 +43,41 @@ public class BlogDetailController {
 	private LikeBlogService likeBlogService;
 	
 	@GetMapping({"","/"})
-	public String view(Model model, Locale locale, @RequestParam("id") int id) {
+	public String view(Model model, Locale locale, @RequestParam("id") int id, HttpServletRequest request) {
+		
+//		String url="blogdetail";
+//		int idSession = 0;
+//		HttpSession session = null;
+//		if(request == null) {
+//			return "login";
+//		}else {
+//			session = request.getSession();
+//		}
+//		
+//		if(session == null) {
+//			return "login";
+//		}else {
+//			if(session.getAttribute("id") == null) {
+//				return "login";
+//			}else {
+//				idSession = (int)session.getAttribute("id");
+//				System.out.println(idSession);
+//			}
+//		}
 		
 		Blog vo = new Blog();
 		vo.setId(id);
+		
+//		UserTour user = new UserTour();
+//		if(idSession <= 0) {
+//			return "login";
+//		}else {
+//			
+//			user.setId(idSession);
+//		}
+		
+		Comment comment = new Comment();
+		comment.setBlog(vo);
 		
 		Blog blog = blogService.get(vo);
 		model.addAttribute("getBlog", blog);
@@ -54,7 +85,11 @@ public class BlogDetailController {
 		List<Blog> list = blogService.list(null);
 		model.addAttribute("list", list);
 		
-		List<Comment> commentList = commentService.listComment(id);
+//		List<Comment> commentList = commentService.listComment(comment);
+//		model.addAttribute("commentList", commentList);
+//		System.out.println(commentList);
+		
+		List<Comment> commentList = commentService.listUserByBlogComment(id);
 		model.addAttribute("commentList", commentList);
 		System.out.println(commentList);
 		
@@ -66,22 +101,38 @@ public class BlogDetailController {
 						@RequestParam(name = "message", required = false) String content,
 						@RequestParam(name="amount", required = false, defaultValue = "0") int amount,
 						HttpServletRequest request) {
-		String url = "blogdetail";
-		view(model, locale, id);
 		
-		HttpSession session = request.getSession();
-		int idSession = (int)session.getAttribute("id");
-		System.out.println(idSession);
+		view(model, locale, id, request);
 		
-		Blog vo = new Blog();
-		vo.setId(id);
+		String url="blogdetail";
+		int idSession = 0;
+		HttpSession session = null;
+		if(request == null) {
+			return "login";
+		}else {
+			session = request.getSession();
+		}
+		
+		if(session == null) {
+			return "login";
+		}else {
+			if(session.getAttribute("id") == null) {
+				return "login";
+			}else {
+				idSession = (int)session.getAttribute("id");
+				System.out.println(idSession);
+			}
+		}
 		UserTour user = new UserTour();
-		if(idSession <= 0 ) {
-			url = "login";
+		if(idSession <= 0) {
+			return "login";
 		}else {
 			
 			user.setId(idSession);
 		}
+		
+		Blog vo = new Blog();
+		vo.setId(id);
 		
 		Comment comment = new Comment();
 		comment.setContent(content);
@@ -104,8 +155,8 @@ public class BlogDetailController {
 			likeBlogService.UpdateLike(map);
 		}
 		
-		view(model, locale, id);
+		view(model, locale, id, request);
 		
-		return url;
+		return "blogdetail";
 	}
 }

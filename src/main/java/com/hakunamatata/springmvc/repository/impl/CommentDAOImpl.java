@@ -47,9 +47,15 @@ public class CommentDAOImpl implements CommentDAO{
 	}
 
 	@Override
-	public List<Comment> listComment(int vo) {
+	public List<Comment> listComment(Comment vo) {
 		// TODO Auto-generated method stub
 		return session.selectList("Comment.selectListByBlog", vo);
+	}
+
+	@Override
+	public List<Comment> listUserByBlogComment(int vo) {
+		// TODO Auto-generated method stub
+		return session.selectList("Comment.selectUserByBlogComment", vo);
 	}
 	
 	
