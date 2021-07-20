@@ -31,8 +31,8 @@ public class FilterBooking implements Filter{
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpSession session = ((HttpServletRequest)request).getSession();
-		String value = (String)session.getAttribute("auth");
-		if( value == null || !value.equals("USER")) {
+		String value = (String)session.getAttribute("username");
+		if( value == null) {
 			request.setAttribute("URL", ((HttpServletRequest) request).getRequestURI());
 			request.getRequestDispatcher("/login/").forward(request, response);
 		}else {
