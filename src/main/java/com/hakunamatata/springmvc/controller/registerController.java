@@ -29,7 +29,7 @@ public class registerController {
 
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		return "register";
+		return "client/register";
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -42,10 +42,10 @@ public class registerController {
 		System.out.print(vo);
 		userServiceImp.checkUserName(vo);
 		if(userServiceImp.checkUserName(vo)!=null){
-			return "redirect:/register/";
+			return "redirect:client/register/";
 		}
 		userServiceImp.insert(vo);		
-		return "redirect:/login/";
+		return "redirect:client/login/";
 	}
 	
 }

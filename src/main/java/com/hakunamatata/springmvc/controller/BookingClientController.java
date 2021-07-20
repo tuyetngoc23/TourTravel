@@ -52,7 +52,7 @@ public class BookingClientController {
 		Tour tourGet = tourservice.get(tour);
 		model.addAttribute("tour", tourGet);
 //		model.addAttribute("user", userGet);
-		return "booking";
+		return "client/booking";
 	}
 	
 	@PostMapping("")

@@ -8,14 +8,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HakunaMatata</title>
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
-	<script src="${pageContext.request.contextPath }/resources/client/vendor/jquery/jquery-1.12.4.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
+	<script src="${pageContext.request.contextPath }/vendor/jquery/jquery-1.12.4.min.js"></script>
+	<script src="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
     <style>
      header .home{
-    	background-image: url(${pageContext.request.contextPath }/resources/client/images/Home/Bg_home.png);
+    	background-image: url(${pageContext.request.contextPath }/images/Home/Bg_home.png);
     } 
         div {
             display: block;
@@ -222,16 +222,16 @@
 									<a class="nav-link" href="${pageContext.request.contextPath }/tour">TOUR</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">ABOUT</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/about">ABOUT</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="${pageContext.request.contextPath }/blog">BLOG</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">CONTACT</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/contact">CONTACT</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">SIGN IN</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/login">SIGN IN</a>
 								</li>	
 							</ul>
 						</div>
@@ -379,7 +379,7 @@
 									</div>
 									<div id="box">
 										<div id="imag">
-											<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}"><img class="size" src="${pageContext.request.contextPath }/resources/client/images/${tour.image}" /></a>
+											<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}"><img class="size" src="${pageContext.request.contextPath }/images/${tour.image}" /></a>
 										</div>
 										<div id="caption">
 											<div>
@@ -421,49 +421,6 @@
 	                       		Không Tìm Thấy Tour Phù Hợp
                    		</div>
                     </c:if>
-                   <%--  </c:choose> --%>
-                        <%-- <div id="list">
-							<form action="#">
-								<div class="wrap">
-									<div id="day">
-										<div id="ngay">01</div>
-										<div id="monyear">7/2021</div>
-									</div>
-									<div id="box">
-										<div id="imag">
-											<a href="#"><img class="size" src="${pageContext.request.contextPath }/resources/client/images/dalat2.jpg" /></a>
-										</div>
-										<div id="caption">
-											<div>
-												<a id="tourname" href="#"><strong>Du lịch - Tour Du Lịch - Grand World - Checkin dòng sông Venice - Vinwonders</strong></a>
-												<div>
-													<p id="datetime">
-														<span>Thời Gian</span>
-														<span>3 ngày 2 đêm</span>
-													</p>
-													<p id="datetime">
-														<span>Hotel : 3*</span>
-														<span>Phương Tiện: Tàu lửa</span>
-													</p>
-												</div> 
-											</div>
-											<div id="boxprice">
-												<div>
-													<span><strong>Số chỗ còn: </strong>
-													10 chỗ</span>
-												</div>
-												<p>
-													<span id="price">4.000.000VND</span>
-												</p>
-												<input id="book" type="submit" value="Đặt Tour" class="form-control"/>
-											</div>
-										</div>
-									</div>
-									
-								</div>
-							</form>
-                        </div> --%>
-						
                     </div>
                 </div>
             </div>
@@ -473,7 +430,7 @@
 	<!-- Start Footer -->
 	<footer id="contact">
 		<div class="map text-center">
-			<img src="${pageContext.request.contextPath }/resources/client/images/icon/location.png" alt="">
+			<img src="${pageContext.request.contextPath }/images/icon/location.png" alt="">
 			<p class="emphasized-phrase open-map">Open map</p>
 			<hr class="h-line mb-0">
 		</div>
@@ -527,7 +484,7 @@
 						<span class="title">Blogs</span>
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/songhuong.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/songhuong.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -542,7 +499,7 @@
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/cucangchai.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/cucangchai.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -557,7 +514,7 @@
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/deodatrang.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/deodatrang.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -575,9 +532,9 @@
 						<div class="container-xl">
 							<div class="row">
 								<div>
-									<img id="bct-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/Bo-Cong-Thuong.png" alt="">
+									<img id="bct-icon" src="${pageContext.request.contextPath }/images/footer/Bo-Cong-Thuong.png" alt="">
 									<br>
-									<img id="dm-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/dmca_logo.png" alt="">
+									<img id="dm-icon" src="${pageContext.request.contextPath }/images/footer/dmca_logo.png" alt="">
 								</div>		
 							</div>	
 						</div>
@@ -586,8 +543,8 @@
 						<div class="container-xl">
 							<div class="row">
 								<div>
-									<img id="momo-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/momo.png" alt="">
-									<img id="visa-icon"src="${pageContext.request.contextPath }/resources/client/images/footer/Visa-icon.png" alt="">
+									<img id="momo-icon" src="${pageContext.request.contextPath }/images/footer/momo.png" alt="">
+									<img id="visa-icon"src="${pageContext.request.contextPath }/images/footer/Visa-icon.png" alt="">
 								</div>		
 							</div>	
 						</div>

@@ -10,17 +10,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HakunaMatata</title>
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
-	<script src="${pageContext.request.contextPath }/resources/client/vendor/jquery/jquery-1.12.4.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
+	<script src="${pageContext.request.contextPath }/vendor/jquery/jquery-1.12.4.min.js"></script>
+	<script src="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 </head>
 <style>
 header .home{
-    	background-image: url(${pageContext.request.contextPath }/resources/client/images/Home/Bg_home.png);
+    	background-image: url(${pageContext.request.contextPath }/images/Home/Bg_home.png);
     } 
 	/* all */
 	main{
@@ -38,7 +38,7 @@ header .home{
 	}
 	.hero-banner{
 		position: relative;
-		background: url(${pageContext.request.contextPath }/resources/client/images/buonmathuat.jpg) left center no-repeat ;
+		background: url(${pageContext.request.contextPath }/images/buonmathuat.jpg) left center no-repeat ;
 		background-size: cover;
 		height: 400px;
 		z-index: 1;
@@ -248,16 +248,16 @@ header .home{
 									<a class="nav-link" href="${pageContext.request.contextPath }/tour">TOUR</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">ABOUT</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/about">ABOUT</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="${pageContext.request.contextPath }/blog">BLOG</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">CONTACT</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/contact">CONTACT</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">SIGN IN</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/login">SIGN IN</a>
 								</li>	
 							</ul>
 						</div>
@@ -335,7 +335,7 @@ header .home{
 						<c:forEach items="${ list}" var="blog">
 						<div class="single-recent-blog-post">
 							<div class="thumb">
-								<img class="img-fluid" src="${pageContext.request.contextPath }/resources/client/images/${blog.image}" alt="">
+								<img class="img-fluid" src="${pageContext.request.contextPath }/images/${blog.image}" alt="">
 								<ul class="thumb-info">
 									<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}"><i class="fas fa-user"></i>${blog.wname }</a></li>
 									<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}"><i class="fas fa-calendar-alt"></i><fmt:formatDate type="date" value="${blog.wdate}"/></a></li>
@@ -351,30 +351,6 @@ header .home{
 							</div>
 						</div>
 						</c:forEach>
-						<!-- <div class="row">
-							<div class="col-lg-12">
-								<nav class="blog-pagination justify-content-center d-flex">
-									<ul class="pagination">
-										<li class="page-item">
-											<a href="#" class="page-link" aria-label="Previous">
-												<span aria-hidden="true">
-													<i class="ti-angle-left"></i>
-												</span>
-											</a>
-										</li>
-										<li class="page-item active"><a href="#" class="page-link">1</a></li>
-										<li class="page-item"><a href="#" class="page-link">2</a></li>
-										<li class="page-item">
-											<a href="#" class="page-link" aria-label="Next">
-												<span aria-hidden="true">
-													<i class="ti-angle-right"></i>
-												</span>
-											</a>
-										</li>
-									</ul>
-								</nav>
-							</div>
-						</div> -->
 					</div>
 
 					<div class="col-lg-4 sidebar-widgets">
@@ -387,7 +363,7 @@ header .home{
 									<div class="single-post-list">
 										<div class="thumb">
 											<img class="card-img rounded-0"
-												src="${pageContext.request.contextPath }/resources/client/images/${blog1.image}" alt="">
+												src="${pageContext.request.contextPath }/images/${blog1.image}" alt="">
 											<ul class="thumb-info">
 												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}">${blog1.wname}</a></li>
 												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}"><fmt:formatDate type="date" value="${blog1.wdate}"/></a></li>
@@ -415,7 +391,7 @@ header .home{
 	<!-- Start Footer -->
 	<footer id="contact">
 		<div class="map text-center">
-			<img src="${pageContext.request.contextPath }/resources/client/images/icon/location.png" alt="">
+			<img src="${pageContext.request.contextPath }/images/icon/location.png" alt="">
 			<p class="emphasized-phrase open-map">Open map</p>
 			<hr class="h-line mb-0">
 		</div>
@@ -469,7 +445,7 @@ header .home{
 						<span class="title">Blogs</span>
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/songhuong.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/songhuong.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -484,7 +460,7 @@ header .home{
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/cucangchai.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/cucangchai.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -499,7 +475,7 @@ header .home{
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/deodatrang.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/deodatrang.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -517,9 +493,9 @@ header .home{
 						<div class="container-xl">
 							<div class="row">
 								<div>
-									<img id="bct-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/Bo-Cong-Thuong.png" alt="">
+									<img id="bct-icon" src="${pageContext.request.contextPath }/images/footer/Bo-Cong-Thuong.png" alt="">
 									<br>
-									<img id="dm-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/dmca_logo.png" alt="">
+									<img id="dm-icon" src="${pageContext.request.contextPath }/images/footer/dmca_logo.png" alt="">
 								</div>		
 							</div>	
 						</div>
@@ -528,8 +504,8 @@ header .home{
 						<div class="container-xl">
 							<div class="row">
 								<div>
-									<img id="momo-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/momo.png" alt="">
-									<img id="visa-icon"src="${pageContext.request.contextPath }/resources/client/images/footer/Visa-icon.png" alt="">
+									<img id="momo-icon" src="${pageContext.request.contextPath }/images/footer/momo.png" alt="">
+									<img id="visa-icon"src="${pageContext.request.contextPath }/images/footer/Visa-icon.png" alt="">
 								</div>		
 							</div>	
 						</div>

@@ -29,7 +29,7 @@ public class LoginController {
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
 	public String home(HttpServletRequest request, Locale locale, Model model) {
 		request.getSession().invalidate();
-		return "/login";
+		return "client/login";
 	}
 	
 	@RequestMapping(value = "/checkout", method = RequestMethod.POST)
@@ -39,7 +39,7 @@ public class LoginController {
 		vo.setPasswd(passwd);
 		UserTour user = userServiceImp.login(vo);
 		int role = 0;
-		String url = "redirect:/login/";
+		String url = "redirect:client/login/";
 		if(user!=null){
 			role = user.getUser_role().getId();
 			request.getSession().setAttribute("id", user.getId());
@@ -51,7 +51,7 @@ public class LoginController {
 		}
 		if(user!=null && role == 2) {
 			request.getSession().setAttribute("auth", "USER");
-			url = "redirect:/blog";
+			url = "redirect:client/blog";
 		}
 		return url;		
 	}

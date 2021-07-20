@@ -93,7 +93,7 @@ public class BlogDetailController {
 		model.addAttribute("commentList", commentList);
 		System.out.println(commentList);
 		
-		return "blogdetail";
+		return "client/blogdetail";
 	}
 	
 	@PostMapping({"", "/"})
@@ -108,16 +108,16 @@ public class BlogDetailController {
 		int idSession = 0;
 		HttpSession session = null;
 		if(request == null) {
-			return "login";
+			return "client/login";
 		}else {
 			session = request.getSession();
 		}
 		
 		if(session == null) {
-			return "login";
+			return "client/login";
 		}else {
 			if(session.getAttribute("id") == null) {
-				return "login";
+				return "client/login";
 			}else {
 				idSession = (int)session.getAttribute("id");
 				System.out.println(idSession);
@@ -125,7 +125,7 @@ public class BlogDetailController {
 		}
 		UserTour user = new UserTour();
 		if(idSession <= 0) {
-			return "login";
+			return "client/login";
 		}else {
 			
 			user.setId(idSession);
@@ -157,6 +157,6 @@ public class BlogDetailController {
 		
 		view(model, locale, id, request);
 		
-		return "blogdetail";
+		return "client/blogdetail";
 	}
 }

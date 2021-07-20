@@ -52,6 +52,6 @@ public class TourDetailController {
 		model.addAttribute("listPlace",listPlace);
 		System.out.println(listPlace);
 		
-		return "tourdetail";
+		return "client/tourdetail";
 	}
 }

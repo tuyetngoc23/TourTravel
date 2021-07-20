@@ -9,15 +9,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HakunaMatata</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
-    <script src="${pageContext.request.contextPath }/resources/client/vendor/jquery/jquery-1.12.4.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath }/vendor/jquery/jquery-1.12.4.min.js"></script>
+    <script src="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 </head>
 <style>
  header .home{
-    	background-image: url(${pageContext.request.contextPath }/resources/client/images/Home/Bg_home.png);
+    	background-image: url(${pageContext.request.contextPath }/images/Home/Bg_home.png);
     }  
     /* all */
     main{
@@ -39,7 +39,7 @@
 	}
 	.hero-banner{
 		position: relative;
-		background: url(${pageContext.request.contextPath }/resources/client/images/buonmathuat.jpg) left center no-repeat ;
+		background: url(${pageContext.request.contextPath }/images/buonmathuat.jpg) left center no-repeat ;
 		background-size: cover;
 		height: 400px;
 		z-index: 1;
@@ -391,7 +391,7 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="main_blog_details">
-                            <img class="img-fluid" src="${pageContext.request.contextPath }/resources/client/images/${getBlog.image}" alt=""
+                            <img class="img-fluid" src="${pageContext.request.contextPath }/images/${getBlog.image}" alt=""
                                 data-pagespeed-url-hash="611317301"
                                 onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                             <a href="#">
@@ -406,7 +406,7 @@
                                         </div>
                                         <div class="d-flex">
                                             <img width="42" height="42"
-                                                src="${pageContext.request.contextPath }/resources/client/images/people.png" alt=""
+                                                src="${pageContext.request.contextPath }/images/people.png" alt=""
                                                 data-pagespeed-url-hash="3261068328"
                                                 onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                                         </div>
@@ -440,7 +440,7 @@
                                     <div class="user justify-content-between d-flex">
                                         <div class="thumb">
                                         	<c:if test="${comment.usertour.avatar == null}">
-                                        		<img src="${pageContext.request.contextPath }/resources/client/images/people.png" alt=""
+                                        		<img src="${pageContext.request.contextPath }/images/people.png" alt=""
                                                 data-pagespeed-url-hash="323181169" >
                                         	</c:if>
                                         	<c:if test="${comment.usertour.avatar != null}">
@@ -464,7 +464,7 @@
                                 <div class="single-comment justify-content-between d-flex">
                                     <div class="user justify-content-between d-flex">
                                         <div class="thumb">
-                                            <img src="${pageContext.request.contextPath }/resources/client/images/people.png" alt=""
+                                            <img src="${pageContext.request.contextPath }/images/people.png" alt=""
                                                 data-pagespeed-url-hash="1501180853"
                                                 onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                                         </div>
@@ -504,7 +504,7 @@
 									<div class="single-post-list">
 										<div class="thumb">
 											<img class="card-img rounded-0"
-												src="${pageContext.request.contextPath }/resources/client/images/${blog1.image}" alt="">
+												src="${pageContext.request.contextPath }/images/${blog1.image}" alt="">
 											<ul class="thumb-info">
 												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}">${blog1.wname}</a></li>
 												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}"><fmt:formatDate type="date" value="${blog1.wdate}"/></a></li>
@@ -530,7 +530,7 @@
     <!-- Start Footer -->
 	<footer id="contact">
 		<div class="map text-center">
-			<img src="${pageContext.request.contextPath }/resources/client/images/icon/location.png" alt="">
+			<img src="${pageContext.request.contextPath }/images/icon/location.png" alt="">
 			<p class="emphasized-phrase open-map">Open map</p>
 			<hr class="h-line mb-0">
 		</div>
@@ -584,7 +584,7 @@
 						<span class="title">Blogs</span>
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/songhuong.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/songhuong.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -599,7 +599,7 @@
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/cucangchai.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/cucangchai.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -614,7 +614,7 @@
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/deodatrang.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/deodatrang.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -632,9 +632,9 @@
 						<div class="container-xl">
 							<div class="row">
 								<div>
-									<img id="bct-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/Bo-Cong-Thuong.png" alt="">
+									<img id="bct-icon" src="${pageContext.request.contextPath }/images/footer/Bo-Cong-Thuong.png" alt="">
 									<br>
-									<img id="dm-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/dmca_logo.png" alt="">
+									<img id="dm-icon" src="${pageContext.request.contextPath }/images/footer/dmca_logo.png" alt="">
 								</div>		
 							</div>	
 						</div>
@@ -643,8 +643,8 @@
 						<div class="container-xl">
 							<div class="row">
 								<div>
-									<img id="momo-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/momo.png" alt="">
-									<img id="visa-icon"src="${pageContext.request.contextPath }/resources/client/images/footer/Visa-icon.png" alt="">
+									<img id="momo-icon" src="${pageContext.request.contextPath }/images/footer/momo.png" alt="">
+									<img id="visa-icon"src="${pageContext.request.contextPath }/images/footer/Visa-icon.png" alt="">
 								</div>		
 							</div>	
 						</div>
