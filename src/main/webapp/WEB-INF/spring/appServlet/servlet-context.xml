@@ -14,7 +14,7 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
-	<resources location="/uploads/" mapping="/uploads/**"></resources>
+	<resources location="/uploads/" mapping="/uploads/**"/>
 	<resources mapping="/vendor/**" location="/resources/vendor/" />
 	<resources mapping="/css/**" location="/resources/css/" />
 	<resources mapping="/images/**" location="/resources/images/" />

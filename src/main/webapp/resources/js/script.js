@@ -7,8 +7,8 @@ $(function(){
 		/* Act on the event */
 		//Code chạy khi scroll chuột (kéo thanh cuộn dọc)
 		// console.log($(window).scrollTop());
-		console.log($("#sale").offset().top);
-		if ($(window).scrollTop() >= $("#sale").offset().top) {
+		console.log($("#quote").offset().top);
+		if ($(window).scrollTop() >= $("#quote").offset().top) {
 			//thêm cái class navbar-fixed-top vào cái menu
 			$("header .hakunamatata-menu").addClass('mogo-fixed-menu');
 			$("#home").addClass('body-dummy-padding-top');
