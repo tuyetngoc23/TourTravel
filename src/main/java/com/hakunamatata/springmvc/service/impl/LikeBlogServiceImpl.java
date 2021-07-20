@@ -1,10 +1,12 @@
 package com.hakunamatata.springmvc.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hakunamatata.springmvc.entity.Blog;
 import com.hakunamatata.springmvc.entity.LikeBlog;
 import com.hakunamatata.springmvc.repository.LikeBlogDAO;
 import com.hakunamatata.springmvc.service.LikeBlogService;
@@ -50,7 +52,7 @@ public class LikeBlogServiceImpl implements LikeBlogService{
 	}
 
 	@Override
-	public void UpdateLike(int vo) {
+	public void UpdateLike(Map<Object, Object> vo) {
 		// TODO Auto-generated method stub
 		dao.UpdateLike(vo);
 	}

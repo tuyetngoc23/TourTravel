@@ -367,8 +367,8 @@
                         
                     </div>
                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                      <c:choose>
-                      <c:when test="${listTourTest != null}">
+                      <%-- <c:choose> --%>
+                      <c:if test="${listTourTest != null}">
                     <c:forEach items="${listTourTest}" var="tour">
                     	<div id="list">
 							<form action="#">
@@ -415,13 +415,13 @@
 							</form>
                         </div>
                     </c:forEach>
-                    </c:when>
-                    <c:otherwise>
-                    <div class="alert alert-danger" role="alert">
-                       		Không tìm thấy tour phù hợp
-                    	</div>
-                    </c:otherwise>
-                    </c:choose>
+                    </c:if>
+                    <c:if  test="${listTourTest.size() <= 0}">
+	                    <div class="alert alert-danger" role="alert" >
+	                       		Không Tìm Thấy Tour Phù Hợp
+                   		</div>
+                    </c:if>
+                   <%--  </c:choose> --%>
                         <%-- <div id="list">
 							<form action="#">
 								<div class="wrap">

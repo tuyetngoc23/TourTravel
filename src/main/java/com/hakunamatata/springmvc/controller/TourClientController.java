@@ -77,6 +77,9 @@ public class TourClientController {
 		List<Department> departments = departmentService.list(null);
 		model.addAttribute("listDepartment", departments);
 		
+		List<Tour> listTourTest = service.list(null);
+		model.addAttribute("listTourTest", listTourTest);
+		
 		return "tour";
 	}
 	
@@ -106,6 +109,7 @@ public class TourClientController {
 		}
 
 		System.out.println("listTourTest" + listTourTest);
+		System.out.println("listTourTest" + listTourTest.size());
 		
 		return "tour";
 	}

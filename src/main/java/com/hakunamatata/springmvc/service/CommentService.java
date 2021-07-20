@@ -11,5 +11,6 @@ import com.hakunamatata.springmvc.entity.Comment;
  *
  */
 public interface CommentService extends ServiceInterface<Comment>{
-	List<Comment> listComment(int vo);
+	List<Comment> listComment(Comment vo);
+	List<Comment> listUserByBlogComment(int vo);
 }

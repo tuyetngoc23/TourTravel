@@ -5,15 +5,15 @@
 		<id property="id" column="id" />
 		<association property="blog" column="blog_id"
 			javaType="blog" select="Blog.selectOne"></association>
-		<!-- <association property="user" column="usertour_id"
-			javaType="user" select="UserTour.selectOne"></association> -->
+		<association property="usertour" column="usertour_id"
+			javaType="user" select="UserTour.selectOne"></association>
 	</resultMap>
 	
 	<insert id="insert">
-		INSERT INTO like_blog(blog_id) 
-		VALUES (#{blog.id})
+		INSERT INTO like_blog(blog_id, usertour_id) 
+		VALUES (#{blog.id}, #{usertour.id})
 	</insert>
-	<update id="updateBlog" >
-		UPDATE blog SET like_amount=#{like_amount}
+	<update id="updateBlog" parameterType="HashMap">
+		UPDATE blog SET like_amount=#{like_amount} WHERE blog.id = #{id}
 	</update>
 </mapper>

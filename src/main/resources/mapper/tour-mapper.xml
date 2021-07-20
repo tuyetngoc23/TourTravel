@@ -132,6 +132,7 @@
 			LEFT OUTER JOIN tour_place tp ON t.id = tp.tour_id
 			LEFT OUTER JOIN place p ON tp.place_id = p.id
 			LEFT OUTER JOIN province pro ON p.province_id = pro.id
+			ORDER BY  t.start_day asc
 
 	</select>
 	<select id="selectOne" parameterType="tour" resultMap="tourMap">
@@ -227,6 +228,7 @@
 		WHERE t.vehicle_id = #{vehicle_id} or t.cattour_id=#{cattour_id} or 
 				t.location_go=#{department_id} or t.hotel_id=#{hotel_id} or pro.id = #{pro_id}
 				or (t.price BETWEEN #{price1} AND #{price2}) or t.start_day=#{start_day}
+		ORDER BY  t.start_day asc
    </select>
 
 </mapper>

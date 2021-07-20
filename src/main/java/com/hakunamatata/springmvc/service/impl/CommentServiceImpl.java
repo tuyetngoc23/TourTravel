@@ -51,9 +51,15 @@ public class CommentServiceImpl implements CommentService{
 	}
 
 	@Override
-	public List<Comment> listComment(int vo) {
+	public List<Comment> listComment(Comment vo) {
 		// TODO Auto-generated method stub
 		return dao.listComment(vo);
+	}
+
+	@Override
+	public List<Comment> listUserByBlogComment(int vo) {
+		// TODO Auto-generated method stub
+		return dao.listUserByBlogComment(vo);
 	}
 
 }

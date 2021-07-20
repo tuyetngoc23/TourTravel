@@ -1,11 +1,13 @@
 package com.hakunamatata.springmvc.repository.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.hakunamatata.springmvc.entity.Blog;
 import com.hakunamatata.springmvc.entity.LikeBlog;
 import com.hakunamatata.springmvc.repository.LikeBlogDAO;
 
@@ -50,7 +52,7 @@ public class LikeBlogDAOImpl implements LikeBlogDAO{
 	}
 
 	@Override
-	public void UpdateLike(int vo) {
+	public void UpdateLike(Map<Object, Object> vo) {
 		// TODO Auto-generated method stub
 		session.update("LikeBlog.updateBlog", vo);
 	}

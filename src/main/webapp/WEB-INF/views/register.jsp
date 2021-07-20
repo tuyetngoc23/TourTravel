@@ -32,7 +32,7 @@
                 </div>
                 <h4>New here?</h4>
                 <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
-                <form class="pt-3" method= "post" action="add">
+                <form class="pt-3" method= "post" action="${pageContext.request.contextPath }/register/add">
                   <div class="form-group">
                   <label for="exampleInputEmail3">User name</label>
                     <input type="text" class="form-control form-control-lg" 
@@ -75,7 +75,7 @@
                    
                     <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
                   </div>
-                  <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="login.html" class="text-primary">Login</a>
+                  <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="${pageContext.request.contextPath }login/" class="text-primary">Login</a>
                   </div>
                 </form>
               </div>
