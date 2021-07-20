@@ -1,5 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page session="false"%>
+<%@ page import="java.util.List" %>
+
 
 <jsp:include page="header.jsp" />
 
@@ -17,84 +19,6 @@
 				<div class="col-md-12 col-lg-12">
 					<div id="owl-one" class="owl-carousel">
 						<!-- 1 -->
-						<div class="news-grid">
-							<a href="#">
-							<div class="news-grid-image"><img src="${pageContext.request.contextPath }/resources/client/images/FeaturedTour/buonmathuat.jpg" alt="">
-								<div class="news-grid-box">
-									<h1>05</h1>
-									<p>HCM</p>
-								</div>
-							</div>
-							<div class="news-grid-txt">
-								<div class="title">
-									<span>Tour: Buôn Ma Thuột
-									- Làng Cà Phê Trung</span>
-								</div>
-								<div class="text">
-									<p class="sale-time"> <i class="fa fa-clock"></i> 4 ngày 3 đêm</p>
-									<p class="sale-schedule"> <i class="fa fa-calendar"></i> 05/07/2021</p>
-									<p class="sale-place"> <i class="fa fa-user"></i> Còn 10 chỗ </p>
-									<div class="sale-discount">
-										<span class="sale-pre">4,499,000 đ</span>	
-										<span class="sale-dis">5,500,000 đ</span>
-									</div>																	
-								</div>
-							</div>
-							</a>
-						</div>
-						<!-- 2 -->
-						<div class="news-grid">
-							<a href="#">
-							<div class="news-grid-image"><img src="${pageContext.request.contextPath }/resources/client/images/FeaturedTour/buonmathuat.jpg" alt="">
-								<div class="news-grid-box">
-									<h1>05</h1>
-									<p>HCM</p>
-								</div>
-							</div>
-							<div class="news-grid-txt">
-								<div class="title">
-									<span>Tour: Buôn Ma Thuột
-									- Làng Cà Phê Trung</span>
-								</div>
-								<div class="text">
-									<p class="sale-time"> <i class="fa fa-clock"></i> 4 ngày 3 đêm</p>
-									<p class="sale-schedule"> <i class="fa fa-calendar"></i> 05/07/2021</p>
-									<p class="sale-place"> <i class="fa fa-user"></i> Còn 10 chỗ </p>
-									<div class="sale-discount">
-										<span class="sale-pre">4,499,000 đ</span>	
-										<span class="sale-dis">5,500,000 đ</span>
-									</div>																	
-								</div>
-							</div>
-							</a>
-						</div>
-						<!-- 3 -->
-						<div class="news-grid">
-							<a href="#">
-							<div class="news-grid-image"><img src="${pageContext.request.contextPath }/resources/client/images/FeaturedTour/buonmathuat.jpg" alt="">
-								<div class="news-grid-box">
-									<h1>05</h1>
-									<p>HCM</p>
-								</div>
-							</div>
-							<div class="news-grid-txt">
-								<div class="title">
-									<span>Tour: Buôn Ma Thuột
-									- Làng Cà Phê Trung</span>
-								</div>
-								<div class="text">
-									<p class="sale-time"> <i class="fa fa-clock"></i> 4 ngày 3 đêm</p>
-									<p class="sale-schedule"> <i class="fa fa-calendar"></i> 05/07/2021</p>
-									<p class="sale-place"> <i class="fa fa-user"></i> Còn 10 chỗ </p>
-									<div class="sale-discount">
-										<span class="sale-pre">4,499,000 đ</span>	
-										<span class="sale-dis">5,500,000 đ</span>
-									</div>																	
-								</div>
-							</div>
-							</a>
-						</div>
-						<!-- 4 -->
 						<div class="news-grid">
 							<a href="#">
 							<div class="news-grid-image"><img src="${pageContext.request.contextPath }/resources/client/images/FeaturedTour/buonmathuat.jpg" alt="">
