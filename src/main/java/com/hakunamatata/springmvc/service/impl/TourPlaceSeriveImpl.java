@@ -5,9 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hakunamatata.springmvc.entity.Place;
 import com.hakunamatata.springmvc.entity.TourPlace;
 import com.hakunamatata.springmvc.repository.TourPlaceDAO;
 import com.hakunamatata.springmvc.service.TourPlaceSerivce;
+
+/**
+ * @author Manh
+ * @author Huynh Thi Tuyet Ngoc
+ *
+ */
+
 @Service
 public class TourPlaceSeriveImpl implements TourPlaceSerivce {
 	@Autowired
@@ -52,6 +60,12 @@ public class TourPlaceSeriveImpl implements TourPlaceSerivce {
 	public void delete(List<TourPlace> list) {
 		dao.delete(list);
 		
+	}
+
+	@Override
+	public List<Place> getPlace(TourPlace vo) {
+		// TODO Auto-generated method stub
+		return dao.getPlace(vo);
 	}
 
 }

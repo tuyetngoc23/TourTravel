@@ -16,7 +16,10 @@
 		<typeAlias alias="tourplace" type="com.hakunamatata.springmvc.entity.TourPlace"/>
 		<typeAlias alias="tourdiscount" type="com.hakunamatata.springmvc.entity.TourDiscount"/>
 		<typeAlias alias="blog" type="com.hakunamatata.springmvc.entity.Blog"/> 
-		<typeAlias alias="user" type="com.hakunamatata.springmvc.entity.UserTour"/> 
+		<typeAlias alias="user" type="com.hakunamatata.springmvc.entity.UserTour"/>
+		<typeAlias alias="comment" type="com.hakunamatata.springmvc.entity.Comment"/> 
+		<typeAlias alias="likeblog" type="com.hakunamatata.springmvc.entity.LikeBlog"/>
+		<typeAlias alias="user_role" type="com.hakunamatata.springmvc.entity.UserRole"/>  
 
 	</typeAliases>		
 
@@ -36,6 +39,9 @@
 		<mapper resource="mapper/discount-mapper.xml"/>
 		<mapper resource="mapper/tour-place-mapper.xml"/>
 		<mapper resource="mapper/tour-discount-mapper.xml"/>
+		<mapper resource="mapper/comment-mapper.xml"/>
+		<mapper resource="mapper/likeblog-mapper.xml"/>
+		<mapper resource="mapper/role-mapper.xml"/>
 	</mappers>
 	
 </configuration>

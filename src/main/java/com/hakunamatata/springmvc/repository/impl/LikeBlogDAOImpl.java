@@ -6,46 +6,53 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.hakunamatata.springmvc.entity.UserTour;
-import com.hakunamatata.springmvc.repository.DAO;
+import com.hakunamatata.springmvc.entity.LikeBlog;
+import com.hakunamatata.springmvc.repository.LikeBlogDAO;
 
 /**
- * @author Hai Van
+ * @author Huynh Thi Tuyet Ngoc
  *
  */
 @Repository
-public class UserDAO implements DAO<UserTour> {
+public class LikeBlogDAOImpl implements LikeBlogDAO{
+	
 	@Autowired
 	private SqlSessionTemplate session;
 
 	@Override
-	public void insert(UserTour vo) {
+	public void insert(LikeBlog vo) {
 		// TODO Auto-generated method stub
-		session.insert("UserTour.insert", vo);		
+		session.insert("LikeBlog.insert", vo);
 	}
 
 	@Override
-	public void update(UserTour vo) {
+	public void update(LikeBlog vo) {
 		// TODO Auto-generated method stub
-		session.update("UserTour.update", vo);
+		
 	}
 
 	@Override
-	public void delete(UserTour vo) {
+	public void delete(LikeBlog vo) {
 		// TODO Auto-generated method stub
-		session.delete("UserTour.delete", vo);
+		
 	}
 
 	@Override
-	public UserTour get(UserTour vo) {
+	public LikeBlog get(LikeBlog vo) {
 		// TODO Auto-generated method stub
-		return (UserTour)session.selectOne("Blog.selectOne", vo);
+		return null;
 	}
 
 	@Override
-	public List<UserTour> list(UserTour vo) {
+	public List<LikeBlog> list(LikeBlog vo) {
 		// TODO Auto-generated method stub
-		return session.selectList("UserTour.selectList", vo);
+		return null;
+	}
+
+	@Override
+	public void UpdateLike(int vo) {
+		// TODO Auto-generated method stub
+		session.update("LikeBlog.updateBlog", vo);
 	}
 
 }

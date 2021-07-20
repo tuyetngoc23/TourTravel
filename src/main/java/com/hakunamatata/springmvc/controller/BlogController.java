@@ -1,5 +1,7 @@
 package com.hakunamatata.springmvc.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
 import java.util.Locale;
@@ -14,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.hakunamatata.springmvc.entity.Blog;
 import com.hakunamatata.springmvc.service.ServiceInterface;
+import com.hakunamatata.springmvc.utils.GetPathUtil;
 /**
  * @author Hai Van
  *
@@ -47,22 +50,23 @@ public class BlogController {
 	public String add(@RequestParam(value = "wdate1")Date date,MultipartFile uploadfile, Blog vo, Locale locale, Model model) {
 		vo.setWdate(date);
 		System.out.println(vo);
-//		if(!uploadfile.isEmpty()) {
-//			String fileName = uploadfile.getOriginalFilename();
-//			// realPath
-//			try {
-//				uploadfile.transferTo(
-//						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-place\\"
-//									+fileName)
-//				);
-//				vo.setImage(fileName);
-//
-//			} catch (IllegalStateException e) {
-//				e.printStackTrace();
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}
+		if(!uploadfile.isEmpty()) {
+			String fileName = uploadfile.getOriginalFilename();
+			GetPathUtil paths = new GetPathUtil();
+			// realPath
+			try {
+				uploadfile.transferTo(
+						new File(paths.getRuntimePath()+"\\uploads\\image-blog\\"
+									+fileName)
+				);
+				vo.setImage(fileName);
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		blogService.insert(vo);		
 		return "redirect:/admin/blog/";
 	}
@@ -79,24 +83,25 @@ public class BlogController {
 	public String update(@RequestParam(value="image1") String image, @RequestParam(value = "wdate1")Date date,MultipartFile uploadfile, Blog vo, Locale locale, Model model) {
 		vo.setWdate(date);
 		System.out.println(vo);
-//		if(!uploadfile.isEmpty()) {
-//			String fileName = uploadfile.getOriginalFilename();
-//			// realPath
-//			try {
-//				uploadfile.transferTo(
-//						new File("C:\\Users\\BaoBB\\git\\hakunamatata\\src\\main\\webapp\\uploads\\image-place\\"
-//									+fileName)
-//				);
-//				vo.setImage(fileName);
-//
-//			} catch (IllegalStateException e) {
-//				e.printStackTrace();
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}else {
-//		vo.setImage(image);
-//	}
+		if(!uploadfile.isEmpty()) {
+			String fileName = uploadfile.getOriginalFilename();
+			GetPathUtil paths = new GetPathUtil();
+			// realPath
+			try {
+				uploadfile.transferTo(
+						new File(paths.getRuntimePath()+"\\uploads\\image-place\\"
+									+fileName)
+				);
+				vo.setImage(fileName);
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else {
+		vo.setImage(image);
+	}
 		blogService.update(vo);		
 		return "redirect:/admin/blog/";
 	}
