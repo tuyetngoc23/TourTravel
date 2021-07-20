@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,24 +84,25 @@
 											<th>UnitPrice</th>
 
 
-											
+
 										</tr>
 									</thead>
 									<tbody>
 										<c:forEach var="ticket" items="${listTicket}">
-											
-												<tr>
-													<td>${ticket.id}</td>
-													<td>${ticket.book.id}</td>
-													<td>${ticket.name}</td>
-													<td>${ticket.email}</td>
-													<td>${ticket.ticket_code}</td>
-													<td>${ticket.phone}</td>
-													<td>${ticket.state}</td>
-													<td>${ticket.giveDate}</td>
-													<td>${ticket.unitprice}</td>
-												</tr>
-											
+
+											<tr>
+												<td>${ticket.id}</td>
+												<td>${ticket.book.id}</td>
+												<td>${ticket.name}</td>
+												<td>${ticket.email}</td>
+												<td>${ticket.ticket_code}</td>
+												<td>${ticket.phone}</td>
+												<td>${ticket.state}</td>
+												<td><fmt:formatDate pattern="yyyy-MM-dd"
+														value="${ticket.giveDate}" /></td>
+												<td>${ticket.unitprice}</td>
+											</tr>
+
 										</c:forEach>
 
 									</tbody>

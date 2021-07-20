@@ -36,7 +36,7 @@
               <a class="nav-link" data-toggle="collapse" href="#user" aria-expanded="false" aria-controls="user">
                 <span class="menu-title">User</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <i class="mdi mdi-account-multiple menu-icon"></i>
               </a>
               <div class="collapse" id="user">
                 <ul class="nav flex-column sub-menu">
@@ -50,7 +50,7 @@
               <a class="nav-link" data-toggle="collapse" href="#blog" aria-expanded="false" aria-controls="blog">
                 <span class="menu-title">Blog</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <i class="mdi mdi-blogger menu-icon"></i>
               </a>
               <div class="collapse" id="blog">
                 <ul class="nav flex-column sub-menu">
@@ -70,7 +70,7 @@
               <a class="nav-link" data-toggle="collapse" href="#tour" aria-expanded="false" aria-controls="tour">
                 <span class="menu-title">Tour</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <i class="mdi mdi-arrange-bring-forward menu-icon"></i>
               </a>
               <div class="collapse" id="tour">
                 <ul class="nav flex-column sub-menu">
@@ -84,7 +84,7 @@
               <a class="nav-link" data-toggle="collapse" href="#vehicle" aria-expanded="false" aria-controls="vehicle">
                 <span class="menu-title">Vehicle</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <i class="mdi mdi-bus menu-icon"></i>
               </a>
               <div class="collapse" id="vehicle">
                 <ul class="nav flex-column sub-menu">
@@ -98,7 +98,7 @@
               <a class="nav-link" data-toggle="collapse" href="#place" aria-expanded="false" aria-controls="place">
                 <span class="menu-title">Place</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <i class="mdi mdi-map-marker-radius menu-icon"></i>
               </a>
               <div class="collapse" id="place">
                 <ul class="nav flex-column sub-menu">
@@ -112,7 +112,7 @@
               <a class="nav-link" data-toggle="collapse" href="#hotel" aria-expanded="false" aria-controls="hotel">
                 <span class="menu-title">Hotel</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <i class="mdi mdi-hotel menu-icon"></i>
               </a>
               <div class="collapse" id="hotel">
                 <ul class="nav flex-column sub-menu">
@@ -125,7 +125,7 @@
               <a class="nav-link" data-toggle="collapse" href="#discount" aria-expanded="false" aria-controls="discount">
                 <span class="menu-title">Discount</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <i class="mdi mdi-script menu-icon"></i>
               </a>
               <div class="collapse" id="discount">
                 <ul class="nav flex-column sub-menu">
@@ -139,7 +139,7 @@
               <a class="nav-link" data-toggle="collapse" href="#department" aria-expanded="false" aria-controls="department">
                 <span class="menu-title">Department</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <i class="mdi mdi-weight menu-icon"></i>
               </a>
               <div class="collapse" id="department">
                 <ul class="nav flex-column sub-menu">

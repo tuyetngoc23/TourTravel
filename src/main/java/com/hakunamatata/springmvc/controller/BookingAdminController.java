@@ -35,10 +35,22 @@ public class BookingAdminController {
 	@GetMapping("ticket")
 	public String listTicket(@RequestParam("id") int book_id,Model model) {
 		List<Ticket> listTicket = ticketService.listTicketByBookId(book_id);
-		System.out.println(listTicket);
+//		System.out.println(listTicket);
 		model.addAttribute("listTicket", listTicket);
 		
 		return "admin/booking/ticketList";
+	}
+	@GetMapping("delete")
+	public String delete(@RequestParam("id") int book_id) {
+		List<Ticket> listTicket = ticketService.listTicketByBookId(book_id);
+		System.out.println(listTicket);
+		for(Ticket t : listTicket) {
+			ticketService.delete(t);
+		}
+		Book book = new Book();
+		book.setId(book_id);
+		bookService.delete(book);
+		return "redirect:/admin/booking";
 	}
 	
 }

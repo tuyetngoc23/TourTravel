@@ -88,28 +88,31 @@
 									</thead>
 									<tbody>
 										<c:forEach var="book" items="${listBook}">
-											
-												<tr>
-													<td>${book.id}</td>
-													<td>${book.usertour.cusname}</td>
-													<td><img
-														src="${pageContext.request.contextPath }/${initParam.urloadTour}/${book.usertour.avatar}"
-														alt="${book.usertour.cusname}" /></td>
-													<td>${book.tour.name}</td>
-													<td><img
-														src="${pageContext.request.contextPath }/${initParam.urloadTour}/${book.tour.image}"
-														alt="${book.tour.image}" /></td>
-													<td>${book.child_amount}</td>
-													<td>${book.aldult_amount}</td>
-													<td>${book.child_nho_amount}</td>
-													<td>${book.date}</td>
-													<td>
-														<a href="${pageContext.request.contextPath }/admin/booking/ticket?id=${book.id}" class="btn btn-gradient-info btn-sm mr-2" >Ticket</a>
-														<a type="button"
-														href="${pageContext.request.contextPath }/admin/booking/delete?id=${book.id}"
-														class="btn btn-gradient-danger btn-sm">Delete</a></td>
-												</tr>
-											
+
+											<tr>
+												<td>${book.id}</td>
+												<td>${book.usertour.cusname}</td>
+												<td><img
+													src="${pageContext.request.contextPath }/${initParam.urloadTour}/${book.usertour.avatar}"
+													alt="${book.usertour.cusname}" /></td>
+												<td>${book.tour.name}</td>
+												<td><img
+													src="${pageContext.request.contextPath }/${initParam.urloadTour}/${book.tour.image}"
+													alt="${book.tour.image}" /></td>
+												<td>${book.child_amount}</td>
+												<td>${book.aldult_amount}</td>
+												<td>${book.child_nho_amount}</td>
+												<td><fmt:formatDate pattern="yyyy-MM-dd"
+														value="${book.date}" />
+													</p></td>
+												<td><a
+													href="${pageContext.request.contextPath }/admin/booking/ticket?id=${book.id}"
+													class="btn btn-gradient-info btn-sm mr-2">Ticket</a> <a
+													type="button"
+													href="${pageContext.request.contextPath }/admin/booking/delete?id=${book.id}"
+													class="btn btn-gradient-danger btn-sm">Delete</a></td>
+											</tr>
+
 										</c:forEach>
 
 									</tbody>

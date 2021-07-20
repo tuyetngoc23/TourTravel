@@ -156,8 +156,8 @@
             <tbody>
               <tr>
                 <td><span id="price_nguoi_lon">${tour.price * 1}</span>đ</td>
-                <td ><span id="price_tre_em">${tour.price * 0.8}</span>đ</td>
-                <td ><span id="price_tre_nho">${tour.price * 0.4}</span>đ</td>
+                <td ><span id="price_tre_em">${(tour.price * 3) / 5}</span>đ</td>
+                <td ><span id="price_tre_nho">${(tour.price * 2) / 5}</span>đ</td>
               </tr>
             </tbody>
           </table>
