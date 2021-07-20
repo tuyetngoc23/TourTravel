@@ -42,10 +42,11 @@ public class LoginController {
 		if(user!=null){
 			role = user.getUser_role().getId();
 			request.getSession().setAttribute("id", user.getId());
+			System.out.print(user.getId());
 		}
 		if(user!=null && role == 1) {
 			request.getSession().setAttribute("auth", "ADMIN");
-			url = "redirect:/admin/department";
+			url = "redirect:/admin/dashboard";
 		}
 		if(user!=null && role == 2) {
 			request.getSession().setAttribute("auth", "USER");
