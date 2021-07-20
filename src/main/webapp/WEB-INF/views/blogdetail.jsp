@@ -428,7 +428,7 @@
 	                    <form action="${pageContext.request.contextPath }/blogdetail?id=${getBlog.id}" method="post">
 	                    	<div class="form-group" style="display: inline-block;">
 	                    		<input type="number" hidden="true" value="${getBlog.like_amount + 1}" name="amount"/>
-					            <input type="submit" value="Like" class="form-control">
+					            <input type="submit" value="Like" class="form-control"/>
 					      	</div>
 	                    </form>
 	                    
