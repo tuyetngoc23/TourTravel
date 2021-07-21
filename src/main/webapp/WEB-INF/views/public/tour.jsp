@@ -6,7 +6,7 @@
 <jsp:include page="header.jsp" />
    <style>
      header .home{
-    	background-image: url(${pageContext.request.contextPath }/resources/client/images/Home/Bg_home.png);
+    	background-image: url(${pageContext.request.contextPath }/images/Home/Bg_home.png);
     } 
         div {
             display: block;
@@ -191,6 +191,8 @@
     </style>
     
 	<main>
+	<!-- <div id="loader"></div>
+	<button onclick="topFunction()" id="myBtn" title="Go to top" class ="animation"><i class="fa fa-arrow-up" aria-hidden="true"></i></button> -->
         <section id="tour">
             <div class="container">
                 <div class="row">
@@ -280,7 +282,7 @@
 									</div>
 									<div id="box">
 										<div id="imag">
-											<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}"><img class="size" src="${pageContext.request.contextPath }/resources/client/images/${tour.image}" /></a>
+											<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}"><img class="size" src="${pageContext.request.contextPath }/images/${tour.image}" /></a>
 										</div>
 										<div id="caption">
 											<div>

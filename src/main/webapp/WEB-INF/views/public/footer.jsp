@@ -5,7 +5,7 @@
 	<footer class="footer" id="contact">
 		<a href="/hakunamatata/contact">
 			<div class="map text-center">
-				<img src="${pageContext.request.contextPath }/resources/client/images/marker/icon_marker.png" alt="">
+				<img src="${pageContext.request.contextPath }/images/marker/icon_marker.png" alt="">
 				<p class="emphasized-phrase open-map">Open map</p>
 				<hr class="h-line mb-0">
 			</div>
@@ -61,7 +61,7 @@
 						<span class="title">Blogs</span>
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/songhuong.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/songhuong.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -76,7 +76,7 @@
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/cucangchai.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/cucangchai.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -91,7 +91,7 @@
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/deodatrang.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/deodatrang.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -109,9 +109,9 @@
 						<div class="container-xl">
 							<div class="icons">
 								<div>
-									<img id="bct-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/Bo-Cong-Thuong.png" alt="">
+									<img id="bct-icon" src="${pageContext.request.contextPath }/images/footer/Bo-Cong-Thuong.png" alt="">
 									<br>
-									<img id="dm-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/dmca_logo.png" alt="">
+									<img id="dm-icon" src="${pageContext.request.contextPath }/images/footer/dmca_logo.png" alt="">
 								</div>		
 							</div>	
 						</div>
@@ -120,8 +120,8 @@
 						<div class="container-xl">
 							<div class="icons">
 								<div>
-									<img id="momo-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/momo.png" alt="">
-									<img id="visa-icon"src="${pageContext.request.contextPath }/resources/client/images/footer/Visa-icon.png" alt="">
+									<img id="momo-icon" src="${pageContext.request.contextPath }/images/footer/momo.png" alt="">
+									<img id="visa-icon"src="${pageContext.request.contextPath }/images/footer/Visa-icon.png" alt="">
 								</div>		
 							</div>	
 						</div>
@@ -150,7 +150,8 @@
 		</div>
 	</footer>
 	<!-- End footer -->
-	<script src="${pageContext.request.contextPath }/resources/client/js/script.js"></script>
+	<script src="${pageContext.request.contextPath }/js/script.js"></script>
+	<script src="${pageContext.request.contextPath }/js/loading-backtoup.js"></script>
 	<script>
     var slider = document.getElementById("myRange");
     var output1 = document.getElementById("demo");
