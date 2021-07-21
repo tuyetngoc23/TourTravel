@@ -51,4 +51,8 @@ SELECT tk.id AS tk_id,tk.book_id AS tk_book_id,tk.name AS tk_name,tk.email AS tk
 	state=#{state},giveDate={giveDate},unitprice=#{unitprice} 
 	where id=#{id}
 </update>
+<update id="updateState" parameterType="ticket">
+	Update ticket SET state= true 
+	where book_id=#{book.id}
+</update>
 </mapper>

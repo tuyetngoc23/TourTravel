@@ -89,7 +89,7 @@
                         <tr>
                           <td>${place.id}</td>
                           <td>${place.name}</td>
-                          <td>${place.province.name}</td>
+                          <td>${place.province.address}</td>
                           <td>${place.address}</td>
                           <td><img src="${pageContext.request.contextPath }/uploads/image-place/${place.image}"></td> 
                           <td>${place.description}</td>

@@ -48,4 +48,9 @@ public class TicketServiceImpl implements TicketService {
 		return dao.listTicketByBookId(id);
 	}
 
+	@Override
+	public void updateState(int book_id) {
+		dao.updateState(book_id);
+	}
+
 }

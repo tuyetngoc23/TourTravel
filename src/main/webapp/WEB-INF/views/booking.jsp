@@ -236,8 +236,8 @@
                   </div>
                   <input
                     class="tour__contact__input col-12"
-                    type="text"
-                    name="child_amount"
+                    type="number"
+                    name="aldult_amount"
                     value="1"
                     id="tour_nguoi_lon"
                   />
@@ -249,8 +249,8 @@
                   </div>
                   <input
                     class="tour__contact__input col-12"
-                    type="text"
-                    name="aldult_amount"
+                    type="number"
+                    name="child_amount"
                     value="0"
                     id="tour_tre_em"
                   />
@@ -262,7 +262,7 @@
                   </div>
                   <input
                     class="tour__contact__input col-12"
-                    type="text"
+                    type="number"
                     value="0"
                     name="child_nho_amount"
                     id="tour_tre_nho"
@@ -281,7 +281,7 @@
                     "
                     name="soluong"
                     value="1"
-                    type="text"
+                    type="number"
                     id="tour_so_luong"
                   />
                 </div>

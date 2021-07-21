@@ -1,24 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>    
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HakunaMatata</title>
-	<script src="${pageContext.request.contextPath }/vendor/jquery/jquery-1.12.4.min.js"></script>
-	<script src="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
-
-
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HakunaMatata</title>
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
+	<script src="${pageContext.request.contextPath }/resources/client/vendor/jquery/jquery-1.12.4.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/css/style.css">
 </head>
 <style>
     main {
@@ -110,11 +104,11 @@
     }
 
     .slider-bg2.slider-bg3 {
-        background-image: url(images/Cau-vang-Da-Nang-720x479.jpg);
+        background-image: url(${pageContext.request.contextPath }/resources/client/images/Cau-vang-Da-Nang-720x479.jpg);
     }
 
     .slider-bg2 {
-        background-image: url(images/Cau-vang-Da-Nang-720x479.jpg);
+        background-image: url(${pageContext.request.contextPath }/resources/client/images/Cau-vang-Da-Nang-720x479.jpg);
         background-repeat: no-repeat;
         background-position: top center;
         background-size: cover;
@@ -500,7 +494,7 @@
 	}
 </style>
 <body>
-    <header id="home">
+ <header id="home">
 		<div class="home">
 			<div class="hakunamatata-menu">
 				<div class="container-xl">
@@ -595,12 +589,12 @@
 			<div class="row1">
 				<div class="col-md-6 col-lg-6">
 					<div class="hero__caption hero__caption2  hero__caption3 text-center">
-						<h5 style="color:red;">XÃ¡c nháº­n thÃ´ng tin</h5>
+						<h5 style="color:red">XÁC NHẬN THÔNG TIN</h5>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-6">
 					<div class="hero__caption hero__caption2  hero__caption3 text-center">
-						<h5>Thanh toÃ¡n</h5>
+						<h5>THANH TOÁN</h5>
 					</div>
 				</div>
 			</div>
@@ -612,7 +606,7 @@
 				<div class="row justify-content-center">
 					<div class="col-xl-7 col-lg-7 col-md-7 col-sm-7">
 						<div class="hero__caption hero__caption2  hero__caption3 text-center">
-							<h4>Cáº£m Æ¡n quÃ½ khÃ¡ch ÄÃ£ sá»­ dá»¥ng dá»ch vá»¥ cá»§a chÃºng tÃ´i</h4>
+							<h4>CẢM ƠN QUÝ KHÁCH ĐÃ SỬ DỤNG DỊCH VỤ CỦA CHÚNG TÔI</h4>
 						</div>
 					</div>
 				</div>
@@ -623,60 +617,66 @@
 		<div class="container-xl">
 			<div class="row1">
 				<div class="col-md-6 col-lg-6">
-						<h2>XÃC NHáº¬N THÃNG TIN BOOK</h2>			
+						<h2>XÁC NHẬN THÔNG TIN BOOK</h2>
+					
+
 					<table id="t01">
 						<tr>
-							<th>TÃªn tour:</th>
-							<td>TÃªn tour</td>
+							<th>Tên tour:</th>
+							<td>${tour.name }</td>
 						</tr>
 						<tr>
-							<th>NgÃ y Äi:</th>
-							<td>NgÃ y Äi</td>
+							<th>Ngày đi:</th>
+							<td><fmt:formatDate value="${tour.start_day }" pattern="dd-MM-yyyy" /></td>
 						</tr>
 						<tr>
-							<th>NgÃ y vá»:</th>
-							<td>NgÃ y vá»</td>
+							<th>Ngày về:</th>
+							<td><fmt:formatDate value="${tour.end_day }" pattern="dd-MM-yyyy" /></td>
 						</tr>
 						<tr>
-							<th>NÆ¡i khá»i hÃ nh:</th>
-							<td>NÆ¡i khá»i hÃ nh</td>
+							<th>Nơi khởi hành:</th>
+							<td>${tour.department.address }</td>
 						</tr>
 						<tr>
-							<th>Sá» ngÆ°á»i lá»n:</th>
-							<td>Sá» ngÆ°á»i lá»n</td>
+							<th>Số người lớn:</th>
+							<td>${aldult_amount}</td>
 						</tr>
 						<tr>
-							<th>Sá» tráº» em:</th>
-							<td>Sá» tráº» em</td>
+							<th>Số trẻ em:</th>
+							<td>${child_amount}</td>
 						</tr>
 						<tr>
-							<th>Tá»ng sá» tiá»n:</th>
-							<td>Tá»ng sá» tiá»n</td>
+							<th>Số trẻ nhỏ:</th>
+							<td>${child_nho_amount}</td>
+						</tr>
+						<tr>
+							<th>Tổng số tiền:</th>
+							<td>${tour.price }</td>
 						</tr>
 					</table>
 				</div>
 				<div class="col-md-6 col-lg-6">
-					<h2>THÃNG TIN LIÃN Láº C</h2>			
+					<h2>THÔNG TIN LIÊN LẠC</h2>			
 				<table id="t01">
 					<tr>
-						<th>TÃªn:</th>
-						<td>TÃªn</td>
+						<th>Tên:</th>
+						<td>${user.cusname }</td>
 					</tr>
 					<tr>
-						<th>NgÃ y thÃ¡ng nÄm sinh:</th>
-						<td>NgÃ y thÃ¡ng nÄm sinh</td>
+						<th>Ngày tháng năm sinh:</th>
+						<td><fmt:formatDate value="${user.birthday }" pattern="dd-MM-yyyy" /></td>
 					</tr>
 					<tr>
-						<th>Sá» Äiá»n thoáº¡i:</th>
-						<td>Sá» Äiá»n thoáº¡i</td>
+						<th>Số điện thoại:</th>
+						<td>${user.phone }</td>
 					</tr>
 					<tr>
-						<th>Äá»a chá»:</th>
-						<td>Äá»a chá»</td>
+						<th>địa chỉ:</th>
+						<td>${user.address }</td>
 					</tr>
 					<tr>
 						<th>email:</th>
-						<td>email</td>
+						<td>${user.email }</td>
 					</tr>
 				</table>
 			</div>
@@ -687,29 +687,35 @@
 		<div class="container-xl">
 			<div class="row">
 				<div class="col-md-12 col-lg-12">
-						<h2 style="text-align: center;">DANH SÃCH KHÃCH HÃNG THAM GIA</h2>			
+				
+				
+						<h2 style="text-align: center;">DANH SÁCH KHÁCH HÀNG THAM GIA</h2>			
 					<table id="t02">
 						<tr>
-							<th>TÃªn</th>
-							<th>Äá» tuá»i</th>
-							<th>Giá»i tÃ­nh</th>
-							<th>Äá»a chá»</th>
-							<th>Giáº£m giÃ¡</th>
-							<th>Trá» giÃ¡</th>
+							<th>Tên</th>
+							<th>email</th>
+							<th>phone</th>
+							<th>Trị giá</th>
 						</tr>
+						<c:forEach var="ticket" items="${ticket}">
 						<tr>
-							<td>TÃªn</td>
-							<td>Äá» tuá»i</td>
-							<td>Giá»i tÃ­nh</td>
-							<td>Äá»a chá»</td>
-							<td>Giáº£m giÃ¡</td>
-							<td>Trá» giÃ¡</td>
+							<td>${ticket.name }</td>
+							<td>${ticket.email }</td>
+							<td>${ticket.phone }</td>
+							<td>${ticket.unitprice }</td>
 						</tr>
+						</c:forEach> 
 					</table>
+					
 				</div>
 			</div>
 		</div>
 	</div>
+					
+	
+	<form class="pt-3" method= "post" action="update">
+						<input type="hidden" value="${book_id}" name="book_id">							
+					<!--  	<input type="text" value="${tour_id}" name="tour_id">	-->	
 	<div class="social">
 		<div class="container-xl">
 			<div class="row1">
@@ -717,23 +723,22 @@
 					<div class="text-center">
 						<a href="">
 							<button type="button">
-								Trá» láº¡i
+								Trở lại
 							</button>
 						</a>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-6">
 					<div class="text-center">
-						<a href="">
-							<button type="button">
-								Thanh toÃ¡n
+						<button type="submit" name = "book_id"  value ="${book_id}">
+								Thanh toán
 							</button>
-						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	</form>
 
 
 
@@ -744,9 +749,9 @@
 					<div class="col-md-4 col-lg-4 subscribe-section">
 						<span class="emphasized-phrase footer-logo">Hakuna Matata</span>
 						<p class="desc">
-							LiÃªn há»: 89 Tráº§m VÄn DÆ°, Quáº­n TÃ¢n BÃ¬nh, Tp. HCM
+							Liên hệ: 89 Trầm Văn Dư, Quận Tân Bình, Tp. HCM
 						</p>
-						<p>135 Hai BÃ  TrÆ°ng, Báº¿n NghÃ©, Quáº­n 1, TP. HCM</p>
+						<p>135 Hai Bà Trưng, Bến Nghé, Quận 1, TP. HCM</p>
 						<br>
 						<p>Phone: 0902345678 or 0903040506</p>
 						<p>Fax: 277266255</p>
@@ -792,8 +797,8 @@
 							<div class="blog-box">
 								<p>
 									<a href="#" class="title">
-										SÃNG HÆ¯Æ NG ÄIá»M DU Lá»CH LÃ 
-										TÆ¯á»NG TRONG CHUYáº¾N DU Lá»CH HUáº¾
+										SÔNG HƯƠNG ĐIỂM DU LỊCH LÝ 
+										TƯỞNG TRONG CHUYẾN DU LỊCH HUẾ
 									</a>
 								</p>
 								<span class="blog-date">July 7, 2021</span>
@@ -807,8 +812,8 @@
 							<div class="blog-box">
 								<p>
 									<a href="#" class="title">
-										TOP 4 ÄIá»M DU Lá»CH TUYá»T Háº¢O á» 
-										MÃ CANG CHáº¢I KHÃNG NÃN Bá» QUA
+										TOP 4 ĐIỂM DU LỊCH TUYỆT HẢO Ở 
+										MÙ CANG CHẢI KHÔNG NÊN BỎ QUA
 									</a>
 								</p>
 								<span class="blog-date">July 3, 2021</span>
@@ -822,8 +827,8 @@
 							<div class="blog-box">
 								<p>
 									<a href="#" class="title">
-										THá»I ÄIá»M Äáº¸P NHáº¤T Äá» KHÃM PHÃ
-										ÄÃO ÄÃ TRáº®NG á» HÃA BÃNH
+										THỜI ĐIỂM ĐẸP NHẤT ĐỂ KHÁM PHÁ
+										ĐÈO ĐÁ TRẮNG Ở HÒA BÌNH
 									</a>
 								</p>
 								<span class="blog-date">July 3, 2021</span>
@@ -831,7 +836,7 @@
 						</div>
 					</div>
 					<div class="col-md-4 col-lg-4">
-						<span class="title">CHá»¨NG NHáº¬N</span>
+						<span class="title">CHỨNG NHẬN</span>
 						<div class="container-xl">
 							<div class="row">
 								<div>
@@ -842,7 +847,7 @@
 							</div>	
 						</div>
 						<br>
-						<span class="title">Cháº¥p nháº­n thanh toÃ¡n</span>
+						<span class="title">Chấp nhận thanh toán</span>
 						<div class="container-xl">
 							<div class="row">
 								<div>
@@ -868,7 +873,7 @@
 		<div class="copy-right text-center">
 			<div class="container-xl">
 				<hr>
-				<p class="title">Coyright Â© 2021 <a href="#">HakunaMatata Team</a></p>
+				<p class="title">Coyright © 2021 <a href="#">HakunaMatata Team</a></p>
 				<a href="javascript:void()" class="back-to-top">
 					<!-- <i class="fas fa-angle-up"></i> -->
 				</a>

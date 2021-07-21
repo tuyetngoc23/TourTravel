@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hakunamatata.springmvc.entity.Book;
 import com.hakunamatata.springmvc.entity.Ticket;
@@ -60,27 +61,27 @@ public class BookingClientController {
 	}
 	
 	@PostMapping("")
-	@ResponseBody
+	//@ResponseBody
 	public String booking(Book book,
+		@RequestParam(value = "child_nho_amount") int child_nho_amount,
+		@RequestParam(value = "child_amount") int child_amount,
+		@RequestParam(value = "aldult_amount") int aldult_amount,
 		@RequestParam(value = "tour_id") int tour_id,
 		@RequestParam(value = "user_id") int user_id,
 		@RequestParam(value = "soluong") int soluong,
 		@RequestParam(value = "tour_payment_type") int tour_payment_type,
 		HttpServletRequest request,
-		Model model,Locale locale) {
-//		System.out.println(book.toString());
+		Model model,Locale locale
+		,RedirectAttributes redirectAttributes) {
 		Tour tour = new Tour();
 		tour.setId(tour_id);
 		book.setTour(tour);
 		UserTour user = new UserTour();
 		user.setId(user_id);
 		book.setUsertour(user);
-		System.out.println(book);
+		//System.out.println(book);
 		bookservice.insert(book);
-		
 		Book bookIdMax = bookservice.getIdMax();
-		
-			
 		List<Ticket> listTiket = new ArrayList<Ticket>();
 		for(int i = 0; i<soluong;i++) {
 			Ticket ticket = new Ticket();
@@ -99,10 +100,13 @@ public class BookingClientController {
 			ticketService.insert(ticket);
 			listTiket.add(ticket);
 		}
-		 return "redirect:/payment";
-
-		
-		
+		System.out.println(aldult_amount+" "+child_amount+" "+child_nho_amount);
+		redirectAttributes.addAttribute("book_id", bookservice.getIdMax().getId());
+		redirectAttributes.addAttribute("tour_id", tour_id);
+		redirectAttributes.addAttribute("aldult_amount", aldult_amount);
+		redirectAttributes.addAttribute("child_amount", child_amount);
+		redirectAttributes.addAttribute("child_nho_amount", child_nho_amount);
+		return "redirect:/payment/";
 	}
 	
 }
