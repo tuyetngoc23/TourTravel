@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <ol class="breadcrumb">
-                    <li><a href="/" target="_self">Home</a></li>
+                    <li><a href="/hakunamatata/" target="_self">Home</a></li>
                     <li><span>/</span></li>
                     <li class="active"><span>About</span></li> 
                 </ol>

@@ -3,9 +3,9 @@
 
     	<!-- Start Footer -->
 	<footer class="footer" id="contact">
-		<a href="/hakunamatata/contact.html">
+		<a href="/hakunamatata/contact">
 			<div class="map text-center">
-				<img src="${pageContext.request.contextPath}/resources/client/images/marker/icon_marker.png" alt="">
+				<img src="${pageContext.request.contextPath }/resources/client/images/marker/icon_marker.png" alt="">
 				<p class="emphasized-phrase open-map">Open map</p>
 				<hr class="h-line mb-0">
 			</div>
@@ -150,6 +150,34 @@
 		</div>
 	</footer>
 	<!-- End footer -->
-	<script src="${pageContext.request.contextPath}/resources/client/js/script.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/client/js/script.js"></script>
+	<script>
+    var slider = document.getElementById("myRange");
+    var output1 = document.getElementById("demo");
+    output1.innerHTML = slider.value;
+
+    slider.oninput = function () {
+       var x = parseInt(this.value)
+        x = x.toLocaleString('vi', {style: 'currency', currency: 'VND'});
+        output1.innerHTML = x;
+    }
+    var slider = document.getElementById("myRange2");
+    var output = document.getElementById("demo2");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+        var x = parseInt(this.value)
+        x = x.toLocaleString('vi', {style: 'currency', currency: 'VND'});
+        output.innerHTML = x;
+    }
+    $(document).ready(function () {
+        $('.autoplay').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+        });
+    });
+	</script>
 </body>
 </html>

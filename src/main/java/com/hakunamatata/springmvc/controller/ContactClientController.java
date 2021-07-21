@@ -41,6 +41,6 @@ public class ContactClientController {
 	
 	@GetMapping({"", "/"})
 	public String view(Model model, Locale locale) {
-		return "contact";
+		return "public/contact";
 	}
 }

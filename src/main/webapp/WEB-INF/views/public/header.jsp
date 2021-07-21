@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix= "fmt"  %>
+<c:set var="app" value="${pageContext.request.contextPath }"></c:set>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +39,7 @@
 						<div class="collapse navbar-collapse" id="navbar-mogo-menu">
 							<ul class="navbar-nav menu-item ml-auto">
 								<li class="nav-item active">
-									<a class="nav-link" href="/hakunamatata/home"">HOME</a>
+									<a class="nav-link" href="/hakunamatata/">HOME</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="/hakunamatata/tour">TOUR</a>

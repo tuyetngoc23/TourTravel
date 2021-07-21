@@ -20,7 +20,7 @@ import com.hakunamatata.springmvc.service.impl.UserServiceImp;
  *
  */
 @Controller
-@RequestMapping("register")
+@RequestMapping("/register")
 public class registerController {
 	@Autowired
 	private UserServiceImp userServiceImp;
@@ -29,7 +29,7 @@ public class registerController {
 
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		return "register";
+		return "public/register";
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)

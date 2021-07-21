@@ -20,7 +20,7 @@ import com.hakunamatata.springmvc.service.impl.UserServiceImp;
  *
  */
 @Controller
-@RequestMapping("login")
+@RequestMapping("/login")
 public class LoginController {
 	@Autowired
 	private UserServiceImp userServiceImp;
@@ -29,7 +29,7 @@ public class LoginController {
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
 	public String home(HttpServletRequest request, Locale locale, Model model) {
 		request.getSession().invalidate();
-		return "/login";
+		return "public/login";
 	}
 	
 	@RequestMapping(value = "/checkout", method = RequestMethod.POST)

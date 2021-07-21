@@ -111,6 +111,6 @@ public class TourClientController {
 		System.out.println("listTourTest" + listTourTest);
 		System.out.println("listTourTest" + listTourTest.size());
 		
-		return "tour";
+		return "public/tour";
 	}
 }
