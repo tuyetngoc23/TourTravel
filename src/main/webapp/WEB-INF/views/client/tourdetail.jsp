@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/loading-toup.css">
 
 </head>
 <style>
@@ -838,4 +839,6 @@
             });
         });
     </script>
+    <script src="${pageContext.request.contextPath }/js/loading-backtoup.js"></script>
 </body>
+</html>

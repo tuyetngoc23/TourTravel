@@ -29,7 +29,7 @@
 /* Start Header */
 
 header .home {
-    /* background-image: linear-gradient(rgba(243,129,129,0.9), rgba(252,227,138,0.9)), url(//images/Home/Bg_home.png); */
+    background-image: linear-gradient(rgba(243,129,129,0.9), rgba(252,227,138,0.9)), url(//images/Home/Bg_home.png);
 	background-image: url(/images/Home/Bg_home.png);
     background-size: cover;
     background-repeat: no-repeat;

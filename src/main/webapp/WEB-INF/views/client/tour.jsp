@@ -13,10 +13,11 @@
 	<script src="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/loading-toup.css">
     <style>
-     header .home{
+      header .home{
     	background-image: url(${pageContext.request.contextPath }/images/Home/Bg_home.png);
-    } 
+    }  
         div {
             display: block;
         }
@@ -197,9 +198,12 @@
 		#book:hover{
 			background-color: #75c48d;
 		}
+		
     </style>
 </head>
-<body>
+<body onload="myFunction()" style="display:none;" id="myDiv" class="animate-bottom">
+	<div id="loader"></div>
+	<button onclick="topFunction()" id="myBtn" title="Go to top" class ="animation"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
 	<!-- Start Header -->
 	<header id="home">
 		<div class="home">
@@ -289,7 +293,8 @@
 		</div>	
 	</header>
 	<!-- End Header -->
-	<main>
+	
+	<main >
         <section id="tour">
             <div class="container">
                 <div class="row">
@@ -592,6 +597,9 @@
         x = x.toLocaleString('vi', {style: 'currency', currency: 'VND'});
         output.innerHTML = x;
     }
+    
+    
 </script>
+<script src="${pageContext.request.contextPath }/js/loading-backtoup.js"></script>
 </body>
 </html>

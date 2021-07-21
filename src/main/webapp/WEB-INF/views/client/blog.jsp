@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/loading-toup.css">
 </head>
 <style>
 header .home{
@@ -534,4 +535,6 @@ header .home{
 		</div>
 	</footer>
 	<!-- End footer -->
+	<script src="${pageContext.request.contextPath }/js/loading-backtoup.js"></script>
 </body>
+</html>
