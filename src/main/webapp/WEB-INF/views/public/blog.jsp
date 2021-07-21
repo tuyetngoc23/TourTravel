@@ -25,7 +25,7 @@ header .home{
 	}
 	.hero-banner{
 		position: relative;
-		background: url(${pageContext.request.contextPath }/resources/client/images/buonmathuat.jpg) left center no-repeat ;
+		background: url(${pageContext.request.contextPath }/images/buonmathuat.jpg) left center no-repeat ;
 		background-size: cover;
 		height: 400px;
 		z-index: 1;
@@ -232,7 +232,7 @@ header .home{
 						<c:forEach items="${ list}" var="blog">
 						<div class="single-recent-blog-post">
 							<div class="thumb">
-								<img class="img-fluid" src="${pageContext.request.contextPath }/resources/client/images/${blog.image}" alt="">
+								<img class="img-fluid" src="${pageContext.request.contextPath }/images/${blog.image}" alt="">
 								<ul class="thumb-info">
 									<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}"><i class="fas fa-user"></i>${blog.wname }</a></li>
 									<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}"><i class="fas fa-calendar-alt"></i><fmt:formatDate type="date" value="${blog.wdate}"/></a></li>
@@ -248,30 +248,7 @@ header .home{
 							</div>
 						</div>
 						</c:forEach>
-						<!-- <div class="row">
-							<div class="col-lg-12">
-								<nav class="blog-pagination justify-content-center d-flex">
-									<ul class="pagination">
-										<li class="page-item">
-											<a href="#" class="page-link" aria-label="Previous">
-												<span aria-hidden="true">
-													<i class="ti-angle-left"></i>
-												</span>
-											</a>
-										</li>
-										<li class="page-item active"><a href="#" class="page-link">1</a></li>
-										<li class="page-item"><a href="#" class="page-link">2</a></li>
-										<li class="page-item">
-											<a href="#" class="page-link" aria-label="Next">
-												<span aria-hidden="true">
-													<i class="ti-angle-right"></i>
-												</span>
-											</a>
-										</li>
-									</ul>
-								</nav>
-							</div>
-						</div> -->
+						
 					</div>
 
 					<div class="col-lg-4 sidebar-widgets">
@@ -284,7 +261,7 @@ header .home{
 									<div class="single-post-list">
 										<div class="thumb">
 											<img class="card-img rounded-0"
-												src="${pageContext.request.contextPath }/resources/client/images/${blog1.image}" alt="">
+												src="${pageContext.request.contextPath }/images/${blog1.image}" alt="">
 											<ul class="thumb-info">
 												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}">${blog1.wname}</a></li>
 												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}"><fmt:formatDate type="date" value="${blog1.wdate}"/></a></li>
