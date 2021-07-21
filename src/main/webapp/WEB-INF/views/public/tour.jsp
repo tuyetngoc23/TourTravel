@@ -194,6 +194,7 @@
             float:right;
 			margin-bottom: 5px;
         }
+       
 		#book:hover{
 			background-color: #75c48d;
 		}
@@ -222,16 +223,16 @@
 									<a class="nav-link" href="${pageContext.request.contextPath }/tour">TOUR</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">ABOUT</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/about">ABOUT</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="${pageContext.request.contextPath }/blog">BLOG</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">CONTACT</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/contact">CONTACT</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">SIGN IN</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/login">SIGN IN</a>
 								</li>	
 							</ul>
 						</div>
@@ -406,7 +407,9 @@
                                    					 <fmt:formatNumber value="${Nprice}" type="number" maxFractionDigits="3"/>
                                      				VND</span>
 												</p>
-												<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}" id="book" type="submit" class="form-control"> Đặt Tour</a>
+											
+												<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}" id="book" type="submit" class="form-control">Đặt Tour</a>
+		
 											</div>
 										</div>
 									</div>
@@ -421,49 +424,6 @@
 	                       		Không Tìm Thấy Tour Phù Hợp
                    		</div>
                     </c:if>
-                   <%--  </c:choose> --%>
-                        <%-- <div id="list">
-							<form action="#">
-								<div class="wrap">
-									<div id="day">
-										<div id="ngay">01</div>
-										<div id="monyear">7/2021</div>
-									</div>
-									<div id="box">
-										<div id="imag">
-											<a href="#"><img class="size" src="${pageContext.request.contextPath }/images/dalat2.jpg" /></a>
-										</div>
-										<div id="caption">
-											<div>
-												<a id="tourname" href="#"><strong>Du lịch - Tour Du Lịch - Grand World - Checkin dòng sông Venice - Vinwonders</strong></a>
-												<div>
-													<p id="datetime">
-														<span>Thời Gian</span>
-														<span>3 ngày 2 đêm</span>
-													</p>
-													<p id="datetime">
-														<span>Hotel : 3*</span>
-														<span>Phương Tiện: Tàu lửa</span>
-													</p>
-												</div> 
-											</div>
-											<div id="boxprice">
-												<div>
-													<span><strong>Số chỗ còn: </strong>
-													10 chỗ</span>
-												</div>
-												<p>
-													<span id="price">4.000.000VND</span>
-												</p>
-												<input id="book" type="submit" value="Đặt Tour" class="form-control"/>
-											</div>
-										</div>
-									</div>
-									
-								</div>
-							</form>
-                        </div> --%>
-						
                     </div>
                 </div>
             </div>

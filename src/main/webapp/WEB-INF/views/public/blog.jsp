@@ -7,7 +7,7 @@
 <jsp:include page="header.jsp" />
 <style>
 header .home{
-    	background-image: url(${pageContext.request.contextPath }/resources/client/images/Home/Bg_home.png);
+    	background-image: url(${pageContext.request.contextPath }/images/Home/Bg_home.png);
     } 
 	/* all */
 	main{
@@ -25,7 +25,7 @@ header .home{
 	}
 	.hero-banner{
 		position: relative;
-		background: url(${pageContext.request.contextPath }/resources/client/images/buonmathuat.jpg) left center no-repeat ;
+		background: url(${pageContext.request.contextPath }/images/buonmathuat.jpg) left center no-repeat ;
 		background-size: cover;
 		height: 400px;
 		z-index: 1;
@@ -232,7 +232,7 @@ header .home{
 						<c:forEach items="${ list}" var="blog">
 						<div class="single-recent-blog-post">
 							<div class="thumb">
-								<img class="img-fluid" src="${pageContext.request.contextPath }/resources/client/images/${blog.image}" alt="">
+								<img class="img-fluid" src="${pageContext.request.contextPath }/images/${blog.image}" alt="">
 								<ul class="thumb-info">
 									<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}"><i class="fas fa-user"></i>${blog.wname }</a></li>
 									<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}"><i class="fas fa-calendar-alt"></i><fmt:formatDate type="date" value="${blog.wdate}"/></a></li>
@@ -284,7 +284,7 @@ header .home{
 									<div class="single-post-list">
 										<div class="thumb">
 											<img class="card-img rounded-0"
-												src="${pageContext.request.contextPath }/resources/client/images/${blog1.image}" alt="">
+												src="${pageContext.request.contextPath }/images/${blog1.image}" alt="">
 											<ul class="thumb-info">
 												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}">${blog1.wname}</a></li>
 												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}"><fmt:formatDate type="date" value="${blog1.wdate}"/></a></li>
