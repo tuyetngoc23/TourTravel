@@ -35,12 +35,12 @@ import com.hakunamatata.springmvc.service.impl.PlaceService;
  *
  */
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/paysuccess")
 //doing
-public class HomeClientController {
+public class PaySuccessClientController {
 	
 	@GetMapping({"", "/"})
 	public String view(Model model, Locale locale) {
-		return "home";
+		return "public/paysuccess";
 	}
 }

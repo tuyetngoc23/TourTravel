@@ -80,7 +80,8 @@ public class TourClientController {
 		List<Tour> listTourTest = service.list(null);
 		model.addAttribute("listTourTest", listTourTest);
 		
-		return "client/tour";
+
+		return "public/tour";
 	}
 	
 	@PostMapping(value={"","/"})
@@ -111,6 +112,6 @@ public class TourClientController {
 		System.out.println("listTourTest" + listTourTest);
 		System.out.println("listTourTest" + listTourTest.size());
 		
-		return "client/tour";
+		return "public/tour";
 	}
 }
