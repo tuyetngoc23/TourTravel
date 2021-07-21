@@ -20,7 +20,7 @@
 /*Declare fonts*/
 @font-face {
 	font-family: KaushanScript-Regular;
-	src: url(fonts/KaushanScript-Regular.ttf);
+	src: url(../fonts/KaushanScript-Regular.ttf);
 }
 
 
@@ -29,8 +29,8 @@
 /* Start Header */
 
 header .home {
-    background-image: linear-gradient(rgba(243,129,129,0.9), rgba(252,227,138,0.9)), url(//images/Home/Bg_home.png);
-	background-image: url(/images/Home/Bg_home.png);
+    /* background-image: linear-gradient(rgba(243,129,129,0.9), rgba(252,227,138,0.9)), url(//images/Home/Bg_home.png); */
+	background-image: url(../images/Home/Bg_home.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -50,7 +50,7 @@ header .home-slide .creative-template {
 }
 
 header .home-slide .slogan {
-	font-family: "Kaushan Script";;
+	font-family: "Kaushan Script";
     font-size: 150px;
     color: #fff;
     text-transform: uppercase;
@@ -306,14 +306,14 @@ header .mogo-fixed-menu {
 }
 
 .quote .carousel-control-prev-icon {
-    background-image: url("/images/quote/arrowleft.png");
+    background-image: url("../images/quote/arrowleft.png");
     width: 22px;
     height: 32px;
     margin-right: 23px;
 }
 
 .quote .carousel-control-next-icon {
-    background-image: url("/images/quote/arrowright.png");
+    background-image: url("../images/quote/arrowright.png");
     width: 22px;
     height: 32px;
     margin-right: 23px;
@@ -343,7 +343,7 @@ img {
 /* Start Feature-tour */
 
 .Feature-tour {
-    background-image: url(/images/FeaturedTour/BG_featuredtour.png);
+    background-image: url(../images/FeaturedTour/BG_featuredtour.png);
     padding: 50px;
     margin-bottom: 40px;
 }
@@ -657,6 +657,13 @@ img {
 	}
 }
 
+/* hover */
+
+.destination .grid-item:hover {
+    box-shadow:   1px 4px 4px #26ccca;
+    transform: translateX(-3px) translateY(-3px);
+    transition: .5s;
+}
 
 
 /* End Favorite desination */
@@ -745,67 +752,72 @@ img {
 
 /* end partner */
 
-
  /* Start footer */
+
+ footer .map {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-image: url(../images/marker/Map_Marker.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 60px;
+}
+
+footer .map .open-map {
+    font-size: 24px;
+    color: #f38181;
+    margin-bottom: 14px;
+}
+
+footer .social {
+    padding-top: 45px;
+}
 
 .title {
     text-transform: uppercase;
+    font-weight: bold;
 }
 
- .blog-row {
+
+.blog-row {
      margin-top: 20px;
- }
- .blog-row img {
+}
+.blog-row img {
 	 width: 140px;
 	 height: 100px;
 	 margin-bottom: 29px;
 	 margin-right: 10px;
- }
+}
+
+.icons {
+    text-align: center;
+    padding-top: 20px;
+}
 
 #bct-icon {
 	width: 170px;
 	height: 70px;
- }
+}
 
- #dm-icon {
+#dm-icon {
 	width: 150px;
 	height: 50px;
- }
+}
 
- #momo-icon {
+#momo-icon {
 	width: 40px;
 	height: 40px;
- }
- #visa-icon {
+}
+#visa-icon {
 	width: 120px;
 	height: 40px;
- }
-
- /* end footer */
-
-/* Start Blog */
-.blog img {
-	width: 350px;
-	height: 250px;
-	border-radius: 5px;
 }
 
-.blog button {
-	display: inline-block;
-	text-align: center;
-	align-items: center;
-	border: 1px solid black; 
-	background-color: #95e1d3;
-	width: 300px;
-	height: 50px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 4px;
-    padding: 10px 20px;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    line-height: 22px;
+footer h3 {
+    color: red;
 }
+
 
 footer .back-to-top {
     display: inline-block;
@@ -847,4 +859,52 @@ footer .back-to-top.show {
     visibility: visible;
 }
 
+ /* end footer */
+
+/* Start Blog */
+.blog img {
+	width: 350px;
+	height: 250px;
+	border-radius: 5px;
+}
+
+.blog button {
+	display: inline-block;
+	text-align: center;
+	align-items: center;
+	border: 1px solid black; 
+	background-color: #95e1d3;
+	width: 300px;
+	height: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    line-height: 22px;
+}
+
+.blog a {
+    text-decoration: none;
+    color: black;
+}
+
+.blog h4 {
+    margin-top: 5px;
+}
+.blog a:hover img{
+    box-shadow:   1px 4px 4px black;
+    transform: translateX(-3px) translateY(-3px);
+    transition: .7s;
+}
+
 /* End Blog */
+
+
+
+/* *** About Page *** */
+.about h1 {
+    display: flex;
+    justify-content: center;
+}

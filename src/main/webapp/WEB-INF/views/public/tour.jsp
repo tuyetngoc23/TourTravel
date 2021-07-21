@@ -5,9 +5,9 @@
 
 <jsp:include page="header.jsp" />
    <style>
-     header .home{
+      header .home{
     	background-image: url(${pageContext.request.contextPath }/images/Home/Bg_home.png);
-    } 
+    }  
         div {
             display: block;
         }
