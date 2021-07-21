@@ -80,7 +80,7 @@ public class TourClientController {
 		List<Tour> listTourTest = service.list(null);
 		model.addAttribute("listTourTest", listTourTest);
 		
-		return "tour";
+		return "public/tour";
 	}
 	
 	@PostMapping(value={"","/"})
