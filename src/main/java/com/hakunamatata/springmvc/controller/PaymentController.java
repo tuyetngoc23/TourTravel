@@ -13,6 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PaymentController {
 	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
 	public String list(Locale locale, Model model) {
-		return "payment";
+		return "public/payment";
 	}
 }

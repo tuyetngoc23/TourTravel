@@ -100,7 +100,7 @@ public class BookingClientController {
 			ticketService.insert(ticket);
 			listTiket.add(ticket);
 		}
-		 return "redirect:/payment";
+		 return "redirect:public/payment";
 
 		
 		
