@@ -13,7 +13,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/css/booking.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/booking.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -168,7 +168,7 @@
         <div>
           <form action="booking" method="post" class="row">
             <input type="hidden" value="${tour.id}" name="tour_id">
-            <input type="hidden" value="1" name="user_id">
+            <input type="hidden" value="${user.id}" name="user_id">
             <input type="hidden" name="date" value="10/10/2021">
             <div class="col-6">
               <div>
@@ -178,7 +178,7 @@
                 class="tour__contact__input col-12"
                 type="text"
                 placeholder="Nhập họ tên"
-                value="${user.username}"
+                value="${user.cusname}"
               />
             </div>
             <div class="col-6">
@@ -369,7 +369,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="${pageContext.request.contextPath }/resources/client/js/booking.js"></script>
+    <script src="${pageContext.request.contextPath }/js/booking.js"></script>
   </body>
 </html>
     

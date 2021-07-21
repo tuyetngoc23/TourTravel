@@ -9,19 +9,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HakunaMatata</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
-    <script src="${pageContext.request.contextPath }/resources/client/vendor/jquery/jquery-1.12.4.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/client/css/slick.css" />
-    <script type="text/javascript" src="${pageContext.request.contextPath }/resources/client/js/slick.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath }/vendor/jquery/jquery-1.12.4.min.js"></script>
+    <script src="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/slick.css" />
+    <script type="text/javascript" src="${pageContext.request.contextPath }/js/slick.min.js"></script>
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 
 </head>
 <style>
 	  header .home{
-    	background-image: url(${pageContext.request.contextPath }/resources/client/images/Home/Bg_home.png);
+    	background-image: url(${pageContext.request.contextPath }/images/Home/Bg_home.png);
     }  
     main {
         font-family: "Roboto", sans-serif;
@@ -102,11 +102,11 @@
     }
 
     .slider-bg2.slider-bg3 {
-        background-image: url(${pageContext.request.contextPath }/resources/client/images/Cau-vang-Da-Nang-720x479.jpg);
+        background-image: url(${pageContext.request.contextPath }/images/Cau-vang-Da-Nang-720x479.jpg);
     }
 
     .slider-bg2 {
-        background-image: url(${pageContext.request.contextPath }/resources/client/images/Cau-vang-Da-Nang-720x479.jpg);
+        background-image: url(${pageContext.request.contextPath }/images/Cau-vang-Da-Nang-720x479.jpg);
         background-repeat: no-repeat;
         background-position: top center;
         background-size: cover;
@@ -587,7 +587,7 @@
                             <h2>Day:<%=i++%> ${listPlace.name }</h2>
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="${pageContext.request.contextPath }/resources/client/images/${listPlace.image}" alt="imgplace" style="width: 100%; height: 220px;"/>
+                                    <img src="${pageContext.request.contextPath }/images/${listPlace.image}" alt="imgplace" style="width: 100%; height: 220px;"/>
                                 </div>
                                 <div class="col-8">
                                     <p>${listPlace.description}</p>
@@ -622,7 +622,7 @@
 					<c:forEach items="${list }" var="tour">
                     <div class="single-cat mb-30">
                         <div class="cat-img">
-                            <img src="${pageContext.request.contextPath }/resources/client/images/${tour.image}" alt="">
+                            <img src="${pageContext.request.contextPath }/images/${tour.image}" alt="">
                         </div>
                         <div class="cat-cap">
                             <div class="pricing d-flex justify-content-between">
@@ -639,7 +639,7 @@
 					</c:forEach >
                     <div class="single-cat mb-30">
                         <div class="cat-img">
-                            <img src="${pageContext.request.contextPath }/resources/client/images/phuquoc.jpg" alt="">
+                            <img src="${pageContext.request.contextPath }/images/phuquoc.jpg" alt="">
                         </div>
                         <div class="cat-cap">
                             <div class="pricing d-flex justify-content-between">
@@ -652,7 +652,7 @@
 
                     <div class="single-cat mb-30">
                         <div class="cat-img">
-                            <img src="${pageContext.request.contextPath }/resources/client/images/nhatrang.jpg" alt="">
+                            <img src="${pageContext.request.contextPath }/images/nhatrang.jpg" alt="">
                         </div>
                         <div class="cat-cap">
                             <div class="pricing d-flex justify-content-between">
@@ -665,7 +665,7 @@
 
                     <div class="single-cat mb-30">
                         <div class="cat-img">
-                            <img src="${pageContext.request.contextPath }/resources/client/images/phanthiet.png" alt="">
+                            <img src="${pageContext.request.contextPath }/images/phanthiet.png" alt="">
                         </div>
                         <div class="cat-cap">
                             <div class="pricing d-flex justify-content-between">
@@ -684,7 +684,7 @@
     <!-- Start Footer -->
 	<footer id="contact">
 		<div class="map text-center">
-			<img src="${pageContext.request.contextPath }/resources/client/images/icon/location.png" alt="">
+			<img src="${pageContext.request.contextPath }/images/icon/location.png" alt="">
 			<p class="emphasized-phrase open-map">Open map</p>
 			<hr class="h-line mb-0">
 		</div>
@@ -738,7 +738,7 @@
 						<span class="title">Blogs</span>
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/songhuong.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/songhuong.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -753,7 +753,7 @@
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/cucangchai.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/cucangchai.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -768,7 +768,7 @@
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/deodatrang.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/deodatrang.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -786,9 +786,9 @@
 						<div class="container-xl">
 							<div class="row">
 								<div>
-									<img id="bct-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/Bo-Cong-Thuong.png" alt="">
+									<img id="bct-icon" src="${pageContext.request.contextPath }/images/footer/Bo-Cong-Thuong.png" alt="">
 									<br>
-									<img id="dm-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/dmca_logo.png" alt="">
+									<img id="dm-icon" src="${pageContext.request.contextPath }/images/footer/dmca_logo.png" alt="">
 								</div>		
 							</div>	
 						</div>
@@ -797,8 +797,8 @@
 						<div class="container-xl">
 							<div class="row">
 								<div>
-									<img id="momo-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/momo.png" alt="">
-									<img id="visa-icon"src="${pageContext.request.contextPath }/resources/client/images/footer/Visa-icon.png" alt="">
+									<img id="momo-icon" src="${pageContext.request.contextPath }/images/footer/momo.png" alt="">
+									<img id="visa-icon"src="${pageContext.request.contextPath }/images/footer/Visa-icon.png" alt="">
 								</div>		
 							</div>	
 						</div>

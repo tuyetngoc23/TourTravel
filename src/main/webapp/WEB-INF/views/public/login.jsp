@@ -39,6 +39,7 @@
                   <div class="form-group">
                     <input type="password" class="form-control form-control-lg" name="passwd" placeholder="Password">
                   </div>
+                  <input type="hidden" name="URL" value="${URL }">
                   <div class="mt-3">
                    
                     <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</button>
@@ -54,7 +55,7 @@
                     <button type="button" class="btn btn-block btn-facebook auth-form-btn">
                       <i class="mdi mdi-facebook mr-2"></i>Connect using facebook </button>
                   </div>
-                  <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="${pageContext.request.contextPath }/register" class="text-primary">Create</a>
+                  <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="${pageContext.request.contextPath }/register/" class="text-primary">Create</a>
                   </div>
                 </form>
               </div>

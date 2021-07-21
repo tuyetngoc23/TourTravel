@@ -787,7 +787,7 @@
 						<span class="title">Blogs</span>
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/songhuong.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/songhuong.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -802,7 +802,7 @@
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/cucangchai.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/cucangchai.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -817,7 +817,7 @@
 
 						<div class="d-flex blog-row">
 							<a href="#">
-								<img src="${pageContext.request.contextPath }/resources/client/images/footer/deodatrang.jpg" alt="">
+								<img src="${pageContext.request.contextPath }/images/footer/deodatrang.jpg" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
@@ -835,9 +835,9 @@
 						<div class="container-xl">
 							<div class="row">
 								<div>
-									<img id="bct-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/Bo-Cong-Thuong.png" alt="">
+									<img id="bct-icon" src="${pageContext.request.contextPath }/images/footer/Bo-Cong-Thuong.png" alt="">
 									<br>
-									<img id="dm-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/dmca_logo.png" alt="">
+									<img id="dm-icon" src="${pageContext.request.contextPath }/images/footer/dmca_logo.png" alt="">
 								</div>		
 							</div>	
 						</div>
@@ -846,8 +846,8 @@
 						<div class="container-xl">
 							<div class="row">
 								<div>
-									<img id="momo-icon" src="${pageContext.request.contextPath }/resources/client/images/footer/momo.png" alt="">
-									<img id="visa-icon"src="${pageContext.request.contextPath }/resources/client/images/footer/Visa-icon.png" alt="">
+									<img id="momo-icon" src="${pageContext.request.contextPath }/images/footer/momo.png" alt="">
+									<img id="visa-icon"src="${pageContext.request.contextPath }/images/footer/Visa-icon.png" alt="">
 								</div>		
 							</div>	
 						</div>

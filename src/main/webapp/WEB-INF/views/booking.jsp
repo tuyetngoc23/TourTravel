@@ -13,7 +13,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/css/booking.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/booking.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -369,7 +369,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="${pageContext.request.contextPath }/resources/client/js/booking.js"></script>
+    <script src="${pageContext.request.contextPath }/js/booking.js"></script>
   </body>
 </html>
     

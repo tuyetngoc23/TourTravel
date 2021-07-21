@@ -2,9 +2,24 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HakunaMatata</title>
+	<script src="${pageContext.request.contextPath }/vendor/jquery/jquery-1.12.4.min.js"></script>
+	<script src="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
 
-<jsp:include page="header.jsp" />
 
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
+</head>
 <style>
     main {
         font-family: "Roboto", sans-serif;
@@ -484,18 +499,108 @@
 		color: red;
 	}
 </style>
+<body>
+    <header id="home">
+		<div class="home">
+			<div class="hakunamatata-menu">
+				<div class="container-xl">
+					<nav class="navbar navbar-expand-lg navbar-dark p-0">
+						<a class="navbar-brand logo emphasized-phrase" href="#">
+							Hakuna Matata
+						</a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mogo-menu" aria-controls="navbar-mogo-menu" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
 
+						<div class="collapse navbar-collapse" id="navbar-mogo-menu">
+							<ul class="navbar-nav menu-item ml-auto">
+								<li class="nav-item active">
+									<a class="nav-link" href="#">HOME</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">TOUR</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">ABOUT</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">BLOG</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">CONTACT</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">SIGN IN</a>
+								</li>	
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+			<div class="home-slide text-center">
+				<div class="container-fluid">
+					<div id="home-slide" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item">
+								<h2 class="creative-template">Hakuna Matata</h2>
+								<h1 class="emphasized-phrase slogan">Enjoy<br>
+									your life
+								</h1>
+								<hr>
+							</div>
+							<div class="carousel-item">
+								<h2 class="creative-template">Hakuna Matata</h2>
+								<h1 class="emphasized-phrase slogan">Discover<br>
+									the Word
+								</h1>
+								<hr>
+							</div>
+							<div class="carousel-item active">
+								<h2 class="creative-template">Hakuna Matata</h2>
+								<h1 class="emphasized-phrase slogan">Invest in<br>
+									yourself
+								</h1>
+								<hr>
+							</div>
+						</div>
+						<div class="container-xl">
+							<div class="row carousel-indicators">
+								<div class="col-sm-4 col-md-4" data-target="#home-slide" data-slide-to="0">
+									<div class="carousel-box">
+										<hr id="hr-left">
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-4" data-target="#home-slide" data-slide-to="1">
+									<div class="carousel-box">
+										<hr id="hr-center">
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-4 active" data-target="#home-slide" data-slide-to="2">
+									<div class="carousel-box">
+										<hr id="hr-right">
+									</div>
+								</div>								
+							</div>
+						</div>
+					</div>
+				</div>			
+			</div>
+			
+			
+			
+		</div>	
+	</header>
 	<div class="social">
 		<div class="container-xl">
 			<div class="row1">
 				<div class="col-md-6 col-lg-6">
 					<div class="hero__caption hero__caption2  hero__caption3 text-center">
-						<h5 style="color:red;">Xác nhận thông tin</h5>
+						<h5 style="color:red;">XÃ¡c nháº­n thÃ´ng tin</h5>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-6">
 					<div class="hero__caption hero__caption2  hero__caption3 text-center">
-						<h5>Thanh toán</h5>
+						<h5>Thanh toÃ¡n</h5>
 					</div>
 				</div>
 			</div>
@@ -507,7 +612,7 @@
 				<div class="row justify-content-center">
 					<div class="col-xl-7 col-lg-7 col-md-7 col-sm-7">
 						<div class="hero__caption hero__caption2  hero__caption3 text-center">
-							<h4>Cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi</h4>
+							<h4>Cáº£m Æ¡n quÃ½ khÃ¡ch ÄÃ£ sá»­ dá»¥ng dá»ch vá»¥ cá»§a chÃºng tÃ´i</h4>
 						</div>
 					</div>
 				</div>
@@ -518,56 +623,56 @@
 		<div class="container-xl">
 			<div class="row1">
 				<div class="col-md-6 col-lg-6">
-						<h2>XÁC NHẬN THÔNG TIN BOOK</h2>			
+						<h2>XÃC NHáº¬N THÃNG TIN BOOK</h2>			
 					<table id="t01">
 						<tr>
-							<th>Tên tour:</th>
-							<td>Tên tour</td>
+							<th>TÃªn tour:</th>
+							<td>TÃªn tour</td>
 						</tr>
 						<tr>
-							<th>Ngày đi:</th>
-							<td>Ngày đi</td>
+							<th>NgÃ y Äi:</th>
+							<td>NgÃ y Äi</td>
 						</tr>
 						<tr>
-							<th>Ngày về:</th>
-							<td>Ngày về</td>
+							<th>NgÃ y vá»:</th>
+							<td>NgÃ y vá»</td>
 						</tr>
 						<tr>
-							<th>Nơi khởi hành:</th>
-							<td>Nơi khởi hành</td>
+							<th>NÆ¡i khá»i hÃ nh:</th>
+							<td>NÆ¡i khá»i hÃ nh</td>
 						</tr>
 						<tr>
-							<th>Số người lớn:</th>
-							<td>Số người lớn</td>
+							<th>Sá» ngÆ°á»i lá»n:</th>
+							<td>Sá» ngÆ°á»i lá»n</td>
 						</tr>
 						<tr>
-							<th>Số trẻ em:</th>
-							<td>Số trẻ em</td>
+							<th>Sá» tráº» em:</th>
+							<td>Sá» tráº» em</td>
 						</tr>
 						<tr>
-							<th>Tổng số tiền:</th>
-							<td>Tổng số tiền</td>
+							<th>Tá»ng sá» tiá»n:</th>
+							<td>Tá»ng sá» tiá»n</td>
 						</tr>
 					</table>
 				</div>
 				<div class="col-md-6 col-lg-6">
-					<h2>THÔNG TIN LIÊN LẠC</h2>			
+					<h2>THÃNG TIN LIÃN Láº C</h2>			
 				<table id="t01">
 					<tr>
-						<th>Tên:</th>
-						<td>Tên</td>
+						<th>TÃªn:</th>
+						<td>TÃªn</td>
 					</tr>
 					<tr>
-						<th>Ngày tháng năm sinh:</th>
-						<td>Ngày tháng năm sinh</td>
+						<th>NgÃ y thÃ¡ng nÄm sinh:</th>
+						<td>NgÃ y thÃ¡ng nÄm sinh</td>
 					</tr>
 					<tr>
-						<th>Số điện thoại:</th>
-						<td>Số điện thoại</td>
+						<th>Sá» Äiá»n thoáº¡i:</th>
+						<td>Sá» Äiá»n thoáº¡i</td>
 					</tr>
 					<tr>
-						<th>địa chỉ:</th>
-						<td>địa chỉ</td>
+						<th>Äá»a chá»:</th>
+						<td>Äá»a chá»</td>
 					</tr>
 					<tr>
 						<th>email:</th>
@@ -582,23 +687,23 @@
 		<div class="container-xl">
 			<div class="row">
 				<div class="col-md-12 col-lg-12">
-						<h2 style="text-align: center;">DANH SÁCH KHÁCH HÀNG THAM GIA</h2>			
+						<h2 style="text-align: center;">DANH SÃCH KHÃCH HÃNG THAM GIA</h2>			
 					<table id="t02">
 						<tr>
-							<th>Tên</th>
-							<th>Độ tuổi</th>
-							<th>Giới tính</th>
-							<th>Địa chỉ</th>
-							<th>Giảm giá</th>
-							<th>Trị giá</th>
+							<th>TÃªn</th>
+							<th>Äá» tuá»i</th>
+							<th>Giá»i tÃ­nh</th>
+							<th>Äá»a chá»</th>
+							<th>Giáº£m giÃ¡</th>
+							<th>Trá» giÃ¡</th>
 						</tr>
 						<tr>
-							<td>Tên</td>
-							<td>Độ tuổi</td>
-							<td>Giới tính</td>
-							<td>Địa chỉ</td>
-							<td>Giảm giá</td>
-							<td>Trị giá</td>
+							<td>TÃªn</td>
+							<td>Äá» tuá»i</td>
+							<td>Giá»i tÃ­nh</td>
+							<td>Äá»a chá»</td>
+							<td>Giáº£m giÃ¡</td>
+							<td>Trá» giÃ¡</td>
 						</tr>
 					</table>
 				</div>
@@ -612,7 +717,7 @@
 					<div class="text-center">
 						<a href="">
 							<button type="button">
-								Trở lại
+								Trá» láº¡i
 							</button>
 						</a>
 					</div>
@@ -621,7 +726,7 @@
 					<div class="text-center">
 						<a href="">
 							<button type="button">
-								Thanh toán
+								Thanh toÃ¡n
 							</button>
 						</a>
 					</div>
@@ -629,5 +734,146 @@
 			</div>
 		</div>
 	</div>
-	
-<jsp:include page="footer.jsp" />
+
+
+
+	<footer id="contact">
+		<div class="social">
+			<div class="container-xl">
+				<div class="row">
+					<div class="col-md-4 col-lg-4 subscribe-section">
+						<span class="emphasized-phrase footer-logo">Hakuna Matata</span>
+						<p class="desc">
+							LiÃªn há»: 89 Tráº§m VÄn DÆ°, Quáº­n TÃ¢n BÃ¬nh, Tp. HCM
+						</p>
+						<p>135 Hai BÃ  TrÆ°ng, Báº¿n NghÃ©, Quáº­n 1, TP. HCM</p>
+						<br>
+						<p>Phone: 0902345678 or 0903040506</p>
+						<p>Fax: 277266255</p>
+						<p>Email: hakunamatata@gmail.com</p>						
+						<span class="emphasized-phrase follower-number">25k</span>
+						<span class="title">followers</span>
+						<hr>
+						<p>
+							<span class="follow-us">Flow Us:</span> 
+							<a href="#">
+								<i class="fab fa-facebook"></i>
+							</a>
+							<a href="#">
+								<i class="fab fa-twitter"></i>
+							</a> 
+							<a href="#">
+								<i class="fab fa-instagram"></i>
+							</a>
+							<a href="#">
+								<i class="fab fa-pinterest"></i>
+							</a>
+							<a href="#">
+								<i class="fab fa-google"></i>
+							</a>
+							<a href="#">
+								<i class="fab fa-youtube"></i>
+							</a>
+						</p>
+						<form>
+							<div>
+								<input type="text" name="email" class="form-control" required="required" placeholder="Your Email">
+								<button type="submit" class="btn btn-primary emphasized-phrase">Subscribe</button>
+							</div>
+							
+						</form>
+					</div>
+					<div class="col-md-4 col-lg-4 blog-section">
+						<span class="title">Blogs</span>
+						<div class="d-flex blog-row">
+							<a href="#">
+								<img src="${pageContext.request.contextPath }/images/footer/songhuong.jpg" alt="">
+							</a>
+							<div class="blog-box">
+								<p>
+									<a href="#" class="title">
+										SÃNG HÆ¯Æ NG ÄIá»M DU Lá»CH LÃ 
+										TÆ¯á»NG TRONG CHUYáº¾N DU Lá»CH HUáº¾
+									</a>
+								</p>
+								<span class="blog-date">July 7, 2021</span>
+							</div>
+						</div>
+
+						<div class="d-flex blog-row">
+							<a href="#">
+								<img src="${pageContext.request.contextPath }/images/footer/cucangchai.jpg" alt="">
+							</a>
+							<div class="blog-box">
+								<p>
+									<a href="#" class="title">
+										TOP 4 ÄIá»M DU Lá»CH TUYá»T Háº¢O á» 
+										MÃ CANG CHáº¢I KHÃNG NÃN Bá» QUA
+									</a>
+								</p>
+								<span class="blog-date">July 3, 2021</span>
+							</div>
+						</div>
+
+						<div class="d-flex blog-row">
+							<a href="#">
+								<img src="${pageContext.request.contextPath }/images/footer/deodatrang.jpg" alt="">
+							</a>
+							<div class="blog-box">
+								<p>
+									<a href="#" class="title">
+										THá»I ÄIá»M Äáº¸P NHáº¤T Äá» KHÃM PHÃ
+										ÄÃO ÄÃ TRáº®NG á» HÃA BÃNH
+									</a>
+								</p>
+								<span class="blog-date">July 3, 2021</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-lg-4">
+						<span class="title">CHá»¨NG NHáº¬N</span>
+						<div class="container-xl">
+							<div class="row">
+								<div>
+									<img id="bct-icon" src="${pageContext.request.contextPath }/images/footer/Bo-Cong-Thuong.png" alt="">
+									<br>
+									<img id="dm-icon" src="${pageContext.request.contextPath }/images/footer/dmca_logo.png" alt="">
+								</div>		
+							</div>	
+						</div>
+						<br>
+						<span class="title">Cháº¥p nháº­n thanh toÃ¡n</span>
+						<div class="container-xl">
+							<div class="row">
+								<div>
+									<img id="momo-icon" src="${pageContext.request.contextPath }/images/footer/momo.png" alt="">
+									<img id="visa-icon"src="${pageContext.request.contextPath }/images/footer/Visa-icon.png" alt="">
+								</div>		
+							</div>	
+						</div>
+						<br>
+						<span class="title">HOT LINE</span>
+						<div class="container-xl">
+							<div class="row">
+								<div>
+									<h3>19001000</h3>
+								</div>		
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="copy-right text-center">
+			<div class="container-xl">
+				<hr>
+				<p class="title">Coyright Â© 2021 <a href="#">HakunaMatata Team</a></p>
+				<a href="javascript:void()" class="back-to-top">
+					<!-- <i class="fas fa-angle-up"></i> -->
+				</a>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
