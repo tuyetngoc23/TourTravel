@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,7 @@ import com.hakunamatata.springmvc.service.BookService;
 import com.hakunamatata.springmvc.service.TicketService;
 import com.hakunamatata.springmvc.service.TourService;
 import com.hakunamatata.springmvc.service.UserService;
+import com.hakunamatata.springmvc.service.impl.UserServiceImp;
 
 @Controller
 @RequestMapping("booking")
@@ -36,29 +38,31 @@ public class BookingClientController {
 	@Autowired
 	private TourService tourservice;
 	@Autowired
-	private UserService userService;
-	@Autowired
 	private  BookService bookservice;
 	@Autowired
 	private TicketService ticketService;
+	@Autowired
+	private UserServiceImp userServiceImp;
 	
 	@GetMapping("")
-	public String book(Model model,Locale locale) {
+	public String book(@RequestParam(value = "id") int id_tour ,HttpServletRequest request, Model model, Locale locale) {
 		Tour tour = new Tour();
-		tour.setId(1);
-	
-//		UserTour userGet =  	userService.get(user);
-		
+		tour.setId(id_tour);
+		HttpSession session = request.getSession();
+		Integer userId = (Integer)session.getAttribute("id");
+		UserTour vo = new UserTour();
+		vo.setId(userId.intValue());	
+		UserTour userr=	userServiceImp.get(vo);
+		model.addAttribute("user",userr);
 		Tour tourGet = tourservice.get(tour);
 		model.addAttribute("tour", tourGet);
-//		model.addAttribute("user", userGet);
 
-		return "public/booking";
+		return "booking";
 	}
 	
 	@PostMapping("")
 	@ResponseBody
-	public   ResponseEntity<List<Ticket>> booking(Book book,
+	public String booking(Book book,
 		@RequestParam(value = "tour_id") int tour_id,
 		@RequestParam(value = "user_id") int user_id,
 		@RequestParam(value = "soluong") int soluong,
@@ -72,7 +76,7 @@ public class BookingClientController {
 		UserTour user = new UserTour();
 		user.setId(user_id);
 		book.setUsertour(user);
-		
+		System.out.println(book);
 		bookservice.insert(book);
 		
 		Book bookIdMax = bookservice.getIdMax();
@@ -96,8 +100,8 @@ public class BookingClientController {
 			ticketService.insert(ticket);
 			listTiket.add(ticket);
 		}
-		 return new ResponseEntity<List<Ticket>>(listTiket, HttpStatus.OK);
-//		return "home";
+		 return "redirect:/payment";
+
 		
 		
 	}
