@@ -51,11 +51,11 @@ public class LoginController {
 			role = user.getUser_role().getId();
 			session.setAttribute("id", user.getId());
 			session.setAttribute("username", user.getUsername());
-			System.out.print(user.getId()+" "+user.getUsername());
+			System.out.println(user.getId()+" "+user.getUsername());
 		}
 		if(user!=null && role == 1) {
 			session.setAttribute("auth", "ADMIN");
-			url = "redirect:/admin/department";
+			url = "/admin/dashboard";
 		}
 		if(user!=null && role == 2) {
 			session.setAttribute("auth", "USER");

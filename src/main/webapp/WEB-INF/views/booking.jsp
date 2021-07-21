@@ -168,7 +168,7 @@
         <div>
           <form action="booking" method="post" class="row">
             <input type="hidden" value="${tour.id}" name="tour_id">
-            <input type="hidden" value="1" name="user_id">
+            <input type="hidden" value="${user.id}" name="user_id">
             <input type="hidden" name="date" value="10/10/2021">
             <div class="col-6">
               <div>
@@ -178,7 +178,7 @@
                 class="tour__contact__input col-12"
                 type="text"
                 placeholder="Nhập họ tên"
-                value="${user.username}"
+                value="${user.cusname}"
               />
             </div>
             <div class="col-6">

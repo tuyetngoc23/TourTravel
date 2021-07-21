@@ -1,28 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HakunaMatata</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
-    <script src="${pageContext.request.contextPath }/resources/client/vendor/jquery/jquery-1.12.4.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/client/css/slick.css" />
-    <script type="text/javascript" src="${pageContext.request.contextPath }/resources/client/js/slick.min.js"></script>
+	<script src="${pageContext.request.contextPath }/vendor/jquery/jquery-1.12.4.min.js"></script>
+	<script src="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/css/style.css">
 
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 </head>
 <style>
-	  header .home{
-    	background-image: url(${pageContext.request.contextPath }/resources/client/images/Home/Bg_home.png);
-    }  
     main {
         font-family: "Roboto", sans-serif;
         font-weight: normal;
@@ -70,11 +68,21 @@
         padding-left: 15px;
     }
 
+    /* .container {
+        max-width: 720px;
+        width: 100%;
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-right: auto;
+        margin-left: auto;
+    } */
+
     .justify-content-center {
         justify-content: center !important;
     }
 
     .row {
+		margin-top: 50px;
         display: flex;
         flex-wrap: wrap;
         margin-right: -15px;
@@ -102,18 +110,18 @@
     }
 
     .slider-bg2.slider-bg3 {
-        background-image: url(${pageContext.request.contextPath }/resources/client/images/Cau-vang-Da-Nang-720x479.jpg);
+        background-image: url(images/Cau-vang-Da-Nang-720x479.jpg);
     }
 
     .slider-bg2 {
-        background-image: url(${pageContext.request.contextPath }/resources/client/images/Cau-vang-Da-Nang-720x479.jpg);
+        background-image: url(images/Cau-vang-Da-Nang-720x479.jpg);
         background-repeat: no-repeat;
         background-position: top center;
         background-size: cover;
     }
 
     .slider-height3 {
-        height: 540px;
+        margin-top: 50px;
     }
 
     .align-items-center {
@@ -280,141 +288,153 @@
         -webkit-tap-highlight-color: transparent;
     }
 
-    /* Slider */
-    /* .slick-loading .slick-list {
-        background: #fff url('./ajax-loader.gif') center center no-repeat;
-    } */
+    .slick-prev {
+        left: -15px;
 
-    /* Icons */
-    @font-face {
-        font-family: 'slick';
-        font-weight: normal;
-        font-style: normal;
+        outline: medium none;
 
-        /* src: url('./fonts/slick.eot');
-        src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
-     */}
+        text-transform: none;
 
-    /* Arrows */
-    .slick-prev,
-    .slick-next {
-        font-size: 0;
-        line-height: 0;
+        overflow: visible;
 
-        position: absolute;
-        top: 50%;
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
 
         display: block;
+    }
 
-        width: 20px;
-        height: 20px;
+    .slick-arrow {
+        position: absolute;
+        border: 0;
         padding: 0;
-        -webkit-transform: translate(0, -50%);
-        -ms-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-
+        z-index: 2;
         cursor: pointer;
-
-        color: transparent;
-        border: none;
-        outline: none;
-        background: transparent;
-    }
-
-    .slick-prev:hover,
-    .slick-prev:focus,
-    .slick-next:hover,
-    .slick-next:focus {
-        color: transparent;
-        outline: none;
-        background: transparent;
-    }
-
-    .slick-prev:hover:before,
-    .slick-prev:focus:before,
-    .slick-next:hover:before,
-    .slick-next:focus:before {
-        opacity: 1;
-    }
-
-    .slick-prev.slick-disabled:before,
-    .slick-next.slick-disabled:before {
-        opacity: .25;
-    }
-
-    .slick-prev:before,
-    .slick-next:before {
-        font-family: 'slick';
-        font-size: 20px;
-        line-height: 1;
-        opacity: .75;
-        color: white;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-
-    .slick-prev {
-        left: -25px;
-    }
-
-    [dir='rtl'] .slick-prev {
-        right: -25px;
+        top: 50%;
+        transform: translateY(-50%);
         left: auto;
+        background: none;
     }
 
-    .slick-prev:before {
-        content: 'â';
+    button.slick-next {
+        right: -15px;
     }
 
-    [dir='rtl'] .slick-prev:before {
-        content: 'â';
+    .slick-list {
+        position: relative;
+
+        display: block;
+        overflow: hidden;
+
+        margin: 0;
+        padding: 0;
     }
 
-    .slick-next {
-        right: -25px;
+    .slick-list:focus {
+        outline: none;
     }
 
-    [dir='rtl'] .slick-next {
-        right: auto;
-        left: -25px;
+    .slick-list.dragging {
+        cursor: pointer;
+        cursor: hand;
     }
 
-    .slick-next:before {
-        content: 'â';
+    .slick-track {
+        position: relative;
+        top: 0;
+        left: 0;
+
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    [dir='rtl'] .slick-next:before {
-        content: 'â';
+    .slick-track:before,
+    .slick-track:after {
+        display: table;
+
+        content: '';
     }
 
-    /*  */
+    .slick-track:after {
+        clear: both;
+    }
 
+    .slick-loading .slick-track {
+        visibility: hidden;
+
+    }
+
+    .slick-slide {
+        display: none;
+        float: left;
+
+        height: 100%;
+        min-height: 1px;
+    }
+
+    [dir='rtl'] .slick-slide {
+        float: right;
+    }
+
+    .slick-slide img {
+        display: block;
+    }
+
+    .slick-slide.slick-loading img {
+        display: none;
+    }
+
+    .slick-slide.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized .slick-slide {
+        display: block;
+    }
+
+    .slick-loading .slick-slide {
+        visibility: hidden;
+    }
+
+    .slick-vertical .slick-slide {
+        display: block;
+
+        height: auto;
+
+        border: 1px solid transparent;
+    }
+
+    .slick-arrow.slick-hidden {
+        display: none;
+    }
     .single-cat {
-        width: 250px;
-        min-height: 284px;
-        margin: 5px;
+        -webkit-transition: all .4s ease-out 0s;
+        transition: all .4s ease-out 0s;
+        z-index: 1;
     }
-
     .mb-30 {
         margin-bottom: 30px;
     }
-
-    .single-cat .cat-img img {
-        width: 100%;
-        height:200px;
-
+    .single-cat .cat-img {
         overflow: hidden;
         border-radius: 5px 5px 0 0;
     }
-
-    .single-cat .cat-cap {
+    .single-cat .cat-img img {
+        width: 100%;
+        transform: scale(1);
+        transition: all .4s ease-out 0s;
+        vertical-align: middle;
+        border-style: none;
+    }
+    .single-cat .cat-cap{
         border-radius: 0 0 5px 5px;
         padding: 30px 20px 30px 23px;
         box-shadow: 0 10px 15px rgb(0 9 94 / 6%);
         transition: all .3s ease-out 0s;
     }
-
-    .cat-cap p {
+    .cat-cap p{
         color: #00095e;
         font-size: 14px;
         font-weight: 500;
@@ -422,10 +442,9 @@
         padding: 0;
         line-height: 1.4;
     }
-
-    .cat-cap p a {
+    .cat-cap p a{
         color: #7ea0ff;
-        background-color: rgba(126, 160, 255, .05);
+        background-color: rgba(126,160,255,.05);
         display: inline-block;
         font-weight: 500;
         line-height: 1;
@@ -438,31 +457,55 @@
         transition: all .3s ease-out 0s;
         text-decoration: none;
     }
-
-    .justify-content-between {
+    .justify-content-between{
         justify-content: space-between !important;
     }
-
-    .d-flex {
+    .d-flex{
         display: flex !important;
     }
-
-    .price {
+    .price{
         font-size: 22px;
         font-weight: 700;
         color: #7ea0ff;
         line-height: 1;
     }
+	#t01{
+		border-radius: 15px;
+		width: 100%;   
+		height: 300px; 
+  		background-color: #f1f1c1;
+	}
+	#t01 th {
+		padding: 10px;
+		width: 200px;
+  		text-align: left;
+	}
+	#t02{
+		width: 100%;   
+	}
+	#t02 *{
+		border: 1px solid black;
+		border-collapse: collapse;
+		text-align: center;
+	}
+	.row1 {
+		margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+	h2{
+		color: red;
+	}
 </style>
-
 <body>
-   <!-- Start Header -->
-	<header id="home">
+    <header id="home">
 		<div class="home">
 			<div class="hakunamatata-menu">
 				<div class="container-xl">
 					<nav class="navbar navbar-expand-lg navbar-dark p-0">
-						<a class="navbar-brand logo emphasized-phrase" href="${pageContext.request.contextPath }/">
+						<a class="navbar-brand logo emphasized-phrase" href="#">
 							Hakuna Matata
 						</a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mogo-menu" aria-controls="navbar-mogo-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -472,16 +515,16 @@
 						<div class="collapse navbar-collapse" id="navbar-mogo-menu">
 							<ul class="navbar-nav menu-item ml-auto">
 								<li class="nav-item active">
-									<a class="nav-link" href="${pageContext.request.contextPath }/">HOME</a>
+									<a class="nav-link" href="#">HOME</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="${pageContext.request.contextPath }/tour">TOUR</a>
+									<a class="nav-link" href="#">TOUR</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="#">ABOUT</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="${pageContext.request.contextPath }/blog">BLOG</a>
+									<a class="nav-link" href="#">BLOG</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="#">CONTACT</a>
@@ -524,17 +567,17 @@
 							<div class="row carousel-indicators">
 								<div class="col-sm-4 col-md-4" data-target="#home-slide" data-slide-to="0">
 									<div class="carousel-box">
-										<!-- <hr id="hr-left"> -->
+										<hr id="hr-left">
 									</div>
 								</div>
 								<div class="col-sm-4 col-md-4" data-target="#home-slide" data-slide-to="1">
 									<div class="carousel-box">
-										<!-- <hr id="hr-center"> -->
+										<hr id="hr-center">
 									</div>
 								</div>
 								<div class="col-sm-4 col-md-4 active" data-target="#home-slide" data-slide-to="2">
 									<div class="carousel-box">
-										<!-- <hr id="hr-right"> -->
+										<hr id="hr-right">
 									</div>
 								</div>								
 							</div>
@@ -542,162 +585,168 @@
 					</div>
 				</div>			
 			</div>
+			
+			
+			
 		</div>	
 	</header>
-	<!-- End Header -->
-    <div style="clear: both;"></div>
-    <main>
-        <div class="slider-area">
-            <div class="single-slider slider-height3 slider-bg2 slider-bg3 d-flex align-items-center ">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7">
-                            <div class="hero__caption hero__caption2  hero__caption3 text-center">
-                                <h2>${getTour.name }</h2>
-                                <div class="cat-cap">
-                                    <p><a href="#"><fmt:formatDate type="date" value="${getTour.start_day}" pattern="dd/MM"/> 
-                                    - <fmt:formatDate type="date" value="${getTour.end_day}" pattern="dd/MM"/></a>
-                                    ${getTour.department.address}</p>
-                                    <span class="price">
-                                    <fmt:parseNumber type="number" integerOnly="true" value="${getTour.price }" var="Nprice"/>
-                                    <fmt:formatNumber value="${Nprice}" type="number" maxFractionDigits="3"/>
-                                   VND</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-		
-        <div class="shedule-area section-padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10 com-sm-11">
-	                    <div class="shedule-time mb-45 ">
-	                    	<h2>Thông Tin</h2>
-	                    	 <p>${getTour.content }</p>
-	                    </div>
-	                     <div class="shedule-time mb-45 text-center">
-	                    	<h2>Lịch Trình</h2>
-	                    </div>
-	                    <% int i=1; %>
-	                    <c:forEach items="${listPlace}" var="listPlace">
-                        <div class="shedule-time mb-45 ">
-                            <h2>Day:<%=i++%> ${listPlace.name }</h2>
-                            <div class="row">
-                                <div class="col-4">
-                                    <img src="${pageContext.request.contextPath }/resources/client/images/${listPlace.image}" alt="imgplace" style="width: 100%; height: 220px;"/>
-                                </div>
-                                <div class="col-8">
-                                    <p>${listPlace.description}</p>
-                                </div>
-                            </div>
-                        </div>
-                         </c:forEach>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="details-btn text-center mt-40">
-                            <a href="${pageContext.request.contextPath }/booking?id=${getTour.id}" class="about-btn">Đặt Ngay</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <section class="services-section section-padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-5">
-
-                        <div class="section-tittle text-center mb-45 ">
-                            <!-- <span>Check our best promotional tour</span> -->
-                            <h2>Gợi Ý Tour</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class=" slider autoplay ">
-					<c:forEach items="${list }" var="tour">
-                    <div class="single-cat mb-30">
-                        <div class="cat-img">
-                            <img src="${pageContext.request.contextPath }/resources/client/images/${tour.image}" alt="">
-                        </div>
-                        <div class="cat-cap">
-                            <div class="pricing d-flex justify-content-between">
-                                <h3><a href="events_details.html"> ${tour.name }</a></h3>
-                                <span class="price">
-								<fmt:parseNumber type="number" integerOnly="true" value="${tour.price }" var="Nprice"/>
-                                  <fmt:formatNumber value="${Nprice}" type="number" maxFractionDigits="3"/>
-                              	VND</span>
-                            </div>
-                            <p><a href="#"><fmt:formatDate type="date" value="${getTour.start_day}" pattern="dd/MM"/> 
-                                    - <fmt:formatDate type="date" value="${getTour.end_day}" pattern="dd/MM"/></a></p>
-                        </div>
-                    </div>
-					</c:forEach >
-                    <div class="single-cat mb-30">
-                        <div class="cat-img">
-                            <img src="${pageContext.request.contextPath }/resources/client/images/phuquoc.jpg" alt="">
-                        </div>
-                        <div class="cat-cap">
-                            <div class="pricing d-flex justify-content-between">
-                                <h3> <a href="events_details.html"> Finlande </a></h3>
-                                <span class="price">$1200</span>
-                            </div>
-                            <p><a href="#">12 Jan - 18 Jan</a>5 Days</p>
-                        </div>
-                    </div>
-
-                    <div class="single-cat mb-30">
-                        <div class="cat-img">
-                            <img src="${pageContext.request.contextPath }/resources/client/images/nhatrang.jpg" alt="">
-                        </div>
-                        <div class="cat-cap">
-                            <div class="pricing d-flex justify-content-between">
-                                <h3> <a href="events_details.html"> Spitzberg </a></h3>
-                                <span class="price">$1200</span>
-                            </div>
-                            <p><a href="#">12 Jan - 18 Jan</a>5 Days</p>
-                        </div>
-                    </div>
-
-                    <div class="single-cat mb-30">
-                        <div class="cat-img">
-                            <img src="${pageContext.request.contextPath }/resources/client/images/phanthiet.png" alt="">
-                        </div>
-                        <div class="cat-cap">
-                            <div class="pricing d-flex justify-content-between">
-                                <h3> <a href="events_details.html"> Mega Turkey </a></h3>
-                                <span class="price">$1200</span>
-                            </div>
-                            <p><a href="#">12 Jan - 18 Jan</a>5 Days</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    </main>
-    <div style="clear: both;"></div>
-    <!-- Start Footer -->
-	<footer id="contact">
-		<div class="map text-center">
-			<img src="${pageContext.request.contextPath }/resources/client/images/icon/location.png" alt="">
-			<p class="emphasized-phrase open-map">Open map</p>
-			<hr class="h-line mb-0">
+	<div class="social">
+		<div class="container-xl">
+			<div class="row1">
+				<div class="col-md-6 col-lg-6">
+					<div class="hero__caption hero__caption2  hero__caption3 text-center">
+						<h5 style="color:red;">XÃ¡c nháº­n thÃ´ng tin</h5>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6">
+					<div class="hero__caption hero__caption2  hero__caption3 text-center">
+						<h5>Thanh toÃ¡n</h5>
+					</div>
+				</div>
+			</div>
 		</div>
+	</div>
+	<div class="slider-area">
+		<div class="single-slider slider-height3 slider-bg2 slider-bg3 d-flex align-items-center ">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-xl-7 col-lg-7 col-md-7 col-sm-7">
+						<div class="hero__caption hero__caption2  hero__caption3 text-center">
+							<h4>Cáº£m Æ¡n quÃ½ khÃ¡ch ÄÃ£ sá»­ dá»¥ng dá»ch vá»¥ cá»§a chÃºng tÃ´i</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="social">
+		<div class="container-xl">
+			<div class="row1">
+				<div class="col-md-6 col-lg-6">
+						<h2>XÃC NHáº¬N THÃNG TIN BOOK</h2>			
+					<table id="t01">
+						<tr>
+							<th>TÃªn tour:</th>
+							<td>TÃªn tour</td>
+						</tr>
+						<tr>
+							<th>NgÃ y Äi:</th>
+							<td>NgÃ y Äi</td>
+						</tr>
+						<tr>
+							<th>NgÃ y vá»:</th>
+							<td>NgÃ y vá»</td>
+						</tr>
+						<tr>
+							<th>NÆ¡i khá»i hÃ nh:</th>
+							<td>NÆ¡i khá»i hÃ nh</td>
+						</tr>
+						<tr>
+							<th>Sá» ngÆ°á»i lá»n:</th>
+							<td>Sá» ngÆ°á»i lá»n</td>
+						</tr>
+						<tr>
+							<th>Sá» tráº» em:</th>
+							<td>Sá» tráº» em</td>
+						</tr>
+						<tr>
+							<th>Tá»ng sá» tiá»n:</th>
+							<td>Tá»ng sá» tiá»n</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-md-6 col-lg-6">
+					<h2>THÃNG TIN LIÃN Láº C</h2>			
+				<table id="t01">
+					<tr>
+						<th>TÃªn:</th>
+						<td>TÃªn</td>
+					</tr>
+					<tr>
+						<th>NgÃ y thÃ¡ng nÄm sinh:</th>
+						<td>NgÃ y thÃ¡ng nÄm sinh</td>
+					</tr>
+					<tr>
+						<th>Sá» Äiá»n thoáº¡i:</th>
+						<td>Sá» Äiá»n thoáº¡i</td>
+					</tr>
+					<tr>
+						<th>Äá»a chá»:</th>
+						<td>Äá»a chá»</td>
+					</tr>
+					<tr>
+						<th>email:</th>
+						<td>email</td>
+					</tr>
+				</table>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div class="social">
+		<div class="container-xl">
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+						<h2 style="text-align: center;">DANH SÃCH KHÃCH HÃNG THAM GIA</h2>			
+					<table id="t02">
+						<tr>
+							<th>TÃªn</th>
+							<th>Äá» tuá»i</th>
+							<th>Giá»i tÃ­nh</th>
+							<th>Äá»a chá»</th>
+							<th>Giáº£m giÃ¡</th>
+							<th>Trá» giÃ¡</th>
+						</tr>
+						<tr>
+							<td>TÃªn</td>
+							<td>Äá» tuá»i</td>
+							<td>Giá»i tÃ­nh</td>
+							<td>Äá»a chá»</td>
+							<td>Giáº£m giÃ¡</td>
+							<td>Trá» giÃ¡</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="social">
+		<div class="container-xl">
+			<div class="row1">
+				<div class="col-md-6 col-lg-6">
+					<div class="text-center">
+						<a href="">
+							<button type="button">
+								Trá» láº¡i
+							</button>
+						</a>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6">
+					<div class="text-center">
+						<a href="">
+							<button type="button">
+								Thanh toÃ¡n
+							</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
+
+
+	<footer id="contact">
 		<div class="social">
 			<div class="container-xl">
 				<div class="row">
 					<div class="col-md-4 col-lg-4 subscribe-section">
 						<span class="emphasized-phrase footer-logo">Hakuna Matata</span>
 						<p class="desc">
-							Liên Hệ: 89 Trần Văn Dư, Quận Tân Bình, Tp. HCM
+							LiÃªn há»: 89 Tráº§m VÄn DÆ°, Quáº­n TÃ¢n BÃ¬nh, Tp. HCM
 						</p>
-						<p>135 Hai Bà Trưng, Bến Nghé, Quận 1, TP. HCM</p>
+						<p>135 Hai BÃ  TrÆ°ng, Báº¿n NghÃ©, Quáº­n 1, TP. HCM</p>
 						<br>
 						<p>Phone: 0902345678 or 0903040506</p>
 						<p>Fax: 277266255</p>
@@ -743,8 +792,8 @@
 							<div class="blog-box">
 								<p>
 									<a href="#" class="title">
-										SÔNG HƯƠNG ĐIỂM DU LỊCH LÝ 
-										TƯỞNG TRONG CHUYẾN DU LỊCH HUẾ
+										SÃNG HÆ¯Æ NG ÄIá»M DU Lá»CH LÃ 
+										TÆ¯á»NG TRONG CHUYáº¾N DU Lá»CH HUáº¾
 									</a>
 								</p>
 								<span class="blog-date">July 7, 2021</span>
@@ -758,8 +807,8 @@
 							<div class="blog-box">
 								<p>
 									<a href="#" class="title">
-										TOP 4 ĐIỂM DU LỊCH TUYỆT HẢO Ở 
-										MÙ CANG CHẢI KHÔNG NÊN BỎ QUA
+										TOP 4 ÄIá»M DU Lá»CH TUYá»T Háº¢O á» 
+										MÃ CANG CHáº¢I KHÃNG NÃN Bá» QUA
 									</a>
 								</p>
 								<span class="blog-date">July 3, 2021</span>
@@ -773,8 +822,8 @@
 							<div class="blog-box">
 								<p>
 									<a href="#" class="title">
-										THỜI ĐIỂM ĐẸP NHẤT ĐỂ KHÁM PHÁ
-										ĐÈO ĐÁ TRẮNG Ở HÒA BÌNH
+										THá»I ÄIá»M Äáº¸P NHáº¤T Äá» KHÃM PHÃ
+										ÄÃO ÄÃ TRáº®NG á» HÃA BÃNH
 									</a>
 								</p>
 								<span class="blog-date">July 3, 2021</span>
@@ -782,7 +831,7 @@
 						</div>
 					</div>
 					<div class="col-md-4 col-lg-4">
-						<span class="title">CHỨNG NHẬN</span>
+						<span class="title">CHá»¨NG NHáº¬N</span>
 						<div class="container-xl">
 							<div class="row">
 								<div>
@@ -793,7 +842,7 @@
 							</div>	
 						</div>
 						<br>
-						<span class="title">Chấn Nhận Thanh Toán</span>
+						<span class="title">Cháº¥p nháº­n thanh toÃ¡n</span>
 						<div class="container-xl">
 							<div class="row">
 								<div>
@@ -826,16 +875,5 @@
 			</div>
 		</div>
 	</footer>
-	<!-- End footer -->
-
-    <script>
-        $(document).ready(function () {
-            $('.autoplay').slick({
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-            });
-        });
-    </script>
 </body>
+</html>

@@ -371,7 +371,7 @@
                       <c:if test="${listTourTest != null}">
                     <c:forEach items="${listTourTest}" var="tour">
                     	<div id="list">
-							<form action="#">
+							<form >
 								<div class="wrap">
 									<div id="day">
 										<div id="ngay"><fmt:formatDate type="date" value="${tour.start_day}" pattern="dd" var="startday"/>${startday }</div>
@@ -406,7 +406,7 @@
                                    					 <fmt:formatNumber value="${Nprice}" type="number" maxFractionDigits="3"/>
                                      				VND</span>
 												</p>
-												<input id="book" type="submit" value="Đặt Tour" class="form-control"/>
+												<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}" id="book" type="submit" class="form-control"> Đặt Tour</a>
 											</div>
 										</div>
 									</div>

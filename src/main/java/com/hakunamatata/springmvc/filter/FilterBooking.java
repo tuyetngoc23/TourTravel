@@ -33,7 +33,8 @@ public class FilterBooking implements Filter{
 		HttpSession session = ((HttpServletRequest)request).getSession();
 		String value = (String)session.getAttribute("username");
 		if( value == null) {
-			request.setAttribute("URL", ((HttpServletRequest) request).getRequestURI());
+			String queryString = ((HttpServletRequest)request).getQueryString();
+			request.setAttribute("URL", ((HttpServletRequest) request).getRequestURI()+"?"+queryString);
 			request.getRequestDispatcher("/login/").forward(request, response);
 		}else {
 			chain.doFilter(request, response);

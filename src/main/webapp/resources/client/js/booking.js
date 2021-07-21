@@ -92,7 +92,7 @@ let price_tong = 0;
                       class="tour__contact__input col-12"
                       type="text"
                       name="phone.[${i}]"
-                      placeholder="Nhập email"
+                      placeholder="Nhập sdt"
                     />
                   </div>
                 </div>
@@ -182,7 +182,7 @@ let price_tong = 0;
                       class="tour__contact__input col-12"
                       type="text"
                       name="phone.[${i}]"
-                      placeholder="Nhập email"
+                      placeholder="Nhập sdt"
                     />
                   </div>
                 </div>
@@ -273,7 +273,7 @@ let price_tong = 0;
                       class="tour__contact__input col-12"
                       type="text"
                       name="phone.[${i}]"
-                      placeholder="Nhập email"
+                      placeholder="Nhập sdt"
                     />
                   </div>
                 </div>
