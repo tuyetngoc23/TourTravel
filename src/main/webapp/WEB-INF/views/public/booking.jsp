@@ -166,7 +166,7 @@
       <div class="tour__contact mt-5">
         <h1 class="tour__infomation__title text-center">THÔNG TIN LIÊN LẠC</h1>
         <div>
-          <form action="booking" method="post" class="row">
+          <form action="${pageContext.request.contextPath }/booking" method="post" class="row">
             <input type="hidden" value="${tour.id}" name="tour_id">
             <input type="hidden" value="${user.id}" name="user_id">
             <input type="hidden" name="date" value="10/10/2021">

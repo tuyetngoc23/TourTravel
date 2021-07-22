@@ -703,7 +703,7 @@
 			<div class="row1">
 				<div class="col-md-12 col-lg-12">
 					<div class="text-center">
-						<a href="${pageContext.request.contextPath }/home">
+						<a href="${pageContext.request.contextPath }/">
 							<button type="button">
 								Trở lại
 							</button>
