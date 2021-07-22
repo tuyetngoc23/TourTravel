@@ -2,9 +2,6 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
-<!DOCTYPE html>
-<html lang="en">
-
 
 <jsp:include page="header_support.jsp" />
 
@@ -580,3 +577,13 @@
     </main>
     <div style="clear: both;"></div>
 <jsp:include page="footer.jsp" />
+<script>
+    $(document).ready(function () {
+        $('.autoplay').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+        });
+    });
+</script>

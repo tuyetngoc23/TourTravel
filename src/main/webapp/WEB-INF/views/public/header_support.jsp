@@ -22,6 +22,9 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/nav_basic.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/loading-toup.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/slick.css" />
+    <script type="text/javascript" src="${pageContext.request.contextPath }/js/slick.min.js"></script>
+    
 </head>
 <body>
 	<!-- onload="myFunction()" style="display:none;" id="myDiv" class="animate-bottom"
@@ -34,7 +37,7 @@
 			<div class="hakunamatata-menu">
 				<div class="container-xl">
 					<nav class="navbar navbar-expand-lg navbar-dark p-0">
-						<a class="navbar-brand logo emphasized-phrase" href="#">
+						<a class="navbar-brand logo emphasized-phrase" href="${pageContext.request.contextPath }/">
 							Hakuna Matata
 						</a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mogo-menu" aria-controls="navbar-mogo-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,22 +47,22 @@
 						<div class="collapse navbar-collapse" id="navbar-mogo-menu">
 							<ul class="navbar-nav menu-item ml-auto">
 								<li class="nav-item active">
-									<a class="nav-link" href="/hakunamatata/">HOME</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/">HOME</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="/hakunamatata/tour">TOUR</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/tour">TOUR</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="/hakunamatata/about">ABOUT</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/about">ABOUT</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="/hakunamatata/blog">BLOG</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/blog">BLOG</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="/hakunamatata/contact">CONTACT</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/contact">CONTACT</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="/hakunamatata/login">SIGN IN</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/login">SIGN IN</a>
 								</li>	
 							</ul>
 						</div>
