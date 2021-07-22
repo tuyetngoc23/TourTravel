@@ -62,7 +62,7 @@ public class LoginController {
 		if(user!=null && role == 2) {
 
 			session.setAttribute("auth", "USER");
-			url = (reurl.isEmpty())?"redirect:/home":"redirect:"+reurl.substring(request.getContextPath().length());
+			url = (reurl.isEmpty())?"redirect:/":"redirect:"+reurl.substring(request.getContextPath().length());
 
 		}
 		return url;		

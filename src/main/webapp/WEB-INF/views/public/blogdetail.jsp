@@ -8,7 +8,7 @@
 <jsp:include page="header.jsp" />
 <style>
  header .home{
-    	background-image: url(${pageContext.request.contextPath }/resources/client/images/Home/Bg_home.png);
+    	background-image: url(${pageContext.request.contextPath }/images/Home/Bg_home.png);
     }  
     /* all */
     main{
@@ -30,7 +30,7 @@
 	}
 	.hero-banner{
 		position: relative;
-		background: url(${pageContext.request.contextPath }/resources/client/images/buonmathuat.jpg) left center no-repeat ;
+		background: url(${pageContext.request.contextPath }/images/buonmathuat.jpg) left center no-repeat ;
 		background-size: cover;
 		height: 400px;
 		z-index: 1;
@@ -292,7 +292,7 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="main_blog_details">
-                            <img class="img-fluid" src="${pageContext.request.contextPath }/resources/client/images/${getBlog.image}" alt=""
+                            <img class="img-fluid" src="${pageContext.request.contextPath }/images/${getBlog.image}" alt=""
                                 data-pagespeed-url-hash="611317301"
                                 onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                             <a href="#">
@@ -307,7 +307,7 @@
                                         </div>
                                         <div class="d-flex">
                                             <img width="42" height="42"
-                                                src="${pageContext.request.contextPath }/resources/client/images/people.png" alt=""
+                                                src="${pageContext.request.contextPath }/images/people.png" alt=""
                                                 data-pagespeed-url-hash="3261068328"
                                                 onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                                         </div>
@@ -341,7 +341,7 @@
                                     <div class="user justify-content-between d-flex">
                                         <div class="thumb">
                                         	<c:if test="${comment.usertour.avatar == null}">
-                                        		<img src="${pageContext.request.contextPath }/resources/client/images/people.png" alt=""
+                                        		<img src="${pageContext.request.contextPath }/images/people.png" alt=""
                                                 data-pagespeed-url-hash="323181169" >
                                         	</c:if>
                                         	<c:if test="${comment.usertour.avatar != null}">
@@ -365,7 +365,7 @@
                                 <div class="single-comment justify-content-between d-flex">
                                     <div class="user justify-content-between d-flex">
                                         <div class="thumb">
-                                            <img src="${pageContext.request.contextPath }/resources/client/images/people.png" alt=""
+                                            <img src="${pageContext.request.contextPath }/images/people.png" alt=""
                                                 data-pagespeed-url-hash="1501180853"
                                                 onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                                         </div>
@@ -405,7 +405,7 @@
 									<div class="single-post-list">
 										<div class="thumb">
 											<img class="card-img rounded-0"
-												src="${pageContext.request.contextPath }/resources/client/images/${blog1.image}" alt="">
+												src="${pageContext.request.contextPath }/images/${blog1.image}" alt="">
 											<ul class="thumb-info">
 												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}">${blog1.wname}</a></li>
 												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}"><fmt:formatDate type="date" value="${blog1.wdate}"/></a></li>
