@@ -9,7 +9,7 @@ var myVar;
       document.getElementById("myDiv").style.display = "block";
     }
     
-  //Get the button
+  /*//Get the button
     var mybutton = document.getElementById("myBtn");
 
     // When the user scrolls down 20px from the top of the document, show the button
@@ -27,4 +27,4 @@ var myVar;
     function topFunction() {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
-    }
+    }*/

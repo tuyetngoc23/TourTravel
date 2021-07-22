@@ -54,7 +54,7 @@
 		  scroll-behavior: smooth;
 		}
 		
-		#myBtn {
+		/* #myBtn {
 		  display: none;
 		  position: fixed;
 		  bottom: 20px;
@@ -75,4 +75,4 @@
 		
 		#myBtn:hover {
 		  background-color: #212121;
-		}
+		} */
