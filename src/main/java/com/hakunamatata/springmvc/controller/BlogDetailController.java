@@ -22,6 +22,7 @@ import com.hakunamatata.springmvc.entity.Blog;
 import com.hakunamatata.springmvc.entity.Comment;
 import com.hakunamatata.springmvc.entity.LikeBlog;
 import com.hakunamatata.springmvc.entity.UserTour;
+import com.hakunamatata.springmvc.service.BlogService;
 import com.hakunamatata.springmvc.service.CommentService;
 import com.hakunamatata.springmvc.service.LikeBlogService;
 import com.hakunamatata.springmvc.service.ServiceInterface;
@@ -36,7 +37,7 @@ import com.hakunamatata.springmvc.service.impl.CommentServiceImpl;
 public class BlogDetailController {
 	
 	@Autowired
-	private ServiceInterface<Blog> blogService;
+	private BlogService blogService;
 	@Autowired
 	private CommentService commentService;
 	@Autowired

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hakunamatata.springmvc.entity.Blog;
+import com.hakunamatata.springmvc.service.BlogService;
 import com.hakunamatata.springmvc.service.ServiceInterface;
 import com.hakunamatata.springmvc.utils.GetPathUtil;
 /**
@@ -25,7 +26,8 @@ import com.hakunamatata.springmvc.utils.GetPathUtil;
 @RequestMapping("admin/blog")
 public class BlogController {
 	@Autowired
-	private ServiceInterface<Blog> blogService;
+	private BlogService blogService;
+	
 	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
 	public String list(Locale locale, Model model) {
 		List<Blog> list = blogService.list(null);

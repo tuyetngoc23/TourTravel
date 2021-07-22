@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hakunamatata.springmvc.entity.Blog;
+import com.hakunamatata.springmvc.service.BlogService;
 import com.hakunamatata.springmvc.service.ServiceInterface;
 
 
@@ -22,7 +23,7 @@ import com.hakunamatata.springmvc.service.ServiceInterface;
 public class BlogClientController {
 	
 	@Autowired
-	private ServiceInterface<Blog> blogService;
+	private BlogService blogService;
 	
 	@GetMapping({"", "/"})
 	public String view(Model model, Locale locale) {

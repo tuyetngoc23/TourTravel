@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.hakunamatata.springmvc.entity.Blog;
+import com.hakunamatata.springmvc.repository.BlogDAO;
 import com.hakunamatata.springmvc.repository.DAO;
 /**
  * @author Hai Van
@@ -14,7 +15,7 @@ import com.hakunamatata.springmvc.repository.DAO;
  */
 
 @Repository
-public class BlogDAO implements DAO<Blog> {
+public class BlogDAOImpl implements BlogDAO {
 	@Autowired
 	private SqlSessionTemplate session;
 

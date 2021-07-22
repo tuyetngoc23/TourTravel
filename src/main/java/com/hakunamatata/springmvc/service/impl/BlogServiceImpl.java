@@ -5,7 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.hakunamatata.springmvc.entity.Blog;
-import com.hakunamatata.springmvc.repository.impl.BlogDAO;
+import com.hakunamatata.springmvc.repository.impl.BlogDAOImpl;
+import com.hakunamatata.springmvc.service.BlogService;
 import com.hakunamatata.springmvc.service.ServiceInterface;
 /**
  * @author Hai Van
@@ -14,10 +15,10 @@ import com.hakunamatata.springmvc.service.ServiceInterface;
 
 @Service
 //@Transactional
-public class BlogService implements ServiceInterface<Blog>{
+public class BlogServiceImpl implements BlogService{
 	
 	@Autowired
-	private BlogDAO	blogDao;
+	private BlogDAOImpl	blogDao;
 
 	@Override
 	public void insert(Blog vo) {
