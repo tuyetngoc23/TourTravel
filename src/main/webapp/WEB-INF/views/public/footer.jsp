@@ -70,7 +70,7 @@
 							<div class="blog-box">
 								<p>
 									<a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}" class="title">
-										${fn:substring(blog.title, 0, 20)}...
+										${fn:substring(blog.title, 0, 50)}...
 									</a>
 								</p>
 								<span class="blog-date"><fmt:formatDate type="date" value="${blog.wdate}"/></span>

@@ -348,7 +348,7 @@ img {
 /* Start Feature-tour */
 
 .Feature-tour {
-    background-image: url(/images/FeaturedTour/BG_featuredtour.png);
+    background-image: url(../images/FeaturedTour/BG_featuredtour.png);
     padding: 50px;
     margin-bottom: 40px;
 }

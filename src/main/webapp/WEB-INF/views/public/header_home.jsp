@@ -41,23 +41,23 @@
 						<div class="collapse navbar-collapse" id="navbar-mogo-menu">
 							<ul class="navbar-nav menu-item ml-auto">
 								<li class="nav-item active">
-									<a class="nav-link" href="#">HOME</a>
+									<a class="nav-link" href="/hakunamatata/">HOME</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">TOUR</a>
+									<a class="nav-link" href="/hakunamatata/tour">TOUR</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">ABOUT</a>
+									<a class="nav-link" href="/hakunamatata/about">ABOUT</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">BLOG</a>
+									<a class="nav-link" href="/hakunamatata/blog">BLOG</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">CONTACT</a>
+									<a class="nav-link" href="/hakunamatata/contact">CONTACT</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">SIGN IN</a>
-								</li>	
+									<a class="nav-link" href="/hakunamatata/login">SIGN IN</a>
+								</li>
 							</ul>
 						</div>
 					</nav>

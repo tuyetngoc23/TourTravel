@@ -149,9 +149,9 @@
 	<!-- End Quote -->
 
 	<!--Start FeatureTour -->
-	<section class="Feature-tour">
+	<%-- <section class="Feature-tour">
 		<div class="feature container-fluid text-center">
-			<h2>CÃÂC TOUR NÃ¡Â»ÂI BÃ¡ÂºÂ¬T</h2>
+			<h2>CÁC TOUR NỔI BẬT</h2>
 			<p>Featured tours</p>
 			<hr class="h-line">
 		</div>
@@ -172,24 +172,17 @@
 							</div>
 							<div class="news-grid-txt">
 								<div class="title">
-									<span>Tour: ${tour.name }</span>
+									<span>Tour:${tour.name }</span>
 								</div>
 								<div class="text">
-									<table>
-									<tr>
-										<td> <i class="fa fa-clock" aria-hidden="true"></i> 
-										<fmt:formatDate type="date" value="${tour.end_day}" pattern="dd" var="endday" /> ${ endday - startday } ngÃ y ${ endday - startday - 1} ÄÃªm</i> </td>
-									</tr>
-									<tr>
-										<td> <i class="fa fa-calendar" aria-hidden="true"></i> <fmt:formatDate type="date" value="${tour.start_day}" pattern="dd/MM/yyyy"/> </li> </td>
-									</tr>
-									<tr>
-										<td> <i class="fa fa-user" aria-hidden="true"></i>Còn ${tour.max_amount - tour.min_amount + tour.min_amount} chỗ</li> </td>
-										<td> <p><fmt:parseNumber type="number" integerOnly="true" value="${tour.price }" var="Nprice"/>
+									<p class="sale-time"> <i class="fa fa-clock"></i> <fmt:formatDate type="date" value="${tour.end_day}" pattern="dd" var="endday" /> ${ endday - startday } ngày ${ endday - startday - 1} đêm</p>
+									<p class="sale-schedule"> <i class="fa fa-calendar"></i> <fmt:formatDate type="date" value="${tour.start_day}" pattern="dd/MM/yyyy"/></p>
+									<p class="sale-place"> <i class="fa fa-user"></i> Còn ${tour.max_amount - tour.min_amount + tour.min_amount} chỗ </p>
+									<div class="sale-discount">
+										<span class="sale-pre"><fmt:parseNumber type="number" integerOnly="true" value="${tour.price }" var="Nprice"/>
                                    					 <fmt:formatNumber value="${Nprice}" type="number" maxFractionDigits="3"/>
-                                     				VNĐ</p> </td>
-									</tr>
-									</table>																	
+                                     				VNĐ</span>	
+									</div>																	
 								</div>
 							</div>
 							</a>
@@ -202,16 +195,73 @@
 		<div class="text-center">
 			<a href="${pageContext.request.contextPath }/tour">
 				<button type="button">
-					Xem Tất Cả
+					XEM TẤT CẢ
+				</button>
+			</a>
+		</div>
+	</section> --%>
+	<!--End FeatureTour-->
+	
+	
+		<!--Start FeatureTour -->
+
+	<section class="Feature-tour">
+		<div class="feature container-fluid text-center">
+			<h2>CÁC TOUR NỔI BẬT</h2>
+			<p>Featured tours</p>
+			<hr class="h-line">
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+					<div id="owl-two" class="owl-carousel">
+						<!-- 1 -->
+						<c:forEach items="${list }" var="tour">
+						<div class="news-grid">
+							<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}">
+							<div class="news-grid-image"><img src="images/FeaturedTour/buonmathuat.jpg" alt="">
+								<div class="news-grid-box">
+									<h1>05</h1>
+									<p>HCM</p>
+								</div>
+							</div>
+							<div class="news-grid-txt">
+								<div class="title">
+									<span>Tour: Buôn Ma Thuột
+									- Làng Cà Phê Trung</span>
+								</div>
+								<div class="text">
+									<p class="sale-time"> <i class="fa fa-clock"></i> 4 ngày 3 đêm</p>
+									<p class="sale-schedule"> <i class="fa fa-calendar"></i> 05/07/2021</p>
+									<p class="sale-place"> <i class="fa fa-user"></i> Còn 10 chỗ </p>
+									<div class="sale-discount">
+										<span class="sale-pre">4,499,000 đ</span>	
+									</div>																	
+								</div>
+							</div>
+							</a>
+						</div>
+						</c:forEach>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="text-center">
+			<a href="">
+				<button type="button">
+					XEM TẤT CẢ
 				</button>
 			</a>
 		</div>
 	</section>
 	<!--End FeatureTour-->
+	
+	
 
 	<!-- Start Favorite destination -->
 	<div class="destination container-fluid text-center">
-		<h2>Các Địa Điểm Yêu Thích</h2>
+		<h2>ĐIỂM ĐẾN ĐƯỢC YÊU THÍCH</h2>
 		<p>Favorite destination</p>
 		<hr class="h-line">
 
@@ -222,7 +272,7 @@
 					<a href="${pageContext.request.contextPath }/tour" target="_blank">
 						<div class="col-xs-12 card-bg">
 							<div class="info">
-								<p class="title">Phu Quoc</p>
+								<p class="title">PHÚ QUỐC</p>
 							</div>
 						</div>
 					</a>
@@ -348,8 +398,8 @@
 	<!-- End AnimatedCouter -->
 
 	<!-- Start Blog -->
-	<div class="blog container-fluid text-center">
-		<h2>Khám Phá</h2>
+	<div class="blog-title container-fluid text-center">
+		<h2>KHÁM PHÁ</h2>
 		<p>Lasted Blog</p>
 		<hr class="h-line">	
 	</div>
@@ -360,8 +410,8 @@
 				<div class="col-md-4 col-lg-4">
 					<a href="/hakunamatata/blogdetail?id=${blog.id }">
 					<img src="${pageContext.request.contextPath }/images/${blog.image}" alt="">
-					<h4>${fn:substring(blog.title, 0, 30)}...</h4>
-					<p>${fn:substring(blog.content, 0, 100)}...</p>
+					<h4>${fn:substring(blog.title, 0, 50)}...</h4>
+					<p>${fn:substring(blog.content, 0, 90)}...</p>
 					<i class="fas fa-heart"></i> <span>${blog.like_amount }</span>
 					<i class="fas fa-comments"></i> <span>23</span>
 					</a>
@@ -372,11 +422,10 @@
 		<div class="text-center">
 			<a href="${pageContext.request.contextPath }/blog">
 				<button type="button">
-					Xem tất cả
+					XEM TẤT CẢ
 				</button>
 			</a>
 		</div>
-
 	</section>
 	<!-- End Blog -->
 
