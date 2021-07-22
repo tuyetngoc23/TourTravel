@@ -32,6 +32,8 @@ public class FilterAdmin implements Filter{
 				HttpSession session = ((HttpServletRequest)request).getSession();
 				String value = (String)session.getAttribute("auth");
 				if( value == null || !value.equals("ADMIN")) {
+					String queryString = ((HttpServletRequest)request).getQueryString();
+					request.setAttribute("URL", ((HttpServletRequest) request).getRequestURI()+"?"+queryString);
 					request.getRequestDispatcher("/login/").forward(request, response);
 				}else {
 					chain.doFilter(request, response);
