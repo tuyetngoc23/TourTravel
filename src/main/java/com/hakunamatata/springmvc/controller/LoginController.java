@@ -56,11 +56,17 @@ public class LoginController {
 			System.out.println(user.getId()+" "+user.getUsername());
 		}
 		if(user!=null && role == 1) {
+
+			vo.setPasswd("");
+			request.getSession().setAttribute("admin", user);
 			session.setAttribute("auth", "ADMIN");
 			url = "/admin/dashboard";
+
 		}
 		if(user!=null && role == 2) {
 
+			vo.setPasswd("");
+			request.getSession().setAttribute("user", user);
 			session.setAttribute("auth", "USER");
 			url = (reurl.isEmpty())?"redirect:/":"redirect:"+reurl.substring(request.getContextPath().length());
 

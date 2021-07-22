@@ -28,6 +28,7 @@ public class UserDAOImp implements UserDAO {
 	@Override
 	public void update(UserTour vo) {
 		// TODO Auto-generated method stub
+		System.out.println(vo);
 		session.update("UserTour.update", vo);
 	}
 

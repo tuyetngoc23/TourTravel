@@ -78,6 +78,14 @@
 		<param-name>urloadPlace</param-name>
 		<param-value>/uploads/image-place</param-value>
 	</context-param>
+	<context-param>
+		<param-name>urloadUser</param-name>
+		<param-value>/uploads/image-user</param-value>
+	</context-param>
+	<context-param>
+		<param-name>urloadBlog</param-name>
+		<param-value>/uploads/image-blog</param-value>
+	</context-param>
 
 
 </web-app>

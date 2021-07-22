@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Blog Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -42,7 +42,7 @@
         	  <div class="row" id="proBanner">
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
-                <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
+                <p>Blog Admin List</p>
                 <a href="${pageContext.request.contextPath }/admin/blog/new" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
@@ -69,7 +69,7 @@
      		    <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Blog List</h4>                          
+                    <h4 class="card-title text-center text-info">Blog List</h4>                          
                     <table class="table table-striped">
                       <thead>
                        <tr>
