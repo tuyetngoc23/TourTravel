@@ -47,6 +47,7 @@ public class LoginController {
 		if(user!=null){
 			role = user.getUser_role().getId();
 			session.setAttribute("id", user.getId());
+			session.setAttribute("avatar", user.getAvatar());
 			session.setAttribute("username", user.getUsername());
 			System.out.println(user.getId()+" "+user.getUsername());
 		}
