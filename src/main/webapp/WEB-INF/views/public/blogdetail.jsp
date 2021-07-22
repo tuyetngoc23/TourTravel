@@ -256,17 +256,7 @@
     	color: #3a414e;
 	}
 	/*  TEst*/
-	/* .h_container{
-    background-color: #cac7c7;
-    border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.1);
-    display: inline-block;
-    width:35px;
-    height:35px;
-    text-align:center;
-    line-height:45px;
-
-	} */
+	
 	#heart{
 	    font-size: 25px;
 	}
@@ -352,7 +342,7 @@
                                         </div>
                                         <div class="desc">
                                             <h5>${comment.usertour.username}</h5>
-                                            <p class="date"><fmt:formatDate type="both" value="${comment.date}"/></p>
+                                            <p class="date"><fmt:formatDate type="date" value="${comment.date}"/></p>
                                             <p class="comment">
                                                 ${comment.content}
                                             </p>

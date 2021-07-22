@@ -68,6 +68,24 @@ public class TourDAOImpl implements TourDAO{
 		// TODO Auto-generated method stub
 		return session.selectList("Tour.getSearchTourByTest", map);
 	}
+
+	@Override
+	public List<Tour> getListTourLimit() {
+		// TODO Auto-generated method stub
+		return session.selectList("Tour.getListTourLimit");
+	}
+
+	@Override
+	public List<Tour> getListTourReal() {
+		// TODO Auto-generated method stub
+		return session.selectList("Tour.getListTourReal");
+	}
+
+	@Override
+	public List<Tour> getListTourByDiscount() {
+		// TODO Auto-generated method stub
+		return session.selectList("Tour.getListTourByDiscount");
+	}
 	
 	
 

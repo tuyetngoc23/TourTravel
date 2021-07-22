@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix= "fmt"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
     	<!-- Start Footer -->
 	<footer class="footer" id="contact">
@@ -59,37 +62,23 @@
 					</div>
 					<div class="col-md-4 col-lg-4 blog-section">
 						<span class="title">Blogs</span>
+						<c:forEach items="${listBlog }" var="blog">
 						<div class="d-flex blog-row">
-							<a href="#">
-								<img src="${pageContext.request.contextPath }/images/footer/songhuong.jpg" alt="">
+							<a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}">
+								<img src="${pageContext.request.contextPath }/images/${blog.image}" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
-									<a href="#" class="title">
-										SÔNG HƯƠNG ĐIỂM DU LỊCH LÝ 
-										TƯỞNG TRONG CHUYẾN DU LỊCH HUẾ
+									<a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}" class="title">
+										${fn:substring(blog.title, 0, 20)}...
 									</a>
 								</p>
-								<span class="blog-date">July 7, 2021</span>
+								<span class="blog-date"><fmt:formatDate type="date" value="${blog.wdate}"/></span>
 							</div>
 						</div>
-
-						<div class="d-flex blog-row">
-							<a href="#">
-								<img src="${pageContext.request.contextPath }/images/footer/cucangchai.jpg" alt="">
-							</a>
-							<div class="blog-box">
-								<p>
-									<a href="#" class="title">
-										TOP 4 ĐIỂM DU LỊCH TUYỆT HẢO Ở 
-										MÙ CANG CHẢI KHÔNG NÊN BỎ QUA
-									</a>
-								</p>
-								<span class="blog-date">July 3, 2021</span>
-							</div>
-						</div>
-
-						<div class="d-flex blog-row">
+						</c:forEach>
+						
+						<%-- <div class="d-flex blog-row">
 							<a href="#">
 								<img src="${pageContext.request.contextPath }/images/footer/deodatrang.jpg" alt="">
 							</a>
@@ -102,7 +91,7 @@
 								</p>
 								<span class="blog-date">July 3, 2021</span>
 							</div>
-						</div>
+						</div> --%>
 					</div>
 					<div class="col-md-4 col-lg-4">
 						<span class="title">CHỨNG NHẬN</span>

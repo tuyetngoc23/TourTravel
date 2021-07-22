@@ -41,5 +41,9 @@
 	<delete id="delete" parameterType="blog">
 		DELETE FROM blog WHERE id=#{id}
 	</delete>
+	
+	<select id="getBlogLimit" resultMap="blogMap">
+		SELECT * FROM blog ORDER BY  id DESC LIMIT 3
+	</select>
 
 </mapper>

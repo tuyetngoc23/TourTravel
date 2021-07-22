@@ -16,6 +16,7 @@ import com.hakunamatata.springmvc.repository.DAO;
 
 @Repository
 public class BlogDAOImpl implements BlogDAO {
+	
 	@Autowired
 	private SqlSessionTemplate session;
 
@@ -46,6 +47,12 @@ public class BlogDAOImpl implements BlogDAO {
 	@Override
 	public List<Blog> list(Blog vo) {
 		return session.selectList("Blog.selectList", vo);
+	}
+
+	@Override
+	public List<Blog> getBlogLimit() {
+		// TODO Auto-generated method stub
+		return session.selectList("Blog.getBlogLimit");
 	}
 
 }

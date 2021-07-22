@@ -1,5 +1,7 @@
 package com.hakunamatata.springmvc.repository;
 
+import java.util.List;
+
 import com.hakunamatata.springmvc.entity.Blog;
 
 
@@ -8,5 +10,5 @@ import com.hakunamatata.springmvc.entity.Blog;
  *
  */
 public interface BlogDAO extends DAO<Blog>{
-
+	List<Blog> getBlogLimit();
 }
