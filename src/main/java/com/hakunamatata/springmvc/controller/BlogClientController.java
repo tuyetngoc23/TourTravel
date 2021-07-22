@@ -30,6 +30,9 @@ public class BlogClientController {
 		
 		List<Blog> list = blogService.list(null);
 		model.addAttribute("list", list);
+		
+		List<Blog> listBlog = blogService.getBlogLimit();
+		model.addAttribute("listBlog", listBlog);
 
 		return "public/blog";
 	}

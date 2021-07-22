@@ -15,4 +15,7 @@ public interface TourService extends ServiceInterface<Tour>{
 	List<CatTour> getCattour();
 	Tour getTourId();
 	List<Tour> getSearchTourByTest(Map<Object, Object> map);
+	List<Tour> getListTourLimit();
+	List<Tour> getListTourReal();
+	List<Tour> getListTourByDiscount();
 }

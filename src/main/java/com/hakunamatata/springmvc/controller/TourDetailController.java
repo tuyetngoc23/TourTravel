@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.hakunamatata.springmvc.entity.Blog;
 import com.hakunamatata.springmvc.entity.Place;
 import com.hakunamatata.springmvc.entity.Tour;
 import com.hakunamatata.springmvc.entity.TourPlace;
+import com.hakunamatata.springmvc.service.BlogService;
 import com.hakunamatata.springmvc.service.TourPlaceSerivce;
 import com.hakunamatata.springmvc.service.TourService;
 
@@ -30,6 +32,9 @@ public class TourDetailController {
 	
 	@Autowired
 	private TourPlaceSerivce tourPlaceService;
+	
+	@Autowired
+	private BlogService blogService;
 
 	@GetMapping({"", "/"})
 	public String view(Model model, Locale locale, @RequestParam("id") int id) {
@@ -52,6 +57,9 @@ public class TourDetailController {
 		model.addAttribute("listPlace",listPlace);
 		System.out.println(listPlace);
 		
-		return "client/tourdetail";
+		List<Blog> listBlog = blogService.getBlogLimit();
+		model.addAttribute("listBlog", listBlog);
+		
+		return "public/tourdetail";
 	}
 }

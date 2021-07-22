@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hakunamatata.springmvc.entity.Blog;
 import com.hakunamatata.springmvc.entity.Tour;
+import com.hakunamatata.springmvc.service.BlogService;
 import com.hakunamatata.springmvc.service.ServiceInterface;
 import com.hakunamatata.springmvc.service.TourService;
 
@@ -32,16 +33,19 @@ public class HomeController {
 	@Autowired
 	private TourService service;
 	@Autowired
-	private ServiceInterface<Blog> blogService;
+	private BlogService blogService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {		
 		
-		List<Tour> list = service.list(null);
+		List<Tour> list = service.getListTourLimit();
 		model.addAttribute("list", list);
 		
-		List<Blog> listBlog = blogService.list(null);
+		List<Blog> listBlog = blogService.getBlogLimit();
 		model.addAttribute("listBlog", listBlog);
+		
+		List<Tour> listTourByDiscount = service.getListTourByDiscount();
+		model.addAttribute("listTourByDiscount", listTourByDiscount);
 		
 		return "public/index";
 	}
