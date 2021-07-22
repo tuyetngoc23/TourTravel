@@ -1,5 +1,8 @@
 <%@ page session="false"%>
 <%@ page import="java.util.List" %>
+<%@ page import="com.hakunamatata.springmvc.service.CommentService, com.hakunamatata.springmvc.entity.Comment,
+	com.hakunamatata.springmvc.service.CommentService, com.hakunamatata.springmvc.entity.Blog,
+	com.hakunamatata.springmvc.service.BlogService" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix= "fmt"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>

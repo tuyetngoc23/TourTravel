@@ -1,7 +1,6 @@
 package com.hakunamatata.springmvc.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Locale;
 
@@ -14,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hakunamatata.springmvc.entity.Blog;
+import com.hakunamatata.springmvc.entity.Comment;
 import com.hakunamatata.springmvc.entity.Tour;
 import com.hakunamatata.springmvc.service.BlogService;
-import com.hakunamatata.springmvc.service.ServiceInterface;
+import com.hakunamatata.springmvc.service.CommentService;
 import com.hakunamatata.springmvc.service.TourService;
 
 /**
@@ -34,7 +34,10 @@ public class HomeController {
 	private TourService service;
 	@Autowired
 	private BlogService blogService;
+	@Autowired
+	private CommentService commentService;
 	
+	@SuppressWarnings("null")
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {		
 		
@@ -43,6 +46,7 @@ public class HomeController {
 		
 		List<Blog> listBlog = blogService.getBlogLimit();
 		model.addAttribute("listBlog", listBlog);
+		
 		
 		List<Tour> listTourByDiscount = service.getListTourByDiscount();
 		model.addAttribute("listTourByDiscount", listTourByDiscount);
