@@ -43,13 +43,11 @@ public class LoginController {
 		UserTour user = userServiceImp.login(vo);
 		int role = 0;	
 		String url = "redirect:/login/";	
-		System.out.println(reurl);
 		if(user!=null){
 			role = user.getUser_role().getId();
 			session.setAttribute("id", user.getId());
 			session.setAttribute("avatar", user.getAvatar());
 			session.setAttribute("username", user.getUsername());
-			System.out.println(user.getId()+" "+user.getUsername());
 		}
 		if(user!=null && role == 1) {
 			session.setAttribute("auth", "ADMIN");
