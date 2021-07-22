@@ -71,7 +71,7 @@ public class PaymentController {
 				break;
 			case 2:
 				ticketService.updateState(book_id);
-				url = "redirect:/public/payment/succcesss";
+				url = "redirect:/payment/succcesss";
 				break;
 		}
 		redirectAttributes.addAttribute("book_id", book_id);

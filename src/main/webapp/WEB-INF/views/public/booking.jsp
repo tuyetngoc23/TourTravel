@@ -236,7 +236,7 @@
                   </div>
                   <input
                     class="tour__contact__input col-12"
-                    type="text"
+                    type="number"
                     name="child_amount"
                     value="1"
                     id="tour_nguoi_lon"
@@ -249,7 +249,7 @@
                   </div>
                   <input
                     class="tour__contact__input col-12"
-                    type="text"
+                    type="number"
                     name="aldult_amount"
                     value="0"
                     id="tour_tre_em"
@@ -262,7 +262,7 @@
                   </div>
                   <input
                     class="tour__contact__input col-12"
-                    type="text"
+                    type="number"
                     value="0"
                     name="child_nho_amount"
                     id="tour_tre_nho"
@@ -347,6 +347,7 @@
             <div class="col-12 d-flex justify-content-center mt-5">
               <input type="submit" value="Đặt tour" class="tour_submit btn btn-danger text-center">
             </div>
+            
           </form>
         </div>
       </div>
@@ -354,6 +355,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="${pageContext.request.contextPath }/js/booking.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -369,7 +371,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="${pageContext.request.contextPath }/js/booking.js"></script>
+    
   </body>
 </html>
     

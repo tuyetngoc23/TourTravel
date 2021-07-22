@@ -99,7 +99,7 @@ let price_tong = 0;
               </div>
               <div class="tour__list__user__item__test__price col-12">
                 <p class="text-right px-2">Trị giá : <span>${price_nguoi_lon}đ</span></p>
-                <input type="hidden" name="unitprice.[${i}]" value="${price_tong}">
+                <input type="hidden" name="unitprice.[${i}]" value="${price_nguoi_lon}">
               </div>
             </div>
             </div>
