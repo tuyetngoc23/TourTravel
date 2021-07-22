@@ -123,7 +123,7 @@
         }
         .size {
             width: 340px;
-            height: 240px;
+            height: 250px;
 			transition: 0.5s;
         }
 		
@@ -197,9 +197,9 @@
 			color: white;
 		}
 		
-		#tour {
+		 #tour {
 			padding-top: 50px;
-		}
+		} 
 		
     </style>
 
@@ -316,19 +316,13 @@
 													${tour.max_amount - tour.min_amount + tour.min_amount} chỗ</span>
 												</div>
 												<p>
-												
 													<span id="price"><fmt:parseNumber type="number" integerOnly="true" value="${tour.price }" var="Nprice"/>
                                    					 <fmt:formatNumber value="${Nprice}" type="number" maxFractionDigits="3"/>
                                      				VND</span>
-
 												</p>
 												<p>
-													
-													<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}" id="book" class="form-control">Đặt Tour</a>
+													<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}" id="book" type="submit" class="form-control">Đặt Tour</a>
 												</p>
-
-												
-												
 											</div>
 										</div>
 									</div>

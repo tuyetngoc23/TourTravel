@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.hakunamatata.springmvc.entity.Blog;
 import com.hakunamatata.springmvc.entity.CatTour;
 import com.hakunamatata.springmvc.entity.Department;
 import com.hakunamatata.springmvc.entity.Discount;
@@ -21,6 +22,7 @@ import com.hakunamatata.springmvc.entity.Hotel;
 import com.hakunamatata.springmvc.entity.Province;
 import com.hakunamatata.springmvc.entity.Tour;
 import com.hakunamatata.springmvc.entity.Vehicle;
+import com.hakunamatata.springmvc.service.BlogService;
 import com.hakunamatata.springmvc.service.TourService;
 import com.hakunamatata.springmvc.service.VehicleService;
 import com.hakunamatata.springmvc.service.impl.DepartmentService;
@@ -39,8 +41,15 @@ import com.hakunamatata.springmvc.service.impl.PlaceService;
 //doing
 public class ContactClientController {
 	
+	@Autowired
+	private BlogService blogService;
+	
 	@GetMapping({"", "/"})
 	public String view(Model model, Locale locale) {
+		
+		List<Blog> listBlog = blogService.getBlogLimit();
+		model.addAttribute("listBlog", listBlog);
+		
 		return "public/contact";
 	}
 }

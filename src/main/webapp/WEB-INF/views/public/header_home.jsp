@@ -55,9 +55,19 @@
 								<li class="nav-item">
 									<a class="nav-link" href="${pageContext.request.contextPath }/contact">CONTACT</a>
 								</li>
+								<c:if test="${sessionScope['user'] == null }">
 								<li class="nav-item">
 									<a class="nav-link" href="${pageContext.request.contextPath }/login">SIGN IN</a>
 								</li>
+								</c:if>
+								<c:if test="${sessionScope['user'] != null }">
+								<li class="nav-item">
+									<p class="nav-link" >${sessionScope["user"].cusname}</p>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="${pageContext.request.contextPath }/login">Log Out</a>
+								</li>
+								</c:if>
 							</ul>
 						</div>
 					</nav>
