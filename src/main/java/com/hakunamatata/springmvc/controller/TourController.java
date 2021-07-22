@@ -339,6 +339,7 @@ public class TourController {
 		if(tour.getTourdiscount() != null) {			
 			tourDiscountService.delete(tours.getTourdiscount());
 		}
+		
 		if(tour.getTourplace() != null) {			
 			tourPlaceService.delete(tours.getTourplace());
 		}

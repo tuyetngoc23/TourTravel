@@ -57,7 +57,7 @@ public class BookingClientController {
 		Tour tourGet = tourservice.get(tour);
 		model.addAttribute("tour", tourGet);
 
-		return "booking";
+		return "public/booking";
 	}
 	
 	@PostMapping("")

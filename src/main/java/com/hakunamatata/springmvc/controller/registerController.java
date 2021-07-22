@@ -20,7 +20,7 @@ import com.hakunamatata.springmvc.service.impl.UserServiceImp;
  *
  */
 @Controller
-@RequestMapping("/register")
+@RequestMapping("register")
 public class registerController {
 	@Autowired
 	private UserServiceImp userServiceImp;
@@ -42,10 +42,10 @@ public class registerController {
 		System.out.print(vo);
 		userServiceImp.checkUserName(vo);
 		if(userServiceImp.checkUserName(vo)!=null){
-			return "redirect:client/register/";
+			return "redirect:/register/";
 		}
 		userServiceImp.insert(vo);		
-		return "redirect:client/login/";
+		return "redirect:/login/";
 	}
 	
 }
