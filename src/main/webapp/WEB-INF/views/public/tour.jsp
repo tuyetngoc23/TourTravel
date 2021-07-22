@@ -184,6 +184,9 @@
             margin: 5px;
             padding: 5px 0px;
         }
+        #boxprice p{
+        	height:40px;
+        }
         #price {
             font-family: Arial;
             color: #0de065;
@@ -195,8 +198,13 @@
 			margin-bottom: 5px;
         }
        
+       	#book{
+       		text-align:center;
+       		text-decoration: none;
+       	}
 		#book:hover{
 			background-color: #75c48d;
+			color: white;
 		}
     </style>
 </head>
@@ -407,9 +415,11 @@
                                    					 <fmt:formatNumber value="${Nprice}" type="number" maxFractionDigits="3"/>
                                      				VND</span>
 												</p>
-											
-												<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}" id="book" type="submit" class="form-control">Đặt Tour</a>
-		
+												<p>
+													
+													<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}" id="book" class="form-control">Đặt Tour</a>
+												</p>
+												
 											</div>
 										</div>
 									</div>
