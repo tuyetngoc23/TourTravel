@@ -99,7 +99,6 @@ public class BookingClientController {
 			ticketService.insert(ticket);
 			listTiket.add(ticket);
 		}
-		System.out.println(tour_payment_type);
 		redirectAttributes.addAttribute("tour_payment_type", tour_payment_type);
 		redirectAttributes.addAttribute("book_id", bookservice.getIdMax().getId());
 		redirectAttributes.addAttribute("tour_id", tour_id);

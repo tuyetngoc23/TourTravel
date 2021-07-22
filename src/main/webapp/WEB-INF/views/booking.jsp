@@ -334,7 +334,7 @@
                 <div>
                   
                   <input checked="checked" type="radio" name="tour_payment_type" value="1">
-                  <label for="">Thanh Toán MoMo</label>
+                  <label for="">Thanh Toán Paypal</label>
                  
                 </div>
                 <div>

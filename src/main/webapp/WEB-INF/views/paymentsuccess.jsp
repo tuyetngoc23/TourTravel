@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-	<meta charset="UTF-8">
+<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HakunaMatata</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/client/vendor/bootstrap-4.5.3-dist/css/bootstrap.min.css">
@@ -489,7 +489,7 @@
         margin-right: -15px;
         margin-left: -15px;
     }
-	h2{
+	h2,h4{
 		color: red;
 	}
 </style>
@@ -584,41 +584,24 @@
 			
 		</div>	
 	</header>
-	<div class="social">
-		<div class="container-xl">
-			<div class="row1">
-				<div class="col-md-6 col-lg-6">
-					<div class="hero__caption hero__caption2  hero__caption3 text-center">
-						<h5 style="color:red">XÁC NHẬN THÔNG TIN</h5>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-6">
-					<div class="hero__caption hero__caption2  hero__caption3 text-center">
-						<h5>THANH TOÁN</h5>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 	<div class="slider-area">
 		<div class="single-slider slider-height3 slider-bg2 slider-bg3 d-flex align-items-center ">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-xl-7 col-lg-7 col-md-7 col-sm-7">
 						<div class="hero__caption hero__caption2  hero__caption3 text-center">
-							<h4>CẢM ƠN QUÝ KHÁCH ĐÃ SỬ DỤNG DỊCH VỤ CỦA CHÚNG TÔI</h4>
+							<h4>THANH TOÁN THÀNH CÔNG</h4>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
 	<div class="social">
 		<div class="container-xl">
 			<div class="row1">
 				<div class="col-md-6 col-lg-6">
-						<h2>XÁC NHẬN THÔNG TIN BOOK</h2>
+						<h2>THÔNG TIN BOOK</h2>
 					
 
 					<table id="t01">
@@ -714,36 +697,23 @@
 	</div>
 					
 	
-	<form class="pt-3" method= "post" action="update">
-						<input type="hidden" value="${aldult_amount}" name="aldult_amount">
-						<input type="hidden" value="${child_amount}" name="child_amount">
-						<input type="hidden" value="${child_nho_amount}" name="child_nho_amount">
-						<input type="hidden" value="${book_id}" name="book_id">
-						<input type="hidden" value="${tour_id}" name="tour_id">								
-					  	<input type="hidden" value="${tour_payment_type}" name="tour_payment_type">
+	
 	<div class="social">
 		<div class="container-xl">
 			<div class="row1">
-				<div class="col-md-6 col-lg-6">
+				<div class="col-md-12 col-lg-12">
 					<div class="text-center">
-						<a href="${pageContext.request.contextPath }/booking/?id=${tour_id}">
+						<a href="${pageContext.request.contextPath }/home">
 							<button type="button">
 								Trở lại
 							</button>
 						</a>
 					</div>
 				</div>
-				<div class="col-md-6 col-lg-6">
-					<div class="text-center">
-						<button type="submit">
-								Thanh toán
-							</button>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
-	</form>
+
 
 
 
