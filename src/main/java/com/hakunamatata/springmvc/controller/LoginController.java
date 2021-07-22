@@ -46,10 +46,14 @@ public class LoginController {
 			System.out.print(user.getId());
 		}
 		if(user!=null && role == 1) {
+			vo.setPasswd("");
+			request.getSession().setAttribute("admin", user);
 			request.getSession().setAttribute("auth", "ADMIN");
 			url = "redirect:/admin/dashboard";
 		}
 		if(user!=null && role == 2) {
+			vo.setPasswd("");
+			request.getSession().setAttribute("user", user);
 			request.getSession().setAttribute("auth", "USER");
 			url = "redirect:/blog";
 		}

@@ -28,6 +28,7 @@ public class UserDAOImp implements UserDAO {
 	@Override
 	public void update(UserTour vo) {
 		// TODO Auto-generated method stub
+		System.out.println(vo);
 		session.update("UserTour.update", vo);
 	}
 
@@ -40,7 +41,7 @@ public class UserDAOImp implements UserDAO {
 	@Override
 	public UserTour get(UserTour vo) {
 		// TODO Auto-generated method stub
-		return (UserTour)session.selectOne("Blog.selectOne", vo);
+		return (UserTour)session.selectOne("UserTour.selectOne", vo);
 	}
 
 	@Override

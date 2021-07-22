@@ -39,8 +39,8 @@
         	  <div class="row" id="proBanner">
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
-                <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
-                <a href="${pageContext.request.contextPath }/admin/user/new" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
+                <p>List User </p>
+                <a href="${pageContext.request.contextPath }/admin/user/new"  class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
             </div>
@@ -65,9 +65,9 @@
      		   <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">User Table</h4>
+                    <h4 class="card-title text-center text-info">User Table</h4>
                   
-                    </p>
+                  
                     <table class="table table-hover">
                       <thead>
                         <tr>
@@ -79,6 +79,7 @@
                           <th>Phone</th>
                           <th>Birthday</th>
                            <th>Address</th>
+                             <th>Role</th>
                             <th>Email</th>
                              
                         </tr>
@@ -87,18 +88,19 @@
                          <c:forEach var="usertour" items="${userList}">
                         <tr>
                           <td>${usertour.id }</td>
-                         <td>${usertour.avatar}</td>
+                         <td><img alt="${usertour.avatar}" src="${pageContext.request.contextPath }/${initParam.urloadUser}/${usertour.avatar}"> </td>
                          <td>${usertour.username}</td>
                          <td>${usertour.passwd }</td>
                          <td>${usertour.cusname}</td>
                          <td>${usertour.phone}</td>
                          <td><fmt:formatDate value="${usertour.birthday}" pattern="dd-MM-yyyy"/></td>
                          <td>${usertour.address}</td>
+                           <td>${usertour.user_role.role}</td>
                          <td>${usertour.email}</td>
                           
                           <td>
-                          <a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='edit?id=${usertour.id}'">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw" onclick="document.location='delete?id=${usertour.id}'">Delete</a>
+                          <a type="button" class="btn btn-gradient-info btn-sm" href="${pageContext.request.contextPath }/admin/user/edit?id=${usertour.id}">Edit</a>
+                          	<a type="button" class="btn btn-gradient-danger btn-sm" href="${pageContext.request.contextPath }/admin/user/delete?id=${usertour.id}">Delete</a>
                           </td>
                         </tr>
                        	 </c:forEach> 
@@ -134,6 +136,8 @@
 		src="${pageContext.request.contextPath }/resources/assets/vendors/chart.js/Chart.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
+        <!-- Plugin js for this page -->
+
     <script
 		src="${pageContext.request.contextPath }/resources/assets/js/off-canvas.js"></script>
     <script
