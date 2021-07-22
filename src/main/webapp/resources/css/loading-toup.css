@@ -48,7 +48,7 @@
 		
 		#myDiv {
 		  display: none;
-		  text-align: center;
+		  /* text-align: center; */
 		}
 		html {
 		  scroll-behavior: smooth;
