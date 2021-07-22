@@ -20,11 +20,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style_home.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/loading-toup.css">
 </head>
-<body onload="myFunction()" style="display:none;" id="myDiv" class="animate-bottom">
-	<div id="loader"></div>
+<body>
+	<!-- onload="myFunction()" style="display:none;" id="myDiv" class="animate-bottom"
+	<div id="loader"></div> -->
 	<!-- <button onclick="topFunction()" id="myBtn" title="Go to top" class ="animation"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
 	 -->
 	<!-- Start Header -->
@@ -33,7 +34,7 @@
 			<div class="hakunamatata-menu">
 				<div class="container-xl">
 					<nav class="navbar navbar-expand-lg navbar-dark p-0">
-						<a class="navbar-brand logo emphasized-phrase" href="#">
+						<a class="navbar-brand logo emphasized-phrase" href="${pageContext.request.contextPath }/"">
 							Hakuna Matata
 						</a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mogo-menu" aria-controls="navbar-mogo-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,22 +44,22 @@
 						<div class="collapse navbar-collapse" id="navbar-mogo-menu">
 							<ul class="navbar-nav menu-item ml-auto">
 								<li class="nav-item active">
-									<a class="nav-link" href="/hakunamatata/">HOME</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/">HOME</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="/hakunamatata/tour">TOUR</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/tour">TOUR</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="/hakunamatata/about">ABOUT</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/about">ABOUT</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="/hakunamatata/blog">BLOG</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/blog">BLOG</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="/hakunamatata/contact">CONTACT</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/contact">CONTACT</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="/hakunamatata/login">SIGN IN</a>
+									<a class="nav-link" href="${pageContext.request.contextPath }/login">SIGN IN</a>
 								</li>	
 							</ul>
 						</div>
@@ -71,22 +72,19 @@
 						<div class="carousel-inner">
 							<div class="carousel-item">
 								<h2 class="creative-template">Hakuna Matata</h2>
-								<h1 class="emphasized-phrase slogan">Enjoy<br>
-									your life
+								<h1 class="emphasized-phrase slogan">Enjoy your life
 								</h1>
 								<hr>
 							</div>
 							<div class="carousel-item">
 								<h2 class="creative-template">Hakuna Matata</h2>
-								<h1 class="emphasized-phrase slogan">Discover<br>
-									the Word
+								<h1 class="emphasized-phrase slogan">Discover the Word
 								</h1>
 								<hr>
 							</div>
 							<div class="carousel-item active">
 								<h2 class="creative-template">Hakuna Matata</h2>
-								<h1 class="emphasized-phrase slogan">Invest in<br>
-									yourself
+								<h1 class="emphasized-phrase slogan">Invest in yourself
 								</h1>
 								<hr>
 							</div>

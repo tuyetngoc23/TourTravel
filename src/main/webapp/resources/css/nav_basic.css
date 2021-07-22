@@ -1,0 +1,313 @@
+@charset "UTF-8";@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ramaraja&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Belleza&display=swap');
+
+*, body, h1, h2, h3, p {
+ 	margin: 0;
+ 	padding: 0;
+ 	box-sizing: border-box;
+ }
+ body {
+ 	/* max-width: 1200px; */
+    font-family: 'Times New Roman', Times, serif;
+ 	margin: auto;
+	background: #edf4ff;
+    background: #fff;
+ }
+
+.body-dummy-padding-top {
+	padding-top: 95px;
+ }
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255);
+}
+
+/*Declare fonts*/
+@font-face {
+	font-family: KaushanScript-Regular;
+	src: url(fonts/KaushanScript-Regular.ttf);
+}
+
+/*Home*/
+
+/* Start Header */
+
+.hakunamatata-menu {
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+#home {
+    position: relative;
+    overflow: hidden;
+    
+}
+header .home {
+	background-color: rgba(243,129,129);
+    z-index: 1;
+}
+
+#myVideo {
+    position: absolute;
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    z-index: 0;
+}
+
+header .home-slide {
+	padding-top: 130px;
+}
+
+header .home-slide .creative-template {
+    font-family: "Kaushan Script";
+    font-size: 72px;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 22px;
+}
+
+header .home-slide .slogan {
+	font-family: "Kaushan Script";
+    font-size: 80px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 34px;
+    line-height: 1em;
+}
+header .home-slide hr {
+	display: inline-block;
+	width: 60px;
+    height: 3px;
+    background-color: #f38181;
+    border: none;
+	margin-bottom: 200px;
+}
+
+header .home-slide .container-xl hr {
+	display: inline-block;
+	width: 60px;
+    height: 3px;
+    background-color: #fff;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#hr-left {
+	text-align: left;
+	background-color: green;
+}
+
+header .home-slide .carousel-box::before {
+    content: "";
+    width: 0;
+    top: -2px;
+    border-top: 2px solid #f38181;
+    position: absolute;
+    transition: .3s ease-in-out;
+}
+
+
+.h-line {
+	display: inline-block;
+    width: 60px;
+    height: 3px;
+    background-color: #f38181;
+    margin-bottom: 30px;
+}
+
+header .mogo-fixed-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(243,129,129,0.9);
+    animation: menuAnimation 1s;
+    animation-fill-mode: both;
+    padding: 7px 0px;
+}
+
+@keyframes menuAnimation {
+	from {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 0.8;
+	}
+}
+
+/* End Header */
+
+ /* Start footer */
+
+ footer .map {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-image: url(../images/marker/Map_Marker.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 60px;
+}
+
+footer .map .open-map {
+    font-size: 24px;
+    color: #f38181;
+    margin-bottom: 14px;
+}
+
+footer .social {
+    padding-top: 45px;
+}
+
+.title {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+.blog-row {
+     margin-top: 20px;
+}
+.blog-row img {
+	 width: 140px;
+	 height: 100px;
+	 margin-bottom: 29px;
+	 margin-right: 10px;
+}
+
+.icons {
+    text-align: center;
+    padding-top: 20px;
+}
+
+#bct-icon {
+	width: 170px;
+	height: 70px;
+}
+
+#dm-icon {
+	width: 150px;
+	height: 50px;
+}
+
+#momo-icon {
+	width: 40px;
+	height: 40px;
+}
+#visa-icon {
+	width: 120px;
+	height: 40px;
+}
+
+footer h3 {
+    color: red;
+}
+
+footer a:hover {
+    text-decoration: none;
+}
+
+footer .back-to-top {
+    display: inline-block;
+    background-color: #facf98;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, 
+      opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+footer .back-to-top::after {
+    content: "\f106";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+}
+
+footer .back-to-top:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgb(139, 253, 173);
+}
+footer .back-to-top:active {
+    background-color: #555;
+}
+footer .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+ /* end footer */
+
+/* Start Blog */
+.blog img {
+	width: 350px;
+	height: 250px;
+	border-radius: 5px;
+}
+
+.blog button {
+	display: inline-block;
+	text-align: center;
+	align-items: center;
+	border: 1px solid black; 
+	background-color: #95e1d3;
+	width: 300px;
+	height: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    line-height: 22px;
+}
+
+.blog a {
+    text-decoration: none;
+    color: black;
+}
+
+.blog h4 {
+    margin-top: 5px;
+    min-width: 350px;
+    min-height: 56px;
+}
+
+.blog-title p {
+    font-family: "Kaushan Script";
+}
+
+.blog p {
+    margin-top: 5px;
+    min-width: 350px;
+    min-height: 48px;
+} 
+
+.blog a:hover img{
+    box-shadow:   1px 4px 4px black;
+    transform: translateX(-3px) translateY(-3px);
+    transition: .7s;
+}
+
+/* End Blog */

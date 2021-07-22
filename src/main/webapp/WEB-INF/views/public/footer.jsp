@@ -70,7 +70,7 @@
 							<div class="blog-box">
 								<p>
 									<a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}" class="title">
-										${fn:substring(blog.title, 0, 20)}...
+										${fn:substring(blog.title, 0, 50)}...
 									</a>
 								</p>
 								<span class="blog-date"><fmt:formatDate type="date" value="${blog.wdate}"/></span>
@@ -159,15 +159,6 @@
         var x = parseInt(this.value)
         x = x.toLocaleString('vi', {style: 'currency', currency: 'VND'});
         output.innerHTML = x;
-    }
-    $(document).ready(function () {
-        $('.autoplay').slick({
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 2000,
-        });
-    });
 	</script>
 </body>
 </html>
