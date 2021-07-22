@@ -30,7 +30,6 @@ public class LoginController {
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
 	public String home(HttpServletRequest request, Locale locale, Model model) {
 		request.getSession().invalidate();
-		
 		return "public/login";
 	}
 	
@@ -42,7 +41,6 @@ public class LoginController {
 		vo.setUsername(username);
 		vo.setPasswd(passwd);
 		UserTour user = userServiceImp.login(vo);
-
 		int role = 0;	
 		String url = "redirect:/login/";	
 		if(user!=null){
@@ -50,24 +48,19 @@ public class LoginController {
 			session.setAttribute("id", user.getId());
 			session.setAttribute("avatar", user.getAvatar());
 			session.setAttribute("username", user.getUsername());
+			vo.setPasswd("");
 		}
 		if(user!=null && role == 1) {
-
-			vo.setPasswd("");
 			request.getSession().setAttribute("admin", user);
 			session.setAttribute("auth", "ADMIN");
-
 			url = (reurl.isEmpty()||reurl.contains("admin"))?
 					"/admin/dashboard":"redirect:"+reurl.substring(request.getContextPath().length());;
 		}
 		if(user!=null && role == 2) {
-
-			vo.setPasswd("");
 			request.getSession().setAttribute("user", user);
 			session.setAttribute("auth", "USER");
-
 			url = (reurl.isEmpty()||reurl.contains("admin"))?
-					"redirect:/home":"redirect:"+reurl.substring(request.getContextPath().length());;
+					"redirect:/":"redirect:"+reurl.substring(request.getContextPath().length());;
 		}
 		return url;		
 	}

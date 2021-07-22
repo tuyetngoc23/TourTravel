@@ -57,21 +57,21 @@ public class PaymentController {
 		vo1.setId(tour_id);
 		Tour tour = tourservice.get(vo1);
 		model.addAttribute("tour",tour);
-		return "/payment";
+		return "/public/payment";
 	}
 	
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	public String update(int tour_payment_type, int book_id, Locale locale, Model model
 			, int aldult_amount, int child_amount, int child_nho_amount
 			, int tour_id, RedirectAttributes redirectAttributes) {
-		String url = "redirect:/home";
+		String url = "redirect:/";
 		switch(tour_payment_type) {
 			case 1:
 				
 				break;
 			case 2:
 				ticketService.updateState(book_id);
-				url = "redirect:/payment/succcesss";
+				url = "redirect:/public/payment/succcesss";
 				break;
 		}
 		redirectAttributes.addAttribute("book_id", book_id);
@@ -101,7 +101,7 @@ public class PaymentController {
 		vo1.setId(tour_id);
 		Tour tour = tourservice.get(vo1);
 		model.addAttribute("tour",tour);
-		return "/paymentsuccess";
+		return "/public/paymentsuccess";
 	}
 	
 	@RequestMapping(value = {"fail"}, method = RequestMethod.GET)
@@ -123,7 +123,7 @@ public class PaymentController {
 		vo1.setId(tour_id);
 		Tour tour = tourservice.get(vo1);
 		model.addAttribute("tour",tour);
-		return "/paymentfail";
+		return "/public/paymentfail";
 	}
 }
 
