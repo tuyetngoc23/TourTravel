@@ -35,4 +35,5 @@
 				and comment.blog_id=#{blog_id}  
 	</select>
 	
+	
 </mapper>

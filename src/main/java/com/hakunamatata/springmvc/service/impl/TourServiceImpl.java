@@ -71,6 +71,24 @@ public class TourServiceImpl implements TourService{
 		return dao.getSearchTourByTest(map);
 	}
 
+	@Override
+	public List<Tour> getListTourLimit() {
+		// TODO Auto-generated method stub
+		return dao.getListTourLimit();
+	}
+
+	@Override
+	public List<Tour> getListTourReal() {
+		// TODO Auto-generated method stub
+		return dao.getListTourReal();
+	}
+
+	@Override
+	public List<Tour> getListTourByDiscount() {
+		// TODO Auto-generated method stub
+		return dao.getListTourByDiscount();
+	}
+
 	
 
 

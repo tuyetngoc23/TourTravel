@@ -46,36 +46,10 @@ public class BlogDetailController {
 	@GetMapping({"","/"})
 	public String view(Model model, Locale locale, @RequestParam("id") int id, HttpServletRequest request) {
 		
-//		String url="blogdetail";
-//		int idSession = 0;
-//		HttpSession session = null;
-//		if(request == null) {
-//			return "login";
-//		}else {
-//			session = request.getSession();
-//		}
-//		
-//		if(session == null) {
-//			return "login";
-//		}else {
-//			if(session.getAttribute("id") == null) {
-//				return "login";
-//			}else {
-//				idSession = (int)session.getAttribute("id");
-//				System.out.println(idSession);
-//			}
-//		}
 		
 		Blog vo = new Blog();
 		vo.setId(id);
 		
-//		UserTour user = new UserTour();
-//		if(idSession <= 0) {
-//			return "login";
-//		}else {
-//			
-//			user.setId(idSession);
-//		}
 		
 		Comment comment = new Comment();
 		comment.setBlog(vo);
@@ -86,13 +60,13 @@ public class BlogDetailController {
 		List<Blog> list = blogService.list(null);
 		model.addAttribute("list", list);
 		
-//		List<Comment> commentList = commentService.listComment(comment);
-//		model.addAttribute("commentList", commentList);
-//		System.out.println(commentList);
 		
 		List<Comment> commentList = commentService.listUserByBlogComment(id);
 		model.addAttribute("commentList", commentList);
 		System.out.println(commentList);
+		
+		List<Blog> listBlog = blogService.getBlogLimit();
+		model.addAttribute("listBlog", listBlog);
 		
 		return "public/blogdetail";
 	}
