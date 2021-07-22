@@ -715,7 +715,7 @@
 	
 	<form class="pt-3" method= "post" action="update">
 						<input type="hidden" value="${book_id}" name="book_id">							
-					<!--  	<input type="text" value="${tour_id}" name="tour_id">	-->	
+					  	<input type="hidden" value="${tour_payment_type}" name="tour_payment_type">
 	<div class="social">
 		<div class="container-xl">
 			<div class="row1">
@@ -730,7 +730,7 @@
 				</div>
 				<div class="col-md-6 col-lg-6">
 					<div class="text-center">
-						<button type="submit" name = "book_id"  value ="${book_id}">
+						<button type="submit">
 								Thanh toán
 							</button>
 					</div>

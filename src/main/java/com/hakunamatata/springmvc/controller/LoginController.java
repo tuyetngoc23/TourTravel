@@ -42,8 +42,7 @@ public class LoginController {
 		vo.setPasswd(passwd);
 		UserTour user = userServiceImp.login(vo);
 		int role = 0;	
-		String url = "redirect:/login/";
-		reurl = reurl.substring(request.getContextPath().length());
+		String url = "redirect:/login/";	
 		System.out.println(reurl);
 		if(user!=null){
 			role = user.getUser_role().getId();
@@ -53,11 +52,13 @@ public class LoginController {
 		}
 		if(user!=null && role == 1) {
 			session.setAttribute("auth", "ADMIN");
-			url = (reurl.isEmpty()||reurl.contains("admin"))?"/admin/dashboard":"redirect:"+reurl;
+			url = (reurl.isEmpty()||reurl.contains("admin"))?
+					"/admin/dashboard":"redirect:"+reurl.substring(request.getContextPath().length());;
 		}
 		if(user!=null && role == 2) {
 			session.setAttribute("auth", "USER");
-			url = (reurl.isEmpty()||reurl.contains("admin"))?"redirect:/home":"redirect:"+reurl;
+			url = (reurl.isEmpty()||reurl.contains("admin"))?
+					"redirect:/home":"redirect:"+reurl.substring(request.getContextPath().length());;
 		}
 		return url;		
 	}

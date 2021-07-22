@@ -79,7 +79,6 @@ public class BookingClientController {
 		UserTour user = new UserTour();
 		user.setId(user_id);
 		book.setUsertour(user);
-		//System.out.println(book);
 		bookservice.insert(book);
 		Book bookIdMax = bookservice.getIdMax();
 		List<Ticket> listTiket = new ArrayList<Ticket>();
@@ -100,7 +99,8 @@ public class BookingClientController {
 			ticketService.insert(ticket);
 			listTiket.add(ticket);
 		}
-		System.out.println(aldult_amount+" "+child_amount+" "+child_nho_amount);
+		System.out.println(tour_payment_type);
+		redirectAttributes.addAttribute("tour_payment_type", tour_payment_type);
 		redirectAttributes.addAttribute("book_id", bookservice.getIdMax().getId());
 		redirectAttributes.addAttribute("tour_id", tour_id);
 		redirectAttributes.addAttribute("aldult_amount", aldult_amount);

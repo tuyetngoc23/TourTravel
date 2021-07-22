@@ -37,19 +37,14 @@ public class PaymentController {
 	private UserServiceImp userServiceImp;
 	
 	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
-	public String list(
-			@RequestParam(value = "aldult_amount") int aldult_amount,
-			@RequestParam(value = "child_amount") int child_amount,
-			@RequestParam(value = "child_nho_amount") int child_nho_amount,
-			int book_id,
-			int tour_id,
-			Locale locale, Model model,
+	public String list(int tour_payment_type, int aldult_amount, int child_amount, int child_nho_amount,
+			int book_id, int tour_id, Locale locale, Model model,
 			HttpServletRequest request) {
 		model.addAttribute("aldult_amount", aldult_amount);
 		model.addAttribute("child_amount", child_amount);
 		model.addAttribute("child_nho_amount", child_nho_amount);
+		model.addAttribute("tour_payment_type", tour_payment_type);
 		model.addAttribute("book_id", book_id);
-//		model.addAttribute("tour_id", tour_id);
 		List<Ticket> list= ticketService.listTicketByBookId(book_id);
 		model.addAttribute("ticket", list);
 		HttpSession session = request.getSession();
@@ -67,7 +62,9 @@ public class PaymentController {
 	}
 	
 	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public String update(int book_id, Locale locale, Model model) {
+	public String update(int tour_payment_type, int book_id, Locale locale, Model model) {
+		System.out.println(tour_payment_type);
+		System.out.println(book_id);
 		ticketService.updateState(book_id);
 		
 		return "redirect:/home";
