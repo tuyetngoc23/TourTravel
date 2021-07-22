@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hakunamatata.springmvc.entity.Blog;
-import com.hakunamatata.springmvc.entity.Comment;
 import com.hakunamatata.springmvc.entity.Tour;
 import com.hakunamatata.springmvc.service.BlogService;
 import com.hakunamatata.springmvc.service.CommentService;
