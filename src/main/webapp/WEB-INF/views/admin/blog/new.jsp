@@ -57,7 +57,7 @@
      		  <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">New Blog</h4>
+                    <h4 class="card-title text-center text-info">New Blog</h4>
                   
                     <form class="forms-sample" method="post" action="add" enctype="multipart/form-data">
                       <div class="form-group">
@@ -66,21 +66,22 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Wname</label>
-                        <input type="text" class="form-control" name="wname" placeholder="wname" required>
+                        <input type="text" class="form-control" name="wname" placeholder="wname" value="${sessionScope['admin'].cusname}" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Content</label>
-                        <input type="text" id="editor1" class="form-control" name="content" placeholder="Content" required>
+                        <textarea type="text" id="editor1" class="form-control" name="content" placeholder="Content" required></textarea>
                       </div>
                        <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="uploadfile" class="file-upload-default">
+                        <input type="file" name="uploadfile" class="file-upload-default" onchange="previewFile()">
                         <div class="input-group col-xs-12">
                           <input type="text"  class="form-control file-upload-info"  disabled="" placeholder="Upload Image">
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
                         </div>
+                          <img class="mb-5" height="200px" alt="" src="" id="preview-img" style="display: none">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Day</label>

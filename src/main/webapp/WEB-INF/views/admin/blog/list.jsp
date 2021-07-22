@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>  
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>   
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +29,34 @@
     <link rel="shortcut icon"
 	href="${pageContext.request.contextPath }/resources/assets/images/favicon.ico" />
 </head>
+	<style type="text/css">
+	#style-4{
+		 overflow-x: auto;
+	}
+	#style-4::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+	background-color: #F5F5F5;
+	
+}
+
+#style-4::-webkit-scrollbar
+{
+	height:10px;
+	
+	background-color: rgba(172, 50, 228, 0.9);
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-image: linear-gradient(to right, #da8cff, #9a55ff);	border: 1px rgba(172, 50, 228, 0.9);
+	border-radius: 5px;
+	
+	
+	
+}
+	
+	</style>
 <body>
 	<div class="container-scroller">
 			<%@include file="../header.jsp"%>
@@ -43,7 +73,7 @@
             <div class="col-12">
               <span class="d-flex align-items-center purchase-popup">
                 <p>Blog Admin List</p>
-                <a href="${pageContext.request.contextPath }/admin/blog/new" target="_blank" class="btn download-button purchase-button ml-auto">Add</a>
+                <a href="${pageContext.request.contextPath }/admin/blog/new"  class="btn download-button purchase-button ml-auto">Add</a>
                 
               </span>
             </div>
@@ -68,7 +98,7 @@
         	<!-- table -->
      		    <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
-                  <div class="card-body">
+                  <div class="card-body" id="style-4">
                     <h4 class="card-title text-center text-info">Blog List</h4>                          
                     <table class="table table-striped">
                       <thead>
@@ -91,9 +121,29 @@
                         
 				        <tr>
 							<td>${blog.id }</td>
-							<td>${blog.title}</td>
+							<td>
+								<c:choose>
+                             		<c:when test="${fn:length(blog.title) < 15 }">
+                             	
+                             		${blog.title}
+                             		</c:when>
+                             		<c:otherwise>
+                             			${fn:substring(blog.title, 0, 15)}...  
+                             		</c:otherwise>
+                             	</c:choose>
+							</td>
 							<td>${blog.wname}</td>
-							<td>${blog.content }</td>
+							<td>
+							<c:choose>
+                             		<c:when test="${fn:length(blog.content) < 15 }">
+                             	
+                             		${blog.content }
+                             		</c:when>
+                             		<c:otherwise>
+                             			${fn:substring(blog.content, 0, 15)}...  
+                             		</c:otherwise>
+                             	</c:choose>
+							</td>
 							<td><fmt:formatDate value="${blog.wdate}" pattern="dd-MM-yyyy" /></td>
 							<td>${blog.like_amount}</td>
 							<td>${blog.state}</td>
@@ -102,8 +152,8 @@
 										                      
                                                                  
                           <td>
-                           <a type="button" class="btn btn-gradient-info btn-fw" onclick="document.location='edit?id=${blog.id}'">Edit</a>
-                          	<a type="button" class="btn btn-gradient-danger btn-fw" onclick="document.location='delete?id=${blog.id}'">Delete</a>
+                           <a type="button" class="btn btn-gradient-info btn-fw" href="${pageContext.request.contextPath }/admin/blog/edit?id=${blog.id}">Edit</a>
+                          	<a type="button" class="btn btn-gradient-danger btn-fw" href="${pageContext.request.contextPath }/admin/blog/delete?id=${blog.id}">Delete</a>
                           </td>
                       </tr>
                         

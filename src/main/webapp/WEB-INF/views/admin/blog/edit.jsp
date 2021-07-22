@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +62,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Edit</h4>
-                    <form class="forms-sample" method="post" action="update">
+                    <form class="forms-sample" method="post" action="update" enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="exampleInputEmail3">ID</label>
                         <input type="text" class="form-control" name="id" value="${blogOne.id}" readonly>
@@ -75,21 +77,24 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Content</label>
-                        <input type="text" id="editor1" class="form-control" name="content" value="${blogOne.content}" required>
+                        <textarea type="text" id="editor1" class="form-control" name="content"  required>${blogOne.content}</textarea>
                       </div>
                        <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="uploadfile" class="file-upload-default">
+                        <input type="file" name="uploadfile" class="file-upload-default" onchange="previewFile()">
                         <div class="input-group col-xs-12">
                           <input type="text"  class="form-control file-upload-info"  disabled="" placeholder="Upload Image">
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
+                          <input type="text" name="image1" value="${blogOne.image}">
                         </div>
+                        <img class="mb-5" height="200px" alt="${userOne.avatar}" src="${pageContext.request.contextPath }/${initParam.urloadBlog}/${blogOne.image}" id="preview-img" style="display: block">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Day</label>
-                        <input type="date" class="form-control" name="wdate1" required>
+                        <input type="date" class="form-control" name="wdate1"  value="<fmt:formatDate pattern = "yyyy-MM-dd" 
+         value = "${blogOne.wdate}" />" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">like Amount</label>
