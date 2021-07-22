@@ -29,6 +29,7 @@ public class BlogClientController {
 		
 		List<Blog> list = blogService.list(null);
 		model.addAttribute("list", list);
-		return "blog";
+
+		return "public/blog";
 	}
 }

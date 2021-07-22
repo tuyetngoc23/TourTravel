@@ -41,6 +41,6 @@ public class AboutClientController {
 	
 	@GetMapping({"", "/"})
 	public String view(Model model, Locale locale) {
-		return "about";
+		return "public/about";
 	}
 }

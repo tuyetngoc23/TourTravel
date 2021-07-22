@@ -3,6 +3,7 @@ package com.hakunamatata.springmvc.controller;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,7 @@ import com.hakunamatata.springmvc.service.impl.UserServiceImp;
  *
  */
 @Controller
-@RequestMapping("login")
+@RequestMapping("/login")
 public class LoginController {
 	@Autowired
 	private UserServiceImp userServiceImp;
@@ -29,33 +30,46 @@ public class LoginController {
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
 	public String home(HttpServletRequest request, Locale locale, Model model) {
 		request.getSession().invalidate();
-		return "/login";
+		
+		return "public/login";
 	}
 	
 	@RequestMapping(value = "/checkout", method = RequestMethod.POST)
-	public String login(@RequestParam(value="username") String username, 
+	public String login(@RequestParam(value="URL") String reurl, 
+			@RequestParam(value="username") String username, 
 			@RequestParam(value="passwd") String passwd, HttpServletRequest request, UserTour vo, Locale locale, Model model) {
+		HttpSession session = request.getSession();	
 		vo.setUsername(username);
 		vo.setPasswd(passwd);
 		UserTour user = userServiceImp.login(vo);
-		int role = 0;
+
+		int role = 0;	
 		String url = "redirect:/login/";
+		System.out.println(reurl);
+//		if(reurl != null) {
+//			reurl = reurl.substring(request.getContextPath().length());
+//		}
 		if(user!=null){
 			role = user.getUser_role().getId();
-			request.getSession().setAttribute("id", user.getId());
-			System.out.print(user.getId());
+			session.setAttribute("id", user.getId());
+			session.setAttribute("username", user.getUsername());
+			System.out.println(user.getId()+" "+user.getUsername());
 		}
 		if(user!=null && role == 1) {
+
 			vo.setPasswd("");
 			request.getSession().setAttribute("admin", user);
-			request.getSession().setAttribute("auth", "ADMIN");
-			url = "redirect:/admin/dashboard";
+			session.setAttribute("auth", "ADMIN");
+			url = "/admin/dashboard";
+
 		}
 		if(user!=null && role == 2) {
+
 			vo.setPasswd("");
 			request.getSession().setAttribute("user", user);
-			request.getSession().setAttribute("auth", "USER");
-			url = "redirect:/blog";
+			session.setAttribute("auth", "USER");
+			url = (reurl.isEmpty())?"redirect:/home":"redirect:"+reurl.substring(request.getContextPath().length());
+
 		}
 		return url;		
 	}
