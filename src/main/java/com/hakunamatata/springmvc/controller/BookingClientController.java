@@ -108,7 +108,7 @@ public class BookingClientController {
 		redirectAttributes.addAttribute("aldult_amount", aldult_amount);
 		redirectAttributes.addAttribute("child_amount", child_amount);
 		redirectAttributes.addAttribute("child_nho_amount", child_nho_amount);
-		return "redirect:public/payment/";
+		return "redirect:/payment/";
 	}
 	
 }
