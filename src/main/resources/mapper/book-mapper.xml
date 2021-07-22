@@ -43,6 +43,7 @@ b.total_money AS b_total_money,b.child_amount AS b_child_amount,b.aldult_amount 
 	
 	
 	
+	
 	<delete id="delete" parameterType="book">
 		DELETE FROM book WHERE id =
 		#{id}

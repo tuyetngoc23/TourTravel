@@ -44,32 +44,30 @@ public class LoginController {
 		UserTour user = userServiceImp.login(vo);
 
 		int role = 0;	
-		String url = "redirect:/login/";
-		System.out.println(reurl);
-//		if(reurl != null) {
-//			reurl = reurl.substring(request.getContextPath().length());
-//		}
+		String url = "redirect:/login/";	
 		if(user!=null){
 			role = user.getUser_role().getId();
 			session.setAttribute("id", user.getId());
+			session.setAttribute("avatar", user.getAvatar());
 			session.setAttribute("username", user.getUsername());
-			System.out.println(user.getId()+" "+user.getUsername());
 		}
 		if(user!=null && role == 1) {
 
 			vo.setPasswd("");
 			request.getSession().setAttribute("admin", user);
 			session.setAttribute("auth", "ADMIN");
-			url = "/admin/dashboard";
 
+			url = (reurl.isEmpty()||reurl.contains("admin"))?
+					"/admin/dashboard":"redirect:"+reurl.substring(request.getContextPath().length());;
 		}
 		if(user!=null && role == 2) {
 
 			vo.setPasswd("");
 			request.getSession().setAttribute("user", user);
 			session.setAttribute("auth", "USER");
-			url = (reurl.isEmpty())?"redirect:/":"redirect:"+reurl.substring(request.getContextPath().length());
 
+			url = (reurl.isEmpty()||reurl.contains("admin"))?
+					"redirect:/home":"redirect:"+reurl.substring(request.getContextPath().length());;
 		}
 		return url;		
 	}

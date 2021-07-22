@@ -48,6 +48,12 @@ public class TicketDAOImpl implements TicketDAO {
 		return session.selectList("Ticket.selectByBookId",id);
 	}
 
+	@Override
+	public void updateState(int book_id) {
+		session.update("Ticket.updateState",book_id);
+		
+	}
+
 
 
 }
