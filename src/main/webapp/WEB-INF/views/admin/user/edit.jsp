@@ -153,6 +153,7 @@
 		src="${pageContext.request.contextPath }/resources/assets/vendors/chart.js/Chart.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
+    
           <script src="${pageContext.request.contextPath }/resources/assets/js/file-upload.js"></script>
                  <script src="${pageContext.request.contextPath }/resources/assets/js/previewimage.js"></script>
     <script
