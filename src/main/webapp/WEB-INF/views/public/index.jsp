@@ -7,7 +7,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix= "fmt"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<jsp:include page="header.jsp" />
+<jsp:include page="header_home.jsp" />
 
 	<!-- Start Main -->
 	<main>
@@ -77,7 +77,7 @@
 							
 							<div class="col-9 text-left">
 								<p class="quote-content">
-									Ã¢ÂÂDu lÃ¡Â»Âch Ã¢ÂÂ ban ÃÂÃ¡ÂºÂ§u nÃÂ³ khiÃ¡ÂºÂ¿n bÃ¡ÂºÂ¡n khÃÂ´ng thÃ¡Â»Ât nÃÂªn lÃ¡Â»Âi, vÃÂ  sau ÃÂÃÂ³ biÃ¡ÂºÂ¿n bÃ¡ÂºÂ¡n trÃ¡Â»Â thÃÂ nh mÃ¡Â»Ât ngÃÂ°Ã¡Â»Âi kÃ¡Â»Â chuyÃ¡Â»Ân.Ã¢ÂÂ
+									“Du lịch – ban đầu nó khiến bạn không thốt nên lời, và sau đó biến bạn trở thành một người kể chuyện.”
 								</p>
 								<span class="h-line d-inline-block mb-0"></span>
 								<span class="quote-name">Ibn Battuta</span>
@@ -93,7 +93,7 @@
 							
 							<div class="col-9 text-left">
 								<p class="quote-content">
-									"Khi ai ÃÂÃÂ³ nhÃ¡ÂºÂ­n ra rÃ¡ÂºÂ±ng cuÃ¡Â»Âc ÃÂÃ¡Â»Âi cÃ¡Â»Â§a mÃÂ¬nh lÃÂ  vÃÂ´ giÃÂ¡ trÃ¡Â»Â, hÃ¡Â»Â hoÃ¡ÂºÂ·c lÃÂ  tÃ¡Â»Â± tÃ¡Â»Â­, hoÃ¡ÂºÂ·c lÃÂ  xÃÂ¡ch ba lÃÂ´ lÃÂªn vÃÂ  ÃÂi"
+									"Khi ai đó nhận ra rằng cuộc đời của mình là vô giá trị, họ hoặc là tự tử, hoặc là xách ba lô lên và đi"
 								</p>
 								<span class="h-line d-inline-block mb-0"></span>
 								<span class="quote-name">Edward Dehlberg</span>
@@ -109,7 +109,7 @@
 							
 							<div class="col-9 text-left">
 								<p class="quote-content">
-									Ã¢ÂÂMÃ¡Â»Ât khi bÃ¡Â»Â nhiÃ¡Â»Âm niÃ¡Â»Âm ÃÂam mÃÂª du lÃ¡Â»Âch, chÃ¡ÂºÂ³ng cÃÂ³ phÃÂ°ÃÂ¡ng thuÃ¡Â»Âc nÃÂ o cÃÂ³ thÃ¡Â»Â hÃÂ³a giÃ¡ÂºÂ£i, vÃÂ  tÃÂ´i biÃ¡ÂºÂ¿t rÃ¡ÂºÂ±ng tÃÂ´i sÃ¡ÂºÂ½ hÃ¡ÂºÂ¡nh phÃÂºc khi cÃÂ³ cÃÂn bÃ¡Â»Ânh nÃÂ y cho ÃÂÃ¡ÂºÂ¿n hÃ¡ÂºÂ¿t cuÃ¡Â»Âc ÃÂÃ¡Â»Âi.Ã¢ÂÂ
+									“Một khi bị nhiễm niềm đam mê du lịch, chẳng có phương thuốc nào có thể hóa giải, và tôi biết rằng tôi sẽ hạnh phúc khi có căn bệnh này cho đến hết cuộc đời.”
 								</p>
 								<span class="h-line d-inline-block mb-0"></span>
 								<span class="quote-name">Michael Palin</span>
@@ -125,7 +125,7 @@
 							
 							<div class="col-9 text-left">
 								<p class="quote-content">
-									Ã¢ÂÂCÃÂ³ mÃ¡Â»Ât loÃ¡ÂºÂ¡i phÃÂ©p thuÃ¡ÂºÂ­t ÃÂÃÂ³ lÃÂ  ÃÂi xa hÃÂ¡n nÃ¡Â»Â¯a sau ÃÂÃÂ³ trÃ¡Â»Â vÃ¡Â»Â vÃÂ  hoÃÂ n toÃÂ n thay ÃÂÃ¡Â»Âi.Ã¢ÂÂ
+									“Có một loại phép thuật đó là đi xa hơn nữa sau đó trở về và hoàn toàn thay đổi.”
 								</p>
 								<span class="h-line d-inline-block mb-0"></span>
 								<span class="quote-name">Kate Douglas Wiggin</span>
@@ -195,37 +195,6 @@
 							</a>
 						</div>
 						</c:forEach>
-					<!-- 5 -->
-						<%-- <div class="news-grid">
-							<a href="#">
-							<div class="news-grid-image"><img src="${pageContext.request.contextPath }/images/FeaturedTour/buonmathuat.jpg" alt="">
-								<div class="news-grid-box">
-									<h1>07</h1>
-									<p>HN</p>
-								</div>
-							</div>
-							<div class="news-grid-txt">
-								<div class="title">
-									<span>Tour: BuÃÂ´n Ma ThuÃ¡Â»Ât
-									- LÃÂ ng CÃÂ  PhÃÂª Trung</span>
-								</div>
-								<div class="text">
-									<table>
-									<tr>
-										<td> <i class="fa fa-clock" aria-hidden="true"></i> 3 ngÃÂ y 2 ÃÂÃÂªm </i> </td>
-									</tr>
-									<tr>
-										<td> <i class="fa fa-calendar" aria-hidden="true"></i> 05/07/2021 </li> </td>
-									</tr>
-									<tr>
-										<td> <i class="fa fa-user" aria-hidden="true"></i> CÃÂ²n 10 chÃ¡Â»Â </li> </td>
-										<td> <p>1,999,000 ÃÂ</p> </td>
-									</tr>
-									</table>																	
-								</div>
-							</div>
-							</a>
-						</div> --%>
 					</div>
 				</div>
 			</div>
