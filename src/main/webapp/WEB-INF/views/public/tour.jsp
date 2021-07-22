@@ -3,7 +3,7 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 
-<jsp:include page="header.jsp" />
+<jsp:include page="header_home.jsp" />
     <style>
      header .home{
     	background-image: url(${pageContext.request.contextPath }/images/Home/Bg_home.png);
@@ -123,7 +123,7 @@
         }
         .size {
             width: 340px;
-            height: 260px;
+            height: 240px;
 			transition: 0.5s;
         }
 		
@@ -183,12 +183,16 @@
             font-weight: 700;
             height: 24px;
             float:right;
-			margin-bottom: 5px;
         }
        
 		#book:hover{
 			background-color: #75c48d;
 		}
+		
+		#tour {
+			padding-top: 50px;
+		}
+		
     </style>
 
 	<main>
@@ -303,14 +307,17 @@
 													<span><strong>Số chỗ còn: </strong>
 													${tour.max_amount - tour.min_amount + tour.min_amount} chỗ</span>
 												</div>
-												<p>
+											
+												<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}" id="book" type="submit" class="form-control">Đặt Tour
+												
+												
 													<span id="price"><fmt:parseNumber type="number" integerOnly="true" value="${tour.price }" var="Nprice"/>
                                    					 <fmt:formatNumber value="${Nprice}" type="number" maxFractionDigits="3"/>
                                      				VND</span>
-												</p>
-											
-												<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}" id="book" type="submit" class="form-control">Đặt Tour</a>
-		
+												
+												
+												</a>
+												
 											</div>
 										</div>
 									</div>

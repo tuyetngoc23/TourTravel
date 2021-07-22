@@ -20,7 +20,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/vendor/fontawesome-free-5.15.1-web/css/all.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style_home.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/nav_basic.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/loading-toup.css">
 </head>
 <body>
@@ -65,51 +65,6 @@
 						</div>
 					</nav>
 				</div>
-			</div>
-			<div class="home-slide text-center">
-				<div class="container-fluid">
-					<div id="home-slide" class="carousel slide" data-ride="carousel">
-						<div class="carousel-inner">
-							<div class="carousel-item">
-								<h2 class="creative-template">Hakuna Matata</h2>
-								<h1 class="emphasized-phrase slogan">Enjoy your life
-								</h1>
-								<hr>
-							</div>
-							<div class="carousel-item">
-								<h2 class="creative-template">Hakuna Matata</h2>
-								<h1 class="emphasized-phrase slogan">Discover the Word
-								</h1>
-								<hr>
-							</div>
-							<div class="carousel-item active">
-								<h2 class="creative-template">Hakuna Matata</h2>
-								<h1 class="emphasized-phrase slogan">Invest in yourself
-								</h1>
-								<hr>
-							</div>
-						</div>
-						<div class="container-xl">
-							<div class="row carousel-indicators">
-								<div class="col-sm-4 col-md-4" data-target="#home-slide" data-slide-to="0">
-									<div class="carousel-box">
-										<!-- <hr id="hr-left"> -->
-									</div>
-								</div>
-								<div class="col-sm-4 col-md-4" data-target="#home-slide" data-slide-to="1">
-									<div class="carousel-box">
-										<!-- <hr id="hr-center"> -->
-									</div>
-								</div>
-								<div class="col-sm-4 col-md-4 active" data-target="#home-slide" data-slide-to="2">
-									<div class="carousel-box">
-										<!-- <hr id="hr-right"> -->
-									</div>
-								</div>								
-							</div>
-						</div>
-					</div>
-				</div>			
 			</div>
 		</div>	
 	</header>

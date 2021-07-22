@@ -44,7 +44,7 @@
 									<div class="sale-discount">
 										<span class="sale-pre"><fmt:parseNumber type="number" integerOnly="true" value="${tour.price }" var="Nprice"/>
                                    					 <fmt:formatNumber value="${Nprice}" type="number" maxFractionDigits="3"/>
-                                     				VNĐ</span>	
+                                     				đ</span>	
 										<!-- <span class="sale-dis">5,000,000</span> -->
 									</div>																	
 								</div>
@@ -149,7 +149,7 @@
 	<!-- End Quote -->
 
 	<!--Start FeatureTour -->
-	<%-- <section class="Feature-tour">
+	<section class="Feature-tour">
 		<div class="feature container-fluid text-center">
 			<h2>CÁC TOUR NỔI BẬT</h2>
 			<p>Featured tours</p>
@@ -181,7 +181,7 @@
 									<div class="sale-discount">
 										<span class="sale-pre"><fmt:parseNumber type="number" integerOnly="true" value="${tour.price }" var="Nprice"/>
                                    					 <fmt:formatNumber value="${Nprice}" type="number" maxFractionDigits="3"/>
-                                     				VNĐ</span>	
+                                     				đ</span>	
 									</div>																	
 								</div>
 							</div>
@@ -199,65 +199,9 @@
 				</button>
 			</a>
 		</div>
-	</section> --%>
-	<!--End FeatureTour-->
-	
-	
-		<!--Start FeatureTour -->
-
-	<section class="Feature-tour">
-		<div class="feature container-fluid text-center">
-			<h2>CÁC TOUR NỔI BẬT</h2>
-			<p>Featured tours</p>
-			<hr class="h-line">
-		</div>
-
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 col-lg-12">
-					<div id="owl-two" class="owl-carousel">
-						<!-- 1 -->
-						<c:forEach items="${list }" var="tour">
-						<div class="news-grid">
-							<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}">
-							<div class="news-grid-image"><img src="images/FeaturedTour/buonmathuat.jpg" alt="">
-								<div class="news-grid-box">
-									<h1>05</h1>
-									<p>HCM</p>
-								</div>
-							</div>
-							<div class="news-grid-txt">
-								<div class="title">
-									<span>Tour: Buôn Ma Thuột
-									- Làng Cà Phê Trung</span>
-								</div>
-								<div class="text">
-									<p class="sale-time"> <i class="fa fa-clock"></i> 4 ngày 3 đêm</p>
-									<p class="sale-schedule"> <i class="fa fa-calendar"></i> 05/07/2021</p>
-									<p class="sale-place"> <i class="fa fa-user"></i> Còn 10 chỗ </p>
-									<div class="sale-discount">
-										<span class="sale-pre">4,499,000 đ</span>	
-									</div>																	
-								</div>
-							</div>
-							</a>
-						</div>
-						</c:forEach>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="text-center">
-			<a href="">
-				<button type="button">
-					XEM TẤT CẢ
-				</button>
-			</a>
-		</div>
 	</section>
 	<!--End FeatureTour-->
-	
-	
+
 
 	<!-- Start Favorite destination -->
 	<div class="destination container-fluid text-center">

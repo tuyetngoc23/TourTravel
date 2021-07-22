@@ -5,6 +5,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+<jsp:include page="header_support.jsp" />
+
 <style>
 	  header .home{
     	background-image: url(${pageContext.request.contextPath }/images/Home/Bg_home.png);
@@ -513,7 +516,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" slider autoplay ">
+                <div class="slider autoplay">
 					<c:forEach items="${list }" var="tour">
                     <div class="single-cat mb-30">
                         <div class="cat-img">
