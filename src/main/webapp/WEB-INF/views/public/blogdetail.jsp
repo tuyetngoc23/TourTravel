@@ -351,27 +351,6 @@
                                 </div>
                             </div>
                             </c:forEach>
-                            <div class="comment-list">
-                                <div class="single-comment justify-content-between d-flex">
-                                    <div class="user justify-content-between d-flex">
-                                        <div class="thumb">
-                                            <img src="${pageContext.request.contextPath }/images/people.png" alt=""
-                                                data-pagespeed-url-hash="1501180853"
-                                                onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                                        </div>
-                                        <div class="desc">
-                                            <h5>Ina Hayes</h5>
-                                            <p class="date">December 4, 2017 at 3:12 pm </p>
-                                            <p class="comment">
-                                                Never say goodbye till the end comes!
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="reply-btn">
-                                        <a href="" class="btn-reply text-uppercase">reply</a>
-                                    </div> -->
-                                </div>
-                            </div>
                         </div>
                         <div class="comment-form">
                             <h4>Leave a Reply</h4>

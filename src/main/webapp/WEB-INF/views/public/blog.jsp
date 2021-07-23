@@ -232,7 +232,7 @@ header .home{
 						<c:forEach items="${ list}" var="blog">
 						<div class="single-recent-blog-post">
 							<div class="thumb">
-								<img class="img-fluid" src="${pageContext.request.contextPath }/images/${blog.image}" alt="">
+								<img class="img-fluid" src="${pageContext.request.contextPath }/uploads/image-blog/${blog.image}" alt="">
 								<ul class="thumb-info">
 									<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}"><i class="fas fa-user"></i>${blog.wname }</a></li>
 									<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}"><i class="fas fa-calendar-alt"></i><fmt:formatDate type="date" value="${blog.wdate}"/></a></li>
@@ -261,7 +261,7 @@ header .home{
 									<div class="single-post-list">
 										<div class="thumb">
 											<img class="card-img rounded-0"
-												src="${pageContext.request.contextPath }/images/${blog1.image}" alt="">
+												src="${pageContext.request.contextPath }/uploads/image-blog/${blog1.image}" alt="">
 											<ul class="thumb-info">
 												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}">${blog1.wname}</a></li>
 												<li><a href="${pageContext.request.contextPath }/blogdetail?id=${blog1.id}"><fmt:formatDate type="date" value="${blog1.wdate}"/></a></li>

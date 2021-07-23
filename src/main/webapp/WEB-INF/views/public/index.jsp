@@ -27,7 +27,7 @@
 						<c:forEach items="${listTourByDiscount }" var="tour">
 						<div class="news-grid">
 							<a href="#">
-							<div class="news-grid-image"><img src="${pageContext.request.contextPath }/images/${tour.image}" alt="">
+							<div class="news-grid-image"><img src="${pageContext.request.contextPath }/uploads/image-tour/${tour.image}" alt="">
 								<div class="news-grid-box">
 									<h1><fmt:formatDate type="date" value="${tour.start_day}" pattern="dd" var="startday"/>${startday }</h1>
 									<p>${fn:substring(tour.department.address, 0, 7)}...</p>
@@ -164,7 +164,7 @@
 						<c:forEach items="${list }" var="tour">
 						<div class="news-grid">
 							<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}">
-							<div class="news-grid-image"><img src="${pageContext.request.contextPath }/images/${tour.image}" alt="">
+							<div class="news-grid-image"><img src="${pageContext.request.contextPath }/uploads/image-tour/${tour.image}" alt="">
 								<div class="news-grid-box">
 									<h1><fmt:formatDate type="date" value="${tour.start_day}" pattern="dd" var="startday"/>${startday }</h1>
 									<p>${fn:substring(tour.department.address, 0, 7)}...</p>
@@ -353,7 +353,7 @@
 				<c:forEach items="${listBlog }" var="blog">
 				<div class="col-md-4 col-lg-4">
 					<a href="/hakunamatata/blogdetail?id=${blog.id }">
-					<img src="${pageContext.request.contextPath }/images/${blog.image}" alt="">
+					<img src="${pageContext.request.contextPath }/uploads/image-blog/${blog.image}" alt="">
 					<h4>${fn:substring(blog.title, 0, 50)}...</h4>
 					<p>${fn:substring(blog.content, 0, 90)}...</p>
 					<i class="fas fa-heart"></i> <span>${blog.like_amount }</span>

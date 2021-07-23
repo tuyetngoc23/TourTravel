@@ -65,7 +65,7 @@
 						<c:forEach items="${listBlog }" var="blog">
 						<div class="d-flex blog-row">
 							<a href="${pageContext.request.contextPath }/blogdetail?id=${blog.id}">
-								<img src="${pageContext.request.contextPath }/images/${blog.image}" alt="">
+								<img src="${pageContext.request.contextPath }/uploads/image-blog/${blog.image}" alt="">
 							</a>
 							<div class="blog-box">
 								<p>
