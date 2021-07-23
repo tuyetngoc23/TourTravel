@@ -27,6 +27,34 @@
     <link rel="shortcut icon"
 	href="${pageContext.request.contextPath }/resources/assets/images/favicon.ico" />
 </head>
+	<style type="text/css">
+	#style-4{
+		 overflow-x: auto;
+	}
+	#style-4::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+	background-color: #F5F5F5;
+	
+}
+
+#style-4::-webkit-scrollbar
+{
+	height:10px;
+	
+	background-color: rgba(172, 50, 228, 0.9);
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-image: linear-gradient(to right, #da8cff, #9a55ff);	border: 1px rgba(172, 50, 228, 0.9);
+	border-radius: 5px;
+	
+	
+	
+}
+	
+	</style>
 <body>
 	<div class="container-scroller">
 			<%@include file="../header.jsp"%>
@@ -64,7 +92,7 @@
         	<!-- table -->
      		   <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
-                  <div class="card-body">
+                  <div class="card-body" id="style-4">
                     <h4 class="card-title text-center text-info">User Table</h4>
                   
                   
