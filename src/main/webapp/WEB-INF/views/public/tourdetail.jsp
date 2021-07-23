@@ -482,7 +482,7 @@
                             <h2>Day:<%=i++%> ${listPlace.name }</h2>
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="${pageContext.request.contextPath }/images/${listPlace.image}" alt="imgplace" style="width: 100%; height: 220px;"/>
+                                    <img src="${pageContext.request.contextPath }/uploads/image-place/${listPlace.image}" alt="imgplace" style="width: 100%; height: 220px;"/>
                                 </div>
                                 <div class="col-8">
                                     <p>${listPlace.description}</p>
@@ -517,7 +517,7 @@
 					<c:forEach items="${list }" var="tour">
                     <div class="single-cat mb-30">
                         <div class="cat-img">
-                            <img src="${pageContext.request.contextPath }/images/${tour.image}" alt="">
+                            <img src="${pageContext.request.contextPath }/uploads/image-tour/${tour.image}" alt="">
                         </div>
                         <div class="cat-cap">
                             <div class="pricing d-flex justify-content-between">
