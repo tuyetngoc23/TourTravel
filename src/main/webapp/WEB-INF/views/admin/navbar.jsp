@@ -157,9 +157,14 @@
               </div>
             </li>
             
+              <li class="nav-item">
+              <a class="nav-link" href="${pageContext.request.contextPath }/admin/payment">
+                <span class="menu-title">Payment</span>
+                <i class="mdi mdi-diamond menu-icon"></i>
+              </a>
+            </li>
+            
      
-     
-       
           </ul>
         </nav>
  

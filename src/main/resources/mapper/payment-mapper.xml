@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Payment">
+	<resultMap type="payment" id="paymentMap">
+		<id property="id" column="id"/>
+		<result property="quantity" column="quantity"/>
+		<result property="totalprice" column="totalprice"/>
+		<result property="pdate" column="pdate"/>
+		<association property="book"
+					 column="book_id"
+					 javaType="book"
+					 select="Book.selectOne"/>
+		<association property="payment_type"
+					 column="payment_type"
+					 javaType="payment_type"
+					 select="Payment_type.selectOne"/>			 		
+	</resultMap>
+	<!---->
+	<select id="selectList"  resultMap="paymentMap">
+		<![CDATA[
+					SELECT * FROM payment
+		]]>
+	</select>
+	
+	<select id="selectOne" parameterType="payment" resultMap="paymentMap">
+		<![CDATA[
+			SELECT *
+			FROM payment
+			WHERE book_id=#{book.id}
+		]]>
+	</select>
+	
+	<insert id="insert" parameterType="payment">
+		INSERT INTO payment (quantity, totalprice, book_id, payment_type) 
+		VALUES (#{quantity}, #{totalprice}, #{book.id}, #{payment_type.id})	
+	</insert>
+
+</mapper>

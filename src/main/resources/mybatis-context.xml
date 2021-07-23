@@ -22,6 +22,8 @@
 		<typeAlias alias="user_role" type="com.hakunamatata.springmvc.entity.UserRole"/>  
 		<typeAlias alias="book" type="com.hakunamatata.springmvc.entity.Book"/>
 		<typeAlias alias="ticket"	type="com.hakunamatata.springmvc.entity.Ticket"/>
+		<typeAlias alias="payment"	type="com.hakunamatata.springmvc.entity.Payment"/>
+		<typeAlias alias="payment_type"	type="com.hakunamatata.springmvc.entity.PaymentType"/> 
 
 	</typeAliases>		
 
@@ -46,6 +48,8 @@
 		<mapper resource="mapper/role-mapper.xml"/>
 		<mapper resource="mapper/book-mapper.xml"/>
 		<mapper resource="mapper/ticket-mapper.xml"/>
+		<mapper resource="mapper/payment-mapper.xml"/>
+		<mapper resource="mapper/payment-type-mapper.xml"/>
 	</mappers>
 	
 </configuration>

@@ -101,7 +101,7 @@ public class BookingClientController {
 			listTiket.add(ticket);
 		}
 
-	
+
 		redirectAttributes.addAttribute("tour_payment_type", tour_payment_type);
 		redirectAttributes.addAttribute("book_id", bookservice.getIdMax().getId());
 		redirectAttributes.addAttribute("tour_id", tour_id);
