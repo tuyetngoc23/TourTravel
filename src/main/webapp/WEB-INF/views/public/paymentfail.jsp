@@ -94,11 +94,11 @@
     }
 
     .slider-bg2.slider-bg3 {
-        background-image: url(${pageContext.request.contextPath }/resources/client/images/Cau-vang-Da-Nang-720x479.jpg);
+        background-image: url(${pageContext.request.contextPath }/resources/images/Cau-vang-Da-Nang-720x479.jpg);
     }
 
     .slider-bg2 {
-        background-image: url(${pageContext.request.contextPath }/resources/client/images/Cau-vang-Da-Nang-720x479.jpg);
+        background-image: url(${pageContext.request.contextPath }/resources/images/Cau-vang-Da-Nang-720x479.jpg);
         background-repeat: no-repeat;
         background-position: top center;
         background-size: cover;
@@ -535,7 +535,7 @@
 						</tr>
 						<tr>
 							<th>Tổng số tiền:</th>
-							<td>${tour.price }</td>
+							<td>${total_money }</td>
 						</tr>
 					</table>
 				</div>
@@ -603,8 +603,8 @@
 			<div class="row1">
 				<div class="col-md-12 col-lg-12">
 					<div class="text-center">
-						<a href="${pageContext.request.contextPath }/home">
-							<button type="button">
+						<a href="${pageContext.request.contextPath }/">
+							<button type="button" class="tour_submit btn btn-danger text-center">
 								Trở lại
 							</button>
 						</a>

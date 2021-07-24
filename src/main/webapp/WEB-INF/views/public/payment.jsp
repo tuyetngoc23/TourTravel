@@ -95,11 +95,11 @@
     }
 
     .slider-bg2.slider-bg3 {
-        background-image: url(${pageContext.request.contextPath }/resources/client/images/Cau-vang-Da-Nang-720x479.jpg);
+        background-image: url(${pageContext.request.contextPath }/resources/images/Cau-vang-Da-Nang-720x479.jpg);
     }
 
     .slider-bg2 {
-        background-image: url(${pageContext.request.contextPath }/resources/client/images/Cau-vang-Da-Nang-720x479.jpg);
+        background-image: url(${pageContext.request.contextPath }/resources/images/Cau-vang-Da-Nang-720x479.jpg);
         background-repeat: no-repeat;
         background-position: top center;
         background-size: cover;
@@ -553,7 +553,7 @@
 						</tr>
 						<tr>
 							<th>Tổng số tiền:</th>
-							<td>${tour.price }</td>
+							<td>${book.total_money }</td>
 						</tr>
 					</table>
 				</div>
@@ -622,13 +622,14 @@
 						<input type="hidden" value="${book_id}" name="book_id">
 						<input type="hidden" value="${tour_id}" name="tour_id">								
 					  	<input type="hidden" value="${tour_payment_type}" name="tour_payment_type">
+					  	<input type="hidden" value="${book.total_money }" name="total_money">
 	<div class="social">
 		<div class="container-xl">
 			<div class="row1">
 				<div class="col-md-6 col-lg-6">
 					<div class="text-center">
 						<a href="${pageContext.request.contextPath }/booking/?id=${tour_id}">
-							<button type="button">
+							<button type="button" class="tour_submit btn btn-danger text-center">
 								Trở lại
 							</button>
 						</a>
@@ -636,7 +637,7 @@
 				</div>
 				<div class="col-md-6 col-lg-6">
 					<div class="text-center">
-						<button type="submit">
+						<button type="submit" class="tour_submit btn btn-danger text-center">
 								Thanh toán
 							</button>
 					</div>
