@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.hakunamatata.springmvc.entity.Blog;
 import com.hakunamatata.springmvc.entity.Book;
 import com.hakunamatata.springmvc.entity.Payment;
 import com.hakunamatata.springmvc.entity.PaymentType;
 import com.hakunamatata.springmvc.entity.Ticket;
 import com.hakunamatata.springmvc.entity.Tour;
 import com.hakunamatata.springmvc.entity.UserTour;
+import com.hakunamatata.springmvc.service.BlogService;
 import com.hakunamatata.springmvc.service.BookService;
 import com.hakunamatata.springmvc.service.TicketService;
 import com.hakunamatata.springmvc.service.TourService;
@@ -44,6 +46,9 @@ public class PaymentController {
 	private  BookService bookservice;
 	@Autowired
 	private PaymentServiceImpl paymentServiceImp;
+	
+	@Autowired
+	private BlogService blogService;
 	
 	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
 	public String list(int tour_payment_type, int aldult_amount, int child_amount, int child_nho_amount,
@@ -72,6 +77,8 @@ public class PaymentController {
 		Tour tour = tourservice.get(vo1);
 		model.addAttribute("tour",tour);
 		
+		List<Blog> listBlog = blogService.getBlogLimit();
+		model.addAttribute("listBlog", listBlog);
 		
 		return "/public/payment";
 	}
@@ -132,6 +139,10 @@ public class PaymentController {
 		payment.setPayment_type(paymenttype);
 		System.out.println(payment);
 		paymentServiceImp.insert(payment);
+		
+		List<Blog> listBlog = blogService.getBlogLimit();
+		model.addAttribute("listBlog", listBlog);
+		
 		return "/public/paymentsuccess";
 	}
 	
@@ -155,6 +166,10 @@ public class PaymentController {
 		vo1.setId(tour_id);
 		Tour tour = tourservice.get(vo1);
 		model.addAttribute("tour",tour);
+		
+		List<Blog> listBlog = blogService.getBlogLimit();
+		model.addAttribute("listBlog", listBlog);
+		
 		return "/public/paymentfail";
 	}
 }

@@ -26,7 +26,7 @@
 						<c:if test="${listTourByDiscount.size() > 0}">
 						<c:forEach items="${listTourByDiscount }" var="tour">
 						<div class="news-grid">
-							<a href="#">
+							<a href="${pageContext.request.contextPath }/tourdetail?id=${tour.id}">
 							<div class="news-grid-image"><img src="${pageContext.request.contextPath }/uploads/image-tour/${tour.image}" alt="">
 								<div class="news-grid-box">
 									<h1><fmt:formatDate type="date" value="${tour.start_day}" pattern="dd" var="startday"/>${startday }</h1>

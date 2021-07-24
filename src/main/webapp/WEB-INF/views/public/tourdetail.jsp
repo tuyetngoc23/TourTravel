@@ -521,7 +521,7 @@
                         </div>
                         <div class="cat-cap">
                             <div class="pricing d-flex justify-content-between">
-                                <h3><a href="events_details.html"> ${tour.name }</a></h3>
+                                <h3><a href="${pageContext.request.contextPath }/tourdetail?id=${ tour.id}"> ${tour.name }</a></h3>
                                 <span class="price">
 								<fmt:parseNumber type="number" integerOnly="true" value="${tour.price }" var="Nprice"/>
                                   <fmt:formatNumber value="${Nprice}" type="number" maxFractionDigits="3"/>
